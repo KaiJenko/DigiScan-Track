@@ -63,9 +63,11 @@
             // 
             // Userimgbox
             // 
-            Userimgbox.Location = new Point(1005, 16);
+            Userimgbox.Image = Properties.Resources.UserImage;
+            Userimgbox.Location = new Point(1031, 16);
             Userimgbox.Name = "Userimgbox";
-            Userimgbox.Size = new Size(84, 50);
+            Userimgbox.Size = new Size(58, 50);
+            Userimgbox.SizeMode = PictureBoxSizeMode.StretchImage;
             Userimgbox.TabIndex = 6;
             Userimgbox.TabStop = false;
             // 
@@ -88,6 +90,7 @@
             DisplayBoardbtn.TabIndex = 2;
             DisplayBoardbtn.Text = "Display Board";
             DisplayBoardbtn.UseVisualStyleBackColor = true;
+            DisplayBoardbtn.Click += DisplayBoardbtn_Click;
             // 
             // ManualInputbtn
             // 
@@ -97,6 +100,7 @@
             ManualInputbtn.TabIndex = 2;
             ManualInputbtn.Text = "Manual Input";
             ManualInputbtn.UseVisualStyleBackColor = true;
+            ManualInputbtn.Click += ManualInputbtn_Click;
             // 
             // EditPartsbtn
             // 
@@ -106,6 +110,7 @@
             EditPartsbtn.TabIndex = 2;
             EditPartsbtn.Text = "Edit Parts";
             EditPartsbtn.UseVisualStyleBackColor = true;
+            EditPartsbtn.Click += EditPartsbtn_Click;
             // 
             // AgedWIPbtn
             // 
@@ -115,6 +120,7 @@
             AgedWIPbtn.TabIndex = 4;
             AgedWIPbtn.Text = "Aged WIP";
             AgedWIPbtn.UseVisualStyleBackColor = true;
+            AgedWIPbtn.Click += AgedWIPbtn_Click;
             // 
             // HomeAreabtn
             // 
@@ -124,6 +130,7 @@
             HomeAreabtn.TabIndex = 3;
             HomeAreabtn.Text = "Home Area";
             HomeAreabtn.UseVisualStyleBackColor = true;
+            HomeAreabtn.Click += HomeAreabtn_Click;
             // 
             // Titlelbl
             // 
@@ -146,6 +153,7 @@
             WIPTrackerbtn.TabIndex = 1;
             WIPTrackerbtn.Text = "WIP Tracker";
             WIPTrackerbtn.UseVisualStyleBackColor = true;
+            WIPTrackerbtn.Click += WIPTrackerbtn_Click;
             // 
             // HomePagefooter
             // 
