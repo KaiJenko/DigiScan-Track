@@ -1,3 +1,4 @@
+using DigiScan_Track.Properties;
 using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,16 +34,59 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            loadDepartmentcmb();
         }
 
-        private void displayShortcuts()
+        private void loadDepartmentcmb()
         {
-            /*PictureBox pictureBox = new PictureBox();
-            pictureBox.Image =*/
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT Distinct(Department) FROM Departments";
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read()) // Loop through the result set
+            {
+                Departmentcmb.Items.Add(dr["Department"].ToString());
+            }
+            conn.Close();
         }
 
+        private void Departmentcmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string comboboxItem = Departmentcmb.SelectedItem.ToString();
 
+            string[] militaryImages =
+            {
+               Properties.Resources.
+            };
+
+            string[] nacellesImages = 
+            {
+            
+            };
+
+            string[] GearsImages = 
+            { 
+            
+            };
+
+            switch (comboboxItem)
+            {
+                case "Military":
+
+                    break;
+
+                case "Nacelles":
+
+                    break;
+
+                case "Gears":
+
+                    break;
+
+            }
+        }
 
 
 
@@ -113,5 +157,7 @@ namespace DigiScan_Track
             DisplayBoard displayboard = new DisplayBoard();
             HeaderButton(displayboard, this, this.WindowState);
         }
+
+
     }
 }

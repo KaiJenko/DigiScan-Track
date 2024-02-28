@@ -79,7 +79,7 @@
             Usernamelbl.BackColor = Color.Transparent;
             Usernamelbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Usernamelbl.ForeColor = Color.White;
-            Usernamelbl.Location = new Point(1095, 27);
+            Usernamelbl.Location = new Point(1095, 26);
             Usernamelbl.Name = "Usernamelbl";
             Usernamelbl.Size = new Size(100, 26);
             Usernamelbl.TabIndex = 5;
@@ -87,6 +87,7 @@
             // 
             // DisplayBoardbtn
             // 
+            DisplayBoardbtn.Cursor = Cursors.Hand;
             DisplayBoardbtn.Location = new Point(892, 26);
             DisplayBoardbtn.Name = "DisplayBoardbtn";
             DisplayBoardbtn.Size = new Size(91, 26);
@@ -97,6 +98,7 @@
             // 
             // ManualInputbtn
             // 
+            ManualInputbtn.Cursor = Cursors.Hand;
             ManualInputbtn.Location = new Point(774, 27);
             ManualInputbtn.Name = "ManualInputbtn";
             ManualInputbtn.Size = new Size(96, 26);
@@ -107,6 +109,7 @@
             // 
             // EditPartsbtn
             // 
+            EditPartsbtn.Cursor = Cursors.Hand;
             EditPartsbtn.Location = new Point(672, 27);
             EditPartsbtn.Name = "EditPartsbtn";
             EditPartsbtn.Size = new Size(82, 26);
@@ -117,6 +120,7 @@
             // 
             // AgedWIPbtn
             // 
+            AgedWIPbtn.Cursor = Cursors.Hand;
             AgedWIPbtn.Location = new Point(563, 27);
             AgedWIPbtn.Name = "AgedWIPbtn";
             AgedWIPbtn.Size = new Size(82, 26);
@@ -127,6 +131,7 @@
             // 
             // HomeAreabtn
             // 
+            HomeAreabtn.Cursor = Cursors.Hand;
             HomeAreabtn.Location = new Point(343, 27);
             HomeAreabtn.Name = "HomeAreabtn";
             HomeAreabtn.Size = new Size(82, 26);
@@ -150,6 +155,7 @@
             // 
             // WIPTrackerbtn
             // 
+            WIPTrackerbtn.Cursor = Cursors.Hand;
             WIPTrackerbtn.Location = new Point(454, 27);
             WIPTrackerbtn.Name = "WIPTrackerbtn";
             WIPTrackerbtn.Size = new Size(82, 26);
@@ -177,14 +183,16 @@
             // 
             // Departmentcmb
             // 
+            Departmentcmb.Cursor = Cursors.Hand;
+            Departmentcmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            Departmentcmb.FlatStyle = FlatStyle.Popup;
             Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Departmentcmb.FormattingEnabled = true;
-            Departmentcmb.Items.AddRange(new object[] { "Military", "Nacelles", "Gears" });
             Departmentcmb.Location = new Point(1021, 89);
             Departmentcmb.Name = "Departmentcmb";
             Departmentcmb.Size = new Size(147, 29);
             Departmentcmb.TabIndex = 3;
-            Departmentcmb.Text = "Department";
+            Departmentcmb.SelectedIndexChanged += Departmentcmb_SelectedIndexChanged;
             // 
             // Departmentlbl
             // 
@@ -197,7 +205,7 @@
             // 
             // HomepageImageflow
             // 
-            HomepageImageflow.Location = new Point(45, 135);
+            HomepageImageflow.Location = new Point(45, 130);
             HomepageImageflow.Name = "HomepageImageflow";
             HomepageImageflow.Size = new Size(1110, 412);
             HomepageImageflow.TabIndex = 5;
