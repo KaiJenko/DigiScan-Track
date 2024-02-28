@@ -39,7 +39,6 @@
             Titlelbl = new Label();
             WIPTrackerbtn = new Button();
             HomePagefooter = new Panel();
-            Shortcutlbl = new Label();
             HomePageheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
             SuspendLayout();
@@ -138,7 +137,7 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(46, 26);
+            Titlelbl.Location = new Point(36, 22);
             Titlelbl.Name = "Titlelbl";
             Titlelbl.Size = new Size(264, 35);
             Titlelbl.TabIndex = 2;
@@ -163,21 +162,11 @@
             HomePagefooter.Size = new Size(1211, 34);
             HomePagefooter.TabIndex = 1;
             // 
-            // Shortcutlbl
-            // 
-            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(12, 83);
-            Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(560, 41);
-            Shortcutlbl.TabIndex = 2;
-            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
-            // 
             // ManualInput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1207, 612);
-            Controls.Add(Shortcutlbl);
             Controls.Add(HomePagefooter);
             Controls.Add(HomePageheader);
             Name = "ManualInput";
@@ -202,6 +191,5 @@
         private Button AgedWIPbtn;
         private Button HomeAreabtn;
         private PictureBox Userimgbox;
-        private Label Shortcutlbl;
     }
 }

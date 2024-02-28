@@ -34,6 +34,26 @@ namespace DigiScan_Track
 
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
         public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
@@ -81,5 +101,7 @@ namespace DigiScan_Track
             DisplayBoard displayboard = new DisplayBoard();
             HeaderButton(displayboard, this, this.WindowState);
         }
+
+       
     }
 }

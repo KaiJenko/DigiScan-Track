@@ -40,6 +40,9 @@
             WIPTrackerbtn = new Button();
             HomePagefooter = new Panel();
             Shortcutlbl = new Label();
+            Departmentcmb = new ComboBox();
+            Departmentlbl = new Label();
+            HomepageImageflow = new FlowLayoutPanel();
             HomePageheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
             SuspendLayout();
@@ -166,20 +169,50 @@
             // Shortcutlbl
             // 
             Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(12, 83);
+            Shortcutlbl.Location = new Point(12, 86);
             Shortcutlbl.Name = "Shortcutlbl";
             Shortcutlbl.Size = new Size(560, 41);
             Shortcutlbl.TabIndex = 2;
             Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
+            // 
+            // Departmentcmb
+            // 
+            Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Departmentcmb.FormattingEnabled = true;
+            Departmentcmb.Items.AddRange(new object[] { "Military", "Nacelles", "Gears" });
+            Departmentcmb.Location = new Point(1021, 89);
+            Departmentcmb.Name = "Departmentcmb";
+            Departmentcmb.Size = new Size(147, 29);
+            Departmentcmb.TabIndex = 3;
+            Departmentcmb.Text = "Department";
+            // 
+            // Departmentlbl
+            // 
+            Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Departmentlbl.Location = new Point(776, 93);
+            Departmentlbl.Name = "Departmentlbl";
+            Departmentlbl.Size = new Size(249, 24);
+            Departmentlbl.TabIndex = 4;
+            Departmentlbl.Text = "Select Your Departmental Area:\r\n";
+            // 
+            // HomepageImageflow
+            // 
+            HomepageImageflow.Location = new Point(45, 135);
+            HomepageImageflow.Name = "HomepageImageflow";
+            HomepageImageflow.Size = new Size(1110, 412);
+            HomepageImageflow.TabIndex = 5;
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1207, 612);
+            Controls.Add(HomepageImageflow);
+            Controls.Add(Departmentcmb);
             Controls.Add(Shortcutlbl);
             Controls.Add(HomePagefooter);
             Controls.Add(HomePageheader);
+            Controls.Add(Departmentlbl);
             Name = "HomePage";
             Text = "Form1";
             Load += Form1_Load;
@@ -203,5 +236,8 @@
         private Button HomeAreabtn;
         private PictureBox Userimgbox;
         private Label Shortcutlbl;
+        private ComboBox Departmentcmb;
+        private Label Departmentlbl;
+        private FlowLayoutPanel HomepageImageflow;
     }
 }

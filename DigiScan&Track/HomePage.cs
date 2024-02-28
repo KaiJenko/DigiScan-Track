@@ -17,10 +17,6 @@ namespace DigiScan_Track
             /*getSQLHomepage();*/
         }
 
-
-
-
-
         /*private void getSQLHomepage()
         {
             DataTable dt = new DataTable();
@@ -35,15 +31,37 @@ namespace DigiScan_Track
             dataGridView1.DataSource = dt;
         }*/
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void displayShortcuts()
+        {
+            /*PictureBox pictureBox = new PictureBox();
+            pictureBox.Image =*/
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

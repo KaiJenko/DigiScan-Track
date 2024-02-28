@@ -55,17 +55,19 @@
             HomePageheader.Controls.Add(HomeAreabtn);
             HomePageheader.Controls.Add(Titlelbl);
             HomePageheader.Controls.Add(WIPTrackerbtn);
-            HomePageheader.Location = new Point(0, -4);
+            HomePageheader.Location = new Point(0, -7);
+            HomePageheader.Margin = new Padding(4, 5, 4, 5);
             HomePageheader.Name = "HomePageheader";
-            HomePageheader.Size = new Size(1211, 75);
+            HomePageheader.Size = new Size(1730, 125);
             HomePageheader.TabIndex = 0;
             // 
             // Userimgbox
             // 
             Userimgbox.Image = Properties.Resources.UserImage;
-            Userimgbox.Location = new Point(1032, 16);
+            Userimgbox.Location = new Point(1474, 27);
+            Userimgbox.Margin = new Padding(4, 5, 4, 5);
             Userimgbox.Name = "Userimgbox";
-            Userimgbox.Size = new Size(57, 50);
+            Userimgbox.Size = new Size(81, 83);
             Userimgbox.SizeMode = PictureBoxSizeMode.StretchImage;
             Userimgbox.TabIndex = 6;
             Userimgbox.TabStop = false;
@@ -75,53 +77,64 @@
             Usernamelbl.BackColor = Color.Transparent;
             Usernamelbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Usernamelbl.ForeColor = Color.White;
-            Usernamelbl.Location = new Point(1095, 27);
+            Usernamelbl.Location = new Point(1564, 45);
+            Usernamelbl.Margin = new Padding(4, 0, 4, 0);
             Usernamelbl.Name = "Usernamelbl";
-            Usernamelbl.Size = new Size(100, 26);
+            Usernamelbl.Size = new Size(143, 43);
             Usernamelbl.TabIndex = 5;
             Usernamelbl.Text = "Username";
             // 
             // DisplayBoardbtn
             // 
-            DisplayBoardbtn.Location = new Point(892, 26);
+            DisplayBoardbtn.Location = new Point(1274, 43);
+            DisplayBoardbtn.Margin = new Padding(4, 5, 4, 5);
             DisplayBoardbtn.Name = "DisplayBoardbtn";
-            DisplayBoardbtn.Size = new Size(91, 26);
+            DisplayBoardbtn.Size = new Size(130, 43);
             DisplayBoardbtn.TabIndex = 2;
             DisplayBoardbtn.Text = "Display Board";
             DisplayBoardbtn.UseVisualStyleBackColor = true;
+            DisplayBoardbtn.Click += DisplayBoardbtn_Click;
             // 
             // ManualInputbtn
             // 
-            ManualInputbtn.Location = new Point(774, 27);
+            ManualInputbtn.Location = new Point(1106, 45);
+            ManualInputbtn.Margin = new Padding(4, 5, 4, 5);
             ManualInputbtn.Name = "ManualInputbtn";
-            ManualInputbtn.Size = new Size(96, 26);
+            ManualInputbtn.Size = new Size(137, 43);
             ManualInputbtn.TabIndex = 2;
             ManualInputbtn.Text = "Manual Input";
             ManualInputbtn.UseVisualStyleBackColor = true;
+            ManualInputbtn.Click += ManualInputbtn_Click;
             // 
             // EditPartsbtn
             // 
-            EditPartsbtn.Location = new Point(672, 27);
+            EditPartsbtn.Location = new Point(960, 45);
+            EditPartsbtn.Margin = new Padding(4, 5, 4, 5);
             EditPartsbtn.Name = "EditPartsbtn";
-            EditPartsbtn.Size = new Size(82, 26);
+            EditPartsbtn.Size = new Size(117, 43);
             EditPartsbtn.TabIndex = 2;
             EditPartsbtn.Text = "Edit Parts";
             EditPartsbtn.UseVisualStyleBackColor = true;
+            EditPartsbtn.Click += EditPartsbtn_Click;
+
             // 
             // AgedWIPbtn
             // 
-            AgedWIPbtn.Location = new Point(563, 27);
+            AgedWIPbtn.Location = new Point(804, 45);
+            AgedWIPbtn.Margin = new Padding(4, 5, 4, 5);
             AgedWIPbtn.Name = "AgedWIPbtn";
-            AgedWIPbtn.Size = new Size(82, 26);
+            AgedWIPbtn.Size = new Size(117, 43);
             AgedWIPbtn.TabIndex = 4;
             AgedWIPbtn.Text = "Aged WIP";
             AgedWIPbtn.UseVisualStyleBackColor = true;
+            AgedWIPbtn.Click += AgedWIPbtn_Click;
             // 
             // HomeAreabtn
             // 
-            HomeAreabtn.Location = new Point(343, 27);
+            HomeAreabtn.Location = new Point(490, 45);
+            HomeAreabtn.Margin = new Padding(4, 5, 4, 5);
             HomeAreabtn.Name = "HomeAreabtn";
-            HomeAreabtn.Size = new Size(82, 26);
+            HomeAreabtn.Size = new Size(117, 43);
             HomeAreabtn.TabIndex = 3;
             HomeAreabtn.Text = "Home Area";
             HomeAreabtn.UseVisualStyleBackColor = true;
@@ -133,37 +146,42 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(45, 6);
+            Titlelbl.Location = new Point(64, 10);
+            Titlelbl.Margin = new Padding(4, 0, 4, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(240, 70);
+            Titlelbl.Size = new Size(359, 106);
             Titlelbl.TabIndex = 2;
             Titlelbl.Text = "Work In Progress\r\nTracker\r\n";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // WIPTrackerbtn
             // 
-            WIPTrackerbtn.Location = new Point(454, 27);
+            WIPTrackerbtn.Location = new Point(649, 45);
+            WIPTrackerbtn.Margin = new Padding(4, 5, 4, 5);
             WIPTrackerbtn.Name = "WIPTrackerbtn";
-            WIPTrackerbtn.Size = new Size(82, 26);
+            WIPTrackerbtn.Size = new Size(117, 43);
             WIPTrackerbtn.TabIndex = 1;
             WIPTrackerbtn.Text = "WIP Tracker";
             WIPTrackerbtn.UseVisualStyleBackColor = true;
+            WIPTrackerbtn.Click += WIPTrackerbtn_Click;
             // 
             // HomePagefooter
             // 
             HomePagefooter.BackColor = Color.DimGray;
-            HomePagefooter.Location = new Point(-1, 579);
+            HomePagefooter.Location = new Point(-1, 965);
+            HomePagefooter.Margin = new Padding(4, 5, 4, 5);
             HomePagefooter.Name = "HomePagefooter";
-            HomePagefooter.Size = new Size(1211, 34);
+            HomePagefooter.Size = new Size(1730, 57);
             HomePagefooter.TabIndex = 1;
             // 
             // WIPTracker
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1207, 612);
+            ClientSize = new Size(1724, 1020);
             Controls.Add(HomePagefooter);
             Controls.Add(HomePageheader);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "WIPTracker";
             Text = "Form1";
             Load += Form1_Load;
