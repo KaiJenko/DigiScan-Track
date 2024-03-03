@@ -169,7 +169,7 @@
             HomePagefooter.BackColor = Color.DimGray;
             HomePagefooter.Location = new Point(-1, 579);
             HomePagefooter.Name = "HomePagefooter";
-            HomePagefooter.Size = new Size(1211, 34);
+            HomePagefooter.Size = new Size(1212, 34);
             HomePagefooter.TabIndex = 1;
             // 
             // Shortcutlbl
@@ -177,7 +177,7 @@
             Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Shortcutlbl.Location = new Point(12, 86);
             Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(560, 41);
+            Shortcutlbl.Size = new Size(625, 41);
             Shortcutlbl.TabIndex = 2;
             Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
             // 
@@ -187,6 +187,7 @@
             Departmentcmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Departmentcmb.FlatStyle = FlatStyle.Popup;
             Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Departmentcmb.ForeColor = SystemColors.InfoText;
             Departmentcmb.FormattingEnabled = true;
             Departmentcmb.Location = new Point(1021, 89);
             Departmentcmb.Name = "Departmentcmb";
@@ -207,14 +208,14 @@
             // 
             HomepageImageflow.Location = new Point(45, 130);
             HomepageImageflow.Name = "HomepageImageflow";
-            HomepageImageflow.Size = new Size(1110, 412);
+            HomepageImageflow.Size = new Size(1110, 411);
             HomepageImageflow.TabIndex = 5;
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1207, 612);
+            ClientSize = new Size(1211, 611);
             Controls.Add(HomepageImageflow);
             Controls.Add(Departmentcmb);
             Controls.Add(Shortcutlbl);
