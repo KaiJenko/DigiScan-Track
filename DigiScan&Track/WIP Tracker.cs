@@ -13,7 +13,7 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             getSQLWIPTracker();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,14 +29,18 @@ namespace DigiScan_Track
             WIPgridView.Columns[2].HeaderText = "Batch No";
             WIPgridView.Columns[3].HeaderText = "Department";
             WIPgridView.Columns[4].HeaderText = "Workstation";
-            WIPgridView.Columns[5].HeaderText = "Storage";
+            WIPgridView.Columns[5].HeaderText = "Time in";
+            WIPgridView.Columns[6].HeaderText = "Time out";
+            WIPgridView.Columns[7].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 180;
-            WIPgridView.Columns[1].Width = 180;
-            WIPgridView.Columns[2].Width = 180;
-            WIPgridView.Columns[3].Width = 180;
-            WIPgridView.Columns[4].Width = 180;
-            WIPgridView.Columns[5].Width = 180;
+            WIPgridView.Columns[0].Width = 155;
+            WIPgridView.Columns[1].Width = 155;
+            WIPgridView.Columns[2].Width = 155;
+            WIPgridView.Columns[3].Width = 155;
+            WIPgridView.Columns[4].Width = 155;
+            WIPgridView.Columns[5].Width = 155;
+            WIPgridView.Columns[6].Width = 155;
+            WIPgridView.Columns[7].Width = 75;
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -47,21 +51,65 @@ namespace DigiScan_Track
         {
             DataTable dt = new DataTable();  // To Hold Sql Value Returned
 
-            SqlConnection con = new SqlConnection(); // Create a connection
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();                                                                                                                                                                                                                                                          // Open db Connection
-            SqlCommand cmd = con.CreateCommand();     // make an object to hold an sql command
-            cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [DigiTrackAndScan].[dbo].[WIPTracking]";        // add SQL to CommandText option
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();     // make an object to hold an sql command
+            cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation]" +
+                              " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
             SqlDataReader dr = cmd.ExecuteReader();   // Create an SqlDataReader to load data to and load with <sqlcommandobject>. ExecuteReader()
 
             dt.Load(dr);
 
-            con.Close();  // Close sql connection when complete to release memory etc.
+            conn.Close();  // Close sql connection when complete to release memory etc.
 
             WIPgridView.DataSource = dt;   // return the sql value we bought back
 
             create_gridView_WIP();
         }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+            string searchval = searchtxt.Text.Trim();
+            string dropdownSelection = searchcmb.Text.Replace(" ", "");
+
+            if (searchval != "" && dropdownSelection != "")
+            {
+
+                DataTable dt = new DataTable();  // To Hold Sql Value Returned
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                                  ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
+                                  " WHERE [" + dropdownSelection + "] LIKE @searchval";
+                cmd.Parameters.AddWithValue("@searchval", "%" + searchval + "%"); //reduces SQL injection
+                SqlDataReader dr = cmd.ExecuteReader();
+                string fullSqlString = cmd.CommandText.Replace("@searchval", "%" + searchval + "%");
+
+                dt.Load(dr);
+
+                con.Close();  // Close sql connection when complete to release memory etc.
+
+                WIPgridView.DataSource = dt;   // return the sql value we bought back
+
+                create_gridView_WIP();
+            }
+        }
+
+        private void resetbtn_Click(object sender, EventArgs e)
+        {
+            getSQLWIPTracker();
+        }
+
+
+
+
+
+
+
+
+
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this

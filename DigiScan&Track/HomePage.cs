@@ -20,6 +20,7 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             /*getSQLHomepage();*/
+            
         }
 
         /*private void getSQLHomepage()
