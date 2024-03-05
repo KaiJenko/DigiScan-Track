@@ -11,12 +11,16 @@ namespace DigiScan_Track
     {
 
         SqlConnection conn = new SqlConnection();
+        int originalArrowWidth;
+        int originalArrowHeight;
+        int originalexpandWidth;
 
         public ManualInput()
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-           
+
+            LoadButtonImages();
         }
 
 
@@ -37,14 +41,38 @@ namespace DigiScan_Track
             dataGridView1.DataSource = dt;
         }*/
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+        }
+        private void collapsepicbox_MouseEnter_1(object sender, EventArgs e)
+        {
+            originalArrowWidth = collapsepicbox.Width;
+            originalArrowHeight = collapsepicbox.Height;
+            int newWidth = (int)(collapsepicbox.Width * 1.1);
+            int newHeight = (int)(collapsepicbox.Height * 1.1);
 
+            // Set new size
+            collapsepicbox.Size = new Size(newWidth, newHeight);
+        }
+
+        private void collapsepicbox_MouseLeave(object sender, EventArgs e)
+        {
+            collapsepicbox.Size = new Size(originalArrowWidth, originalArrowHeight);
+        }
+
+        private void collapsepicbox_Click(object sender, EventArgs e)
+        {
+            originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
+            manualTablepnl.ColumnStyles[0].Width = 0;
+
+            expandpicbox.Visible = true;
+        }
+
+        private void expandpicbox_Click(object sender, EventArgs e)
+        {
+            manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
+            expandpicbox.Visible = false;
         }
 
 
@@ -64,7 +92,7 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            ManualInput homepage = new ManualInput(); //Create a new instance of the homepage to be called upon
+            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
             HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
         }
 
@@ -96,6 +124,40 @@ namespace DigiScan_Track
         {
             DisplayBoard displayboard = new DisplayBoard();
             HeaderButton(displayboard, this, this.WindowState);
+        }
+
+        private void LoadButtonImages()
+        {
+            HomeAreabtn.Image = new Bitmap(Properties.Resources.redHouse, new Size(18, 18));
+            WIPTrackerbtn.Image = new Bitmap(Properties.Resources.clipboard, new Size(18, 18));
+            AgedWIPbtn.Image = new Bitmap(Properties.Resources.exclamation, new Size(18, 18));
+            EditPartsbtn.Image = new Bitmap(Properties.Resources.spanner, new Size(18, 18));
+            ManualInputbtn.Image = new Bitmap(Properties.Resources.keyboard, new Size(18, 18));
+            DisplayBoardbtn.Image = new Bitmap(Properties.Resources.Monitor, new Size(18, 18));
+
+            HomeAreabtn.ImageAlign = ContentAlignment.MiddleRight;
+            WIPTrackerbtn.ImageAlign = ContentAlignment.MiddleRight;
+            AgedWIPbtn.ImageAlign = ContentAlignment.MiddleRight;
+            EditPartsbtn.ImageAlign = ContentAlignment.MiddleRight;
+            ManualInputbtn.ImageAlign = ContentAlignment.MiddleRight;
+            DisplayBoardbtn.ImageAlign = ContentAlignment.MiddleRight;
+        }
+
+        private void hoverButton(object sender, EventArgs e)
+        {
+            Button hoverbtn = sender as Button;
+            selectionpnl.BringToFront();
+            selectionpnl.Height = hoverbtn.Height;
+            selectionpnl.Top = hoverbtn.Top;
+            selectionpnl.Left = hoverbtn.Left;
+            hoverbtn.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void unHoverButton(object sender, EventArgs e)
+        {
+            Button hoverbtn = sender as Button;
+            selectionpnl.SendToBack();
+            hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
         }
     }
 }
