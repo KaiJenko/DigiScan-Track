@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            manualTablepnl = new TableLayoutPanel();
             HomePageheader = new Panel();
             Userimgbox = new PictureBox();
             Usernamelbl = new Label();
@@ -38,14 +39,37 @@
             HomeAreabtn = new Button();
             Titlelbl = new Label();
             WIPTrackerbtn = new Button();
-            HomePagefooter = new Panel();
+            dashpnl = new Panel();
+            collapsepicbox = new PictureBox();
+            manualTablepnl.SuspendLayout();
             HomePageheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
+            dashpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)collapsepicbox).BeginInit();
             SuspendLayout();
+            // 
+            // manualTablepnl
+            // 
+            manualTablepnl.ColumnCount = 2;
+            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.344656F));
+            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.65534F));
+            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            manualTablepnl.Controls.Add(HomePageheader, 0, 0);
+            manualTablepnl.Controls.Add(dashpnl, 0, 1);
+            manualTablepnl.Dock = DockStyle.Fill;
+            manualTablepnl.Location = new Point(0, 0);
+            manualTablepnl.Name = "manualTablepnl";
+            manualTablepnl.RowCount = 2;
+            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5816994F));
+            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 87.4183044F));
+            manualTablepnl.Size = new Size(1207, 612);
+            manualTablepnl.TabIndex = 1;
             // 
             // HomePageheader
             // 
             HomePageheader.BackColor = Color.Red;
+            manualTablepnl.SetColumnSpan(HomePageheader, 2);
             HomePageheader.Controls.Add(Userimgbox);
             HomePageheader.Controls.Add(Usernamelbl);
             HomePageheader.Controls.Add(DisplayBoardbtn);
@@ -55,10 +79,12 @@
             HomePageheader.Controls.Add(HomeAreabtn);
             HomePageheader.Controls.Add(Titlelbl);
             HomePageheader.Controls.Add(WIPTrackerbtn);
-            HomePageheader.Location = new Point(0, -4);
+            HomePageheader.Dock = DockStyle.Top;
+            HomePageheader.Location = new Point(0, 0);
+            HomePageheader.Margin = new Padding(0);
             HomePageheader.Name = "HomePageheader";
-            HomePageheader.Size = new Size(1211, 75);
-            HomePageheader.TabIndex = 0;
+            HomePageheader.Size = new Size(1207, 75);
+            HomePageheader.TabIndex = 1;
             // 
             // Userimgbox
             // 
@@ -89,7 +115,6 @@
             DisplayBoardbtn.TabIndex = 2;
             DisplayBoardbtn.Text = "Display Board";
             DisplayBoardbtn.UseVisualStyleBackColor = true;
-            DisplayBoardbtn.Click += DisplayBoardbtn_Click;
             // 
             // ManualInputbtn
             // 
@@ -99,7 +124,6 @@
             ManualInputbtn.TabIndex = 2;
             ManualInputbtn.Text = "Manual Input";
             ManualInputbtn.UseVisualStyleBackColor = true;
-            ManualInputbtn.Click += ManualInputbtn_Click;
             // 
             // EditPartsbtn
             // 
@@ -109,7 +133,6 @@
             EditPartsbtn.TabIndex = 2;
             EditPartsbtn.Text = "Edit Parts";
             EditPartsbtn.UseVisualStyleBackColor = true;
-            EditPartsbtn.Click += EditPartsbtn_Click;
             // 
             // AgedWIPbtn
             // 
@@ -119,7 +142,6 @@
             AgedWIPbtn.TabIndex = 4;
             AgedWIPbtn.Text = "Aged WIP";
             AgedWIPbtn.UseVisualStyleBackColor = true;
-            AgedWIPbtn.Click += AgedWIPbtn_Click;
             // 
             // HomeAreabtn
             // 
@@ -129,7 +151,6 @@
             HomeAreabtn.TabIndex = 3;
             HomeAreabtn.Text = "Home Area";
             HomeAreabtn.UseVisualStyleBackColor = true;
-            HomeAreabtn.Click += HomeAreabtn_Click;
             // 
             // Titlelbl
             // 
@@ -152,44 +173,59 @@
             WIPTrackerbtn.TabIndex = 1;
             WIPTrackerbtn.Text = "WIP Tracker";
             WIPTrackerbtn.UseVisualStyleBackColor = true;
-            WIPTrackerbtn.Click += WIPTrackerbtn_Click;
             // 
-            // HomePagefooter
+            // dashpnl
             // 
-            HomePagefooter.BackColor = Color.DimGray;
-            HomePagefooter.Location = new Point(-1, 579);
-            HomePagefooter.Name = "HomePagefooter";
-            HomePagefooter.Size = new Size(1211, 34);
-            HomePagefooter.TabIndex = 1;
+            dashpnl.BackColor = Color.FromArgb(24, 30, 54);
+            dashpnl.Controls.Add(collapsepicbox);
+            dashpnl.Dock = DockStyle.Fill;
+            dashpnl.Location = new Point(0, 77);
+            dashpnl.Margin = new Padding(0);
+            dashpnl.Name = "dashpnl";
+            dashpnl.Size = new Size(149, 535);
+            dashpnl.TabIndex = 2;
+            // 
+            // collapsepicbox
+            // 
+            collapsepicbox.Location = new Point(36, 17);
+            collapsepicbox.Name = "collapsepicbox";
+            collapsepicbox.Size = new Size(100, 50);
+            collapsepicbox.TabIndex = 3;
+            collapsepicbox.TabStop = false;
             // 
             // ManualInput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1207, 612);
-            Controls.Add(HomePagefooter);
-            Controls.Add(HomePageheader);
+            Controls.Add(manualTablepnl);
             Name = "ManualInput";
             Text = "Form1";
             Load += Form1_Load;
+            manualTablepnl.ResumeLayout(false);
             HomePageheader.ResumeLayout(false);
             HomePageheader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).EndInit();
+            dashpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)collapsepicbox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private TableLayoutPanel manualTablepnl;
         private Panel HomePageheader;
-        private Button WIPTrackerbtn;
-        private Panel HomePagefooter;
-        private Label Titlelbl;
+        private PictureBox Userimgbox;
         private Label Usernamelbl;
         private Button DisplayBoardbtn;
         private Button ManualInputbtn;
         private Button EditPartsbtn;
         private Button AgedWIPbtn;
         private Button HomeAreabtn;
-        private PictureBox Userimgbox;
+        private Label Titlelbl;
+        private Button WIPTrackerbtn;
+        private Panel dashpnl;
+        private PictureBox collapsepicbox;
     }
 }

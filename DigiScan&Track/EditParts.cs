@@ -95,5 +95,6 @@ namespace DigiScan_Track
             DisplayBoard displayboard = new DisplayBoard();
             HeaderButton(displayboard, this, this.WindowState);
         }
+
     }
 }

@@ -39,8 +39,12 @@
             Titlelbl = new Label();
             WIPTrackerbtn = new Button();
             HomePagefooter = new Panel();
+            agedlbl = new Label();
+            agedcmb = new ComboBox();
+            dataGridView1 = new DataGridView();
             HomePageheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // HomePageheader
@@ -162,11 +166,45 @@
             HomePagefooter.Size = new Size(1211, 34);
             HomePagefooter.TabIndex = 1;
             // 
+            // agedlbl
+            // 
+            agedlbl.AutoSize = true;
+            agedlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            agedlbl.Location = new Point(21, 87);
+            agedlbl.Name = "agedlbl";
+            agedlbl.Size = new Size(404, 21);
+            agedlbl.TabIndex = 9;
+            agedlbl.Text = "This Board Displays Everything Scammed in the last";
+            // 
+            // agedcmb
+            // 
+            agedcmb.BackColor = SystemColors.Window;
+            agedcmb.FlatStyle = FlatStyle.Popup;
+            agedcmb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            agedcmb.FormattingEnabled = true;
+            agedcmb.Items.AddRange(new object[] { " 2  Minutes ", " 5  Minutes", "10 Minutes", " 1  Hour" });
+            agedcmb.Location = new Point(431, 87);
+            agedcmb.Name = "agedcmb";
+            agedcmb.Size = new Size(149, 29);
+            agedcmb.TabIndex = 10;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(21, 144);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1163, 417);
+            dataGridView1.TabIndex = 11;
+            // 
             // DisplayBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1207, 612);
+            Controls.Add(dataGridView1);
+            Controls.Add(agedcmb);
+            Controls.Add(agedlbl);
             Controls.Add(HomePagefooter);
             Controls.Add(HomePageheader);
             Name = "DisplayBoard";
@@ -175,7 +213,9 @@
             HomePageheader.ResumeLayout(false);
             HomePageheader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -191,5 +231,8 @@
         private Button AgedWIPbtn;
         private Button HomeAreabtn;
         private PictureBox Userimgbox;
+        private Label agedlbl;
+        private ComboBox agedcmb;
+        private DataGridView dataGridView1;
     }
 }

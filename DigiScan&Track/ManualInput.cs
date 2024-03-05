@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace DigiScan_Track
 {
@@ -15,6 +16,7 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             /*getSQLHomepage();*/
+           
         }
 
 

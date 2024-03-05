@@ -39,9 +39,15 @@
             Titlelbl = new Label();
             WIPTrackerbtn = new Button();
             HomePagefooter = new Panel();
-            Shortcutlbl = new Label();
+            AgedGridView = new DataGridView();
+            agedlbl = new Label();
+            agedtxt = new TextBox();
+            agedcmb = new ComboBox();
+            excelbtn = new Button();
+            tableaubtn = new Button();
             HomePageheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AgedGridView).BeginInit();
             SuspendLayout();
             // 
             // HomePageheader
@@ -163,21 +169,76 @@
             HomePagefooter.Size = new Size(1211, 34);
             HomePagefooter.TabIndex = 1;
             // 
-            // Shortcutlbl
+            // AgedGridView
             // 
-            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(12, 83);
-            Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(560, 41);
-            Shortcutlbl.TabIndex = 2;
-            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
+            AgedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AgedGridView.Location = new Point(12, 173);
+            AgedGridView.Name = "AgedGridView";
+            AgedGridView.RowTemplate.Height = 25;
+            AgedGridView.Size = new Size(1183, 391);
+            AgedGridView.TabIndex = 2;
+            // 
+            // agedlbl
+            // 
+            agedlbl.AutoSize = true;
+            agedlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            agedlbl.Location = new Point(24, 108);
+            agedlbl.Name = "agedlbl";
+            agedlbl.Size = new Size(166, 21);
+            agedlbl.TabIndex = 8;
+            agedlbl.Text = "Search Days as Aged";
+            // 
+            // agedtxt
+            // 
+            agedtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            agedtxt.Location = new Point(361, 105);
+            agedtxt.Name = "agedtxt";
+            agedtxt.Size = new Size(175, 29);
+            agedtxt.TabIndex = 7;
+            // 
+            // agedcmb
+            // 
+            agedcmb.BackColor = SystemColors.Window;
+            agedcmb.FlatStyle = FlatStyle.Popup;
+            agedcmb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            agedcmb.FormattingEnabled = true;
+            agedcmb.Items.AddRange(new object[] { "=", "<", ">", "<=", ">=", "Range" });
+            agedcmb.Location = new Point(196, 105);
+            agedcmb.Name = "agedcmb";
+            agedcmb.Size = new Size(149, 29);
+            agedcmb.TabIndex = 6;
+            // 
+            // excelbtn
+            // 
+            excelbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            excelbtn.Location = new Point(1049, 77);
+            excelbtn.Name = "excelbtn";
+            excelbtn.Size = new Size(69, 42);
+            excelbtn.TabIndex = 9;
+            excelbtn.Text = "Excel Export";
+            excelbtn.UseVisualStyleBackColor = true;
+            // 
+            // tableaubtn
+            // 
+            tableaubtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            tableaubtn.Location = new Point(1049, 125);
+            tableaubtn.Name = "tableaubtn";
+            tableaubtn.Size = new Size(69, 42);
+            tableaubtn.TabIndex = 10;
+            tableaubtn.Text = "Tableau Metrics";
+            tableaubtn.UseVisualStyleBackColor = true;
             // 
             // AgedWIP
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1207, 612);
-            Controls.Add(Shortcutlbl);
+            Controls.Add(tableaubtn);
+            Controls.Add(excelbtn);
+            Controls.Add(agedlbl);
+            Controls.Add(agedtxt);
+            Controls.Add(agedcmb);
+            Controls.Add(AgedGridView);
             Controls.Add(HomePagefooter);
             Controls.Add(HomePageheader);
             Name = "AgedWIP";
@@ -186,7 +247,9 @@
             HomePageheader.ResumeLayout(false);
             HomePageheader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Userimgbox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AgedGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -202,6 +265,11 @@
         private Button AgedWIPbtn;
         private Button HomeAreabtn;
         private PictureBox Userimgbox;
-        private Label Shortcutlbl;
+        private DataGridView AgedGridView;
+        private Label agedlbl;
+        private TextBox agedtxt;
+        private ComboBox agedcmb;
+        private Button excelbtn;
+        private Button tableaubtn;
     }
 }
