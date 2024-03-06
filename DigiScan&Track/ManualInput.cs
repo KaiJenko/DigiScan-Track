@@ -1,9 +1,5 @@
-using Microsoft.VisualBasic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+
 
 namespace DigiScan_Track
 {
@@ -31,7 +27,7 @@ namespace DigiScan_Track
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;"
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM WIPTracking";
@@ -44,8 +40,93 @@ namespace DigiScan_Track
         private void Form1_Load(object sender, EventArgs e)
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            currentPageHighlight();
         }
-        
+
+        private void submitbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string partNumber = partNumcmbox.Text.ToString();
+                string serialNumber = serialNumtxt.Text.ToString();
+                string batchNumber = batchNumtxt.Text.ToString();
+                string manager = lineManagertxt.Text.ToString();
+                string department = departmentcmbox.Text.ToString();
+                string workstation = workstationcmbox.Text.ToString();
+                string timestamp = timestamptxt.Text.ToString();
+                string reason = reasontxt.Text.ToString();
+                string notes = notestxt.Text.ToString();
+
+                TextBox[] textboxes = {serialNumtxt, batchNumtxt, timestamptxt};
+                ComboBox[] comboBoxes = { partNumcmbox, departmentcmbox, workstationcmbox };
+                Label[] labels = {partNumberlbl, serialNumlbl, batchNumlbl, departmentlbl, workstationlbl, timestamplbl};
+
+                for (int x = 0; x < textboxes.Length; x++)
+                {
+                    if (string.IsNullOrEmpty(textboxes[x].Text))
+                    {
+                        labels[x].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                    }
+                    else
+                    {
+                        labels[x].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                    }
+                }
+
+                for (int y = 0; y < comboBoxes.Length; y++)
+                {
+                    if (comboBoxes[y].SelectedIndex == 0)
+                    {
+                        labels[y].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                    }
+                    else
+                    {
+                        labels[y].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                    }
+                }
+
+                if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation" && timestamp != null)
+                {
+
+                    conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                    conn.Open();
+                    string sqlInsert = "INSERT INTO WIPTracking (PartNumber, SerialNumber, BatchNumber, Department, Workstation, WSTimestampIN)" +
+                                      " VALUES (@part, @serial, @batch, @department, @workstation, @time)";
+                    SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+
+                    cmd.Parameters.AddWithValue("@part", partNumber);
+                    cmd.Parameters.AddWithValue("@serial", serialNumber);
+                    cmd.Parameters.AddWithValue("@batch", batchNumber);
+                    cmd.Parameters.AddWithValue("@department", department);
+                    cmd.Parameters.AddWithValue("@workstation", workstation);
+                    cmd.Parameters.AddWithValue("@time", timestamp);
+
+                    cmd.ExecuteNonQuery();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    MessageBox.Show("Data inserted");
+                }
+
+                MessageBox.Show("error empty fields");
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void resetbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 
@@ -117,6 +198,17 @@ namespace DigiScan_Track
             }
         }
 
+        private void currentPageHighlight()
+        {
+            string pageName = this.Name + "btn";
+            Button button = Controls.Find(pageName, true).FirstOrDefault() as Button;
+            selectionpnl.BringToFront();
+            selectionpnl.Height = button.Height;
+            selectionpnl.Top = button.Top;
+            selectionpnl.Left = button.Left;
+            button.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
         private void hoverButton(object sender, EventArgs e)
         {
             Button hoverbtn = sender as Button;
@@ -132,22 +224,23 @@ namespace DigiScan_Track
             Button hoverbtn = sender as Button;
             selectionpnl.SendToBack();
             hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
+            currentPageHighlight();
         }
 
-        private void collapsepicbox_MouseEnter_1(object sender, EventArgs e)
+        private void enlargeImage(object sender, EventArgs e)
         {
-            originalArrowWidth = collapsepicbox.Width;
-            originalArrowHeight = collapsepicbox.Height;
-            int newWidth = (int)(collapsepicbox.Width * 1.1);
-            int newHeight = (int)(collapsepicbox.Height * 1.1);
-
-            // Set new size
-            collapsepicbox.Size = new Size(newWidth, newHeight);
+            PictureBox picturebox = sender as PictureBox;
+            originalArrowWidth = picturebox.Width;
+            originalArrowHeight = picturebox.Height;
+            int newWidth = (int)(picturebox.Width * 1.1);
+            int newHeight = (int)(picturebox.Height * 1.1);
+            picturebox.Size = new Size(newWidth, newHeight);
         }
 
-        private void collapsepicbox_MouseLeave(object sender, EventArgs e)
+        private void shrinkImage(object sender, EventArgs e)
         {
-            collapsepicbox.Size = new Size(originalArrowWidth, originalArrowHeight);
+            PictureBox picturebox = sender as PictureBox;
+            picturebox.Size = new Size(originalArrowWidth, originalArrowHeight);
         }
 
         private void collapsepicbox_Click(object sender, EventArgs e)
@@ -163,5 +256,7 @@ namespace DigiScan_Track
             manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
             expandpicbox.Visible = false;
         }
+
+        
     }
 }
