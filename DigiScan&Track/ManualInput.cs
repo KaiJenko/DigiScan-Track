@@ -45,35 +45,7 @@ namespace DigiScan_Track
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
         }
-        private void collapsepicbox_MouseEnter_1(object sender, EventArgs e)
-        {
-            originalArrowWidth = collapsepicbox.Width;
-            originalArrowHeight = collapsepicbox.Height;
-            int newWidth = (int)(collapsepicbox.Width * 1.1);
-            int newHeight = (int)(collapsepicbox.Height * 1.1);
-
-            // Set new size
-            collapsepicbox.Size = new Size(newWidth, newHeight);
-        }
-
-        private void collapsepicbox_MouseLeave(object sender, EventArgs e)
-        {
-            collapsepicbox.Size = new Size(originalArrowWidth, originalArrowHeight);
-        }
-
-        private void collapsepicbox_Click(object sender, EventArgs e)
-        {
-            originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
-            manualTablepnl.ColumnStyles[0].Width = 0;
-
-            expandpicbox.Visible = true;
-        }
-
-        private void expandpicbox_Click(object sender, EventArgs e)
-        {
-            manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
-            expandpicbox.Visible = false;
-        }
+        
 
 
 
@@ -128,19 +100,21 @@ namespace DigiScan_Track
 
         private void LoadButtonImages()
         {
-            HomeAreabtn.Image = new Bitmap(Properties.Resources.redHouse, new Size(18, 18));
-            WIPTrackerbtn.Image = new Bitmap(Properties.Resources.clipboard, new Size(18, 18));
-            AgedWIPbtn.Image = new Bitmap(Properties.Resources.exclamation, new Size(18, 18));
-            EditPartsbtn.Image = new Bitmap(Properties.Resources.spanner, new Size(18, 18));
-            ManualInputbtn.Image = new Bitmap(Properties.Resources.keyboard, new Size(18, 18));
-            DisplayBoardbtn.Image = new Bitmap(Properties.Resources.Monitor, new Size(18, 18));
+            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn" };
+            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor" };
 
-            HomeAreabtn.ImageAlign = ContentAlignment.MiddleRight;
-            WIPTrackerbtn.ImageAlign = ContentAlignment.MiddleRight;
-            AgedWIPbtn.ImageAlign = ContentAlignment.MiddleRight;
-            EditPartsbtn.ImageAlign = ContentAlignment.MiddleRight;
-            ManualInputbtn.ImageAlign = ContentAlignment.MiddleRight;
-            DisplayBoardbtn.ImageAlign = ContentAlignment.MiddleRight;
+            for (int x = 0; x < PageButtons.Length; x++)
+            {
+                string imageName = images[x];
+
+                Control buttonControl = Controls.Find(PageButtons[x], true).FirstOrDefault();
+                if (buttonControl is Button button)
+                {
+                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(18, 18));
+                    button.ImageAlign = ContentAlignment.MiddleRight;
+                    button.Padding = new Padding(0, 0, 10, 0);
+                }
+            }
         }
 
         private void hoverButton(object sender, EventArgs e)
@@ -158,6 +132,36 @@ namespace DigiScan_Track
             Button hoverbtn = sender as Button;
             selectionpnl.SendToBack();
             hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void collapsepicbox_MouseEnter_1(object sender, EventArgs e)
+        {
+            originalArrowWidth = collapsepicbox.Width;
+            originalArrowHeight = collapsepicbox.Height;
+            int newWidth = (int)(collapsepicbox.Width * 1.1);
+            int newHeight = (int)(collapsepicbox.Height * 1.1);
+
+            // Set new size
+            collapsepicbox.Size = new Size(newWidth, newHeight);
+        }
+
+        private void collapsepicbox_MouseLeave(object sender, EventArgs e)
+        {
+            collapsepicbox.Size = new Size(originalArrowWidth, originalArrowHeight);
+        }
+
+        private void collapsepicbox_Click(object sender, EventArgs e)
+        {
+            originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
+            manualTablepnl.ColumnStyles[0].Width = 0;
+
+            expandpicbox.Visible = true;
+        }
+
+        private void expandpicbox_Click(object sender, EventArgs e)
+        {
+            manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
+            expandpicbox.Visible = false;
         }
     }
 }
