@@ -15,8 +15,8 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-
             LoadButtonImages();
+           
         }
 
 
@@ -39,7 +39,6 @@ namespace DigiScan_Track
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
             currentPageHighlight();
             loadDepartmentcmb();
-
         }
 
         private void loadDepartmentcmb()
@@ -182,38 +181,56 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
-            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
+            this.Bodypnl.Controls.Clear();
+            HomePage homepage = new HomePage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            homepage.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(homepage);
+            homepage.Show();
         }
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
-            WIPTracker wiptracker = new WIPTracker();
-            HeaderButton(wiptracker, this, this.WindowState);
+            this.Bodypnl.Controls.Clear();
+            WIPTracker wiptracker = new WIPTracker() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            wiptracker.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(wiptracker);
+            wiptracker.Show();
         }
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
-            AgedWIP agedwip = new AgedWIP();
-            HeaderButton(agedwip, this, this.WindowState);
+            this.Bodypnl.Controls.Clear();
+            AgedWIP agedwip = new AgedWIP() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            agedwip.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(agedwip);
+            agedwip.Show();
         }
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
-            EditParts editparts = new EditParts();
-            HeaderButton(editparts, this, this.WindowState);
+            this.Bodypnl.Controls.Clear();
+            EditParts editparts = new EditParts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            editparts.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(editparts);
+            editparts.Show();
         }
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            HomePage manualinput = new HomePage();
-            HeaderButton(manualinput, this, this.WindowState);
+            this.Bodypnl.Controls.Clear();
+            HomePage manualinput = new HomePage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            manualinput.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(manualinput);
+            manualinput.Show();
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
-        {
-            DisplayBoard displayboard = new DisplayBoard();
-            HeaderButton(displayboard, this, this.WindowState);
+        { 
+            this.Bodypnl.Controls.Clear();
+            DisplayBoard displayboard = new DisplayBoard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            displayboard.FormBorderStyle = FormBorderStyle.None;
+            this.Bodypnl.Controls.Add(displayboard);
+            displayboard.Show();
         }
 
         private void LoadButtonImages()
