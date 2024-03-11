@@ -1,13 +1,5 @@
-using DigiScan_Track.Properties;
-using Microsoft.VisualBasic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Tracing;
-using System.IO;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
-using Label = System.Windows.Forms.Label;
+
 
 namespace DigiScan_Track
 {
@@ -18,18 +10,21 @@ namespace DigiScan_Track
         int originalArrowWidth;
         int originalArrowHeight;
         int originalexpandWidth;
+
         public HomePage()
         {
             InitializeComponent();
             /*getSQLHomepage();*/
+
             LoadButtonImages();
         }
+
 
         /*private void getSQLHomepage()
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;"
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM WIPTracking";
@@ -41,7 +36,10 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            currentPageHighlight();
             loadDepartmentcmb();
+
         }
 
         private void loadDepartmentcmb()
@@ -170,27 +168,6 @@ namespace DigiScan_Track
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
         public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
@@ -229,7 +206,7 @@ namespace DigiScan_Track
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            ManualInput manualinput = new ManualInput();
+            HomePage manualinput = new HomePage();
             HeaderButton(manualinput, this, this.WindowState);
         }
 
@@ -316,5 +293,7 @@ namespace DigiScan_Track
             manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
             expandpicbox.Visible = false;
         }
+
+
     }
 }
