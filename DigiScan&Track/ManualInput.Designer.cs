@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            Titlelbl = new Label();
             panel4 = new Panel();
             panel5 = new Panel();
+            timestamptxt = new DateTimePicker();
             resetbtn = new Button();
             submitbtn = new Button();
             notestxt = new TextBox();
             noteslbl = new Label();
             reasontxt = new TextBox();
             reasonlbl = new Label();
-            timestamptxt = new TextBox();
             inputTimestamplbl = new Label();
             nocheckbox = new CheckBox();
             yescheckbox = new CheckBox();
@@ -57,6 +58,7 @@
             label2 = new Label();
             expandpicbox = new PictureBox();
             dashpnl = new Panel();
+            Settingsbtn = new Button();
             DisplayBoardbtn = new Button();
             ManualInputbtn = new Button();
             EditPartsbtn = new Button();
@@ -72,8 +74,6 @@
             selectionpnl = new Panel();
             currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
-            panel3 = new Panel();
-            Titlelbl = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
@@ -85,25 +85,38 @@
             ((System.ComponentModel.ISupportInitialize)collapsepicbox).BeginInit();
             selectionpnl.SuspendLayout();
             manualTablepnl.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(Titlelbl);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(expandpicbox);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(152, 61);
+            panel1.Location = new Point(152, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1052, 548);
+            panel1.Size = new Size(1052, 606);
             panel1.TabIndex = 3;
+            // 
+            // Titlelbl
+            // 
+            Titlelbl.AutoSize = true;
+            Titlelbl.BackColor = Color.Transparent;
+            Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            Titlelbl.ForeColor = Color.White;
+            Titlelbl.Location = new Point(108, 10);
+            Titlelbl.Name = "Titlelbl";
+            Titlelbl.Size = new Size(857, 47);
+            Titlelbl.TabIndex = 2;
+            Titlelbl.Text = "DigiScan && Track - Manual Input";
+            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(24, 30, 54);
             panel4.Controls.Add(panel5);
-            panel4.Location = new Point(29, 20);
+            panel4.Location = new Point(25, 70);
             panel4.Name = "panel4";
             panel4.Size = new Size(1001, 505);
             panel4.TabIndex = 10;
@@ -111,13 +124,13 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(46, 51, 73);
+            panel5.Controls.Add(timestamptxt);
             panel5.Controls.Add(resetbtn);
             panel5.Controls.Add(submitbtn);
             panel5.Controls.Add(notestxt);
             panel5.Controls.Add(noteslbl);
             panel5.Controls.Add(reasontxt);
             panel5.Controls.Add(reasonlbl);
-            panel5.Controls.Add(timestamptxt);
             panel5.Controls.Add(inputTimestamplbl);
             panel5.Controls.Add(nocheckbox);
             panel5.Controls.Add(yescheckbox);
@@ -139,6 +152,20 @@
             panel5.Size = new Size(990, 494);
             panel5.TabIndex = 11;
             // 
+            // timestamptxt
+            // 
+            timestamptxt.CalendarFont = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            timestamptxt.CalendarTitleBackColor = SystemColors.ControlText;
+            timestamptxt.CalendarTitleForeColor = Color.AliceBlue;
+            timestamptxt.CustomFormat = "dd/MM/yyyy hh:mm";
+            timestamptxt.Enabled = false;
+            timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            timestamptxt.Format = DateTimePickerFormat.Custom;
+            timestamptxt.Location = new Point(659, 244);
+            timestamptxt.Name = "timestamptxt";
+            timestamptxt.Size = new Size(188, 27);
+            timestamptxt.TabIndex = 33;
+            // 
             // resetbtn
             // 
             resetbtn.BackColor = Color.Transparent;
@@ -146,8 +173,9 @@
             resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
             resetbtn.FlatAppearance.BorderSize = 0;
             resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(421, 245);
+            resetbtn.Location = new Point(442, 245);
             resetbtn.Name = "resetbtn";
             resetbtn.Size = new Size(104, 63);
             resetbtn.TabIndex = 31;
@@ -162,8 +190,9 @@
             submitbtn.BackgroundImageLayout = ImageLayout.Stretch;
             submitbtn.FlatAppearance.BorderSize = 0;
             submitbtn.FlatStyle = FlatStyle.Flat;
+            submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             submitbtn.ForeColor = Color.White;
-            submitbtn.Location = new Point(421, 165);
+            submitbtn.Location = new Point(442, 153);
             submitbtn.Name = "submitbtn";
             submitbtn.Size = new Size(104, 63);
             submitbtn.TabIndex = 30;
@@ -184,7 +213,7 @@
             noteslbl.AutoSize = true;
             noteslbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             noteslbl.ForeColor = Color.FromArgb(0, 126, 249);
-            noteslbl.Location = new Point(710, 392);
+            noteslbl.Location = new Point(721, 392);
             noteslbl.Name = "noteslbl";
             noteslbl.Size = new Size(64, 24);
             noteslbl.TabIndex = 28;
@@ -209,21 +238,12 @@
             reasonlbl.TabIndex = 26;
             reasonlbl.Text = "Reason for Manual Input *";
             // 
-            // timestamptxt
-            // 
-            timestamptxt.Enabled = false;
-            timestamptxt.Location = new Point(631, 245);
-            timestamptxt.Name = "timestamptxt";
-            timestamptxt.Size = new Size(252, 23);
-            timestamptxt.TabIndex = 25;
-            timestamptxt.TextAlign = HorizontalAlignment.Center;
-            // 
             // inputTimestamplbl
             // 
             inputTimestamplbl.AutoSize = true;
             inputTimestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             inputTimestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            inputTimestamplbl.Location = new Point(664, 212);
+            inputTimestamplbl.Location = new Point(673, 210);
             inputTimestamplbl.Name = "inputTimestamplbl";
             inputTimestamplbl.Size = new Size(164, 24);
             inputTimestamplbl.TabIndex = 24;
@@ -235,45 +255,46 @@
             nocheckbox.CheckState = CheckState.Checked;
             nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             nocheckbox.ForeColor = Color.White;
-            nocheckbox.Location = new Point(780, 147);
+            nocheckbox.Location = new Point(780, 153);
             nocheckbox.Name = "nocheckbox";
             nocheckbox.Size = new Size(74, 45);
             nocheckbox.TabIndex = 23;
             nocheckbox.Text = "No";
             nocheckbox.UseVisualStyleBackColor = true;
+            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
             // 
             // yescheckbox
             // 
             yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             yescheckbox.ForeColor = Color.White;
-            yescheckbox.Location = new Point(664, 145);
+            yescheckbox.Location = new Point(664, 152);
             yescheckbox.Name = "yescheckbox";
             yescheckbox.Size = new Size(74, 45);
             yescheckbox.TabIndex = 22;
             yescheckbox.Text = "Yes";
             yescheckbox.UseVisualStyleBackColor = true;
+            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
             // 
             // timestamplbl
             // 
             timestamplbl.AutoSize = true;
             timestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             timestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timestamplbl.Location = new Point(612, 115);
+            timestamplbl.Location = new Point(619, 121);
             timestamplbl.Name = "timestamplbl";
-            timestamplbl.Size = new Size(302, 24);
+            timestamplbl.Size = new Size(294, 24);
             timestamplbl.TabIndex = 21;
-            timestamplbl.Text = "Timestamp Need Backdating? *";
+            timestamplbl.Text = "Timestamp Need Backdating? \r\n";
             // 
             // workstationcmbox
             // 
             workstationcmbox.BackColor = Color.FromArgb(24, 30, 54);
-            workstationcmbox.Enabled = false;
             workstationcmbox.FlatStyle = FlatStyle.Flat;
             workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             workstationcmbox.ForeColor = Color.White;
             workstationcmbox.FormattingEnabled = true;
             workstationcmbox.Items.AddRange(new object[] { "TY9378", "PT1456" });
-            workstationcmbox.Location = new Point(677, 60);
+            workstationcmbox.Location = new Point(673, 60);
             workstationcmbox.Name = "workstationcmbox";
             workstationcmbox.Size = new Size(151, 29);
             workstationcmbox.TabIndex = 20;
@@ -284,7 +305,7 @@
             workstationlbl.AutoSize = true;
             workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(651, 27);
+            workstationlbl.Location = new Point(651, 29);
             workstationlbl.Name = "workstationlbl";
             workstationlbl.Size = new Size(196, 24);
             workstationlbl.TabIndex = 19;
@@ -293,7 +314,6 @@
             // departmentcmbox
             // 
             departmentcmbox.BackColor = Color.FromArgb(24, 30, 54);
-            departmentcmbox.Enabled = false;
             departmentcmbox.FlatStyle = FlatStyle.Flat;
             departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             departmentcmbox.ForeColor = Color.White;
@@ -403,7 +423,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(164, 35);
+            label2.Location = new Point(160, 85);
             label2.Name = "label2";
             label2.Size = new Size(93, 18);
             label2.TabIndex = 9;
@@ -412,7 +432,7 @@
             // expandpicbox
             // 
             expandpicbox.Image = Properties.Resources.output_onlinepngtools1;
-            expandpicbox.Location = new Point(3, -3);
+            expandpicbox.Location = new Point(3, 1);
             expandpicbox.Name = "expandpicbox";
             expandpicbox.Size = new Size(26, 26);
             expandpicbox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -426,6 +446,7 @@
             // dashpnl
             // 
             dashpnl.BackColor = Color.FromArgb(24, 30, 54);
+            dashpnl.Controls.Add(Settingsbtn);
             dashpnl.Controls.Add(DisplayBoardbtn);
             dashpnl.Controls.Add(ManualInputbtn);
             dashpnl.Controls.Add(EditPartsbtn);
@@ -436,11 +457,30 @@
             dashpnl.Controls.Add(collapsepicbox);
             dashpnl.Controls.Add(selectionpnl);
             dashpnl.Dock = DockStyle.Left;
-            dashpnl.Location = new Point(0, 58);
+            dashpnl.Location = new Point(0, 0);
             dashpnl.Margin = new Padding(0);
             dashpnl.Name = "dashpnl";
-            dashpnl.Size = new Size(149, 554);
+            dashpnl.Size = new Size(149, 612);
             dashpnl.TabIndex = 2;
+            // 
+            // Settingsbtn
+            // 
+            Settingsbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            Settingsbtn.Dock = DockStyle.Bottom;
+            Settingsbtn.FlatAppearance.BorderSize = 0;
+            Settingsbtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            Settingsbtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
+            Settingsbtn.FlatStyle = FlatStyle.Flat;
+            Settingsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Settingsbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            Settingsbtn.ImageAlign = ContentAlignment.MiddleLeft;
+            Settingsbtn.Location = new Point(0, 572);
+            Settingsbtn.Name = "Settingsbtn";
+            Settingsbtn.Size = new Size(149, 40);
+            Settingsbtn.TabIndex = 11;
+            Settingsbtn.Text = "Settings";
+            Settingsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Settingsbtn.UseVisualStyleBackColor = true;
             // 
             // DisplayBoardbtn
             // 
@@ -600,7 +640,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.output_onlinepngtools1;
-            pictureBox1.Location = new Point(121, 0);
+            pictureBox1.Location = new Point(117, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(24, 26);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -662,51 +702,18 @@
             // manualTablepnl
             // 
             manualTablepnl.ColumnCount = 2;
-            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.344656F));
+            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.34466F));
             manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.65534F));
-            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            manualTablepnl.Controls.Add(dashpnl, 0, 1);
-            manualTablepnl.Controls.Add(panel1, 1, 1);
-            manualTablepnl.Controls.Add(panel3, 0, 0);
+            manualTablepnl.Controls.Add(dashpnl, 0, 0);
+            manualTablepnl.Controls.Add(panel1, 1, 0);
             manualTablepnl.Dock = DockStyle.Fill;
             manualTablepnl.Location = new Point(0, 0);
             manualTablepnl.Name = "manualTablepnl";
-            manualTablepnl.RowCount = 2;
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 9.477124F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 90.52287F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            manualTablepnl.RowCount = 1;
+            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             manualTablepnl.Size = new Size(1207, 612);
             manualTablepnl.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(24, 30, 54);
-            manualTablepnl.SetColumnSpan(panel3, 2);
-            panel3.Controls.Add(Titlelbl);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1207, 58);
-            panel3.TabIndex = 4;
-            // 
-            // Titlelbl
-            // 
-            Titlelbl.AutoSize = true;
-            Titlelbl.BackColor = Color.Transparent;
-            Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
-            Titlelbl.ForeColor = Color.Red;
-            Titlelbl.Location = new Point(215, 4);
-            Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(857, 47);
-            Titlelbl.TabIndex = 2;
-            Titlelbl.Text = "DigiScan && Track - Manual Input";
-            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ManualInput
             // 
@@ -732,8 +739,6 @@
             ((System.ComponentModel.ISupportInitialize)collapsepicbox).EndInit();
             selectionpnl.ResumeLayout(false);
             manualTablepnl.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -761,7 +766,6 @@
         private Panel selectionpnl;
         private Panel currentFormpnl;
         private TableLayoutPanel manualTablepnl;
-        private Panel panel3;
         private Label Titlelbl;
         private Label label2;
         private Panel panel4;
@@ -782,11 +786,12 @@
         private Label serialNumlbl;
         private TextBox reasontxt;
         private Label reasonlbl;
-        private TextBox timestamptxt;
         private Label inputTimestamplbl;
         private CheckBox nocheckbox;
         private TextBox notestxt;
         private Label noteslbl;
         private Button submitbtn;
+        private DateTimePicker timestamptxt;
+        private Button Settingsbtn;
     }
 }

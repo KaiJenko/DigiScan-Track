@@ -15,12 +15,14 @@ namespace DigiScan_Track
     {
 
         SqlConnection conn = new SqlConnection();
-
+        int originalArrowWidth;
+        int originalArrowHeight;
+        int originalexpandWidth;
         public HomePage()
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-            
+            LoadButtonImages();
         }
 
         /*private void getSQLHomepage()
@@ -237,6 +239,82 @@ namespace DigiScan_Track
             HeaderButton(displayboard, this, this.WindowState);
         }
 
+        private void LoadButtonImages()
+        {
+            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
+            for (int x = 0; x < PageButtons.Length; x++)
+            {
+                string imageName = images[x];
+
+                Control buttonControl = Controls.Find(PageButtons[x], true).FirstOrDefault();
+                if (buttonControl is Button button)
+                {
+                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(18, 18));
+                    button.ImageAlign = ContentAlignment.MiddleRight;
+                    button.Padding = new Padding(0, 0, 10, 0);
+                }
+            }
+        }
+
+        private void currentPageHighlight()
+        {
+            string pageName = this.Name + "btn";
+            Button button = Controls.Find(pageName, true).FirstOrDefault() as Button;
+            selectionpnl.BringToFront();
+            selectionpnl.Height = button.Height;
+            selectionpnl.Top = button.Top;
+            selectionpnl.Left = button.Left;
+            button.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void hoverButton(object sender, EventArgs e)
+        {
+            Button hoverbtn = sender as Button;
+            selectionpnl.BringToFront();
+            selectionpnl.Height = hoverbtn.Height;
+            selectionpnl.Top = hoverbtn.Top;
+            selectionpnl.Left = hoverbtn.Left;
+            hoverbtn.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void unHoverButton(object sender, EventArgs e)
+        {
+            Button hoverbtn = sender as Button;
+            selectionpnl.SendToBack();
+            hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
+            currentPageHighlight();
+        }
+
+        private void enlargeImage(object sender, EventArgs e)
+        {
+            PictureBox picturebox = sender as PictureBox;
+            originalArrowWidth = picturebox.Width;
+            originalArrowHeight = picturebox.Height;
+            int newWidth = (int)(picturebox.Width * 1.1);
+            int newHeight = (int)(picturebox.Height * 1.1);
+            picturebox.Size = new Size(newWidth, newHeight);
+        }
+
+        private void shrinkImage(object sender, EventArgs e)
+        {
+            PictureBox picturebox = sender as PictureBox;
+            picturebox.Size = new Size(originalArrowWidth, originalArrowHeight);
+        }
+
+        private void collapsepicbox_Click(object sender, EventArgs e)
+        {
+            originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
+            manualTablepnl.ColumnStyles[0].Width = 0;
+
+            expandpicbox.Visible = true;
+        }
+
+        private void expandpicbox_Click(object sender, EventArgs e)
+        {
+            manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
+            expandpicbox.Visible = false;
+        }
     }
 }

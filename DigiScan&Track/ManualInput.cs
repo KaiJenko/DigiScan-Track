@@ -20,9 +20,6 @@ namespace DigiScan_Track
         }
 
 
-
-
-
         /*private void getSQLHomepage()
         {
             DataTable dt = new DataTable();
@@ -41,6 +38,7 @@ namespace DigiScan_Track
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
             currentPageHighlight();
+
         }
 
         private void submitbtn_Click(object sender, EventArgs e)
@@ -53,40 +51,42 @@ namespace DigiScan_Track
                 string manager = lineManagertxt.Text.ToString();
                 string department = departmentcmbox.Text.ToString();
                 string workstation = workstationcmbox.Text.ToString();
-                string timestamp = timestamptxt.Text.ToString();
+                string timestamp = timestamptxt.Value.ToString();
                 string reason = reasontxt.Text.ToString();
                 string notes = notestxt.Text.ToString();
 
-                TextBox[] textboxes = {serialNumtxt, batchNumtxt, timestamptxt};
+                TextBox[] textboxes = { serialNumtxt, batchNumtxt, reasontxt };
                 ComboBox[] comboBoxes = { partNumcmbox, departmentcmbox, workstationcmbox };
-                Label[] labels = {partNumberlbl, serialNumlbl, batchNumlbl, departmentlbl, workstationlbl, timestamplbl};
+                Label[] textboxlabels = { serialNumlbl, batchNumlbl, reasonlbl };
+                Label[] combolabels = { partNumberlbl, departmentlbl, workstationlbl };
 
                 for (int x = 0; x < textboxes.Length; x++)
                 {
                     if (string.IsNullOrEmpty(textboxes[x].Text))
                     {
-                        labels[x].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                        textboxlabels[x].ForeColor = Color.Red; // Change text color of the corresponding label to red
                     }
                     else
                     {
-                        labels[x].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                        textboxlabels[x].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
                     }
                 }
 
                 for (int y = 0; y < comboBoxes.Length; y++)
                 {
-                    if (comboBoxes[y].SelectedIndex == 0)
+                    if (comboBoxes[y].SelectedIndex == -1)
                     {
-                        labels[y].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                        combolabels[y].ForeColor = Color.Red; // Change text color of the corresponding label to red
                     }
                     else
                     {
-                        labels[y].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                        combolabels[y].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
                     }
                 }
 
                 if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation" && timestamp != null)
                 {
+
 
                     conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                     conn.Open();
@@ -108,7 +108,10 @@ namespace DigiScan_Track
                     MessageBox.Show("Data inserted");
                 }
 
-                MessageBox.Show("error empty fields");
+                else
+                {
+                    MessageBox.Show("You have empty fields");
+                }
             }
 
             catch (Exception ex)
@@ -126,9 +129,35 @@ namespace DigiScan_Track
 
         }
 
+        private void nocheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (nocheckbox.Checked == true)
+            {
+                yescheckbox.Checked = false;
+                timestamptxt.Enabled = false;
+            }
 
+            if (nocheckbox.Checked == false)
+            {
+                yescheckbox.Checked = true;
+                timestamptxt.Enabled = true;
+            }
+        }
 
+        private void yescheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yescheckbox.Checked == true)
+            {
+                nocheckbox.Checked = false;
+                timestamptxt.Enabled = true;
+            }
 
+            if (yescheckbox.Checked == false)
+            {
+                nocheckbox.Checked = true;
+                timestamptxt.Enabled = false;
+            }
+        }
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
@@ -181,8 +210,8 @@ namespace DigiScan_Track
 
         private void LoadButtonImages()
         {
-            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn" };
-            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor" };
+            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
             for (int x = 0; x < PageButtons.Length; x++)
             {
@@ -257,6 +286,6 @@ namespace DigiScan_Track
             expandpicbox.Visible = false;
         }
 
-        
+
     }
 }
