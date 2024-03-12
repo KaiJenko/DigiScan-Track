@@ -32,6 +32,7 @@
             expandpicbox = new PictureBox();
             InnerBodypnl = new Panel();
             dashpnl = new Panel();
+            currentFormpnl = new Panel();
             Settingsbtn = new Button();
             DisplayBoardbtn = new Button();
             ManualInputbtn = new Button();
@@ -45,7 +46,6 @@
             userimagepicbox = new PictureBox();
             usernamelbl = new Label();
             selectionpnl = new Panel();
-            currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
             Bodypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
@@ -53,7 +53,6 @@
             Usernamepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)collapsepicbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userimagepicbox).BeginInit();
-            selectionpnl.SuspendLayout();
             manualTablepnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -101,12 +100,21 @@
             dashpnl.Controls.Add(HomePagebtn);
             dashpnl.Controls.Add(Usernamepnl);
             dashpnl.Controls.Add(selectionpnl);
+            dashpnl.Controls.Add(currentFormpnl);
             dashpnl.Dock = DockStyle.Left;
             dashpnl.Location = new Point(0, 0);
             dashpnl.Margin = new Padding(0);
             dashpnl.Name = "dashpnl";
             dashpnl.Size = new Size(149, 612);
             dashpnl.TabIndex = 2;
+            // 
+            // currentFormpnl
+            // 
+            currentFormpnl.BackColor = Color.FromArgb(0, 126, 249);
+            currentFormpnl.Location = new Point(3, 159);
+            currentFormpnl.Name = "currentFormpnl";
+            currentFormpnl.Size = new Size(2, 40);
+            currentFormpnl.TabIndex = 6;
             // 
             // Settingsbtn
             // 
@@ -319,19 +327,10 @@
             // selectionpnl
             // 
             selectionpnl.BackColor = Color.FromArgb(0, 126, 249);
-            selectionpnl.Controls.Add(currentFormpnl);
             selectionpnl.Location = new Point(12, 169);
             selectionpnl.Name = "selectionpnl";
             selectionpnl.Size = new Size(2, 40);
             selectionpnl.TabIndex = 5;
-            // 
-            // currentFormpnl
-            // 
-            currentFormpnl.BackColor = Color.FromArgb(0, 126, 249);
-            currentFormpnl.Location = new Point(0, 0);
-            currentFormpnl.Name = "currentFormpnl";
-            currentFormpnl.Size = new Size(2, 40);
-            currentFormpnl.TabIndex = 6;
             // 
             // manualTablepnl
             // 
@@ -366,7 +365,6 @@
             Usernamepnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)collapsepicbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)userimagepicbox).EndInit();
-            selectionpnl.ResumeLayout(false);
             manualTablepnl.ResumeLayout(false);
             ResumeLayout(false);
         }

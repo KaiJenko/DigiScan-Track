@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace DigiScan_Track
@@ -14,30 +15,17 @@ namespace DigiScan_Track
         public HomePage()
         {
             InitializeComponent();
-            /*getSQLHomepage();*/
-
             LoadButtonImages();
+
         }
 
 
-        /*private void getSQLHomepage()
-        {
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;"
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM WIPTracking";
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            conn.Close();
-            dataGridView1.DataSource = dt;
-        }*/
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            currentPageHighlight();
+
             this.InnerBodypnl.Controls.Clear();
             HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
@@ -62,7 +50,16 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
             this.InnerBodypnl.Controls.Clear();
+
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = HomePagebtn.Height;
+            currentFormpnl.Top = HomePagebtn.Top;
+            currentFormpnl.Left = HomePagebtn.Left;
+            HomePagebtn.BackColor = Color.FromArgb(46, 51, 73);
+
+
             HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(homepageshortcut);
@@ -71,6 +68,13 @@ namespace DigiScan_Track
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = WIPTrackerbtn.Height;
+            currentFormpnl.Top = WIPTrackerbtn.Top;
+            currentFormpnl.Left = WIPTrackerbtn.Left;
+            WIPTrackerbtn.BackColor = Color.FromArgb(46, 51, 73);
+
             this.InnerBodypnl.Controls.Clear();
             WIPTracker wiptracker = new WIPTracker() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             wiptracker.FormBorderStyle = FormBorderStyle.None;
@@ -80,6 +84,13 @@ namespace DigiScan_Track
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = AgedWIPbtn.Height;
+            currentFormpnl.Top = AgedWIPbtn.Top;
+            currentFormpnl.Left = AgedWIPbtn.Left;
+            AgedWIPbtn.BackColor = Color.FromArgb(46, 51, 73);
+
             this.InnerBodypnl.Controls.Clear();
             AgedWIP agedwip = new AgedWIP() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             agedwip.FormBorderStyle = FormBorderStyle.None;
@@ -89,6 +100,13 @@ namespace DigiScan_Track
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = EditPartsbtn.Height;
+            currentFormpnl.Top = EditPartsbtn.Top;
+            currentFormpnl.Left = EditPartsbtn.Left;
+            EditPartsbtn.BackColor = Color.FromArgb(46, 51, 73);
+
             this.InnerBodypnl.Controls.Clear();
             EditParts editparts = new EditParts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             editparts.FormBorderStyle = FormBorderStyle.None;
@@ -98,6 +116,13 @@ namespace DigiScan_Track
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = ManualInputbtn.Height;
+            currentFormpnl.Top = ManualInputbtn.Top;
+            currentFormpnl.Left = ManualInputbtn.Left;
+            ManualInputbtn.BackColor = Color.FromArgb(46, 51, 73);
+
             this.InnerBodypnl.Controls.Clear();
             ManualInput manualinput = new ManualInput() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             manualinput.FormBorderStyle = FormBorderStyle.None;
@@ -107,11 +132,19 @@ namespace DigiScan_Track
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = DisplayBoardbtn.Height;
+            currentFormpnl.Top = DisplayBoardbtn.Top;
+            currentFormpnl.Left = DisplayBoardbtn.Left;
+            DisplayBoardbtn.BackColor = Color.FromArgb(46, 51, 73);
+
             this.InnerBodypnl.Controls.Clear();
             DisplayBoard displayboard = new DisplayBoard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             displayboard.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(displayboard);
             displayboard.Show();
+
         }
 
         private void LoadButtonImages()
@@ -133,15 +166,14 @@ namespace DigiScan_Track
             }
         }
 
-        private void currentPageHighlight()
+        private void currentPageHighlight(string buttonName)
         {
-            string pageName = this.Name + "btn";
-            Button button = Controls.Find(pageName, true).FirstOrDefault() as Button;
+            Button buttonClicked = Controls.Find(buttonName, true).FirstOrDefault() as Button;
             selectionpnl.BringToFront();
-            selectionpnl.Height = button.Height;
-            selectionpnl.Top = button.Top;
-            selectionpnl.Left = button.Left;
-            button.BackColor = Color.FromArgb(46, 51, 73);
+            selectionpnl.Height = buttonClicked.Height;
+            selectionpnl.Top = buttonClicked.Top;
+            selectionpnl.Left = buttonClicked.Left;
+            buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void hoverButton(object sender, EventArgs e)
@@ -156,10 +188,30 @@ namespace DigiScan_Track
 
         private void unHoverButton(object sender, EventArgs e)
         {
+
             Button hoverbtn = sender as Button;
             selectionpnl.SendToBack();
-            hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
-            currentPageHighlight();
+            if (hoverbtn.Bounds.Contains(currentFormpnl.Bounds))
+            {
+                // If the background color matches, don't change it
+                return;
+            }
+            else
+            {
+                hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
+            }
+        }
+
+        private void buttonColour()
+        {
+            foreach (Control control in dashpnl.Controls)
+            {
+                if (control is Button)
+                {
+                    Button button = control as Button;
+                    button.BackColor = Color.FromArgb(24, 30, 54);
+                }
+            }
         }
 
         private void enlargeImage(object sender, EventArgs e)
