@@ -53,9 +53,9 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(12, 75);
+            OuterBorderpnl.Location = new Point(8, 50);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1016, 483);
+            OuterBorderpnl.Size = new Size(1020, 510);
             OuterBorderpnl.TabIndex = 11;
             // 
             // InnerBorderpnl
@@ -66,17 +66,17 @@
             InnerBorderpnl.Controls.Add(Departmentcmb);
             InnerBorderpnl.Controls.Add(Shortcutlbl);
             InnerBorderpnl.Controls.Add(Departmentlbl);
-            InnerBorderpnl.Location = new Point(6, 4);
+            InnerBorderpnl.Location = new Point(5, 4);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1006, 473);
+            InnerBorderpnl.Size = new Size(1010, 502);
             InnerBorderpnl.TabIndex = 11;
             // 
             // HomepageImageflow
             // 
             HomepageImageflow.Anchor = AnchorStyles.None;
-            HomepageImageflow.Location = new Point(16, 44);
+            HomepageImageflow.Location = new Point(18, 44);
             HomepageImageflow.Name = "HomepageImageflow";
-            HomepageImageflow.Size = new Size(981, 435);
+            HomepageImageflow.Size = new Size(981, 450);
             HomepageImageflow.TabIndex = 13;
             // 
             // Departmentcmb
@@ -109,7 +109,7 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(134, 17);
+            Titlelbl.Location = new Point(136, 8);
             Titlelbl.Name = "Titlelbl";
             Titlelbl.Size = new Size(776, 47);
             Titlelbl.TabIndex = 12;
@@ -122,8 +122,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1036, 570);
-            Controls.Add(Titlelbl);
             Controls.Add(OuterBorderpnl);
+            Controls.Add(Titlelbl);
             Name = "HomePageShortcuts";
             Text = "Form1";
             Load += Form1_Load;
