@@ -10,6 +10,7 @@ namespace DigiScan_Track
         int originalArrowWidth;
         int originalArrowHeight;
         int originalexpandWidth;
+        Size formsize = new Size(1052,609);
 
         public HomePage()
         {
