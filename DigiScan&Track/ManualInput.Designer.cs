@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             Titlelbl = new Label();
             panel4 = new Panel();
             panel5 = new Panel();
@@ -56,23 +55,9 @@
             partNumcmbox = new ComboBox();
             partNumberlbl = new Label();
             label2 = new Label();
-            manualTablepnl = new TableLayoutPanel();
-            panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            manualTablepnl.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(Titlelbl);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(label2);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1078, 605);
-            panel1.TabIndex = 3;
             // 
             // Titlelbl
             // 
@@ -80,21 +65,22 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(126, 11);
+            Titlelbl.Location = new Point(140, 10);
             Titlelbl.Name = "Titlelbl";
             Titlelbl.Size = new Size(857, 47);
-            Titlelbl.TabIndex = 2;
+            Titlelbl.TabIndex = 11;
             Titlelbl.Text = "DigiScan && Track - Manual Input";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.None;
             panel4.BackColor = Color.FromArgb(24, 30, 54);
             panel4.Controls.Add(panel5);
-            panel4.Location = new Point(41, 70);
+            panel4.Location = new Point(16, 69);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1001, 505);
-            panel4.TabIndex = 10;
+            panel4.Size = new Size(1020, 528);
+            panel4.TabIndex = 13;
             // 
             // panel5
             // 
@@ -122,9 +108,9 @@
             panel5.Controls.Add(serialNumlbl);
             panel5.Controls.Add(partNumcmbox);
             panel5.Controls.Add(partNumberlbl);
-            panel5.Location = new Point(6, 5);
+            panel5.Location = new Point(4, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(990, 494);
+            panel5.Size = new Size(1013, 522);
             panel5.TabIndex = 11;
             // 
             // timestamptxt
@@ -136,7 +122,7 @@
             timestamptxt.Enabled = false;
             timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             timestamptxt.Format = DateTimePickerFormat.Custom;
-            timestamptxt.Location = new Point(659, 244);
+            timestamptxt.Location = new Point(695, 244);
             timestamptxt.Name = "timestamptxt";
             timestamptxt.Size = new Size(188, 27);
             timestamptxt.TabIndex = 33;
@@ -150,13 +136,12 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(442, 245);
+            resetbtn.Location = new Point(462, 245);
             resetbtn.Name = "resetbtn";
             resetbtn.Size = new Size(104, 63);
             resetbtn.TabIndex = 31;
             resetbtn.Text = "Reset Form";
             resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
             // 
             // submitbtn
             // 
@@ -167,17 +152,16 @@
             submitbtn.FlatStyle = FlatStyle.Flat;
             submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             submitbtn.ForeColor = Color.White;
-            submitbtn.Location = new Point(442, 153);
+            submitbtn.Location = new Point(462, 153);
             submitbtn.Name = "submitbtn";
             submitbtn.Size = new Size(104, 63);
             submitbtn.TabIndex = 30;
             submitbtn.Text = "Submit Form";
             submitbtn.UseVisualStyleBackColor = false;
-            submitbtn.Click += submitbtn_Click;
             // 
             // notestxt
             // 
-            notestxt.Location = new Point(631, 417);
+            notestxt.Location = new Point(667, 417);
             notestxt.Multiline = true;
             notestxt.Name = "notestxt";
             notestxt.Size = new Size(252, 61);
@@ -188,7 +172,7 @@
             noteslbl.AutoSize = true;
             noteslbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             noteslbl.ForeColor = Color.FromArgb(0, 126, 249);
-            noteslbl.Location = new Point(721, 392);
+            noteslbl.Location = new Point(757, 392);
             noteslbl.Name = "noteslbl";
             noteslbl.Size = new Size(64, 24);
             noteslbl.TabIndex = 28;
@@ -196,7 +180,7 @@
             // 
             // reasontxt
             // 
-            reasontxt.Location = new Point(631, 321);
+            reasontxt.Location = new Point(667, 321);
             reasontxt.Multiline = true;
             reasontxt.Name = "reasontxt";
             reasontxt.Size = new Size(252, 56);
@@ -207,7 +191,7 @@
             reasonlbl.AutoSize = true;
             reasonlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             reasonlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            reasonlbl.Location = new Point(636, 291);
+            reasonlbl.Location = new Point(672, 291);
             reasonlbl.Name = "reasonlbl";
             reasonlbl.Size = new Size(251, 24);
             reasonlbl.TabIndex = 26;
@@ -218,7 +202,7 @@
             inputTimestamplbl.AutoSize = true;
             inputTimestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             inputTimestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            inputTimestamplbl.Location = new Point(673, 210);
+            inputTimestamplbl.Location = new Point(709, 210);
             inputTimestamplbl.Name = "inputTimestamplbl";
             inputTimestamplbl.Size = new Size(164, 24);
             inputTimestamplbl.TabIndex = 24;
@@ -230,32 +214,30 @@
             nocheckbox.CheckState = CheckState.Checked;
             nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             nocheckbox.ForeColor = Color.White;
-            nocheckbox.Location = new Point(780, 153);
+            nocheckbox.Location = new Point(816, 153);
             nocheckbox.Name = "nocheckbox";
             nocheckbox.Size = new Size(74, 45);
             nocheckbox.TabIndex = 23;
             nocheckbox.Text = "No";
             nocheckbox.UseVisualStyleBackColor = true;
-            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
             // 
             // yescheckbox
             // 
             yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             yescheckbox.ForeColor = Color.White;
-            yescheckbox.Location = new Point(664, 152);
+            yescheckbox.Location = new Point(700, 152);
             yescheckbox.Name = "yescheckbox";
             yescheckbox.Size = new Size(74, 45);
             yescheckbox.TabIndex = 22;
             yescheckbox.Text = "Yes";
             yescheckbox.UseVisualStyleBackColor = true;
-            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
             // 
             // timestamplbl
             // 
             timestamplbl.AutoSize = true;
             timestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             timestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timestamplbl.Location = new Point(619, 121);
+            timestamplbl.Location = new Point(655, 121);
             timestamplbl.Name = "timestamplbl";
             timestamplbl.Size = new Size(294, 24);
             timestamplbl.TabIndex = 21;
@@ -269,7 +251,7 @@
             workstationcmbox.ForeColor = Color.White;
             workstationcmbox.FormattingEnabled = true;
             workstationcmbox.Items.AddRange(new object[] { "TY9378", "PT1456" });
-            workstationcmbox.Location = new Point(673, 60);
+            workstationcmbox.Location = new Point(709, 60);
             workstationcmbox.Name = "workstationcmbox";
             workstationcmbox.Size = new Size(151, 29);
             workstationcmbox.TabIndex = 20;
@@ -280,7 +262,7 @@
             workstationlbl.AutoSize = true;
             workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(651, 29);
+            workstationlbl.Location = new Point(687, 29);
             workstationlbl.Name = "workstationlbl";
             workstationlbl.Size = new Size(196, 24);
             workstationlbl.TabIndex = 19;
@@ -398,60 +380,49 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(176, 85);
+            label2.Location = new Point(177, 98);
             label2.Name = "label2";
             label2.Size = new Size(93, 18);
-            label2.TabIndex = 9;
+            label2.TabIndex = 12;
             label2.Text = "User Name";
-            // 
-            // manualTablepnl
-            // 
-            manualTablepnl.ColumnCount = 1;
-            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.34466F));
-            manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.65534F));
-            manualTablepnl.Controls.Add(panel1, 1, 0);
-            manualTablepnl.Dock = DockStyle.Fill;
-            manualTablepnl.Location = new Point(0, 0);
-            manualTablepnl.Name = "manualTablepnl";
-            manualTablepnl.RowCount = 1;
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            manualTablepnl.Size = new Size(1084, 611);
-            manualTablepnl.TabIndex = 1;
             // 
             // ManualInput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1084, 611);
-            Controls.Add(manualTablepnl);
+            ClientSize = new Size(1052, 609);
+            Controls.Add(Titlelbl);
+            Controls.Add(panel4);
+            Controls.Add(label2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ManualInput";
             Text = "Form1";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            manualTablepnl.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private Button button5;
         private Button button2;
-        private Button resetbtn;
         private Button button3;
         private Button button4;
-        private Panel panel1;
-        private TableLayoutPanel manualTablepnl;
         private Label Titlelbl;
-        private Label label2;
         private Panel panel4;
         private Panel panel5;
-        private ComboBox partNumcmbox;
-        private Label partNumberlbl;
+        private DateTimePicker timestamptxt;
+        private Button resetbtn;
+        private Button submitbtn;
+        private TextBox notestxt;
+        private Label noteslbl;
+        private TextBox reasontxt;
+        private Label reasonlbl;
+        private Label inputTimestamplbl;
+        private CheckBox nocheckbox;
         private CheckBox yescheckbox;
         private Label timestamplbl;
         private ComboBox workstationcmbox;
@@ -464,13 +435,8 @@
         private Label batchNumlbl;
         private TextBox serialNumtxt;
         private Label serialNumlbl;
-        private TextBox reasontxt;
-        private Label reasonlbl;
-        private Label inputTimestamplbl;
-        private CheckBox nocheckbox;
-        private TextBox notestxt;
-        private Label noteslbl;
-        private Button submitbtn;
-        private DateTimePicker timestamptxt;
+        private ComboBox partNumcmbox;
+        private Label partNumberlbl;
+        private Label label2;
     }
 }

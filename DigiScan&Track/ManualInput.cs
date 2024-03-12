@@ -7,16 +7,12 @@ namespace DigiScan_Track
     {
 
         SqlConnection conn = new SqlConnection();
-        int originalArrowWidth;
-        int originalArrowHeight;
-        int originalexpandWidth;
 
         public ManualInput()
         {
             InitializeComponent();
             /*getSQLHomepage();*/
 
-            LoadButtonImages();
         }
 
 
@@ -36,7 +32,6 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
 
         }
 
@@ -173,7 +168,7 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
+            HomePageShortcuts homepage = new HomePageShortcuts(); //Create a new instance of the homepage to be called upon
             HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
         }
 
@@ -205,25 +200,6 @@ namespace DigiScan_Track
         {
             DisplayBoard displayboard = new DisplayBoard();
             HeaderButton(displayboard, this, this.WindowState);
-        }
-
-        private void LoadButtonImages()
-        {
-            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
-            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
-
-            for (int x = 0; x < PageButtons.Length; x++)
-            {
-                string imageName = images[x];
-
-                Control buttonControl = Controls.Find(PageButtons[x], true).FirstOrDefault();
-                if (buttonControl is Button button)
-                {
-                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(18, 18));
-                    button.ImageAlign = ContentAlignment.MiddleRight;
-                    button.Padding = new Padding(0, 0, 10, 0);
-                }
-            }
         }
 
     }

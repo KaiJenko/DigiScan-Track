@@ -10,14 +10,13 @@ namespace DigiScan_Track
         int originalArrowWidth;
         int originalArrowHeight;
         int originalexpandWidth;
-        Size formsize = new Size(1052,609);
 
         public HomePage()
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-            LoadButtonImages();
 
+            LoadButtonImages();
         }
 
 
@@ -39,14 +38,8 @@ namespace DigiScan_Track
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
             currentPageHighlight();
-            this.InnerBodypnl.Controls.Clear();
-            HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            homepageshortcut.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(homepageshortcut);
-            homepageshortcut.Show();
 
         }
-
 
 
 
@@ -64,61 +57,43 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            homepageshortcut.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(homepageshortcut);
-            homepageshortcut.Show();
+            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
+            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
         }
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            WIPTracker wiptracker = new WIPTracker() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            wiptracker.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(wiptracker);
-            wiptracker.Show();
+            WIPTracker wiptracker = new WIPTracker();
+            HeaderButton(wiptracker, this, this.WindowState);
         }
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            AgedWIP agedwip = new AgedWIP() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            agedwip.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(agedwip);
-            agedwip.Show();
+            AgedWIP agedwip = new AgedWIP();
+            HeaderButton(agedwip, this, this.WindowState);
         }
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            EditParts editparts = new EditParts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            editparts.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(editparts);
-            editparts.Show();
+            EditParts editparts = new EditParts();
+            HeaderButton(editparts, this, this.WindowState);
         }
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            HomePage manualinput = new HomePage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            manualinput.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(manualinput);
-            manualinput.Show();
+            HomePage manualinput = new HomePage();
+            HeaderButton(manualinput, this, this.WindowState);
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            DisplayBoard displayboard = new DisplayBoard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            displayboard.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(displayboard);
-            displayboard.Show();
+            DisplayBoard displayboard = new DisplayBoard();
+            HeaderButton(displayboard, this, this.WindowState);
         }
 
         private void LoadButtonImages()
         {
-            string[] PageButtons = { "HomePagebtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
             for (int x = 0; x < PageButtons.Length; x++)
@@ -186,7 +161,6 @@ namespace DigiScan_Track
             manualTablepnl.ColumnStyles[0].Width = 0;
 
             expandpicbox.Visible = true;
-            expandpicbox.BringToFront();
         }
 
         private void expandpicbox_Click(object sender, EventArgs e)
