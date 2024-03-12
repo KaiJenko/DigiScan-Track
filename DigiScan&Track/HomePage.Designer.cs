@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             Bodypnl = new Panel();
-            OuterBorderpnl = new Panel();
-            InnerBorderpnl = new Panel();
-            HomepageImageflow = new FlowLayoutPanel();
-            Departmentcmb = new ComboBox();
-            Shortcutlbl = new Label();
-            Departmentlbl = new Label();
+            expandpicbox = new PictureBox();
+            InnerBodypnl = new Panel();
             dashpnl = new Panel();
             Settingsbtn = new Button();
             DisplayBoardbtn = new Button();
@@ -42,7 +38,7 @@
             EditPartsbtn = new Button();
             AgedWIPbtn = new Button();
             WIPTrackerbtn = new Button();
-            HomeAreabtn = new Button();
+            HomePagebtn = new Button();
             Usernamepnl = new Panel();
             timePeriodlbl = new Label();
             collapsepicbox = new PictureBox();
@@ -51,87 +47,47 @@
             selectionpnl = new Panel();
             currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
-            expandpicbox = new PictureBox();
             Bodypnl.SuspendLayout();
-            OuterBorderpnl.SuspendLayout();
-            InnerBorderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
             dashpnl.SuspendLayout();
             Usernamepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)collapsepicbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userimagepicbox).BeginInit();
             selectionpnl.SuspendLayout();
             manualTablepnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
             SuspendLayout();
             // 
             // Bodypnl
             // 
-            Bodypnl.Controls.Add(OuterBorderpnl);
             Bodypnl.Controls.Add(expandpicbox);
+            Bodypnl.Controls.Add(InnerBodypnl);
             Bodypnl.Dock = DockStyle.Fill;
             Bodypnl.Location = new Point(152, 3);
             Bodypnl.Name = "Bodypnl";
             Bodypnl.Size = new Size(1052, 606);
             Bodypnl.TabIndex = 3;
             // 
-            // OuterBorderpnl
+            // expandpicbox
             // 
-            OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
-            OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(25, 70);
-            OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1001, 505);
-            OuterBorderpnl.TabIndex = 10;
+            expandpicbox.Image = Properties.Resources.output_onlinepngtools1;
+            expandpicbox.Location = new Point(3, 1);
+            expandpicbox.Name = "expandpicbox";
+            expandpicbox.Size = new Size(26, 26);
+            expandpicbox.SizeMode = PictureBoxSizeMode.StretchImage;
+            expandpicbox.TabIndex = 4;
+            expandpicbox.TabStop = false;
+            expandpicbox.Visible = false;
+            expandpicbox.Click += expandpicbox_Click;
+            expandpicbox.MouseEnter += enlargeImage;
+            expandpicbox.MouseLeave += shrinkImage;
             // 
-            // InnerBorderpnl
+            // InnerBodypnl
             // 
-            InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(HomepageImageflow);
-            InnerBorderpnl.Controls.Add(Departmentcmb);
-            InnerBorderpnl.Controls.Add(Shortcutlbl);
-            InnerBorderpnl.Controls.Add(Departmentlbl);
-            InnerBorderpnl.Location = new Point(6, 5);
-            InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(990, 494);
-            InnerBorderpnl.TabIndex = 11;
-            // 
-            // HomepageImageflow
-            // 
-            HomepageImageflow.Location = new Point(15, 48);
-            HomepageImageflow.Name = "HomepageImageflow";
-            HomepageImageflow.Size = new Size(960, 431);
-            HomepageImageflow.TabIndex = 13;
-            // 
-            // Departmentcmb
-            // 
-            Departmentcmb.Cursor = Cursors.Hand;
-            Departmentcmb.DropDownStyle = ComboBoxStyle.DropDownList;
-            Departmentcmb.FlatStyle = FlatStyle.Popup;
-            Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Departmentcmb.ForeColor = SystemColors.InfoText;
-            Departmentcmb.FormattingEnabled = true;
-            Departmentcmb.Location = new Point(837, 6);
-            Departmentcmb.Name = "Departmentcmb";
-            Departmentcmb.Size = new Size(147, 29);
-            Departmentcmb.TabIndex = 11;
-            // 
-            // Shortcutlbl
-            // 
-            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(3, -1);
-            Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(573, 35);
-            Shortcutlbl.TabIndex = 11;
-            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
-            // 
-            // Departmentlbl
-            // 
-            Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Departmentlbl.Location = new Point(582, 11);
-            Departmentlbl.Name = "Departmentlbl";
-            Departmentlbl.Size = new Size(249, 24);
-            Departmentlbl.TabIndex = 12;
-            Departmentlbl.Text = "Select Your Departmental Area:\r\n";
+            InnerBodypnl.Dock = DockStyle.Fill;
+            InnerBodypnl.Location = new Point(0, 0);
+            InnerBodypnl.Name = "InnerBodypnl";
+            InnerBodypnl.Size = new Size(1052, 606);
+            InnerBodypnl.TabIndex = 5;
             // 
             // dashpnl
             // 
@@ -142,7 +98,7 @@
             dashpnl.Controls.Add(EditPartsbtn);
             dashpnl.Controls.Add(AgedWIPbtn);
             dashpnl.Controls.Add(WIPTrackerbtn);
-            dashpnl.Controls.Add(HomeAreabtn);
+            dashpnl.Controls.Add(HomePagebtn);
             dashpnl.Controls.Add(Usernamepnl);
             dashpnl.Controls.Add(selectionpnl);
             dashpnl.Dock = DockStyle.Left;
@@ -281,27 +237,27 @@
             WIPTrackerbtn.MouseEnter += hoverButton;
             WIPTrackerbtn.MouseLeave += unHoverButton;
             // 
-            // HomeAreabtn
+            // HomePagebtn
             // 
-            HomeAreabtn.BackgroundImageLayout = ImageLayout.Stretch;
-            HomeAreabtn.Dock = DockStyle.Top;
-            HomeAreabtn.FlatAppearance.BorderSize = 0;
-            HomeAreabtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            HomeAreabtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
-            HomeAreabtn.FlatStyle = FlatStyle.Flat;
-            HomeAreabtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            HomeAreabtn.ForeColor = Color.FromArgb(0, 126, 249);
-            HomeAreabtn.ImageAlign = ContentAlignment.MiddleLeft;
-            HomeAreabtn.Location = new Point(0, 113);
-            HomeAreabtn.Name = "HomeAreabtn";
-            HomeAreabtn.Size = new Size(149, 40);
-            HomeAreabtn.TabIndex = 9;
-            HomeAreabtn.Text = "Home Area";
-            HomeAreabtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            HomeAreabtn.UseVisualStyleBackColor = true;
-            HomeAreabtn.Click += HomeAreabtn_Click;
-            HomeAreabtn.MouseEnter += hoverButton;
-            HomeAreabtn.MouseLeave += unHoverButton;
+            HomePagebtn.BackgroundImageLayout = ImageLayout.Stretch;
+            HomePagebtn.Dock = DockStyle.Top;
+            HomePagebtn.FlatAppearance.BorderSize = 0;
+            HomePagebtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            HomePagebtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
+            HomePagebtn.FlatStyle = FlatStyle.Flat;
+            HomePagebtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            HomePagebtn.ForeColor = Color.FromArgb(0, 126, 249);
+            HomePagebtn.ImageAlign = ContentAlignment.MiddleLeft;
+            HomePagebtn.Location = new Point(0, 113);
+            HomePagebtn.Name = "HomePagebtn";
+            HomePagebtn.Size = new Size(149, 40);
+            HomePagebtn.TabIndex = 9;
+            HomePagebtn.Text = "Home Area";
+            HomePagebtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            HomePagebtn.UseVisualStyleBackColor = true;
+            HomePagebtn.Click += HomeAreabtn_Click;
+            HomePagebtn.MouseEnter += hoverButton;
+            HomePagebtn.MouseLeave += unHoverButton;
             // 
             // Usernamepnl
             // 
@@ -393,21 +349,7 @@
             manualTablepnl.Size = new Size(1207, 612);
             manualTablepnl.TabIndex = 1;
             // 
-            // expandpicbox
-            // 
-            expandpicbox.Image = Properties.Resources.output_onlinepngtools1;
-            expandpicbox.Location = new Point(3, 1);
-            expandpicbox.Name = "expandpicbox";
-            expandpicbox.Size = new Size(26, 26);
-            expandpicbox.SizeMode = PictureBoxSizeMode.StretchImage;
-            expandpicbox.TabIndex = 4;
-            expandpicbox.TabStop = false;
-            expandpicbox.Visible = false;
-            expandpicbox.Click += expandpicbox_Click;
-            expandpicbox.MouseEnter += enlargeImage;
-            expandpicbox.MouseLeave += shrinkImage;
-            // 
-            // Main_Homepage
+            // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -418,8 +360,7 @@
             Text = "Form1";
             Load += Form1_Load;
             Bodypnl.ResumeLayout(false);
-            OuterBorderpnl.ResumeLayout(false);
-            InnerBorderpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)expandpicbox).EndInit();
             dashpnl.ResumeLayout(false);
             Usernamepnl.ResumeLayout(false);
             Usernamepnl.PerformLayout();
@@ -427,7 +368,6 @@
             ((System.ComponentModel.ISupportInitialize)userimagepicbox).EndInit();
             selectionpnl.ResumeLayout(false);
             manualTablepnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)expandpicbox).EndInit();
             ResumeLayout(false);
         }
 
@@ -443,7 +383,7 @@
         private Button EditPartsbtn;
         private Button AgedWIPbtn;
         private Button WIPTrackerbtn;
-        private Button HomeAreabtn;
+        private Button HomePagebtn;
         private Panel Usernamepnl;
         private Label timePeriodlbl;
         private PictureBox userimagepicbox;
@@ -452,13 +392,8 @@
         private Panel selectionpnl;
         private Panel currentFormpnl;
         private TableLayoutPanel manualTablepnl;
-        private Panel OuterBorderpnl;
         private Button Settingsbtn;
-        private Panel InnerBorderpnl;
-        private Label Shortcutlbl;
-        private ComboBox Departmentcmb;
-        private Label Departmentlbl;
-        private FlowLayoutPanel HomepageImageflow;
         private PictureBox expandpicbox;
+        private Panel InnerBodypnl;
     }
 }

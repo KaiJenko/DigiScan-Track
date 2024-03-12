@@ -65,7 +65,7 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(140, 10);
+            Titlelbl.Location = new Point(117, 10);
             Titlelbl.Name = "Titlelbl";
             Titlelbl.Size = new Size(857, 47);
             Titlelbl.TabIndex = 11;
@@ -142,6 +142,7 @@
             resetbtn.TabIndex = 31;
             resetbtn.Text = "Reset Form";
             resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += resetbtn_Click;
             // 
             // submitbtn
             // 
@@ -158,6 +159,7 @@
             submitbtn.TabIndex = 30;
             submitbtn.Text = "Submit Form";
             submitbtn.UseVisualStyleBackColor = false;
+            submitbtn.Click += submitbtn_Click;
             // 
             // notestxt
             // 
@@ -220,6 +222,7 @@
             nocheckbox.TabIndex = 23;
             nocheckbox.Text = "No";
             nocheckbox.UseVisualStyleBackColor = true;
+            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
             // 
             // yescheckbox
             // 
@@ -231,6 +234,7 @@
             yescheckbox.TabIndex = 22;
             yescheckbox.Text = "Yes";
             yescheckbox.UseVisualStyleBackColor = true;
+            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
             // 
             // timestamplbl
             // 

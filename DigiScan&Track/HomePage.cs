@@ -38,6 +38,11 @@ namespace DigiScan_Track
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
             currentPageHighlight();
+            this.InnerBodypnl.Controls.Clear();
+            HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            homepageshortcut.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(homepageshortcut);
+            homepageshortcut.Show();
 
         }
 
@@ -57,43 +62,61 @@ namespace DigiScan_Track
 
         private void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
-            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
+            this.InnerBodypnl.Controls.Clear();
+            HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            homepageshortcut.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(homepageshortcut);
+            homepageshortcut.Show();
         }
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
-            WIPTracker wiptracker = new WIPTracker();
-            HeaderButton(wiptracker, this, this.WindowState);
+            this.InnerBodypnl.Controls.Clear();
+            WIPTracker wiptracker = new WIPTracker() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            wiptracker.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(wiptracker);
+            wiptracker.Show();
         }
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
-            AgedWIP agedwip = new AgedWIP();
-            HeaderButton(agedwip, this, this.WindowState);
+            this.InnerBodypnl.Controls.Clear();
+            AgedWIP agedwip = new AgedWIP() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            agedwip.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(agedwip);
+            agedwip.Show();
         }
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
-            EditParts editparts = new EditParts();
-            HeaderButton(editparts, this, this.WindowState);
+            this.InnerBodypnl.Controls.Clear();
+            EditParts editparts = new EditParts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            editparts.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(editparts);
+            editparts.Show();
         }
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            HomePage manualinput = new HomePage();
-            HeaderButton(manualinput, this, this.WindowState);
+            this.InnerBodypnl.Controls.Clear();
+            ManualInput manualinput = new ManualInput() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            manualinput.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(manualinput);
+            manualinput.Show();
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
-            DisplayBoard displayboard = new DisplayBoard();
-            HeaderButton(displayboard, this, this.WindowState);
+            this.InnerBodypnl.Controls.Clear();
+            DisplayBoard displayboard = new DisplayBoard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            displayboard.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(displayboard);
+            displayboard.Show();
         }
 
         private void LoadButtonImages()
         {
-            string[] PageButtons = { "HomeAreabtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            string[] PageButtons = { "HomePagebtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
             for (int x = 0; x < PageButtons.Length; x++)
