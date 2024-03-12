@@ -28,153 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            HomePageheader = new Panel();
-            Userimgbox = new PictureBox();
-            Usernamelbl = new Label();
-            DisplayBoardbtn = new Button();
-            ManualInputbtn = new Button();
-            EditPartsbtn = new Button();
-            AgedWIPbtn = new Button();
-            HomeAreabtn = new Button();
-            Titlelbl = new Label();
-            WIPTrackerbtn = new Button();
-            HomePagefooter = new Panel();
             agedlbl = new Label();
             agedcmb = new ComboBox();
             dataGridView1 = new DataGridView();
-            HomePageheader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)Userimgbox).BeginInit();
+            Titlelbl = new Label();
+            BodyLayoutpnl = new Panel();
+            Borderpnl = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            BodyLayoutpnl.SuspendLayout();
+            Borderpnl.SuspendLayout();
             SuspendLayout();
-            // 
-            // HomePageheader
-            // 
-            HomePageheader.BackColor = Color.Red;
-            HomePageheader.Controls.Add(Userimgbox);
-            HomePageheader.Controls.Add(Usernamelbl);
-            HomePageheader.Controls.Add(DisplayBoardbtn);
-            HomePageheader.Controls.Add(ManualInputbtn);
-            HomePageheader.Controls.Add(EditPartsbtn);
-            HomePageheader.Controls.Add(AgedWIPbtn);
-            HomePageheader.Controls.Add(HomeAreabtn);
-            HomePageheader.Controls.Add(Titlelbl);
-            HomePageheader.Controls.Add(WIPTrackerbtn);
-            HomePageheader.Location = new Point(0, -4);
-            HomePageheader.Name = "HomePageheader";
-            HomePageheader.Size = new Size(1211, 75);
-            HomePageheader.TabIndex = 0;
-            // 
-            // Userimgbox
-            // 
-            Userimgbox.Image = Properties.Resources.UserImage;
-            Userimgbox.Location = new Point(1024, 16);
-            Userimgbox.Name = "Userimgbox";
-            Userimgbox.Size = new Size(58, 50);
-            Userimgbox.SizeMode = PictureBoxSizeMode.StretchImage;
-            Userimgbox.TabIndex = 6;
-            Userimgbox.TabStop = false;
-            // 
-            // Usernamelbl
-            // 
-            Usernamelbl.BackColor = Color.Transparent;
-            Usernamelbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Usernamelbl.ForeColor = Color.White;
-            Usernamelbl.Location = new Point(1095, 27);
-            Usernamelbl.Name = "Usernamelbl";
-            Usernamelbl.Size = new Size(100, 26);
-            Usernamelbl.TabIndex = 5;
-            Usernamelbl.Text = "Username";
-            // 
-            // DisplayBoardbtn
-            // 
-            DisplayBoardbtn.Location = new Point(892, 26);
-            DisplayBoardbtn.Name = "DisplayBoardbtn";
-            DisplayBoardbtn.Size = new Size(91, 26);
-            DisplayBoardbtn.TabIndex = 2;
-            DisplayBoardbtn.Text = "Display Board";
-            DisplayBoardbtn.UseVisualStyleBackColor = true;
-            DisplayBoardbtn.Click += DisplayBoardbtn_Click;
-            // 
-            // ManualInputbtn
-            // 
-            ManualInputbtn.Location = new Point(774, 27);
-            ManualInputbtn.Name = "ManualInputbtn";
-            ManualInputbtn.Size = new Size(96, 26);
-            ManualInputbtn.TabIndex = 2;
-            ManualInputbtn.Text = "Manual Input";
-            ManualInputbtn.UseVisualStyleBackColor = true;
-            ManualInputbtn.Click += ManualInputbtn_Click;
-            // 
-            // EditPartsbtn
-            // 
-            EditPartsbtn.Location = new Point(672, 27);
-            EditPartsbtn.Name = "EditPartsbtn";
-            EditPartsbtn.Size = new Size(82, 26);
-            EditPartsbtn.TabIndex = 2;
-            EditPartsbtn.Text = "Edit Parts";
-            EditPartsbtn.UseVisualStyleBackColor = true;
-            EditPartsbtn.Click += EditPartsbtn_Click;
-            // 
-            // AgedWIPbtn
-            // 
-            AgedWIPbtn.Location = new Point(563, 27);
-            AgedWIPbtn.Name = "AgedWIPbtn";
-            AgedWIPbtn.Size = new Size(82, 26);
-            AgedWIPbtn.TabIndex = 4;
-            AgedWIPbtn.Text = "Aged WIP";
-            AgedWIPbtn.UseVisualStyleBackColor = true;
-            AgedWIPbtn.Click += AgedWIPbtn_Click;
-            // 
-            // HomeAreabtn
-            // 
-            HomeAreabtn.Location = new Point(343, 27);
-            HomeAreabtn.Name = "HomeAreabtn";
-            HomeAreabtn.Size = new Size(82, 26);
-            HomeAreabtn.TabIndex = 3;
-            HomeAreabtn.Text = "Home Area";
-            HomeAreabtn.UseVisualStyleBackColor = true;
-            HomeAreabtn.Click += HomeAreabtn_Click;
-            // 
-            // Titlelbl
-            // 
-            Titlelbl.AutoSize = true;
-            Titlelbl.BackColor = Color.Transparent;
-            Titlelbl.Font = new Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(45, 6);
-            Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(200, 70);
-            Titlelbl.TabIndex = 2;
-            Titlelbl.Text = "Display Board\r\nDepartment\r\n";
-            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // WIPTrackerbtn
-            // 
-            WIPTrackerbtn.Location = new Point(454, 27);
-            WIPTrackerbtn.Name = "WIPTrackerbtn";
-            WIPTrackerbtn.Size = new Size(82, 26);
-            WIPTrackerbtn.TabIndex = 1;
-            WIPTrackerbtn.Text = "WIP Tracker";
-            WIPTrackerbtn.UseVisualStyleBackColor = true;
-            WIPTrackerbtn.Click += WIPTrackerbtn_Click;
-            // 
-            // HomePagefooter
-            // 
-            HomePagefooter.BackColor = Color.DimGray;
-            HomePagefooter.Location = new Point(-1, 579);
-            HomePagefooter.Name = "HomePagefooter";
-            HomePagefooter.Size = new Size(1211, 34);
-            HomePagefooter.TabIndex = 1;
             // 
             // agedlbl
             // 
             agedlbl.AutoSize = true;
             agedlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            agedlbl.Location = new Point(21, 87);
+            agedlbl.Location = new Point(28, 18);
             agedlbl.Name = "agedlbl";
-            agedlbl.Size = new Size(404, 21);
+            agedlbl.Size = new Size(394, 21);
             agedlbl.TabIndex = 9;
-            agedlbl.Text = "This Board Displays Everything Scammed in the last";
+            agedlbl.Text = "This Board Displays Everything Scanned in the last";
             // 
             // agedcmb
             // 
@@ -183,7 +56,7 @@
             agedcmb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             agedcmb.FormattingEnabled = true;
             agedcmb.Items.AddRange(new object[] { " 2  Minutes ", " 5  Minutes", "10 Minutes", " 1  Hour" });
-            agedcmb.Location = new Point(431, 87);
+            agedcmb.Location = new Point(428, 15);
             agedcmb.Name = "agedcmb";
             agedcmb.Size = new Size(149, 29);
             agedcmb.TabIndex = 10;
@@ -191,48 +64,72 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(21, 144);
+            dataGridView1.Location = new Point(12, 50);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1163, 417);
+            dataGridView1.Size = new Size(992, 459);
             dataGridView1.TabIndex = 11;
+            // 
+            // Titlelbl
+            // 
+            Titlelbl.AutoSize = true;
+            Titlelbl.BackColor = Color.Transparent;
+            Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            Titlelbl.ForeColor = Color.White;
+            Titlelbl.Location = new Point(95, 10);
+            Titlelbl.Name = "Titlelbl";
+            Titlelbl.Size = new Size(884, 47);
+            Titlelbl.TabIndex = 12;
+            Titlelbl.Text = "DigiScan && Track - Display Board";
+            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // BodyLayoutpnl
+            // 
+            BodyLayoutpnl.BackColor = Color.FromArgb(46, 51, 73);
+            BodyLayoutpnl.Controls.Add(dataGridView1);
+            BodyLayoutpnl.Controls.Add(agedcmb);
+            BodyLayoutpnl.Controls.Add(agedlbl);
+            BodyLayoutpnl.Location = new Point(4, 3);
+            BodyLayoutpnl.Name = "BodyLayoutpnl";
+            BodyLayoutpnl.Size = new Size(1013, 522);
+            BodyLayoutpnl.TabIndex = 11;
+            // 
+            // Borderpnl
+            // 
+            Borderpnl.Anchor = AnchorStyles.None;
+            Borderpnl.BackColor = Color.FromArgb(24, 30, 54);
+            Borderpnl.Controls.Add(BodyLayoutpnl);
+            Borderpnl.Location = new Point(16, 69);
+            Borderpnl.Name = "Borderpnl";
+            Borderpnl.Size = new Size(1020, 528);
+            Borderpnl.TabIndex = 14;
             // 
             // DisplayBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1207, 612);
-            Controls.Add(dataGridView1);
-            Controls.Add(agedcmb);
-            Controls.Add(agedlbl);
-            Controls.Add(HomePagefooter);
-            Controls.Add(HomePageheader);
+            BackColor = Color.FromArgb(46, 51, 73);
+            ClientSize = new Size(1052, 609);
+            Controls.Add(Titlelbl);
+            Controls.Add(Borderpnl);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "DisplayBoard";
             Text = "Form1";
             Load += Form1_Load;
-            HomePageheader.ResumeLayout(false);
-            HomePageheader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)Userimgbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            BodyLayoutpnl.ResumeLayout(false);
+            BodyLayoutpnl.PerformLayout();
+            Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel HomePageheader;
-        private Button WIPTrackerbtn;
-        private Panel HomePagefooter;
-        private Label Titlelbl;
-        private Label Usernamelbl;
-        private Button DisplayBoardbtn;
-        private Button ManualInputbtn;
-        private Button EditPartsbtn;
-        private Button AgedWIPbtn;
-        private Button HomeAreabtn;
-        private PictureBox Userimgbox;
         private Label agedlbl;
         private ComboBox agedcmb;
         private DataGridView dataGridView1;
+        private Label Titlelbl;
+        private Panel BodyLayoutpnl;
+        private Panel Borderpnl;
     }
 }
