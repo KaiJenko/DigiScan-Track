@@ -110,9 +110,9 @@
             Titlelbl.ForeColor = Color.White;
             Titlelbl.Location = new Point(140, 10);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(776, 47);
+            Titlelbl.Size = new Size(749, 47);
             Titlelbl.TabIndex = 13;
-            Titlelbl.Text = "DigiScan && Track - Shortcuts\r\n";
+            Titlelbl.Text = "DigiScan && Track - Aged WIP\r\n";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // InnerBorderpnl
