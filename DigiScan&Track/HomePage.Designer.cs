@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Bodypnl = new Panel();
-            OuterBorderpnl = new Panel();
-            InnerBorderpnl = new Panel();
-            HomepageImageflow = new FlowLayoutPanel();
-            Departmentcmb = new ComboBox();
-            Shortcutlbl = new Label();
-            Departmentlbl = new Label();
+            OutsideBodypnl = new Panel();
             expandpicbox = new PictureBox();
+            InnerBodypnl = new Panel();
             dashpnl = new Panel();
             Settingsbtn = new Button();
             DisplayBoardbtn = new Button();
@@ -52,9 +47,7 @@
             selectionpnl = new Panel();
             currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
-            Bodypnl.SuspendLayout();
-            OuterBorderpnl.SuspendLayout();
-            InnerBorderpnl.SuspendLayout();
+            OutsideBodypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
             dashpnl.SuspendLayout();
             Usernamepnl.SuspendLayout();
@@ -64,75 +57,15 @@
             manualTablepnl.SuspendLayout();
             SuspendLayout();
             // 
-            // Bodypnl
+            // OutsideBodypnl
             // 
-            Bodypnl.Controls.Add(OuterBorderpnl);
-            Bodypnl.Controls.Add(expandpicbox);
-            Bodypnl.Dock = DockStyle.Fill;
-            Bodypnl.Location = new Point(152, 3);
-            Bodypnl.Name = "Bodypnl";
-            Bodypnl.Size = new Size(1052, 606);
-            Bodypnl.TabIndex = 3;
-            // 
-            // OuterBorderpnl
-            // 
-            OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
-            OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(25, 70);
-            OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1001, 505);
-            OuterBorderpnl.TabIndex = 10;
-            // 
-            // InnerBorderpnl
-            // 
-            InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(HomepageImageflow);
-            InnerBorderpnl.Controls.Add(Departmentcmb);
-            InnerBorderpnl.Controls.Add(Shortcutlbl);
-            InnerBorderpnl.Controls.Add(Departmentlbl);
-            InnerBorderpnl.Location = new Point(6, 5);
-            InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(990, 494);
-            InnerBorderpnl.TabIndex = 11;
-            // 
-            // HomepageImageflow
-            // 
-            HomepageImageflow.Location = new Point(15, 48);
-            HomepageImageflow.Name = "HomepageImageflow";
-            HomepageImageflow.Size = new Size(960, 431);
-            HomepageImageflow.TabIndex = 13;
-            // 
-            // Departmentcmb
-            // 
-            Departmentcmb.Cursor = Cursors.Hand;
-            Departmentcmb.DropDownStyle = ComboBoxStyle.DropDownList;
-            Departmentcmb.FlatStyle = FlatStyle.Popup;
-            Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Departmentcmb.ForeColor = SystemColors.InfoText;
-            Departmentcmb.FormattingEnabled = true;
-            Departmentcmb.Location = new Point(837, 6);
-            Departmentcmb.Name = "Departmentcmb";
-            Departmentcmb.Size = new Size(147, 29);
-            Departmentcmb.TabIndex = 11;
-            Departmentcmb.SelectedIndexChanged += Departmentcmb_SelectedIndexChanged;
-            // 
-            // Shortcutlbl
-            // 
-            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(3, -1);
-            Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(573, 35);
-            Shortcutlbl.TabIndex = 11;
-            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
-            // 
-            // Departmentlbl
-            // 
-            Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Departmentlbl.Location = new Point(582, 11);
-            Departmentlbl.Name = "Departmentlbl";
-            Departmentlbl.Size = new Size(249, 24);
-            Departmentlbl.TabIndex = 12;
-            Departmentlbl.Text = "Select Your Departmental Area:\r\n";
+            OutsideBodypnl.Controls.Add(expandpicbox);
+            OutsideBodypnl.Controls.Add(InnerBodypnl);
+            OutsideBodypnl.Dock = DockStyle.Bottom;
+            OutsideBodypnl.Location = new Point(152, 3);
+            OutsideBodypnl.Name = "OutsideBodypnl";
+            OutsideBodypnl.Size = new Size(1052, 606);
+            OutsideBodypnl.TabIndex = 3;
             // 
             // expandpicbox
             // 
@@ -147,6 +80,14 @@
             expandpicbox.Click += expandpicbox_Click;
             expandpicbox.MouseEnter += enlargeImage;
             expandpicbox.MouseLeave += shrinkImage;
+            // 
+            // InnerBodypnl
+            // 
+            InnerBodypnl.Dock = DockStyle.Bottom;
+            InnerBodypnl.Location = new Point(0, -3);
+            InnerBodypnl.Name = "InnerBodypnl";
+            InnerBodypnl.Size = new Size(1052, 609);
+            InnerBodypnl.TabIndex = 5;
             // 
             // dashpnl
             // 
@@ -398,7 +339,7 @@
             manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.34466F));
             manualTablepnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.65534F));
             manualTablepnl.Controls.Add(dashpnl, 0, 0);
-            manualTablepnl.Controls.Add(Bodypnl, 1, 0);
+            manualTablepnl.Controls.Add(OutsideBodypnl, 1, 0);
             manualTablepnl.Dock = DockStyle.Fill;
             manualTablepnl.Location = new Point(0, 0);
             manualTablepnl.Name = "manualTablepnl";
@@ -418,9 +359,7 @@
             Name = "HomePage";
             Text = "Form1";
             Load += Form1_Load;
-            Bodypnl.ResumeLayout(false);
-            OuterBorderpnl.ResumeLayout(false);
-            InnerBorderpnl.ResumeLayout(false);
+            OutsideBodypnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)expandpicbox).EndInit();
             dashpnl.ResumeLayout(false);
             Usernamepnl.ResumeLayout(false);
@@ -437,7 +376,7 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private Panel Bodypnl;
+        private Panel OutsideBodypnl;
         private Panel dashpnl;
         private Button DisplayBoardbtn;
         private Button ManualInputbtn;
@@ -453,13 +392,8 @@
         private Panel selectionpnl;
         private Panel currentFormpnl;
         private TableLayoutPanel manualTablepnl;
-        private Panel OuterBorderpnl;
         private Button Settingsbtn;
-        private Panel InnerBorderpnl;
-        private Label Shortcutlbl;
-        private ComboBox Departmentcmb;
-        private Label Departmentlbl;
-        private FlowLayoutPanel HomepageImageflow;
         private PictureBox expandpicbox;
+        private Panel InnerBodypnl;
     }
 }

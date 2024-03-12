@@ -36,8 +36,7 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            currentPageHighlight();
+         
 
         }
 
@@ -226,66 +225,6 @@ namespace DigiScan_Track
                 }
             }
         }
-
-        private void currentPageHighlight()
-        {
-            string pageName = this.Name + "btn";
-            Button button = Controls.Find(pageName, true).FirstOrDefault() as Button;
-            selectionpnl.BringToFront();
-            selectionpnl.Height = button.Height;
-            selectionpnl.Top = button.Top;
-            selectionpnl.Left = button.Left;
-            button.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void hoverButton(object sender, EventArgs e)
-        {
-            Button hoverbtn = sender as Button;
-            selectionpnl.BringToFront();
-            selectionpnl.Height = hoverbtn.Height;
-            selectionpnl.Top = hoverbtn.Top;
-            selectionpnl.Left = hoverbtn.Left;
-            hoverbtn.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void unHoverButton(object sender, EventArgs e)
-        {
-            Button hoverbtn = sender as Button;
-            selectionpnl.SendToBack();
-            hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
-            currentPageHighlight();
-        }
-
-        private void enlargeImage(object sender, EventArgs e)
-        {
-            PictureBox picturebox = sender as PictureBox;
-            originalArrowWidth = picturebox.Width;
-            originalArrowHeight = picturebox.Height;
-            int newWidth = (int)(picturebox.Width * 1.1);
-            int newHeight = (int)(picturebox.Height * 1.1);
-            picturebox.Size = new Size(newWidth, newHeight);
-        }
-
-        private void shrinkImage(object sender, EventArgs e)
-        {
-            PictureBox picturebox = sender as PictureBox;
-            picturebox.Size = new Size(originalArrowWidth, originalArrowHeight);
-        }
-
-        private void collapsepicbox_Click(object sender, EventArgs e)
-        {
-            originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
-            manualTablepnl.ColumnStyles[0].Width = 0;
-
-            expandpicbox.Visible = true;
-        }
-
-        private void expandpicbox_Click(object sender, EventArgs e)
-        {
-            manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
-            expandpicbox.Visible = false;
-        }
-
 
     }
 }
