@@ -32,20 +32,20 @@
             expandpicbox = new PictureBox();
             InnerBodypnl = new Panel();
             dashpnl = new Panel();
-            currentFormpnl = new Panel();
             Settingsbtn = new Button();
             DisplayBoardbtn = new Button();
             ManualInputbtn = new Button();
             EditPartsbtn = new Button();
             AgedWIPbtn = new Button();
             WIPTrackerbtn = new Button();
-            HomePagebtn = new Button();
+            HomePageShortcutsbtn = new Button();
             Usernamepnl = new Panel();
             timePeriodlbl = new Label();
             collapsepicbox = new PictureBox();
             userimagepicbox = new PictureBox();
             usernamelbl = new Label();
             selectionpnl = new Panel();
+            currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
             Bodypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
@@ -61,17 +61,19 @@
             Bodypnl.Controls.Add(expandpicbox);
             Bodypnl.Controls.Add(InnerBodypnl);
             Bodypnl.Dock = DockStyle.Fill;
-            Bodypnl.Location = new Point(152, 3);
+            Bodypnl.Location = new Point(216, 5);
+            Bodypnl.Margin = new Padding(4, 5, 4, 5);
             Bodypnl.Name = "Bodypnl";
-            Bodypnl.Size = new Size(1052, 606);
+            Bodypnl.Size = new Size(1504, 1010);
             Bodypnl.TabIndex = 3;
             // 
             // expandpicbox
             // 
             expandpicbox.Image = Properties.Resources.output_onlinepngtools1;
-            expandpicbox.Location = new Point(3, 1);
+            expandpicbox.Location = new Point(4, 2);
+            expandpicbox.Margin = new Padding(4, 5, 4, 5);
             expandpicbox.Name = "expandpicbox";
-            expandpicbox.Size = new Size(26, 26);
+            expandpicbox.Size = new Size(37, 43);
             expandpicbox.SizeMode = PictureBoxSizeMode.StretchImage;
             expandpicbox.TabIndex = 4;
             expandpicbox.TabStop = false;
@@ -84,9 +86,11 @@
             // 
             InnerBodypnl.Dock = DockStyle.Fill;
             InnerBodypnl.Location = new Point(0, 0);
+            InnerBodypnl.Margin = new Padding(4, 5, 4, 5);
             InnerBodypnl.Name = "InnerBodypnl";
-            InnerBodypnl.Size = new Size(1052, 606);
+            InnerBodypnl.Size = new Size(1504, 1010);
             InnerBodypnl.TabIndex = 5;
+            InnerBodypnl.ControlAdded += InnerBodypnl_ControlAdded;
             // 
             // dashpnl
             // 
@@ -97,7 +101,7 @@
             dashpnl.Controls.Add(EditPartsbtn);
             dashpnl.Controls.Add(AgedWIPbtn);
             dashpnl.Controls.Add(WIPTrackerbtn);
-            dashpnl.Controls.Add(HomePagebtn);
+            dashpnl.Controls.Add(HomePageShortcutsbtn);
             dashpnl.Controls.Add(Usernamepnl);
             dashpnl.Controls.Add(selectionpnl);
             dashpnl.Controls.Add(currentFormpnl);
@@ -105,16 +109,8 @@
             dashpnl.Location = new Point(0, 0);
             dashpnl.Margin = new Padding(0);
             dashpnl.Name = "dashpnl";
-            dashpnl.Size = new Size(149, 612);
+            dashpnl.Size = new Size(212, 1020);
             dashpnl.TabIndex = 2;
-            // 
-            // currentFormpnl
-            // 
-            currentFormpnl.BackColor = Color.FromArgb(0, 126, 249);
-            currentFormpnl.Location = new Point(3, 159);
-            currentFormpnl.Name = "currentFormpnl";
-            currentFormpnl.Size = new Size(2, 40);
-            currentFormpnl.TabIndex = 6;
             // 
             // Settingsbtn
             // 
@@ -127,9 +123,10 @@
             Settingsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Settingsbtn.ForeColor = Color.FromArgb(0, 126, 249);
             Settingsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            Settingsbtn.Location = new Point(0, 572);
+            Settingsbtn.Location = new Point(0, 953);
+            Settingsbtn.Margin = new Padding(4, 5, 4, 5);
             Settingsbtn.Name = "Settingsbtn";
-            Settingsbtn.Size = new Size(149, 40);
+            Settingsbtn.Size = new Size(212, 67);
             Settingsbtn.TabIndex = 11;
             Settingsbtn.Text = "Settings";
             Settingsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -146,9 +143,10 @@
             DisplayBoardbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             DisplayBoardbtn.ForeColor = Color.FromArgb(0, 126, 249);
             DisplayBoardbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            DisplayBoardbtn.Location = new Point(0, 313);
+            DisplayBoardbtn.Location = new Point(0, 523);
+            DisplayBoardbtn.Margin = new Padding(4, 5, 4, 5);
             DisplayBoardbtn.Name = "DisplayBoardbtn";
-            DisplayBoardbtn.Size = new Size(149, 40);
+            DisplayBoardbtn.Size = new Size(212, 67);
             DisplayBoardbtn.TabIndex = 10;
             DisplayBoardbtn.Text = "Display Board";
             DisplayBoardbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -168,9 +166,10 @@
             ManualInputbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ManualInputbtn.ForeColor = Color.FromArgb(0, 126, 249);
             ManualInputbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ManualInputbtn.Location = new Point(0, 273);
+            ManualInputbtn.Location = new Point(0, 456);
+            ManualInputbtn.Margin = new Padding(4, 5, 4, 5);
             ManualInputbtn.Name = "ManualInputbtn";
-            ManualInputbtn.Size = new Size(149, 40);
+            ManualInputbtn.Size = new Size(212, 67);
             ManualInputbtn.TabIndex = 7;
             ManualInputbtn.Text = "Manual Input";
             ManualInputbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -190,9 +189,10 @@
             EditPartsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             EditPartsbtn.ForeColor = Color.FromArgb(0, 126, 249);
             EditPartsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            EditPartsbtn.Location = new Point(0, 233);
+            EditPartsbtn.Location = new Point(0, 389);
+            EditPartsbtn.Margin = new Padding(4, 5, 4, 5);
             EditPartsbtn.Name = "EditPartsbtn";
-            EditPartsbtn.Size = new Size(149, 40);
+            EditPartsbtn.Size = new Size(212, 67);
             EditPartsbtn.TabIndex = 6;
             EditPartsbtn.Text = "Edit Parts";
             EditPartsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -212,9 +212,10 @@
             AgedWIPbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AgedWIPbtn.ForeColor = Color.FromArgb(0, 126, 249);
             AgedWIPbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            AgedWIPbtn.Location = new Point(0, 193);
+            AgedWIPbtn.Location = new Point(0, 322);
+            AgedWIPbtn.Margin = new Padding(4, 5, 4, 5);
             AgedWIPbtn.Name = "AgedWIPbtn";
-            AgedWIPbtn.Size = new Size(149, 40);
+            AgedWIPbtn.Size = new Size(212, 67);
             AgedWIPbtn.TabIndex = 8;
             AgedWIPbtn.Text = "Aged WIP";
             AgedWIPbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -234,9 +235,10 @@
             WIPTrackerbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             WIPTrackerbtn.ForeColor = Color.FromArgb(0, 126, 249);
             WIPTrackerbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            WIPTrackerbtn.Location = new Point(0, 153);
+            WIPTrackerbtn.Location = new Point(0, 255);
+            WIPTrackerbtn.Margin = new Padding(4, 5, 4, 5);
             WIPTrackerbtn.Name = "WIPTrackerbtn";
-            WIPTrackerbtn.Size = new Size(149, 40);
+            WIPTrackerbtn.Size = new Size(212, 67);
             WIPTrackerbtn.TabIndex = 5;
             WIPTrackerbtn.Text = "WIP Tracker";
             WIPTrackerbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -245,27 +247,28 @@
             WIPTrackerbtn.MouseEnter += hoverButton;
             WIPTrackerbtn.MouseLeave += unHoverButton;
             // 
-            // HomePagebtn
+            // HomePageShortcutsbtn
             // 
-            HomePagebtn.BackgroundImageLayout = ImageLayout.Stretch;
-            HomePagebtn.Dock = DockStyle.Top;
-            HomePagebtn.FlatAppearance.BorderSize = 0;
-            HomePagebtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            HomePagebtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
-            HomePagebtn.FlatStyle = FlatStyle.Flat;
-            HomePagebtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            HomePagebtn.ForeColor = Color.FromArgb(0, 126, 249);
-            HomePagebtn.ImageAlign = ContentAlignment.MiddleLeft;
-            HomePagebtn.Location = new Point(0, 113);
-            HomePagebtn.Name = "HomePagebtn";
-            HomePagebtn.Size = new Size(149, 40);
-            HomePagebtn.TabIndex = 9;
-            HomePagebtn.Text = "Home Area";
-            HomePagebtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            HomePagebtn.UseVisualStyleBackColor = true;
-            HomePagebtn.Click += HomeAreabtn_Click;
-            HomePagebtn.MouseEnter += hoverButton;
-            HomePagebtn.MouseLeave += unHoverButton;
+            HomePageShortcutsbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            HomePageShortcutsbtn.Dock = DockStyle.Top;
+            HomePageShortcutsbtn.FlatAppearance.BorderSize = 0;
+            HomePageShortcutsbtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            HomePageShortcutsbtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
+            HomePageShortcutsbtn.FlatStyle = FlatStyle.Flat;
+            HomePageShortcutsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            HomePageShortcutsbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            HomePageShortcutsbtn.ImageAlign = ContentAlignment.MiddleLeft;
+            HomePageShortcutsbtn.Location = new Point(0, 188);
+            HomePageShortcutsbtn.Margin = new Padding(4, 5, 4, 5);
+            HomePageShortcutsbtn.Name = "HomePageShortcutsbtn";
+            HomePageShortcutsbtn.Size = new Size(212, 67);
+            HomePageShortcutsbtn.TabIndex = 9;
+            HomePageShortcutsbtn.Text = "Home Area";
+            HomePageShortcutsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            HomePageShortcutsbtn.UseVisualStyleBackColor = true;
+            HomePageShortcutsbtn.Click += HomeAreabtn_Click;
+            HomePageShortcutsbtn.MouseEnter += hoverButton;
+            HomePageShortcutsbtn.MouseLeave += unHoverButton;
             // 
             // Usernamepnl
             // 
@@ -275,8 +278,9 @@
             Usernamepnl.Controls.Add(usernamelbl);
             Usernamepnl.Dock = DockStyle.Top;
             Usernamepnl.Location = new Point(0, 0);
+            Usernamepnl.Margin = new Padding(4, 5, 4, 5);
             Usernamepnl.Name = "Usernamepnl";
-            Usernamepnl.Size = new Size(149, 113);
+            Usernamepnl.Size = new Size(212, 188);
             Usernamepnl.TabIndex = 4;
             // 
             // timePeriodlbl
@@ -284,18 +288,20 @@
             timePeriodlbl.AutoSize = true;
             timePeriodlbl.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
             timePeriodlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timePeriodlbl.Location = new Point(1, 98);
+            timePeriodlbl.Location = new Point(1, 163);
+            timePeriodlbl.Margin = new Padding(4, 0, 4, 0);
             timePeriodlbl.Name = "timePeriodlbl";
-            timePeriodlbl.Size = new Size(67, 12);
+            timePeriodlbl.Size = new Size(104, 17);
             timePeriodlbl.TabIndex = 8;
             timePeriodlbl.Text = "Current Period:";
             // 
             // collapsepicbox
             // 
             collapsepicbox.Image = Properties.Resources.output_onlinepngtools1;
-            collapsepicbox.Location = new Point(117, 4);
+            collapsepicbox.Location = new Point(167, 7);
+            collapsepicbox.Margin = new Padding(4, 5, 4, 5);
             collapsepicbox.Name = "collapsepicbox";
-            collapsepicbox.Size = new Size(24, 26);
+            collapsepicbox.Size = new Size(34, 43);
             collapsepicbox.SizeMode = PictureBoxSizeMode.StretchImage;
             collapsepicbox.TabIndex = 7;
             collapsepicbox.TabStop = false;
@@ -306,9 +312,10 @@
             // userimagepicbox
             // 
             userimagepicbox.Image = Properties.Resources.output_onlinepngtools__2_;
-            userimagepicbox.Location = new Point(45, 7);
+            userimagepicbox.Location = new Point(64, 12);
+            userimagepicbox.Margin = new Padding(4, 5, 4, 5);
             userimagepicbox.Name = "userimagepicbox";
-            userimagepicbox.Size = new Size(63, 63);
+            userimagepicbox.Size = new Size(90, 105);
             userimagepicbox.SizeMode = PictureBoxSizeMode.StretchImage;
             userimagepicbox.TabIndex = 5;
             userimagepicbox.TabStop = false;
@@ -318,19 +325,30 @@
             usernamelbl.AutoSize = true;
             usernamelbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             usernamelbl.ForeColor = Color.FromArgb(0, 126, 249);
-            usernamelbl.Location = new Point(29, 73);
+            usernamelbl.Location = new Point(41, 122);
+            usernamelbl.Margin = new Padding(4, 0, 4, 0);
             usernamelbl.Name = "usernamelbl";
-            usernamelbl.Size = new Size(93, 18);
+            usernamelbl.Size = new Size(144, 29);
             usernamelbl.TabIndex = 6;
             usernamelbl.Text = "User Name";
             // 
             // selectionpnl
             // 
             selectionpnl.BackColor = Color.FromArgb(0, 126, 249);
-            selectionpnl.Location = new Point(12, 169);
+            selectionpnl.Location = new Point(17, 282);
+            selectionpnl.Margin = new Padding(4, 5, 4, 5);
             selectionpnl.Name = "selectionpnl";
-            selectionpnl.Size = new Size(2, 40);
+            selectionpnl.Size = new Size(3, 67);
             selectionpnl.TabIndex = 5;
+            // 
+            // currentFormpnl
+            // 
+            currentFormpnl.BackColor = Color.FromArgb(0, 126, 249);
+            currentFormpnl.Location = new Point(4, 265);
+            currentFormpnl.Margin = new Padding(4, 5, 4, 5);
+            currentFormpnl.Name = "currentFormpnl";
+            currentFormpnl.Size = new Size(3, 67);
+            currentFormpnl.TabIndex = 6;
             // 
             // manualTablepnl
             // 
@@ -341,20 +359,22 @@
             manualTablepnl.Controls.Add(Bodypnl, 1, 0);
             manualTablepnl.Dock = DockStyle.Fill;
             manualTablepnl.Location = new Point(0, 0);
+            manualTablepnl.Margin = new Padding(4, 5, 4, 5);
             manualTablepnl.Name = "manualTablepnl";
             manualTablepnl.RowCount = 1;
             manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            manualTablepnl.Size = new Size(1207, 612);
+            manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
+            manualTablepnl.Size = new Size(1724, 1020);
             manualTablepnl.TabIndex = 1;
             // 
             // HomePage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1207, 612);
+            ClientSize = new Size(1724, 1020);
             Controls.Add(manualTablepnl);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "HomePage";
             Text = "Form1";
             Load += Form1_Load;
@@ -377,21 +397,21 @@
         private Panel Bodypnl;
         private Panel dashpnl;
         private Button DisplayBoardbtn;
-        private Button ManualInputbtn;
-        private Button EditPartsbtn;
         private Button AgedWIPbtn;
         private Button WIPTrackerbtn;
-        private Button HomePagebtn;
         private Panel Usernamepnl;
         private Label timePeriodlbl;
         private PictureBox userimagepicbox;
         private Label usernamelbl;
         private PictureBox collapsepicbox;
         private Panel selectionpnl;
-        private Panel currentFormpnl;
         private TableLayoutPanel manualTablepnl;
         private Button Settingsbtn;
         private PictureBox expandpicbox;
-        private Panel InnerBodypnl;
+        public Button HomePageShortcutsbtn;
+        public Button EditPartsbtn;
+        public Button ManualInputbtn;
+        public Panel InnerBodypnl;
+        public Panel currentFormpnl;
     }
 }

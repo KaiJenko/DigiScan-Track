@@ -63,16 +63,6 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3D_Modelling {
-            get {
-                object obj = ResourceManager.GetObject("3D Modelling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Bevelling {
             get {
                 object obj = ResourceManager.GetObject("Bevelling", resourceCulture);
@@ -156,6 +146,16 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap keyboard {
             get {
                 object obj = ResourceManager.GetObject("keyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modelling {
+            get {
+                object obj = ResourceManager.GetObject("Modelling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

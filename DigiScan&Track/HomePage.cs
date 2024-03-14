@@ -26,6 +26,11 @@ namespace DigiScan_Track
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = HomePageShortcutsbtn.Height;
+            currentFormpnl.Top = HomePageShortcutsbtn.Top;
+            currentFormpnl.Left = HomePageShortcutsbtn.Left;
+            HomePageShortcutsbtn.BackColor = Color.FromArgb(46, 51, 73);
             this.InnerBodypnl.Controls.Clear();
             HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
@@ -48,16 +53,16 @@ namespace DigiScan_Track
             }
         }
 
-        private void HomeAreabtn_Click(object sender, EventArgs e)
+        public void HomeAreabtn_Click(object sender, EventArgs e)
         {
             buttonColour();
             this.InnerBodypnl.Controls.Clear();
 
             currentFormpnl.BringToFront();
-            currentFormpnl.Height = HomePagebtn.Height;
-            currentFormpnl.Top = HomePagebtn.Top;
-            currentFormpnl.Left = HomePagebtn.Left;
-            HomePagebtn.BackColor = Color.FromArgb(46, 51, 73);
+            currentFormpnl.Height = HomePageShortcutsbtn.Height;
+            currentFormpnl.Top = HomePageShortcutsbtn.Top;
+            currentFormpnl.Left = HomePageShortcutsbtn.Left;
+            HomePageShortcutsbtn.BackColor = Color.FromArgb(46, 51, 73);
 
 
             HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -114,7 +119,7 @@ namespace DigiScan_Track
             editparts.Show();
         }
 
-        private void ManualInputbtn_Click(object sender, EventArgs e)
+        public void ManualInputbtn_Click(object sender, EventArgs e)
         {
             buttonColour();
             currentFormpnl.BringToFront();
@@ -128,6 +133,7 @@ namespace DigiScan_Track
             manualinput.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(manualinput);
             manualinput.Show();
+            MessageBox.Show("Hi there");
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
@@ -202,7 +208,7 @@ namespace DigiScan_Track
             }
         }
 
-        private void buttonColour()
+        public void buttonColour()
         {
             foreach (Control control in dashpnl.Controls)
             {
@@ -244,6 +250,24 @@ namespace DigiScan_Track
             expandpicbox.Visible = false;
         }
 
-
+        public void InnerBodypnl_ControlAdded(object sender, ControlEventArgs e)
+        {
+            foreach (Control controls in InnerBodypnl.Controls)
+            {
+                if (controls is Form form)
+                {
+                    string formname = form.GetType().Name;
+                    /*MessageBox.Show(formname);*/
+                    buttonColour();
+                    currentFormpnl.BringToFront();
+                    string buttonname = formname + "btn";
+                    Button button = this.Controls.Find(buttonname, true).FirstOrDefault() as Button;
+                    currentFormpnl.Height = button.Height;
+                    currentFormpnl.Top = button.Top;
+                    currentFormpnl.Left = button.Left;
+                    button.BackColor = Color.FromArgb(46, 51, 73);
+                }
+            }
+        }
     }
 }

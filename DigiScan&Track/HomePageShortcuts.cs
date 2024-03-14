@@ -6,6 +6,9 @@ namespace DigiScan_Track
     public partial class HomePageShortcuts : Form
     {
 
+
+        private HomePage parentForm;
+
         SqlConnection conn = new SqlConnection();
 
         public HomePageShortcuts()
@@ -14,8 +17,13 @@ namespace DigiScan_Track
             /*getSQLHomepage();*/
             loadDepartmentcmb();
 
+
         }
 
+        public void SetParentForm(HomePage parent)
+        {
+            parentForm = parent;
+        }
 
         /*private void getSQLHomepage()
         {
@@ -49,6 +57,8 @@ namespace DigiScan_Track
                 Departmentcmb.Items.Add(dr["Department"].ToString());
             }
             conn.Close();
+            Departmentcmb.SelectedItem = Departmentcmb.Items[0].ToString();
+
         }
 
         private void Departmentcmb_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,20 +81,20 @@ namespace DigiScan_Track
 
             string[] gearsImages =
             {
-                "3D Modelling",
                 "Bevelling",
                 "Etching",
                 "Precision",
                 "Production",
+                "Modelling",
                 "Shim Grinding"
             };
 
             // Calculate the size of each PictureBox
-            int pictureBoxWidth = 250; // Adjust the size as needed
-            int pictureBoxHeight = 160; // Adjust the size as needed
+            int pictureBoxWidth = 250;
+            int pictureBoxHeight = 160;
             int MilitaryLength = militaryImages.Length;
             int NacellesLength = nacellesImages.Length;
-            int GearsLength= gearsImages.Length;
+            int GearsLength = gearsImages.Length;
             int flowLayoutPanelWidth = HomepageImageflow.ClientSize.Width;
 
             // Calculate the total width occupied by the PictureBoxes (excluding margins)
@@ -124,20 +134,49 @@ namespace DigiScan_Track
             }
         }
 
-        private void PictureBox_Click(object sender, EventArgs e)
+        private void PartsButtonClicked(object sender, EventArgs e)
         {
-            if (sender is Label clickedPictureBox)
+            Button clickedButton = sender as Button;
+
+            if (clickedButton.Text == "Input Part")
             {
 
+
+                if (Application.OpenForms["Homepage"] is HomePage homepageForm)
+                {
+
+
+                    ManualInput newForm = new ManualInput();
+
+                    // Set properties to allow embedding within another form
+                    newForm.TopLevel = false;
+                    newForm.Dock = DockStyle.Fill;
+
+                    // Clear the controls of the panel
+                    homepageForm.InnerBodypnl.Controls.Clear();
+
+                    // Add the new form to the panel's controls collection
+                    homepageForm.InnerBodypnl.Controls.Add(newForm);
+
+                    // Show the new form
+                    newForm.Show();
+                 
+                   
+
+                    
+                }
             }
+
+
+            /*MessageBox.Show(" " + clickedButton.Name.ToString());*/
         }
 
         private void createshortcuts(int width, int height, string image, int spacing)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(image);
-            pictureBox.Size = new Size(width, height); // Adjust the size as needed
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Adjust the size mode as needed
+            pictureBox.Size = new Size(width, height);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.Margin = new Padding(spacing + 60, 30, spacing, 30);
 
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
@@ -149,19 +188,21 @@ namespace DigiScan_Track
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
 
             Label title = new Label();
-            title.Text = image; // Set the text you want to display
-            title.Font = new Font("Arial", 12, FontStyle.Bold); // Set the font (you can adjust the font size and style as needed)
-            title.ForeColor = Color.White; // Set the text color
-            title.BackColor = Color.FromArgb(20, Color.Black); // Set the background color with transparency
+            title.Text = image;
+            title.Font = new Font("Arial", 12, FontStyle.Bold);
+            title.ForeColor = Color.White;
+            title.BackColor = Color.FromArgb(20, Color.Black);
             title.AutoSize = false;
-            title.TextAlign = ContentAlignment.MiddleCenter; // Center the text
+            title.TextAlign = ContentAlignment.MiddleCenter;
 
             Button partInput = new Button();
             partInput.Text = "Input Part";
-            partInput.ForeColor = Color.Black; // Set the text color
+            partInput.Name = image;
+            partInput.ForeColor = Color.Black;
             partInput.AutoSize = false;
-            partInput.TextAlign = ContentAlignment.MiddleCenter; // Center the text 
+            partInput.TextAlign = ContentAlignment.MiddleCenter;
             partInput.Size = new Size(100, 23);
+            partInput.Click += PartsButtonClicked;
 
             Button tableView = new Button();
             tableView.Text = "View Parts";
@@ -191,43 +232,5 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-        private void HomeAreabtn_Click(object sender, EventArgs e)
-        {
-            HomePage homepage = new HomePage(); //Create a new instance of the homepage to be called upon
-            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
-        }
-
-        private void WIPTrackerbtn_Click(object sender, EventArgs e)
-        {
-            WIPTracker wiptracker = new WIPTracker();
-            HeaderButton(wiptracker, this, this.WindowState);
-        }
-
-        private void AgedWIPbtn_Click(object sender, EventArgs e)
-        {
-            AgedWIP agedwip = new AgedWIP();
-            HeaderButton(agedwip, this, this.WindowState);
-        }
-
-        private void EditPartsbtn_Click(object sender, EventArgs e)
-        {
-            EditParts editparts = new EditParts();
-            HeaderButton(editparts, this, this.WindowState);
-        }
-
-        private void ManualInputbtn_Click(object sender, EventArgs e)
-        {
-            HomePageShortcuts manualinput = new HomePageShortcuts();
-            HeaderButton(manualinput, this, this.WindowState);
-        }
-
-        private void DisplayBoardbtn_Click(object sender, EventArgs e)
-        {
-            DisplayBoard displayboard = new DisplayBoard();
-            HeaderButton(displayboard, this, this.WindowState);
-        }
-
-
     }
 }

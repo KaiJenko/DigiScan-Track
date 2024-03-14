@@ -28,56 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Shortcutlbl = new Label();
             OuterBorderpnl = new Panel();
-            InnerBorderpnl = new Panel();
-            HomepageImageflow = new FlowLayoutPanel();
-            Departmentcmb = new ComboBox();
-            Departmentlbl = new Label();
             Titlelbl = new Label();
+            Departmentlbl = new Label();
+            Shortcutlbl = new Label();
+            Departmentcmb = new ComboBox();
+            HomepageImageflow = new FlowLayoutPanel();
+            InnerBorderpnl = new Panel();
+            panel1 = new Panel();
             OuterBorderpnl.SuspendLayout();
             InnerBorderpnl.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // Shortcutlbl
-            // 
-            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Shortcutlbl.Location = new Point(15, 6);
-            Shortcutlbl.Name = "Shortcutlbl";
-            Shortcutlbl.Size = new Size(573, 35);
-            Shortcutlbl.TabIndex = 11;
-            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
             // 
             // OuterBorderpnl
             // 
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(16, 69);
+            OuterBorderpnl.Location = new Point(23, 115);
+            OuterBorderpnl.Margin = new Padding(4, 5, 4, 5);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1020, 528);
+            OuterBorderpnl.Size = new Size(1457, 880);
             OuterBorderpnl.TabIndex = 11;
             // 
-            // InnerBorderpnl
+            // Titlelbl
             // 
-            InnerBorderpnl.Anchor = AnchorStyles.None;
-            InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(HomepageImageflow);
-            InnerBorderpnl.Controls.Add(Departmentcmb);
-            InnerBorderpnl.Controls.Add(Shortcutlbl);
-            InnerBorderpnl.Controls.Add(Departmentlbl);
-            InnerBorderpnl.Location = new Point(4, 3);
-            InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1013, 522);
-            InnerBorderpnl.TabIndex = 11;
+            Titlelbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Titlelbl.AutoSize = true;
+            Titlelbl.BackColor = Color.Transparent;
+            Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            Titlelbl.ForeColor = Color.White;
+            Titlelbl.Location = new Point(200, 17);
+            Titlelbl.Margin = new Padding(4, 0, 4, 0);
+            Titlelbl.Name = "Titlelbl";
+            Titlelbl.Size = new Size(1150, 70);
+            Titlelbl.TabIndex = 12;
+            Titlelbl.Text = "DigiScan && Track - Shortcuts\r\n";
+            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // HomepageImageflow
+            // Departmentlbl
             // 
-            HomepageImageflow.Anchor = AnchorStyles.None;
-            HomepageImageflow.Location = new Point(19, 46);
-            HomepageImageflow.Name = "HomepageImageflow";
-            HomepageImageflow.Size = new Size(981, 460);
-            HomepageImageflow.TabIndex = 13;
+            Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Departmentlbl.Location = new Point(849, 23);
+            Departmentlbl.Margin = new Padding(4, 0, 4, 0);
+            Departmentlbl.Name = "Departmentlbl";
+            Departmentlbl.Size = new Size(356, 40);
+            Departmentlbl.TabIndex = 12;
+            Departmentlbl.Text = "Select Your Departmental Area:\r\n";
+            // 
+            // Shortcutlbl
+            // 
+            Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            Shortcutlbl.Location = new Point(21, 10);
+            Shortcutlbl.Margin = new Padding(4, 0, 4, 0);
+            Shortcutlbl.Name = "Shortcutlbl";
+            Shortcutlbl.Size = new Size(819, 58);
+            Shortcutlbl.TabIndex = 11;
+            Shortcutlbl.Text = "Select Shortcut to be taken to apropriate page";
             // 
             // Departmentcmb
             // 
@@ -87,51 +95,63 @@
             Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Departmentcmb.ForeColor = SystemColors.InfoText;
             Departmentcmb.FormattingEnabled = true;
-            Departmentcmb.Location = new Point(849, 9);
+            Departmentcmb.Location = new Point(1213, 15);
+            Departmentcmb.Margin = new Padding(4, 5, 4, 5);
             Departmentcmb.Name = "Departmentcmb";
-            Departmentcmb.Size = new Size(147, 29);
+            Departmentcmb.Size = new Size(208, 40);
             Departmentcmb.TabIndex = 11;
             Departmentcmb.SelectedIndexChanged += Departmentcmb_SelectedIndexChanged;
             // 
-            // Departmentlbl
+            // HomepageImageflow
             // 
-            Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Departmentlbl.Location = new Point(594, 14);
-            Departmentlbl.Name = "Departmentlbl";
-            Departmentlbl.Size = new Size(249, 24);
-            Departmentlbl.TabIndex = 12;
-            Departmentlbl.Text = "Select Your Departmental Area:\r\n";
+            HomepageImageflow.Anchor = AnchorStyles.None;
+            HomepageImageflow.Location = new Point(27, 77);
+            HomepageImageflow.Margin = new Padding(4, 5, 4, 5);
+            HomepageImageflow.Name = "HomepageImageflow";
+            HomepageImageflow.Size = new Size(1401, 767);
+            HomepageImageflow.TabIndex = 13;
             // 
-            // Titlelbl
+            // InnerBorderpnl
             // 
-            Titlelbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Titlelbl.AutoSize = true;
-            Titlelbl.BackColor = Color.Transparent;
-            Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
-            Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(140, 10);
-            Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(776, 47);
-            Titlelbl.TabIndex = 12;
-            Titlelbl.Text = "DigiScan && Track - Shortcuts\r\n";
-            Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
+            InnerBorderpnl.Anchor = AnchorStyles.None;
+            InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(HomepageImageflow);
+            InnerBorderpnl.Controls.Add(Departmentcmb);
+            InnerBorderpnl.Controls.Add(Shortcutlbl);
+            InnerBorderpnl.Controls.Add(Departmentlbl);
+            InnerBorderpnl.Location = new Point(6, 5);
+            InnerBorderpnl.Margin = new Padding(4, 5, 4, 5);
+            InnerBorderpnl.Name = "InnerBorderpnl";
+            InnerBorderpnl.Size = new Size(1447, 870);
+            InnerBorderpnl.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(OuterBorderpnl);
+            panel1.Controls.Add(Titlelbl);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1503, 1015);
+            panel1.TabIndex = 13;
             // 
             // HomePageShortcuts
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
-            Controls.Add(OuterBorderpnl);
-            Controls.Add(Titlelbl);
+            ClientSize = new Size(1503, 1015);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "HomePageShortcuts";
             Text = "Form1";
             Load += Form1_Load;
             OuterBorderpnl.ResumeLayout(false);
             InnerBorderpnl.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -139,12 +159,13 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private Label Shortcutlbl;
         private Panel OuterBorderpnl;
+        private Label Titlelbl;
         private Panel InnerBorderpnl;
         private FlowLayoutPanel HomepageImageflow;
         private ComboBox Departmentcmb;
+        private Label Shortcutlbl;
         private Label Departmentlbl;
-        private Label Titlelbl;
+        private Panel panel1;
     }
 }
