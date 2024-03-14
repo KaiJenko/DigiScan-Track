@@ -149,7 +149,7 @@ namespace DigiScan_Track
 
         private void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            ManualInput manualinput = new ManualInput();
+            ManualInput manualinput = new ManualInput(null);
             HeaderButton(manualinput, this, this.WindowState);
         }
 

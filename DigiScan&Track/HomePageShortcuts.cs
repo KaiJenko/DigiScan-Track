@@ -144,7 +144,7 @@ namespace DigiScan_Track
                 if (Application.OpenForms["Homepage"] is HomePage homepage)
                 {
   
-                    string departmentName = clickedButton.Name.ToString();
+                    string departmentName = Departmentcmb.Text;
 
                     ManualInput newForm = new ManualInput(departmentName);
 

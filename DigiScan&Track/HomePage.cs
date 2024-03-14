@@ -133,7 +133,6 @@ namespace DigiScan_Track
             manualinput.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(manualinput);
             manualinput.Show();
-            MessageBox.Show("Hi there");
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
