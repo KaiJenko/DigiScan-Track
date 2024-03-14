@@ -8,11 +8,11 @@ namespace DigiScan_Track
 
         SqlConnection conn = new SqlConnection();
 
-        public ManualInput()
+        public ManualInput(string departmentName)
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-
+            insertDepartment(departmentName);
         }
 
 
@@ -32,7 +32,7 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void submitbtn_Click(object sender, EventArgs e)
@@ -151,6 +151,11 @@ namespace DigiScan_Track
                 nocheckbox.Checked = true;
                 timestamptxt.Enabled = false;
             }
+        }
+
+        private void insertDepartment(string department) 
+        { 
+            
         }
 
 

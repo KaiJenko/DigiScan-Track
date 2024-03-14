@@ -1,5 +1,5 @@
 using System.Data.SqlClient;
-
+using System.Xml.Serialization;
 
 namespace DigiScan_Track
 {
@@ -134,40 +134,41 @@ namespace DigiScan_Track
             }
         }
 
-        private void PartsButtonClicked(object sender, EventArgs e)
+        private void ButtonClicked(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
 
             if (clickedButton.Text == "Input Part")
             {
 
-
-                if (Application.OpenForms["Homepage"] is HomePage homepageForm)
+                if (Application.OpenForms["Homepage"] is HomePage homepage)
                 {
+  
+                    string departmentName = clickedButton.Name.ToString();
 
+                    ManualInput newForm = new ManualInput(departmentName);
 
-                    ManualInput newForm = new ManualInput();
-
-                    // Set properties to allow embedding within another form
                     newForm.TopLevel = false;
                     newForm.Dock = DockStyle.Fill;
-
-                    // Clear the controls of the panel
-                    homepageForm.InnerBodypnl.Controls.Clear();
-
-                    // Add the new form to the panel's controls collection
-                    homepageForm.InnerBodypnl.Controls.Add(newForm);
-
-                    // Show the new form
+                    homepage.InnerBodypnl.Controls.Clear();
+                    homepage.InnerBodypnl.Controls.Add(newForm);
                     newForm.Show();
-                 
-                   
-
-                    
                 }
             }
 
+            if (clickedButton.Text == "View Parts")
+            {
+                if (Application.OpenForms["Homepage"] is HomePage homepage)
+                {
+                    WIPTracker WIP = new WIPTracker();
 
+                    WIP.TopLevel = false;
+                    WIP.Dock = DockStyle.Fill;
+                    homepage.InnerBodypnl.Controls.Clear();
+                    homepage.InnerBodypnl.Controls.Add(WIP);
+                    WIP.Show();
+                }
+            }
             /*MessageBox.Show(" " + clickedButton.Name.ToString());*/
         }
 
@@ -202,7 +203,7 @@ namespace DigiScan_Track
             partInput.AutoSize = false;
             partInput.TextAlign = ContentAlignment.MiddleCenter;
             partInput.Size = new Size(100, 23);
-            partInput.Click += PartsButtonClicked;
+            partInput.Click += ButtonClicked;
 
             Button tableView = new Button();
             tableView.Text = "View Parts";
@@ -210,6 +211,7 @@ namespace DigiScan_Track
             tableView.AutoSize = false;
             tableView.TextAlign = ContentAlignment.MiddleCenter; // Center the text
             tableView.Size = new Size(100, 23);
+            tableView.Click += ButtonClicked;
 
             tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
