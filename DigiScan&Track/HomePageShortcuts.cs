@@ -145,8 +145,9 @@ namespace DigiScan_Track
                 {
   
                     string departmentName = Departmentcmb.Text;
+                    string workstation = clickedButton.Name.ToString();
 
-                    ManualInput newForm = new ManualInput(departmentName);
+                    ManualInput newForm = new ManualInput(departmentName, workstation);
 
                     newForm.TopLevel = false;
                     newForm.Dock = DockStyle.Fill;

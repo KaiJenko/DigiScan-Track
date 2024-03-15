@@ -60,41 +60,5 @@ namespace DigiScan_Track
             }
         }
 
-        private void HomeAreabtn_Click(object sender, EventArgs e)
-        {
-            EditParts homepage = new EditParts(); //Create a new instance of the homepage to be called upon
-            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
-        }
-
-        private void WIPTrackerbtn_Click(object sender, EventArgs e)
-        {
-            WIPTracker wiptracker = new WIPTracker();
-            HeaderButton(wiptracker, this, this.WindowState);
-        }
-
-        private void AgedWIPbtn_Click(object sender, EventArgs e)
-        {
-            AgedWIP agedwip = new AgedWIP();
-            HeaderButton(agedwip, this, this.WindowState);
-        }
-
-        private void EditPartsbtn_Click(object sender, EventArgs e)
-        {
-            EditParts editparts = new EditParts();
-            HeaderButton(editparts, this, this.WindowState);
-        }
-
-        private void ManualInputbtn_Click(object sender, EventArgs e)
-        {
-            ManualInput manualinput = new ManualInput(null);
-            HeaderButton(manualinput, this, this.WindowState);
-        }
-
-        private void DisplayBoardbtn_Click(object sender, EventArgs e)
-        {
-            DisplayBoard displayboard = new DisplayBoard();
-            HeaderButton(displayboard, this, this.WindowState);
-        }
-
     }
 }

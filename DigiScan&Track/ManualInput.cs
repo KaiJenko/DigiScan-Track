@@ -8,11 +8,11 @@ namespace DigiScan_Track
 
         SqlConnection conn = new SqlConnection();
 
-        public ManualInput(string departmentName)
+        public ManualInput(string departmentName, string workstation)
         {
             InitializeComponent();
             /*getSQLHomepage();*/
-            insertDepartment(departmentName);
+            insertDepartment(departmentName, workstation);
         }
 
 
@@ -32,7 +32,7 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void submitbtn_Click(object sender, EventArgs e)
@@ -153,19 +153,38 @@ namespace DigiScan_Track
             }
         }
 
-        private void insertDepartment(string department) 
-        { 
+        private void insertDepartment(string department, string workstation)
+        {
             if (department != null)
             {
                 int departmentIndex = departmentcmbox.FindString(department);
                 departmentcmbox.SelectedIndex = departmentIndex;
+                loadDetails(department);
+                int workstationIndex = workstationcmbox.FindString(workstation);
+                workstationcmbox.SelectedIndex = workstationIndex;
 
             }
 
             else
             {
                 departmentcmbox.SelectedIndex = -1;
+                workstationcmbox.SelectedIndex = -1;
             }
+
+        }
+
+        private void loadDetails(string chosenDepartment)
+        {
+            string[] departmentList = { "Nacelles", "Gears", "Military" };
+            string[,] workstations = { { "", "", "", "", "", "" }, { "Bevelling", "Etching", "Precision", "Production", "Modelling", "Shim Grinding" }, { "GLMRS", "Shipping", "HMO", "GPS", "", "" } };
+
+            int index = Array.IndexOf(departmentList, chosenDepartment);
+
+            for (int i = 0; i < workstations.GetLength(index); i++)
+            {
+                workstationcmbox.Items.Add(workstations[index, i]);
+            }
+
 
         }
 
@@ -181,42 +200,5 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-        private void HomeAreabtn_Click(object sender, EventArgs e)
-        {
-            HomePageShortcuts homepage = new HomePageShortcuts(); //Create a new instance of the homepage to be called upon
-            HeaderButton(homepage, this, this.WindowState); //open homepage, close this form, make the homepage windowstate match the current forms
-        }
-
-        private void WIPTrackerbtn_Click(object sender, EventArgs e)
-        {
-            WIPTracker wiptracker = new WIPTracker();
-            HeaderButton(wiptracker, this, this.WindowState);
-        }
-
-        private void AgedWIPbtn_Click(object sender, EventArgs e)
-        {
-            AgedWIP agedwip = new AgedWIP();
-            HeaderButton(agedwip, this, this.WindowState);
-        }
-
-        private void EditPartsbtn_Click(object sender, EventArgs e)
-        {
-            EditParts editparts = new EditParts();
-            HeaderButton(editparts, this, this.WindowState);
-        }
-
-        private void ManualInputbtn_Click(object sender, EventArgs e)
-        {
-            ManualInput manualinput = new ManualInput(null);
-            HeaderButton(manualinput, this, this.WindowState);
-        }
-
-        private void DisplayBoardbtn_Click(object sender, EventArgs e)
-        {
-            DisplayBoard displayboard = new DisplayBoard();
-            HeaderButton(displayboard, this, this.WindowState);
-        }
-
     }
 }

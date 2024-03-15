@@ -30,31 +30,33 @@
         {
             ManualInputlbl = new Label();
             BodyLayoutpnl = new Panel();
-            partNumberlbl = new Label();
-            partNumcmbox = new ComboBox();
-            serialNumlbl = new Label();
-            serialNumtxt = new TextBox();
-            batchNumlbl = new Label();
-            batchNumtxt = new TextBox();
-            lineManagerlbl = new Label();
-            lineManagertxt = new TextBox();
-            departmentlbl = new Label();
-            departmentcmbox = new ComboBox();
-            workstationlbl = new Label();
-            workstationcmbox = new ComboBox();
-            timestamplbl = new Label();
-            yescheckbox = new CheckBox();
-            nocheckbox = new CheckBox();
-            inputTimestamplbl = new Label();
-            reasonlbl = new Label();
-            reasontxt = new TextBox();
-            noteslbl = new Label();
-            notestxt = new TextBox();
-            submitbtn = new Button();
-            resetbtn = new Button();
             timestamptxt = new DateTimePicker();
+            resetbtn = new Button();
+            submitbtn = new Button();
+            notestxt = new TextBox();
+            noteslbl = new Label();
+            reasontxt = new TextBox();
+            reasonlbl = new Label();
+            inputTimestamplbl = new Label();
+            nocheckbox = new CheckBox();
+            yescheckbox = new CheckBox();
+            timestamplbl = new Label();
+            workstationcmbox = new ComboBox();
+            departmentcmbox = new ComboBox();
+            lineManagertxt = new TextBox();
+            lineManagerlbl = new Label();
+            batchNumtxt = new TextBox();
+            batchNumlbl = new Label();
+            serialNumtxt = new TextBox();
+            serialNumlbl = new Label();
+            partNumcmbox = new ComboBox();
+            panel1 = new Panel();
+            workstationlbl = new Label();
+            partNumberlbl = new Label();
+            departmentlbl = new Label();
             Borderpnl = new Panel();
             BodyLayoutpnl.SuspendLayout();
+            panel1.SuspendLayout();
             Borderpnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,9 +66,10 @@
             ManualInputlbl.BackColor = Color.Transparent;
             ManualInputlbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             ManualInputlbl.ForeColor = Color.White;
-            ManualInputlbl.Location = new Point(117, 10);
+            ManualInputlbl.Location = new Point(167, 17);
+            ManualInputlbl.Margin = new Padding(4, 0, 4, 0);
             ManualInputlbl.Name = "ManualInputlbl";
-            ManualInputlbl.Size = new Size(857, 47);
+            ManualInputlbl.Size = new Size(1270, 70);
             ManualInputlbl.TabIndex = 11;
             ManualInputlbl.Text = "DigiScan && Track - Manual Input";
             ManualInputlbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -86,9 +89,7 @@
             BodyLayoutpnl.Controls.Add(yescheckbox);
             BodyLayoutpnl.Controls.Add(timestamplbl);
             BodyLayoutpnl.Controls.Add(workstationcmbox);
-            BodyLayoutpnl.Controls.Add(workstationlbl);
             BodyLayoutpnl.Controls.Add(departmentcmbox);
-            BodyLayoutpnl.Controls.Add(departmentlbl);
             BodyLayoutpnl.Controls.Add(lineManagertxt);
             BodyLayoutpnl.Controls.Add(lineManagerlbl);
             BodyLayoutpnl.Controls.Add(batchNumtxt);
@@ -96,263 +97,12 @@
             BodyLayoutpnl.Controls.Add(serialNumtxt);
             BodyLayoutpnl.Controls.Add(serialNumlbl);
             BodyLayoutpnl.Controls.Add(partNumcmbox);
-            BodyLayoutpnl.Controls.Add(partNumberlbl);
-            BodyLayoutpnl.Location = new Point(4, 3);
+            BodyLayoutpnl.Controls.Add(panel1);
+            BodyLayoutpnl.Location = new Point(6, 5);
+            BodyLayoutpnl.Margin = new Padding(4, 5, 4, 5);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
-            BodyLayoutpnl.Size = new Size(1013, 522);
+            BodyLayoutpnl.Size = new Size(1447, 870);
             BodyLayoutpnl.TabIndex = 11;
-            // 
-            // partNumberlbl
-            // 
-            partNumberlbl.AutoSize = true;
-            partNumberlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            partNumberlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            partNumberlbl.Location = new Point(103, 28);
-            partNumberlbl.Name = "partNumberlbl";
-            partNumberlbl.Size = new Size(205, 24);
-            partNumberlbl.TabIndex = 9;
-            partNumberlbl.Text = "Select Part Number *";
-            // 
-            // partNumcmbox
-            // 
-            partNumcmbox.BackColor = Color.FromArgb(24, 30, 54);
-            partNumcmbox.FlatStyle = FlatStyle.Flat;
-            partNumcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            partNumcmbox.ForeColor = Color.White;
-            partNumcmbox.FormattingEnabled = true;
-            partNumcmbox.Items.AddRange(new object[] { "TY9378", "PT1456" });
-            partNumcmbox.Location = new Point(125, 60);
-            partNumcmbox.Name = "partNumcmbox";
-            partNumcmbox.Size = new Size(155, 29);
-            partNumcmbox.TabIndex = 10;
-            partNumcmbox.Text = "Part Number";
-            // 
-            // serialNumlbl
-            // 
-            serialNumlbl.AutoSize = true;
-            serialNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            serialNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            serialNumlbl.Location = new Point(98, 115);
-            serialNumlbl.Name = "serialNumlbl";
-            serialNumlbl.Size = new Size(210, 24);
-            serialNumlbl.TabIndex = 11;
-            serialNumlbl.Text = "Input Serial Number *";
-            // 
-            // serialNumtxt
-            // 
-            serialNumtxt.Location = new Point(78, 147);
-            serialNumtxt.Name = "serialNumtxt";
-            serialNumtxt.Size = new Size(256, 23);
-            serialNumtxt.TabIndex = 12;
-            serialNumtxt.TextAlign = HorizontalAlignment.Center;
-            // 
-            // batchNumlbl
-            // 
-            batchNumlbl.AutoSize = true;
-            batchNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            batchNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            batchNumlbl.Location = new Point(103, 212);
-            batchNumlbl.Name = "batchNumlbl";
-            batchNumlbl.Size = new Size(209, 24);
-            batchNumlbl.TabIndex = 13;
-            batchNumlbl.Text = "Input Batch Number *";
-            // 
-            // batchNumtxt
-            // 
-            batchNumtxt.Location = new Point(81, 245);
-            batchNumtxt.Name = "batchNumtxt";
-            batchNumtxt.Size = new Size(256, 23);
-            batchNumtxt.TabIndex = 14;
-            batchNumtxt.TextAlign = HorizontalAlignment.Center;
-            // 
-            // lineManagerlbl
-            // 
-            lineManagerlbl.AutoSize = true;
-            lineManagerlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lineManagerlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            lineManagerlbl.Location = new Point(115, 301);
-            lineManagerlbl.Name = "lineManagerlbl";
-            lineManagerlbl.Size = new Size(190, 24);
-            lineManagerlbl.TabIndex = 15;
-            lineManagerlbl.Text = "Input Line Manager";
-            // 
-            // lineManagertxt
-            // 
-            lineManagertxt.Location = new Point(78, 338);
-            lineManagertxt.Name = "lineManagertxt";
-            lineManagertxt.Size = new Size(256, 23);
-            lineManagertxt.TabIndex = 16;
-            lineManagertxt.TextAlign = HorizontalAlignment.Center;
-            // 
-            // departmentlbl
-            // 
-            departmentlbl.AutoSize = true;
-            departmentlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            departmentlbl.Location = new Point(103, 397);
-            departmentlbl.Name = "departmentlbl";
-            departmentlbl.Size = new Size(195, 24);
-            departmentlbl.TabIndex = 17;
-            departmentlbl.Text = "Select Department *";
-            // 
-            // departmentcmbox
-            // 
-            departmentcmbox.BackColor = Color.FromArgb(24, 30, 54);
-            departmentcmbox.FlatStyle = FlatStyle.Flat;
-            departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            departmentcmbox.ForeColor = Color.White;
-            departmentcmbox.FormattingEnabled = true;
-            departmentcmbox.Items.AddRange(new object[] { "Nacelles", "Military", "Gears" });
-            departmentcmbox.Location = new Point(125, 436);
-            departmentcmbox.Name = "departmentcmbox";
-            departmentcmbox.Size = new Size(155, 29);
-            departmentcmbox.TabIndex = 18;
-            departmentcmbox.Text = "Department";
-            // 
-            // workstationlbl
-            // 
-            workstationlbl.AutoSize = true;
-            workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(687, 29);
-            workstationlbl.Name = "workstationlbl";
-            workstationlbl.Size = new Size(196, 24);
-            workstationlbl.TabIndex = 19;
-            workstationlbl.Text = "Select Workstation *";
-            // 
-            // workstationcmbox
-            // 
-            workstationcmbox.BackColor = Color.FromArgb(24, 30, 54);
-            workstationcmbox.FlatStyle = FlatStyle.Flat;
-            workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            workstationcmbox.ForeColor = Color.White;
-            workstationcmbox.FormattingEnabled = true;
-            workstationcmbox.Items.AddRange(new object[] { "TY9378", "PT1456" });
-            workstationcmbox.Location = new Point(709, 60);
-            workstationcmbox.Name = "workstationcmbox";
-            workstationcmbox.Size = new Size(151, 29);
-            workstationcmbox.TabIndex = 20;
-            workstationcmbox.Text = "Workstation";
-            // 
-            // timestamplbl
-            // 
-            timestamplbl.AutoSize = true;
-            timestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            timestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timestamplbl.Location = new Point(655, 121);
-            timestamplbl.Name = "timestamplbl";
-            timestamplbl.Size = new Size(294, 24);
-            timestamplbl.TabIndex = 21;
-            timestamplbl.Text = "Timestamp Need Backdating? \r\n";
-            // 
-            // yescheckbox
-            // 
-            yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            yescheckbox.ForeColor = Color.White;
-            yescheckbox.Location = new Point(700, 152);
-            yescheckbox.Name = "yescheckbox";
-            yescheckbox.Size = new Size(74, 45);
-            yescheckbox.TabIndex = 22;
-            yescheckbox.Text = "Yes";
-            yescheckbox.UseVisualStyleBackColor = true;
-            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
-            // 
-            // nocheckbox
-            // 
-            nocheckbox.Checked = true;
-            nocheckbox.CheckState = CheckState.Checked;
-            nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            nocheckbox.ForeColor = Color.White;
-            nocheckbox.Location = new Point(816, 153);
-            nocheckbox.Name = "nocheckbox";
-            nocheckbox.Size = new Size(74, 45);
-            nocheckbox.TabIndex = 23;
-            nocheckbox.Text = "No";
-            nocheckbox.UseVisualStyleBackColor = true;
-            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
-            // 
-            // inputTimestamplbl
-            // 
-            inputTimestamplbl.AutoSize = true;
-            inputTimestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            inputTimestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            inputTimestamplbl.Location = new Point(709, 210);
-            inputTimestamplbl.Name = "inputTimestamplbl";
-            inputTimestamplbl.Size = new Size(164, 24);
-            inputTimestamplbl.TabIndex = 24;
-            inputTimestamplbl.Text = "Input Timestamp";
-            // 
-            // reasonlbl
-            // 
-            reasonlbl.AutoSize = true;
-            reasonlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            reasonlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            reasonlbl.Location = new Point(672, 291);
-            reasonlbl.Name = "reasonlbl";
-            reasonlbl.Size = new Size(251, 24);
-            reasonlbl.TabIndex = 26;
-            reasonlbl.Text = "Reason for Manual Input *";
-            // 
-            // reasontxt
-            // 
-            reasontxt.Location = new Point(667, 321);
-            reasontxt.Multiline = true;
-            reasontxt.Name = "reasontxt";
-            reasontxt.Size = new Size(252, 56);
-            reasontxt.TabIndex = 27;
-            // 
-            // noteslbl
-            // 
-            noteslbl.AutoSize = true;
-            noteslbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            noteslbl.ForeColor = Color.FromArgb(0, 126, 249);
-            noteslbl.Location = new Point(757, 392);
-            noteslbl.Name = "noteslbl";
-            noteslbl.Size = new Size(64, 24);
-            noteslbl.TabIndex = 28;
-            noteslbl.Text = "Notes";
-            // 
-            // notestxt
-            // 
-            notestxt.Location = new Point(667, 417);
-            notestxt.Multiline = true;
-            notestxt.Name = "notestxt";
-            notestxt.Size = new Size(252, 61);
-            notestxt.TabIndex = 29;
-            // 
-            // submitbtn
-            // 
-            submitbtn.BackColor = Color.Transparent;
-            submitbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
-            submitbtn.BackgroundImageLayout = ImageLayout.Stretch;
-            submitbtn.FlatAppearance.BorderSize = 0;
-            submitbtn.FlatStyle = FlatStyle.Flat;
-            submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            submitbtn.ForeColor = Color.White;
-            submitbtn.Location = new Point(462, 153);
-            submitbtn.Name = "submitbtn";
-            submitbtn.Size = new Size(104, 63);
-            submitbtn.TabIndex = 30;
-            submitbtn.Text = "Submit Form";
-            submitbtn.UseVisualStyleBackColor = false;
-            submitbtn.Click += submitbtn_Click;
-            // 
-            // resetbtn
-            // 
-            resetbtn.BackColor = Color.Transparent;
-            resetbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
-            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
-            resetbtn.FlatAppearance.BorderSize = 0;
-            resetbtn.FlatStyle = FlatStyle.Flat;
-            resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(462, 245);
-            resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(104, 63);
-            resetbtn.TabIndex = 31;
-            resetbtn.Text = "Reset Form";
-            resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
             // 
             // timestamptxt
             // 
@@ -363,35 +113,326 @@
             timestamptxt.Enabled = false;
             timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             timestamptxt.Format = DateTimePickerFormat.Custom;
-            timestamptxt.Location = new Point(695, 244);
+            timestamptxt.Location = new Point(584, 686);
+            timestamptxt.Margin = new Padding(4, 5, 4, 5);
             timestamptxt.Name = "timestamptxt";
-            timestamptxt.Size = new Size(188, 27);
+            timestamptxt.Size = new Size(267, 37);
             timestamptxt.TabIndex = 33;
+            // 
+            // resetbtn
+            // 
+            resetbtn.BackColor = Color.Transparent;
+            resetbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
+            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.FlatAppearance.BorderSize = 0;
+            resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.ForeColor = Color.White;
+            resetbtn.Location = new Point(742, 760);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
+            resetbtn.Name = "resetbtn";
+            resetbtn.Size = new Size(149, 105);
+            resetbtn.TabIndex = 31;
+            resetbtn.Text = "Reset Form";
+            resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += resetbtn_Click;
+            // 
+            // submitbtn
+            // 
+            submitbtn.BackColor = Color.Transparent;
+            submitbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
+            submitbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            submitbtn.FlatAppearance.BorderSize = 0;
+            submitbtn.FlatStyle = FlatStyle.Flat;
+            submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            submitbtn.ForeColor = Color.White;
+            submitbtn.Location = new Point(548, 760);
+            submitbtn.Margin = new Padding(4, 5, 4, 5);
+            submitbtn.Name = "submitbtn";
+            submitbtn.Size = new Size(149, 105);
+            submitbtn.TabIndex = 30;
+            submitbtn.Text = "Submit Form";
+            submitbtn.UseVisualStyleBackColor = false;
+            submitbtn.Click += submitbtn_Click;
+            // 
+            // notestxt
+            // 
+            notestxt.Location = new Point(1012, 509);
+            notestxt.Margin = new Padding(4, 5, 4, 5);
+            notestxt.Multiline = true;
+            notestxt.Name = "notestxt";
+            notestxt.Size = new Size(364, 99);
+            notestxt.TabIndex = 29;
+            // 
+            // noteslbl
+            // 
+            noteslbl.AutoSize = true;
+            noteslbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            noteslbl.ForeColor = Color.FromArgb(0, 126, 249);
+            noteslbl.Location = new Point(1147, 460);
+            noteslbl.Margin = new Padding(4, 0, 4, 0);
+            noteslbl.Name = "noteslbl";
+            noteslbl.Size = new Size(96, 33);
+            noteslbl.TabIndex = 28;
+            noteslbl.Text = "Notes";
+            // 
+            // reasontxt
+            // 
+            reasontxt.Location = new Point(76, 509);
+            reasontxt.Margin = new Padding(4, 5, 4, 5);
+            reasontxt.Multiline = true;
+            reasontxt.Name = "reasontxt";
+            reasontxt.Size = new Size(364, 91);
+            reasontxt.TabIndex = 27;
+            // 
+            // reasonlbl
+            // 
+            reasonlbl.AutoSize = true;
+            reasonlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            reasonlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            reasonlbl.Location = new Point(76, 460);
+            reasonlbl.Margin = new Padding(4, 0, 4, 0);
+            reasonlbl.Name = "reasonlbl";
+            reasonlbl.Size = new Size(376, 33);
+            reasonlbl.TabIndex = 26;
+            reasonlbl.Text = "Reason for Manual Input *";
+            // 
+            // inputTimestamplbl
+            // 
+            inputTimestamplbl.AutoSize = true;
+            inputTimestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            inputTimestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
+            inputTimestamplbl.Location = new Point(600, 624);
+            inputTimestamplbl.Margin = new Padding(4, 0, 4, 0);
+            inputTimestamplbl.Name = "inputTimestamplbl";
+            inputTimestamplbl.Size = new Size(248, 33);
+            inputTimestamplbl.TabIndex = 24;
+            inputTimestamplbl.Text = "Input Timestamp";
+            // 
+            // nocheckbox
+            // 
+            nocheckbox.Checked = true;
+            nocheckbox.CheckState = CheckState.Checked;
+            nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            nocheckbox.ForeColor = Color.White;
+            nocheckbox.Location = new Point(756, 525);
+            nocheckbox.Margin = new Padding(4, 5, 4, 5);
+            nocheckbox.Name = "nocheckbox";
+            nocheckbox.Size = new Size(106, 75);
+            nocheckbox.TabIndex = 23;
+            nocheckbox.Text = "No";
+            nocheckbox.UseVisualStyleBackColor = true;
+            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
+            // 
+            // yescheckbox
+            // 
+            yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            yescheckbox.ForeColor = Color.White;
+            yescheckbox.Location = new Point(612, 525);
+            yescheckbox.Margin = new Padding(4, 5, 4, 5);
+            yescheckbox.Name = "yescheckbox";
+            yescheckbox.Size = new Size(106, 75);
+            yescheckbox.TabIndex = 22;
+            yescheckbox.Text = "Yes";
+            yescheckbox.UseVisualStyleBackColor = true;
+            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
+            // 
+            // timestamplbl
+            // 
+            timestamplbl.AutoSize = true;
+            timestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            timestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
+            timestamplbl.Location = new Point(516, 460);
+            timestamplbl.Margin = new Padding(4, 0, 4, 0);
+            timestamplbl.Name = "timestamplbl";
+            timestamplbl.Size = new Size(441, 33);
+            timestamplbl.TabIndex = 21;
+            timestamplbl.Text = "Timestamp Need Backdating? \r\n";
+            // 
+            // workstationcmbox
+            // 
+            workstationcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            workstationcmbox.FlatStyle = FlatStyle.Flat;
+            workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            workstationcmbox.ForeColor = Color.White;
+            workstationcmbox.FormattingEnabled = true;
+            workstationcmbox.Location = new Point(1082, 132);
+            workstationcmbox.Margin = new Padding(4, 5, 4, 5);
+            workstationcmbox.Name = "workstationcmbox";
+            workstationcmbox.Size = new Size(214, 40);
+            workstationcmbox.TabIndex = 20;
+            workstationcmbox.Text = "Workstation";
+            // 
+            // departmentcmbox
+            // 
+            departmentcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            departmentcmbox.FlatStyle = FlatStyle.Flat;
+            departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            departmentcmbox.ForeColor = Color.White;
+            departmentcmbox.FormattingEnabled = true;
+            departmentcmbox.Items.AddRange(new object[] { "Nacelles", "Military", "Gears" });
+            departmentcmbox.Location = new Point(156, 132);
+            departmentcmbox.Margin = new Padding(4, 5, 4, 5);
+            departmentcmbox.Name = "departmentcmbox";
+            departmentcmbox.Size = new Size(220, 40);
+            departmentcmbox.TabIndex = 18;
+            departmentcmbox.Text = "Department";
+            // 
+            // lineManagertxt
+            // 
+            lineManagertxt.Location = new Point(1012, 316);
+            lineManagertxt.Margin = new Padding(4, 5, 4, 5);
+            lineManagertxt.Name = "lineManagertxt";
+            lineManagertxt.Size = new Size(364, 31);
+            lineManagertxt.TabIndex = 16;
+            lineManagertxt.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lineManagerlbl
+            // 
+            lineManagerlbl.AutoSize = true;
+            lineManagerlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lineManagerlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            lineManagerlbl.Location = new Point(1054, 262);
+            lineManagerlbl.Margin = new Padding(4, 0, 4, 0);
+            lineManagerlbl.Name = "lineManagerlbl";
+            lineManagerlbl.Size = new Size(282, 33);
+            lineManagerlbl.TabIndex = 15;
+            lineManagerlbl.Text = "Input Line Manager";
+            // 
+            // batchNumtxt
+            // 
+            batchNumtxt.Location = new Point(548, 316);
+            batchNumtxt.Margin = new Padding(4, 5, 4, 5);
+            batchNumtxt.Name = "batchNumtxt";
+            batchNumtxt.Size = new Size(364, 31);
+            batchNumtxt.TabIndex = 14;
+            batchNumtxt.TextAlign = HorizontalAlignment.Center;
+            // 
+            // batchNumlbl
+            // 
+            batchNumlbl.AutoSize = true;
+            batchNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            batchNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            batchNumlbl.Location = new Point(579, 262);
+            batchNumlbl.Margin = new Padding(4, 0, 4, 0);
+            batchNumlbl.Name = "batchNumlbl";
+            batchNumlbl.Size = new Size(312, 33);
+            batchNumlbl.TabIndex = 13;
+            batchNumlbl.Text = "Input Batch Number *";
+            // 
+            // serialNumtxt
+            // 
+            serialNumtxt.Location = new Point(76, 316);
+            serialNumtxt.Margin = new Padding(4, 5, 4, 5);
+            serialNumtxt.Name = "serialNumtxt";
+            serialNumtxt.Size = new Size(364, 31);
+            serialNumtxt.TabIndex = 12;
+            serialNumtxt.TextAlign = HorizontalAlignment.Center;
+            // 
+            // serialNumlbl
+            // 
+            serialNumlbl.AutoSize = true;
+            serialNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            serialNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            serialNumlbl.Location = new Point(102, 262);
+            serialNumlbl.Margin = new Padding(4, 0, 4, 0);
+            serialNumlbl.Name = "serialNumlbl";
+            serialNumlbl.Size = new Size(314, 33);
+            serialNumlbl.TabIndex = 11;
+            serialNumlbl.Text = "Input Serial Number *";
+            // 
+            // partNumcmbox
+            // 
+            partNumcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            partNumcmbox.FlatStyle = FlatStyle.Flat;
+            partNumcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            partNumcmbox.ForeColor = Color.White;
+            partNumcmbox.FormattingEnabled = true;
+            partNumcmbox.Location = new Point(628, 132);
+            partNumcmbox.Margin = new Padding(4, 5, 4, 5);
+            partNumcmbox.Name = "partNumcmbox";
+            partNumcmbox.Size = new Size(220, 40);
+            partNumcmbox.TabIndex = 10;
+            partNumcmbox.Text = "Part Number";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.Controls.Add(workstationlbl);
+            panel1.Controls.Add(partNumberlbl);
+            panel1.Controls.Add(departmentlbl);
+            panel1.Location = new Point(76, 54);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1300, 150);
+            panel1.TabIndex = 34;
+            // 
+            // workstationlbl
+            // 
+            workstationlbl.AutoSize = true;
+            workstationlbl.BackColor = Color.Transparent;
+            workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            workstationlbl.Location = new Point(963, 25);
+            workstationlbl.Margin = new Padding(4, 0, 4, 0);
+            workstationlbl.Name = "workstationlbl";
+            workstationlbl.Size = new Size(297, 33);
+            workstationlbl.TabIndex = 19;
+            workstationlbl.Text = "Select Workstation *";
+            // 
+            // partNumberlbl
+            // 
+            partNumberlbl.AutoSize = true;
+            partNumberlbl.BackColor = Color.Transparent;
+            partNumberlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            partNumberlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            partNumberlbl.Location = new Point(508, 25);
+            partNumberlbl.Margin = new Padding(4, 0, 4, 0);
+            partNumberlbl.Name = "partNumberlbl";
+            partNumberlbl.Size = new Size(308, 33);
+            partNumberlbl.TabIndex = 9;
+            partNumberlbl.Text = "Select Part Number *";
+            // 
+            // departmentlbl
+            // 
+            departmentlbl.AutoSize = true;
+            departmentlbl.BackColor = Color.Transparent;
+            departmentlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            departmentlbl.Location = new Point(46, 25);
+            departmentlbl.Margin = new Padding(4, 0, 4, 0);
+            departmentlbl.Name = "departmentlbl";
+            departmentlbl.Size = new Size(294, 33);
+            departmentlbl.TabIndex = 17;
+            departmentlbl.Text = "Select Department *";
             // 
             // Borderpnl
             // 
             Borderpnl.Anchor = AnchorStyles.None;
             Borderpnl.BackColor = Color.FromArgb(24, 30, 54);
             Borderpnl.Controls.Add(BodyLayoutpnl);
-            Borderpnl.Location = new Point(16, 69);
+            Borderpnl.Location = new Point(23, 115);
+            Borderpnl.Margin = new Padding(4, 5, 4, 5);
             Borderpnl.Name = "Borderpnl";
-            Borderpnl.Size = new Size(1020, 528);
+            Borderpnl.Size = new Size(1457, 880);
             Borderpnl.TabIndex = 13;
             // 
             // ManualInput
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1503, 1015);
             Controls.Add(ManualInputlbl);
             Controls.Add(Borderpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ManualInput";
             Text = "Form1";
             Load += Form1_Load;
             BodyLayoutpnl.ResumeLayout(false);
             BodyLayoutpnl.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -428,5 +469,6 @@
         private ComboBox partNumcmbox;
         private Label partNumberlbl;
         private Panel Borderpnl;
+        private Panel panel1;
     }
 }

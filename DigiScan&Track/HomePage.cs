@@ -129,7 +129,7 @@ namespace DigiScan_Track
             ManualInputbtn.BackColor = Color.FromArgb(46, 51, 73);
 
             this.InnerBodypnl.Controls.Clear();
-            ManualInput manualinput = new ManualInput(null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ManualInput manualinput = new ManualInput(null, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             manualinput.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(manualinput);
             manualinput.Show();
