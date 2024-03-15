@@ -159,7 +159,6 @@ namespace DigiScan_Track
             {
                 int departmentIndex = departmentcmbox.FindString(department);
                 departmentcmbox.SelectedIndex = departmentIndex;
-                loadDetails(department);
                 int workstationIndex = workstationcmbox.FindString(workstation);
                 workstationcmbox.SelectedIndex = workstationIndex;
 
@@ -176,15 +175,28 @@ namespace DigiScan_Track
         private void loadDetails(string chosenDepartment)
         {
             string[] departmentList = { "Nacelles", "Gears", "Military" };
-            string[,] workstations = { { "", "", "", "", "", "" }, { "Bevelling", "Etching", "Precision", "Production", "Modelling", "Shim Grinding" }, { "GLMRS", "Shipping", "HMO", "GPS", "", "" } };
+            string[][] workstations = new string[3][];
+            workstations[0] = new string[0] { };
+            workstations[1] = new string[6] { "Bevelling", "Etching", "Precision", "Production", "Modelling", "Shim Grinding" };
+            workstations[2] = new string[4] { "GLMRS", "Shipping", "HMO", "GPS" };
+
+            string[][] partNumbers = new string[3][];
+            partNumbers[0] = new string[0] { };
+            partNumbers[1] = new string[4] { "COG78643", "FYG345", "AAG320", "BIO879" };
+            partNumbers[2] = new string[6] { "TYM93787", "AQM45", "TYM8143", "AUM15", "PLM258", "PGM55" };
+
 
             int index = Array.IndexOf(departmentList, chosenDepartment);
 
-            for (int i = 0; i < workstations.GetLength(index); i++)
+            for (int i = 0; i < workstations[index].Length; i++)
             {
-                workstationcmbox.Items.Add(workstations[index, i]);
+                workstationcmbox.Items.Add(workstations[index][i]);
             }
 
+            for (int i = 0; i < partNumbers[index].Length; i++)
+            {
+                partNumcmbox.Items.Add(partNumbers[index][i]);
+            }
 
         }
 
@@ -199,6 +211,15 @@ namespace DigiScan_Track
             {
                 newForm.WindowState = FormWindowState.Maximized;
             }
+        }
+
+        private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDepartment = departmentcmbox.SelectedItem.ToString();
+            partNumcmbox.Items.Clear();
+            workstationcmbox.Items.Clear();
+            loadDetails(selectedDepartment);
+            workstationcmbox.SelectedIndex = 0;
         }
     }
 }

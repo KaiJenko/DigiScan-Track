@@ -277,6 +277,7 @@
             departmentcmbox.Size = new Size(220, 40);
             departmentcmbox.TabIndex = 18;
             departmentcmbox.Text = "Department";
+            departmentcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
             // 
             // lineManagertxt
             // 
