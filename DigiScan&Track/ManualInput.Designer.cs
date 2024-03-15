@@ -88,7 +88,6 @@
             BodyLayoutpnl.Controls.Add(nocheckbox);
             BodyLayoutpnl.Controls.Add(yescheckbox);
             BodyLayoutpnl.Controls.Add(timestamplbl);
-            BodyLayoutpnl.Controls.Add(workstationcmbox);
             BodyLayoutpnl.Controls.Add(departmentcmbox);
             BodyLayoutpnl.Controls.Add(lineManagertxt);
             BodyLayoutpnl.Controls.Add(lineManagerlbl);
@@ -96,7 +95,6 @@
             BodyLayoutpnl.Controls.Add(batchNumlbl);
             BodyLayoutpnl.Controls.Add(serialNumtxt);
             BodyLayoutpnl.Controls.Add(serialNumlbl);
-            BodyLayoutpnl.Controls.Add(partNumcmbox);
             BodyLayoutpnl.Controls.Add(panel1);
             BodyLayoutpnl.Location = new Point(6, 5);
             BodyLayoutpnl.Margin = new Padding(4, 5, 4, 5);
@@ -256,7 +254,7 @@
             workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             workstationcmbox.ForeColor = Color.White;
             workstationcmbox.FormattingEnabled = true;
-            workstationcmbox.Location = new Point(1082, 132);
+            workstationcmbox.Location = new Point(549, 78);
             workstationcmbox.Margin = new Padding(4, 5, 4, 5);
             workstationcmbox.Name = "workstationcmbox";
             workstationcmbox.Size = new Size(214, 40);
@@ -349,7 +347,7 @@
             partNumcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             partNumcmbox.ForeColor = Color.White;
             partNumcmbox.FormattingEnabled = true;
-            partNumcmbox.Location = new Point(628, 132);
+            partNumcmbox.Location = new Point(996, 78);
             partNumcmbox.Margin = new Padding(4, 5, 4, 5);
             partNumcmbox.Name = "partNumcmbox";
             partNumcmbox.Size = new Size(220, 40);
@@ -362,6 +360,8 @@
             panel1.Controls.Add(workstationlbl);
             panel1.Controls.Add(partNumberlbl);
             panel1.Controls.Add(departmentlbl);
+            panel1.Controls.Add(workstationcmbox);
+            panel1.Controls.Add(partNumcmbox);
             panel1.Location = new Point(76, 54);
             panel1.Name = "panel1";
             panel1.Size = new Size(1300, 150);
@@ -373,7 +373,7 @@
             workstationlbl.BackColor = Color.Transparent;
             workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(963, 25);
+            workstationlbl.Location = new Point(503, 25);
             workstationlbl.Margin = new Padding(4, 0, 4, 0);
             workstationlbl.Name = "workstationlbl";
             workstationlbl.Size = new Size(297, 33);
@@ -386,7 +386,7 @@
             partNumberlbl.BackColor = Color.Transparent;
             partNumberlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             partNumberlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            partNumberlbl.Location = new Point(508, 25);
+            partNumberlbl.Location = new Point(952, 25);
             partNumberlbl.Margin = new Padding(4, 0, 4, 0);
             partNumberlbl.Name = "partNumberlbl";
             partNumberlbl.Size = new Size(308, 33);

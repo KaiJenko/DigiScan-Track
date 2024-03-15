@@ -120,6 +120,16 @@ namespace DigiScan_Track
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
+            //departmentcmbox.SelectedIndex = -1;
+            departmentcmbox.Text = "Department";
+            partNumcmbox.Text = "Part Number";
+            workstationcmbox.Text = "Workstation";
+            serialNumtxt.Clear();
+            batchNumtxt.Clear();
+            lineManagertxt.Clear();
+            reasontxt.Clear();
+            nocheckbox.Checked = true;
+            notestxt.Clear();
 
         }
 
@@ -200,6 +210,16 @@ namespace DigiScan_Track
 
         }
 
+        private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDepartment = departmentcmbox.SelectedItem.ToString();
+            partNumcmbox.Items.Clear();
+            workstationcmbox.Items.Clear();
+
+            loadDetails(selectedDepartment);
+            workstationcmbox.SelectedIndex = 0;
+        }
+
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
@@ -213,13 +233,6 @@ namespace DigiScan_Track
             }
         }
 
-        private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedDepartment = departmentcmbox.SelectedItem.ToString();
-            partNumcmbox.Items.Clear();
-            workstationcmbox.Items.Clear();
-            loadDetails(selectedDepartment);
-            workstationcmbox.SelectedIndex = 0;
-        }
+
     }
 }
