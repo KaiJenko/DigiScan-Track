@@ -154,7 +154,7 @@ namespace DigiScan_Track
 
         private void LoadButtonImages()
         {
-            string[] PageButtons = { "HomePagebtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            string[] PageButtons = { "HomePageShortcutsbtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
             for (int x = 0; x < PageButtons.Length; x++)

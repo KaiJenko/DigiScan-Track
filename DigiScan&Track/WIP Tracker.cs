@@ -9,6 +9,7 @@ namespace DigiScan_Track
 
         SqlConnection conn = new SqlConnection();
 
+
         public WIPTracker()
         {
             InitializeComponent();
@@ -73,7 +74,13 @@ namespace DigiScan_Track
             string dropdownSelection = searchcmb.Text.Replace(" ", "");
 
             if (searchval != "" && dropdownSelection != "")
-            {
+            { 
+                addFieldbtn_Click(sender, e);
+                
+                foreach (Label label in searchFieldpnl.Controls)
+                {
+                    string text = label.Text.ToString();
+                }
 
                 DataTable dt = new DataTable();  // To Hold Sql Value Returned
                 SqlConnection con = new SqlConnection();
@@ -99,39 +106,48 @@ namespace DigiScan_Track
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
+            searchFieldpnl.Controls.Clear();
             getSQLWIPTracker();
         }
 
         private void addFieldbtn_Click(object sender, EventArgs e)
         {
-            string searchField = searchcmb.Text.Trim();
+            string searchField = searchcmb.Text.Replace(" ", "");
             string searchValue = searchtxt.Text.Trim();
 
             searchcmb.Text = null;
             searchtxt.Text = null;
 
-            if (searchFieldpnl.Controls.Count == 0)
+            int index = searchFieldpnl.Controls.Count;
+
+            if (index == 0)
             {
-                int index = searchFieldpnl.Controls.Count;
                 Label field = new Label();
-                field.Name = "label" + index; 
+                field.Name = "label" + index;
                 field.Text = searchField + " - " + searchValue;
                 field.AutoSize = true;
                 field.MaximumSize = new Size(150, 50);
+
                 searchFieldpnl.Controls.Add(field);
             }
 
             else
             {
-                int index = searchFieldpnl.Controls.Count;
-                Label field = new Label();
-                field.Name = "label" + index;
-                field.Text = searchField + " - " + searchValue;
-                field.AutoSize = true;
-                Label oldLabel = (Label)searchFieldpnl.Controls["label" + (index - 1)];
-                field.Location = new Point(oldLabel.Right + 10, oldLabel.Top);
-                field.MaximumSize = new Size(150, 50);
-                searchFieldpnl.Controls.Add(field);
+                if (index < 4){
+                    Label field = new Label();
+                    field.Name = "label" + index;
+                    field.Text = searchField + " - " + searchValue;
+                    field.AutoSize = true;
+                    Label oldLabel = (Label)searchFieldpnl.Controls["label" + (index - 1)];
+                    field.Location = new Point(oldLabel.Right + 10, oldLabel.Top);
+                    field.MaximumSize = new Size(150, 50);
+                    searchFieldpnl.Controls.Add(field);
+                }
+
+                else
+                {
+                    MessageBox.Show("No More Search Fields Can Be Added!");
+                }
             }
         }
 

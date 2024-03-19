@@ -120,7 +120,7 @@
             // resetbtn
             // 
             resetbtn.BackColor = Color.Transparent;
-            resetbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
+            resetbtn.BackgroundImage = Properties.Resources.Border;
             resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
             resetbtn.FlatAppearance.BorderSize = 0;
             resetbtn.FlatStyle = FlatStyle.Flat;
@@ -138,7 +138,7 @@
             // submitbtn
             // 
             submitbtn.BackColor = Color.Transparent;
-            submitbtn.BackgroundImage = Properties.Resources.output_onlinepngtools__4_;
+            submitbtn.BackgroundImage = Properties.Resources.Border;
             submitbtn.BackgroundImageLayout = ImageLayout.Stretch;
             submitbtn.FlatAppearance.BorderSize = 0;
             submitbtn.FlatStyle = FlatStyle.Flat;
