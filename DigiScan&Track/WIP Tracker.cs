@@ -102,7 +102,38 @@ namespace DigiScan_Track
             getSQLWIPTracker();
         }
 
+        private void addFieldbtn_Click(object sender, EventArgs e)
+        {
+            string searchField = searchcmb.Text.Trim();
+            string searchValue = searchtxt.Text.Trim();
 
+            searchcmb.Text = null;
+            searchtxt.Text = null;
+
+            if (searchFieldpnl.Controls.Count == 0)
+            {
+                int index = searchFieldpnl.Controls.Count;
+                Label field = new Label();
+                field.Name = "label" + index; 
+                field.Text = searchField + " - " + searchValue;
+                field.AutoSize = true;
+                field.MaximumSize = new Size(150, 50);
+                searchFieldpnl.Controls.Add(field);
+            }
+
+            else
+            {
+                int index = searchFieldpnl.Controls.Count;
+                Label field = new Label();
+                field.Name = "label" + index;
+                field.Text = searchField + " - " + searchValue;
+                field.AutoSize = true;
+                Label oldLabel = (Label)searchFieldpnl.Controls["label" + (index - 1)];
+                field.Location = new Point(oldLabel.Right + 10, oldLabel.Top);
+                field.MaximumSize = new Size(150, 50);
+                searchFieldpnl.Controls.Add(field);
+            }
+        }
 
 
 
@@ -122,6 +153,7 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
+
 
     }
 }
