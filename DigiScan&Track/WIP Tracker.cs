@@ -9,6 +9,7 @@ namespace DigiScan_Track
     {
 
         SqlConnection conn = new SqlConnection();
+        int defaultOrCustom = 0;
 
 
         public WIPTracker(string sentDepartment, string sentWorkstation)
@@ -23,7 +24,7 @@ namespace DigiScan_Track
 
         }
 
-        private void create_gridView_WIP()
+        private void create_defaultGridView_WIP()
         {
 
             WIPgridView.Columns[0].HeaderText = "Part No";
@@ -49,21 +50,50 @@ namespace DigiScan_Track
 
         }
 
+        private void create_customGridView_WIP()
+        {
+
+            WIPgridView.Columns[0].HeaderText = "Part No";
+            WIPgridView.Columns[1].HeaderText = "Serial No";
+            WIPgridView.Columns[2].HeaderText = "Batch No";
+            WIPgridView.Columns[3].HeaderText = "Time in";
+            WIPgridView.Columns[4].HeaderText = "Time out";
+            WIPgridView.Columns[5].HeaderText = "Storage";
+
+            WIPgridView.Columns[0].Width = 150;
+            WIPgridView.Columns[1].Width = 150;
+            WIPgridView.Columns[2].Width = 150;
+            WIPgridView.Columns[3].Width = 150;
+            WIPgridView.Columns[4].Width = 150;
+            WIPgridView.Columns[5].Width = 75;
+
+            WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
+            WIPgridView.ColumnHeadersHeight = 50;
+
+        }
+
         private void getSQLWIPTracker(string department, string workstation)
         {
             string cmdText = "";
 
             if (department == null && workstation == null)
             {
+                departmentlbl.Text = "";
+                workstationlbl.Text = "";
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
                           " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
+                defaultOrCustom = 0;
+
             }
 
             else if (department != null || workstation != null)
             {
-                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                departmentlbl.Text = "DP:  " + department;
+                workstationlbl.Text = "WS:  " + workstation;
+                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber]" +
                           " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                           " AND [Workstation] = '" + workstation + "'";
+                defaultOrCustom = 1;
             }
 
             DataTable dt = new DataTable();
@@ -80,8 +110,16 @@ namespace DigiScan_Track
 
             WIPgridView.DataSource = dt;
 
-            create_gridView_WIP();
-            
+            if (defaultOrCustom == 0)
+            {
+                create_defaultGridView_WIP();
+            }
+
+            else
+            {
+                create_customGridView_WIP();
+            }
+
         }
 
         private void searchbtn_Click(object sender, EventArgs e)
@@ -90,7 +128,7 @@ namespace DigiScan_Track
             string dropdownSelection = searchcmb.Text.Replace(" ", "");
 
             if (searchval != "" && dropdownSelection != "")
-            { 
+            {
                 addFieldbtn_Click(sender, e);
 
                 int index = 0;
@@ -113,27 +151,59 @@ namespace DigiScan_Track
                     {
                         sqlQuery += " AND [" + SearchField + "] LIKE '%" + searchval + "%'";
                     }
+
+                    if (defaultOrCustom == 1)
+                    {
+                        string departmentlblS = departmentlbl.Text.ToString();
+                        string workstationlblS = workstationlbl.Text.ToString();
+                        string[] departmentSplit = departmentlblS.Split(new string[] { ":  " }, StringSplitOptions.None);
+                        string[] workstationSplit = workstationlblS.Split(new string[] { ":  " }, StringSplitOptions.None);
+                        string department = departmentSplit[1];
+                        string workstation = workstationSplit[1];
+
+                        sqlQuery += " AND [Department] = '" + department + "' AND [Workstation] = '" + workstation + "'";
+                    }
                 }
 
-                DataTable dt = new DataTable(); 
+                DataTable dt = new DataTable();
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
-                                  ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
-                                  sqlQuery;
 
-                cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
-                SqlDataReader dr = cmd.ExecuteReader();
+                if (defaultOrCustom == 0) {
+                    cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                                      ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
+                                      sqlQuery;
 
-                dt.Load(dr);
+                    cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-                con.Close();  
+                    dt.Load(dr);
 
-                WIPgridView.DataSource = dt;  
+                    con.Close();
 
-                create_gridView_WIP();
+                    WIPgridView.DataSource = dt;
+                    create_defaultGridView_WIP();
+                }
+
+                else
+                {
+                    cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber]" +
+                                     ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
+                                     sqlQuery;
+
+                    cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    dt.Load(dr);
+
+                    con.Close();
+
+                    WIPgridView.DataSource = dt;
+                    create_customGridView_WIP();
+                }
+
             }
         }
 
@@ -141,6 +211,7 @@ namespace DigiScan_Track
         {
             searchFieldpnl.Controls.Clear();
             getSQLWIPTracker(null, null);
+            defaultOrCustom = 0;
         }
 
         private void addFieldbtn_Click(object sender, EventArgs e)
@@ -166,7 +237,8 @@ namespace DigiScan_Track
 
             else
             {
-                if (index < 4){
+                if (index < 4)
+                {
                     Label field = new Label();
                     field.Name = "label" + index;
                     field.Text = searchField + " - " + searchValue;

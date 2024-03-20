@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Titlelbl = new Label();
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
+            workstationlbl = new Label();
+            departmentlbl = new Label();
             searchFieldpnl = new Panel();
             addFieldbtn = new Button();
             WIPgridView = new DataGridView();
@@ -76,6 +78,8 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(workstationlbl);
+            InnerBorderpnl.Controls.Add(departmentlbl);
             InnerBorderpnl.Controls.Add(searchFieldpnl);
             InnerBorderpnl.Controls.Add(addFieldbtn);
             InnerBorderpnl.Controls.Add(WIPgridView);
@@ -89,19 +93,41 @@
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
+            // workstationlbl
+            // 
+            workstationlbl.AutoSize = true;
+            workstationlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            workstationlbl.Location = new Point(807, 26);
+            workstationlbl.Name = "workstationlbl";
+            workstationlbl.Size = new Size(39, 21);
+            workstationlbl.TabIndex = 12;
+            workstationlbl.Text = "WS:";
+            // 
+            // departmentlbl
+            // 
+            departmentlbl.AutoSize = true;
+            departmentlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
+            departmentlbl.Location = new Point(809, 4);
+            departmentlbl.Name = "departmentlbl";
+            departmentlbl.Size = new Size(36, 21);
+            departmentlbl.TabIndex = 11;
+            departmentlbl.Text = "DP:";
+            // 
             // searchFieldpnl
             // 
-            searchFieldpnl.Location = new Point(40, 50);
+            searchFieldpnl.Location = new Point(36, 50);
             searchFieldpnl.Name = "searchFieldpnl";
-            searchFieldpnl.Size = new Size(679, 28);
+            searchFieldpnl.Size = new Size(634, 28);
             searchFieldpnl.TabIndex = 10;
             // 
             // addFieldbtn
             // 
             addFieldbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            addFieldbtn.Location = new Point(758, 23);
+            addFieldbtn.Location = new Point(794, 48);
             addFieldbtn.Name = "addFieldbtn";
-            addFieldbtn.Size = new Size(108, 43);
+            addFieldbtn.Size = new Size(184, 28);
             addFieldbtn.TabIndex = 9;
             addFieldbtn.Text = "Add Another Search Field";
             addFieldbtn.UseVisualStyleBackColor = true;
@@ -112,42 +138,42 @@
             WIPgridView.BackgroundColor = Color.FromArgb(45, 66, 91);
             WIPgridView.BorderStyle = BorderStyle.None;
             WIPgridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            WIPgridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            WIPgridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             WIPgridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = SystemColors.Window;
-            dataGridViewCellStyle14.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            WIPgridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            WIPgridView.DefaultCellStyle = dataGridViewCellStyle2;
             WIPgridView.GridColor = Color.White;
-            WIPgridView.Location = new Point(13, 84);
+            WIPgridView.Location = new Point(14, 84);
             WIPgridView.Name = "WIPgridView";
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            WIPgridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            WIPgridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             WIPgridView.RowHeadersVisible = false;
             WIPgridView.RowHeadersWidth = 62;
-            dataGridViewCellStyle16.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle16.ForeColor = Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = Color.White;
-            WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             WIPgridView.RowTemplate.Height = 25;
             WIPgridView.Size = new Size(989, 425);
             WIPgridView.TabIndex = 6;
@@ -155,9 +181,9 @@
             // resetbtn
             // 
             resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            resetbtn.Location = new Point(895, 50);
+            resetbtn.Location = new Point(681, 50);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(101, 28);
+            resetbtn.Size = new Size(89, 28);
             resetbtn.TabIndex = 8;
             resetbtn.Text = "Reset Table";
             resetbtn.UseVisualStyleBackColor = true;
@@ -177,7 +203,7 @@
             // searchbtn
             // 
             searchbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            searchbtn.Location = new Point(911, 10);
+            searchbtn.Location = new Point(692, 15);
             searchbtn.Name = "searchbtn";
             searchbtn.Size = new Size(69, 28);
             searchbtn.TabIndex = 7;
@@ -240,5 +266,7 @@
         private ComboBox searchcmb;
         private TextBox searchtxt;
         private Panel searchFieldpnl;
+        private Label workstationlbl;
+        private Label departmentlbl;
     }
 }
