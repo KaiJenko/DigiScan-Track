@@ -5,12 +5,6 @@ namespace DigiScan_Track
 {
     public partial class HomePageShortcuts : Form
     {
-
-
-        private HomePage parentForm;
-
-        SqlConnection conn = new SqlConnection();
-
         public HomePageShortcuts()
         {
             InitializeComponent();
@@ -19,25 +13,6 @@ namespace DigiScan_Track
 
 
         }
-
-        public void SetParentForm(HomePage parent)
-        {
-            parentForm = parent;
-        }
-
-        /*private void getSQLHomepage()
-        {
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;"
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM WIPTracking";
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            conn.Close();
-            dataGridView1.DataSource = dt;
-        }*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -137,15 +112,16 @@ namespace DigiScan_Track
         private void ButtonClicked(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
+            string departmentName = Departmentcmb.Text;
+            string workstation = clickedButton.Name.ToString();
 
             if (clickedButton.Text == "Input Part")
             {
 
+                
+
                 if (Application.OpenForms["Homepage"] is HomePage homepage)
                 {
-  
-                    string departmentName = Departmentcmb.Text;
-                    string workstation = clickedButton.Name.ToString();
 
                     ManualInput newForm = new ManualInput(departmentName, workstation);
 
@@ -157,20 +133,19 @@ namespace DigiScan_Track
                 }
             }
 
-            if (clickedButton.Text == "View Parts")
+            else if (clickedButton.Text == "View Parts")
             {
-                if (Application.OpenForms["Homepage"] is HomePage homepage)
-                {
-                    WIPTracker WIP = new WIPTracker();
+                 if (Application.OpenForms["Homepage"] is HomePage homepage)
+                 {
+                    WIPTracker WIP = new WIPTracker(departmentName, workstation);
 
                     WIP.TopLevel = false;
                     WIP.Dock = DockStyle.Fill;
                     homepage.InnerBodypnl.Controls.Clear();
                     homepage.InnerBodypnl.Controls.Add(WIP);
                     WIP.Show();
-                }
+                 }
             }
-            /*MessageBox.Show(" " + clickedButton.Name.ToString());*/
         }
 
         private void createshortcuts(int width, int height, string image, int spacing)
@@ -208,6 +183,7 @@ namespace DigiScan_Track
 
             Button tableView = new Button();
             tableView.Text = "View Parts";
+            tableView.Name = image;
             tableView.ForeColor = Color.Black; // Set the text color
             tableView.AutoSize = false;
             tableView.TextAlign = ContentAlignment.MiddleCenter; // Center the text

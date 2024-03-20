@@ -81,7 +81,7 @@ namespace DigiScan_Track
             WIPTrackerbtn.BackColor = Color.FromArgb(46, 51, 73);
 
             this.InnerBodypnl.Controls.Clear();
-            WIPTracker wiptracker = new WIPTracker() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            WIPTracker wiptracker = new WIPTracker(null, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             wiptracker.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(wiptracker);
             wiptracker.Show();

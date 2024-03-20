@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace DigiScan_Track
@@ -10,10 +11,10 @@ namespace DigiScan_Track
         SqlConnection conn = new SqlConnection();
 
 
-        public WIPTracker()
+        public WIPTracker(string sentDepartment, string sentWorkstation)
         {
             InitializeComponent();
-            getSQLWIPTracker();
+            getSQLWIPTracker(sentDepartment, sentWorkstation);
 
         }
 
@@ -34,13 +35,13 @@ namespace DigiScan_Track
             WIPgridView.Columns[6].HeaderText = "Time out";
             WIPgridView.Columns[7].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 155;
-            WIPgridView.Columns[1].Width = 155;
-            WIPgridView.Columns[2].Width = 155;
-            WIPgridView.Columns[3].Width = 155;
-            WIPgridView.Columns[4].Width = 155;
-            WIPgridView.Columns[5].Width = 155;
-            WIPgridView.Columns[6].Width = 155;
+            WIPgridView.Columns[0].Width = 150;
+            WIPgridView.Columns[1].Width = 150;
+            WIPgridView.Columns[2].Width = 150;
+            WIPgridView.Columns[3].Width = 150;
+            WIPgridView.Columns[4].Width = 150;
+            WIPgridView.Columns[5].Width = 150;
+            WIPgridView.Columns[6].Width = 150;
             WIPgridView.Columns[7].Width = 75;
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
@@ -48,24 +49,39 @@ namespace DigiScan_Track
 
         }
 
-        private void getSQLWIPTracker()
+        private void getSQLWIPTracker(string department, string workstation)
         {
-            DataTable dt = new DataTable();  // To Hold Sql Value Returned
+            string cmdText = "";
+
+            if (department == null && workstation == null)
+            {
+                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                          " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
+            }
+
+            else if (department != null || workstation != null)
+            {
+                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                          " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
+                          " AND [Workstation] = '" + workstation + "'";
+            }
+
+            DataTable dt = new DataTable();
 
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
-            SqlCommand cmd = conn.CreateCommand();     // make an object to hold an sql command
-            cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation]" +
-                              " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
-            SqlDataReader dr = cmd.ExecuteReader();   // Create an SqlDataReader to load data to and load with <sqlcommandobject>. ExecuteReader()
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = cmdText;
+            SqlDataReader dr = cmd.ExecuteReader();
 
             dt.Load(dr);
 
-            conn.Close();  // Close sql connection when complete to release memory etc.
+            conn.Close();
 
-            WIPgridView.DataSource = dt;   // return the sql value we bought back
+            WIPgridView.DataSource = dt;
 
             create_gridView_WIP();
+            
         }
 
         private void searchbtn_Click(object sender, EventArgs e)
@@ -124,7 +140,7 @@ namespace DigiScan_Track
         private void resetbtn_Click(object sender, EventArgs e)
         {
             searchFieldpnl.Controls.Clear();
-            getSQLWIPTracker();
+            getSQLWIPTracker(null, null);
         }
 
         private void addFieldbtn_Click(object sender, EventArgs e)

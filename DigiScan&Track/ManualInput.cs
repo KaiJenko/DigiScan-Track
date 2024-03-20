@@ -11,24 +11,9 @@ namespace DigiScan_Track
         public ManualInput(string departmentName, string workstation)
         {
             InitializeComponent();
-            /*getSQLHomepage();*/
             insertDepartment(departmentName, workstation);
         }
 
-
-        /*private void getSQLHomepage()
-        {
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;"
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM WIPTracking";
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            conn.Close();
-            dataGridView1.DataSource = dt;
-        }*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
