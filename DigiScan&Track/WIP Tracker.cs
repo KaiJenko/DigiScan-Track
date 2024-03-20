@@ -76,29 +76,46 @@ namespace DigiScan_Track
             if (searchval != "" && dropdownSelection != "")
             { 
                 addFieldbtn_Click(sender, e);
-                
+
+                int index = 0;
+                string sqlQuery = "";
+
                 foreach (Label label in searchFieldpnl.Controls)
                 {
-                    string text = label.Text.ToString();
+                    string labelOutput = label.Text.ToString();
+                    string[] parts = labelOutput.Split(new string[] { " - " }, StringSplitOptions.None);
+                    string SearchField = parts[0];
+                    string SearchValue = parts[1];
+
+                    if (index == 0)
+                    {
+                        sqlQuery = "WHERE [" + SearchField + "] LIKE '%" + SearchValue + "%'"; // do i need '
+                        index++;
+                    }
+
+                    else if (index != 0)
+                    {
+                        sqlQuery += " AND [" + SearchField + "] LIKE '%" + searchval + "%'";
+                    }
                 }
 
-                DataTable dt = new DataTable();  // To Hold Sql Value Returned
+                DataTable dt = new DataTable(); 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
                                   ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
-                                  " WHERE [" + dropdownSelection + "] LIKE @searchval";
-                cmd.Parameters.AddWithValue("@searchval", "%" + searchval + "%"); //reduces SQL injection
+                                  sqlQuery;
+
+                cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
                 SqlDataReader dr = cmd.ExecuteReader();
-                string fullSqlString = cmd.CommandText.Replace("@searchval", "%" + searchval + "%");
 
                 dt.Load(dr);
 
-                con.Close();  // Close sql connection when complete to release memory etc.
+                con.Close();  
 
-                WIPgridView.DataSource = dt;   // return the sql value we bought back
+                WIPgridView.DataSource = dt;  
 
                 create_gridView_WIP();
             }
