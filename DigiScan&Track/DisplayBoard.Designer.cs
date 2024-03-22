@@ -40,11 +40,11 @@
             tenrbtn = new RadioButton();
             fiverbtn = new RadioButton();
             tworbtn = new RadioButton();
-            WIPgridView = new DataGridView();
+            recentScannedGridView = new DataGridView();
             Borderpnl = new Panel();
             BodyLayoutpnl.SuspendLayout();
             radioButtonpnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)WIPgridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).BeginInit();
             Borderpnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             // 
             BodyLayoutpnl.BackColor = Color.FromArgb(46, 51, 73);
             BodyLayoutpnl.Controls.Add(radioButtonpnl);
-            BodyLayoutpnl.Controls.Add(WIPgridView);
+            BodyLayoutpnl.Controls.Add(recentScannedGridView);
             BodyLayoutpnl.Controls.Add(agedlbl);
             BodyLayoutpnl.Location = new Point(4, 3);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
@@ -97,12 +97,14 @@
             // sixtyrbtn
             // 
             sixtyrbtn.AutoSize = true;
+            sixtyrbtn.Checked = true;
             sixtyrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             sixtyrbtn.ForeColor = Color.FromArgb(0, 126, 249);
             sixtyrbtn.Location = new Point(321, 16);
             sixtyrbtn.Name = "sixtyrbtn";
             sixtyrbtn.Size = new Size(72, 24);
             sixtyrbtn.TabIndex = 3;
+            sixtyrbtn.TabStop = true;
             sixtyrbtn.Tag = "60";
             sixtyrbtn.Text = "1 Hour";
             sixtyrbtn.UseVisualStyleBackColor = true;
@@ -139,24 +141,22 @@
             // tworbtn
             // 
             tworbtn.AutoSize = true;
-            tworbtn.Checked = true;
             tworbtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             tworbtn.ForeColor = Color.FromArgb(0, 126, 249);
             tworbtn.Location = new Point(3, 16);
             tworbtn.Name = "tworbtn";
             tworbtn.Size = new Size(106, 24);
             tworbtn.TabIndex = 0;
-            tworbtn.TabStop = true;
             tworbtn.Tag = "2";
             tworbtn.Text = " 2  Minutes ";
             tworbtn.UseVisualStyleBackColor = true;
             tworbtn.CheckedChanged += radioButton_CheckedChanged;
             // 
-            // WIPgridView
+            // recentScannedGridView
             // 
-            WIPgridView.BackgroundColor = Color.FromArgb(45, 66, 91);
-            WIPgridView.BorderStyle = BorderStyle.None;
-            WIPgridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            recentScannedGridView.BackgroundColor = Color.FromArgb(45, 66, 91);
+            recentScannedGridView.BorderStyle = BorderStyle.None;
+            recentScannedGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -164,8 +164,8 @@
             dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            WIPgridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            WIPgridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            recentScannedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            recentScannedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
             dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -173,10 +173,10 @@
             dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
             dataGridViewCellStyle6.SelectionForeColor = Color.White;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            WIPgridView.DefaultCellStyle = dataGridViewCellStyle6;
-            WIPgridView.GridColor = Color.White;
-            WIPgridView.Location = new Point(14, 62);
-            WIPgridView.Name = "WIPgridView";
+            recentScannedGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            recentScannedGridView.GridColor = Color.White;
+            recentScannedGridView.Location = new Point(14, 62);
+            recentScannedGridView.Name = "recentScannedGridView";
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -184,18 +184,18 @@
             dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            WIPgridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            WIPgridView.RowHeadersVisible = false;
-            WIPgridView.RowHeadersWidth = 62;
+            recentScannedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            recentScannedGridView.RowHeadersVisible = false;
+            recentScannedGridView.RowHeadersWidth = 62;
             dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
             dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle8.ForeColor = Color.White;
             dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            WIPgridView.RowTemplate.Height = 25;
-            WIPgridView.Size = new Size(989, 443);
-            WIPgridView.TabIndex = 11;
+            recentScannedGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            recentScannedGridView.RowTemplate.Height = 25;
+            recentScannedGridView.Size = new Size(989, 443);
+            recentScannedGridView.TabIndex = 11;
             // 
             // Borderpnl
             // 
@@ -223,7 +223,7 @@
             BodyLayoutpnl.PerformLayout();
             radioButtonpnl.ResumeLayout(false);
             radioButtonpnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)WIPgridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).EndInit();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -237,7 +237,7 @@
         private Panel radioButtonpnl;
         private RadioButton fiverbtn;
         private RadioButton tworbtn;
-        private DataGridView WIPgridView;
+        private DataGridView recentScannedGridView;
         private RadioButton sixtyrbtn;
         private RadioButton tenrbtn;
     }

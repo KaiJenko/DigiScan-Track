@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            editSysGridView = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             label2 = new Label();
@@ -40,27 +43,22 @@
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
             OuterBorderpnl = new Panel();
-            ((System.ComponentModel.ISupportInitialize)editSysGridView).BeginInit();
+            panel1 = new Panel();
+            label5 = new Label();
+            comboBox2 = new ComboBox();
+            recentScannedGridView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
             OuterBorderpnl.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).BeginInit();
             SuspendLayout();
-            // 
-            // editSysGridView
-            // 
-            editSysGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            editSysGridView.Location = new Point(498, 12);
-            editSysGridView.Name = "editSysGridView";
-            editSysGridView.RowTemplate.Height = 25;
-            editSysGridView.Size = new Size(506, 474);
-            editSysGridView.TabIndex = 4;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = SystemColors.ActiveCaption;
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox1.Location = new Point(18, 41);
+            pictureBox1.BackColor = Color.FromArgb(24, 30, 54);
+            pictureBox1.Location = new Point(18, 51);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(442, 419);
             pictureBox1.TabIndex = 5;
@@ -68,18 +66,21 @@
             // 
             // comboBox1
             // 
+            comboBox1.BackColor = Color.FromArgb(46, 51, 73);
             comboBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(222, 120);
+            comboBox1.Location = new Point(214, 30);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(217, 33);
+            comboBox1.Size = new Size(201, 33);
             comboBox1.TabIndex = 7;
             // 
             // label2
             // 
-            label2.BackColor = SystemColors.ActiveCaption;
+            label2.BackColor = Color.FromArgb(46, 51, 73);
             label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(56, 197);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(64, 127);
             label2.Name = "label2";
             label2.Size = new Size(145, 47);
             label2.TabIndex = 8;
@@ -89,16 +90,17 @@
             // searchtxt
             // 
             searchtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            searchtxt.Location = new Point(207, 206);
+            searchtxt.Location = new Point(214, 137);
             searchtxt.Name = "searchtxt";
-            searchtxt.Size = new Size(244, 29);
+            searchtxt.Size = new Size(201, 29);
             searchtxt.TabIndex = 9;
             // 
             // label1
             // 
-            label1.BackColor = SystemColors.ActiveCaption;
+            label1.BackColor = Color.FromArgb(46, 51, 73);
             label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(55, 123);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(41, 89);
             label1.Name = "label1";
             label1.Size = new Size(172, 28);
             label1.TabIndex = 6;
@@ -106,9 +108,10 @@
             // 
             // label3
             // 
-            label3.BackColor = SystemColors.ActiveCaption;
+            label3.BackColor = Color.FromArgb(46, 51, 73);
             label3.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(29, 50);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 2);
             label3.Name = "label3";
             label3.Size = new Size(224, 28);
             label3.TabIndex = 10;
@@ -125,8 +128,9 @@
             // 
             // label4
             // 
-            label4.BackColor = SystemColors.ActiveCaption;
+            label4.BackColor = Color.FromArgb(46, 51, 73);
             label4.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(29, 283);
             label4.Name = "label4";
             label4.Size = new Size(352, 28);
@@ -151,15 +155,9 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(label4);
-            InnerBorderpnl.Controls.Add(label1);
-            InnerBorderpnl.Controls.Add(pictureBox2);
-            InnerBorderpnl.Controls.Add(comboBox1);
-            InnerBorderpnl.Controls.Add(label3);
-            InnerBorderpnl.Controls.Add(label2);
-            InnerBorderpnl.Controls.Add(searchtxt);
+            InnerBorderpnl.Controls.Add(recentScannedGridView);
+            InnerBorderpnl.Controls.Add(panel1);
             InnerBorderpnl.Controls.Add(pictureBox1);
-            InnerBorderpnl.Controls.Add(editSysGridView);
             InnerBorderpnl.Location = new Point(4, 3);
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1013, 522);
@@ -175,6 +173,89 @@
             OuterBorderpnl.Size = new Size(1020, 528);
             OuterBorderpnl.TabIndex = 15;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(comboBox2);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(searchtxt);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label4);
+            panel1.Location = new Point(22, 55);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(434, 411);
+            panel1.TabIndex = 14;
+            // 
+            // label5
+            // 
+            label5.BackColor = Color.FromArgb(46, 51, 73);
+            label5.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(47, 35);
+            label5.Name = "label5";
+            label5.Size = new Size(166, 28);
+            label5.TabIndex = 13;
+            label5.Text = "Select Department:";
+            // 
+            // comboBox2
+            // 
+            comboBox2.BackColor = Color.FromArgb(46, 51, 73);
+            comboBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox2.ForeColor = Color.White;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(214, 83);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(201, 33);
+            comboBox2.TabIndex = 14;
+            // 
+            // recentScannedGridView
+            // 
+            recentScannedGridView.BackgroundColor = Color.FromArgb(24, 30, 54);
+            recentScannedGridView.BorderStyle = BorderStyle.None;
+            recentScannedGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            recentScannedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            recentScannedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            recentScannedGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            recentScannedGridView.GridColor = Color.White;
+            recentScannedGridView.Location = new Point(476, 25);
+            recentScannedGridView.Name = "recentScannedGridView";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            recentScannedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            recentScannedGridView.RowHeadersVisible = false;
+            recentScannedGridView.RowHeadersWidth = 62;
+            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            recentScannedGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            recentScannedGridView.RowTemplate.Height = 25;
+            recentScannedGridView.Size = new Size(518, 464);
+            recentScannedGridView.TabIndex = 15;
+            // 
             // EditParts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -187,18 +268,18 @@
             Name = "EditParts";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)editSysGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             InnerBorderpnl.ResumeLayout(false);
-            InnerBorderpnl.PerformLayout();
             OuterBorderpnl.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private DataGridView editSysGridView;
         private PictureBox pictureBox1;
         private ComboBox comboBox1;
         private Label label2;
@@ -210,5 +291,9 @@
         private Label Titlelbl;
         private Panel InnerBorderpnl;
         private Panel OuterBorderpnl;
+        private Panel panel1;
+        private ComboBox comboBox2;
+        private Label label5;
+        private DataGridView recentScannedGridView;
     }
 }

@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace DigiScan_Track
 {
@@ -38,28 +39,41 @@ namespace DigiScan_Track
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
+            string sqlQuery = "";
             foreach (RadioButton radioButton in radioButtonpnl.Controls)
             {
                 if (radioButton.Checked)
                 {
                     switch (radioButton.Tag)
                     {
-                        case 2:
-                            MessageBox.Show("2");
+                        case "2":
+                            sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '2'";
                             break;
-                        case 5:
-                            MessageBox.Show("2");
+                        case "5":
+                            sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '5'";
                             break;
-                        case 10:
-                            MessageBox.Show("2");
+                        case "10":
+                            sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '10'";
                             break;
-                        case 60:
-                            MessageBox.Show("2");
+                        case "60":
+                            sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '60'";
                             break;
                     }
                 }
 
             }
+
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM [WIPTracking] " + sqlQuery;
+            SqlDataReader dr = cmd.ExecuteReader();
+            dt.Load(dr);
+            conn.Close();
+            recentScannedGridView.DataSource = dt;
+
         }
 
 
