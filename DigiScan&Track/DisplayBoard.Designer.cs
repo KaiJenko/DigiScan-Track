@@ -28,47 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             agedlbl = new Label();
-            agedcmb = new ComboBox();
-            dataGridView1 = new DataGridView();
             Titlelbl = new Label();
             BodyLayoutpnl = new Panel();
+            radioButtonpnl = new Panel();
+            sixtyrbtn = new RadioButton();
+            tenrbtn = new RadioButton();
+            fiverbtn = new RadioButton();
+            tworbtn = new RadioButton();
+            WIPgridView = new DataGridView();
             Borderpnl = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             BodyLayoutpnl.SuspendLayout();
+            radioButtonpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)WIPgridView).BeginInit();
             Borderpnl.SuspendLayout();
             SuspendLayout();
             // 
             // agedlbl
             // 
             agedlbl.AutoSize = true;
-            agedlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            agedlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            agedlbl.ForeColor = Color.White;
             agedlbl.Location = new Point(28, 18);
             agedlbl.Name = "agedlbl";
-            agedlbl.Size = new Size(394, 21);
+            agedlbl.Size = new Size(460, 25);
             agedlbl.TabIndex = 9;
-            agedlbl.Text = "This Board Displays Everything Scanned in the last";
-            // 
-            // agedcmb
-            // 
-            agedcmb.BackColor = SystemColors.Window;
-            agedcmb.FlatStyle = FlatStyle.Popup;
-            agedcmb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            agedcmb.FormattingEnabled = true;
-            agedcmb.Items.AddRange(new object[] { " 2  Minutes ", " 5  Minutes", "10 Minutes", " 1  Hour" });
-            agedcmb.Location = new Point(428, 15);
-            agedcmb.Name = "agedcmb";
-            agedcmb.Size = new Size(149, 29);
-            agedcmb.TabIndex = 10;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 50);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(992, 459);
-            dataGridView1.TabIndex = 11;
+            agedlbl.Text = "This Board Displays Everything Scanned in the last:";
             // 
             // Titlelbl
             // 
@@ -86,13 +75,127 @@
             // BodyLayoutpnl
             // 
             BodyLayoutpnl.BackColor = Color.FromArgb(46, 51, 73);
-            BodyLayoutpnl.Controls.Add(dataGridView1);
-            BodyLayoutpnl.Controls.Add(agedcmb);
+            BodyLayoutpnl.Controls.Add(radioButtonpnl);
+            BodyLayoutpnl.Controls.Add(WIPgridView);
             BodyLayoutpnl.Controls.Add(agedlbl);
             BodyLayoutpnl.Location = new Point(4, 3);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
             BodyLayoutpnl.Size = new Size(1013, 522);
             BodyLayoutpnl.TabIndex = 11;
+            // 
+            // radioButtonpnl
+            // 
+            radioButtonpnl.Controls.Add(sixtyrbtn);
+            radioButtonpnl.Controls.Add(tenrbtn);
+            radioButtonpnl.Controls.Add(fiverbtn);
+            radioButtonpnl.Controls.Add(tworbtn);
+            radioButtonpnl.Location = new Point(515, 5);
+            radioButtonpnl.Name = "radioButtonpnl";
+            radioButtonpnl.Size = new Size(402, 51);
+            radioButtonpnl.TabIndex = 12;
+            // 
+            // sixtyrbtn
+            // 
+            sixtyrbtn.AutoSize = true;
+            sixtyrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            sixtyrbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            sixtyrbtn.Location = new Point(321, 16);
+            sixtyrbtn.Name = "sixtyrbtn";
+            sixtyrbtn.Size = new Size(72, 24);
+            sixtyrbtn.TabIndex = 3;
+            sixtyrbtn.Tag = "60";
+            sixtyrbtn.Text = "1 Hour";
+            sixtyrbtn.UseVisualStyleBackColor = true;
+            sixtyrbtn.CheckedChanged += radioButton_CheckedChanged;
+            // 
+            // tenrbtn
+            // 
+            tenrbtn.AutoSize = true;
+            tenrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tenrbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            tenrbtn.Location = new Point(215, 16);
+            tenrbtn.Name = "tenrbtn";
+            tenrbtn.Size = new Size(100, 24);
+            tenrbtn.TabIndex = 2;
+            tenrbtn.Tag = "10";
+            tenrbtn.Text = "10 Minutes";
+            tenrbtn.UseVisualStyleBackColor = true;
+            tenrbtn.CheckedChanged += radioButton_CheckedChanged;
+            // 
+            // fiverbtn
+            // 
+            fiverbtn.AutoSize = true;
+            fiverbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            fiverbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            fiverbtn.Location = new Point(115, 16);
+            fiverbtn.Name = "fiverbtn";
+            fiverbtn.Size = new Size(94, 24);
+            fiverbtn.TabIndex = 1;
+            fiverbtn.Tag = "5";
+            fiverbtn.Text = "5 Minutes";
+            fiverbtn.UseVisualStyleBackColor = true;
+            fiverbtn.CheckedChanged += radioButton_CheckedChanged;
+            // 
+            // tworbtn
+            // 
+            tworbtn.AutoSize = true;
+            tworbtn.Checked = true;
+            tworbtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            tworbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            tworbtn.Location = new Point(3, 16);
+            tworbtn.Name = "tworbtn";
+            tworbtn.Size = new Size(106, 24);
+            tworbtn.TabIndex = 0;
+            tworbtn.TabStop = true;
+            tworbtn.Tag = "2";
+            tworbtn.Text = " 2  Minutes ";
+            tworbtn.UseVisualStyleBackColor = true;
+            tworbtn.CheckedChanged += radioButton_CheckedChanged;
+            // 
+            // WIPgridView
+            // 
+            WIPgridView.BackgroundColor = Color.FromArgb(45, 66, 91);
+            WIPgridView.BorderStyle = BorderStyle.None;
+            WIPgridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            WIPgridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            WIPgridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            WIPgridView.DefaultCellStyle = dataGridViewCellStyle6;
+            WIPgridView.GridColor = Color.White;
+            WIPgridView.Location = new Point(14, 62);
+            WIPgridView.Name = "WIPgridView";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            WIPgridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            WIPgridView.RowHeadersVisible = false;
+            WIPgridView.RowHeadersWidth = 62;
+            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            WIPgridView.RowTemplate.Height = 25;
+            WIPgridView.Size = new Size(989, 443);
+            WIPgridView.TabIndex = 11;
             // 
             // Borderpnl
             // 
@@ -116,9 +219,11 @@
             Name = "DisplayBoard";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             BodyLayoutpnl.ResumeLayout(false);
             BodyLayoutpnl.PerformLayout();
+            radioButtonpnl.ResumeLayout(false);
+            radioButtonpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)WIPgridView).EndInit();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -126,10 +231,14 @@
 
         #endregion
         private Label agedlbl;
-        private ComboBox agedcmb;
-        private DataGridView dataGridView1;
         private Label Titlelbl;
         private Panel BodyLayoutpnl;
         private Panel Borderpnl;
+        private Panel radioButtonpnl;
+        private RadioButton fiverbtn;
+        private RadioButton tworbtn;
+        private DataGridView WIPgridView;
+        private RadioButton sixtyrbtn;
+        private RadioButton tenrbtn;
     }
 }

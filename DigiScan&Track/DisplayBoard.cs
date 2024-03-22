@@ -14,11 +14,7 @@ namespace DigiScan_Track
         public DisplayBoard()
         {
             InitializeComponent();
-            /*getSQLHomepage();*/
         }
-
-
-
 
 
         /*private void getSQLHomepage()
@@ -35,16 +31,36 @@ namespace DigiScan_Track
             dataGridView1.DataSource = dt;
         }*/
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (RadioButton radioButton in radioButtonpnl.Controls)
+            {
+                if (radioButton.Checked)
+                {
+                    switch (radioButton.Tag)
+                    {
+                        case 2:
+                            MessageBox.Show("2");
+                            break;
+                        case 5:
+                            MessageBox.Show("2");
+                            break;
+                        case 10:
+                            MessageBox.Show("2");
+                            break;
+                        case 60:
+                            MessageBox.Show("2");
+                            break;
+                    }
+                }
+
+            }
+        }
 
 
 
@@ -59,5 +75,7 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
+
+
     }
 }
