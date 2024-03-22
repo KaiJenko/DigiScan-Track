@@ -16,7 +16,6 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             getSQLWIPTracker(sentDepartment, sentWorkstation);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -28,39 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            AgedGridView = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             agedlbl = new Label();
             excelbtn = new Button();
             tableaubtn = new Button();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
+            SeachButton = new PictureBox();
+            Agedgridview = new DataGridView();
             furtherDetailsgridview = new DataGridView();
             counttrackbarlbl = new Label();
             agedDaystrackbar = new TrackBar();
-            panel1 = new Panel();
-            radioButton1 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
+            radiobuttonpnl = new Panel();
+            equalsrbtn = new RadioButton();
+            greaterThanrbtn = new RadioButton();
+            rangerbtn = new RadioButton();
+            lessThanrbtn = new RadioButton();
             OuterBorderpnl = new Panel();
-            ((System.ComponentModel.ISupportInitialize)AgedGridView).BeginInit();
             InnerBorderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeachButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).BeginInit();
-            panel1.SuspendLayout();
+            radiobuttonpnl.SuspendLayout();
             OuterBorderpnl.SuspendLayout();
             SuspendLayout();
-            // 
-            // AgedGridView
-            // 
-            AgedGridView.BackgroundColor = Color.FromArgb(45, 66, 91);
-            AgedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AgedGridView.Location = new Point(54, 70);
-            AgedGridView.Name = "AgedGridView";
-            AgedGridView.RowHeadersWidth = 62;
-            AgedGridView.RowTemplate.Height = 25;
-            AgedGridView.Size = new Size(313, 439);
-            AgedGridView.TabIndex = 2;
             // 
             // agedlbl
             // 
@@ -111,11 +106,12 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(SeachButton);
+            InnerBorderpnl.Controls.Add(Agedgridview);
             InnerBorderpnl.Controls.Add(furtherDetailsgridview);
             InnerBorderpnl.Controls.Add(counttrackbarlbl);
-            InnerBorderpnl.Controls.Add(AgedGridView);
             InnerBorderpnl.Controls.Add(agedDaystrackbar);
-            InnerBorderpnl.Controls.Add(panel1);
+            InnerBorderpnl.Controls.Add(radiobuttonpnl);
             InnerBorderpnl.Controls.Add(tableaubtn);
             InnerBorderpnl.Controls.Add(agedlbl);
             InnerBorderpnl.Controls.Add(excelbtn);
@@ -123,6 +119,62 @@
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
+            // 
+            // SeachButton
+            // 
+            SeachButton.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            SeachButton.BackgroundImageLayout = ImageLayout.Stretch;
+            SeachButton.Location = new Point(570, 13);
+            SeachButton.Name = "SeachButton";
+            SeachButton.Size = new Size(20, 20);
+            SeachButton.TabIndex = 21;
+            SeachButton.TabStop = false;
+            SeachButton.Click += SearchButton_Click;
+            // 
+            // Agedgridview
+            // 
+            Agedgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
+            Agedgridview.BorderStyle = BorderStyle.None;
+            Agedgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            Agedgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            Agedgridview.DefaultCellStyle = dataGridViewCellStyle6;
+            Agedgridview.GridColor = Color.White;
+            Agedgridview.Location = new Point(50, 68);
+            Agedgridview.Name = "Agedgridview";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            Agedgridview.RowHeadersVisible = false;
+            Agedgridview.RowHeadersWidth = 62;
+            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            Agedgridview.RowTemplate.Height = 25;
+            Agedgridview.Size = new Size(326, 439);
+            Agedgridview.TabIndex = 20;
             // 
             // furtherDetailsgridview
             // 
@@ -140,7 +192,7 @@
             counttrackbarlbl.AutoSize = true;
             counttrackbarlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             counttrackbarlbl.ForeColor = Color.Coral;
-            counttrackbarlbl.Location = new Point(551, 9);
+            counttrackbarlbl.Location = new Point(544, 9);
             counttrackbarlbl.Name = "counttrackbarlbl";
             counttrackbarlbl.Size = new Size(23, 25);
             counttrackbarlbl.TabIndex = 18;
@@ -148,75 +200,73 @@
             // 
             // agedDaystrackbar
             // 
-            agedDaystrackbar.Location = new Point(335, 33);
+            agedDaystrackbar.Location = new Point(302, 33);
             agedDaystrackbar.Maximum = 50;
             agedDaystrackbar.Name = "agedDaystrackbar";
-            agedDaystrackbar.Size = new Size(451, 45);
+            agedDaystrackbar.Size = new Size(510, 45);
             agedDaystrackbar.TabIndex = 17;
             agedDaystrackbar.Scroll += agedDaystrackbar_Scroll;
             // 
-            // panel1
+            // radiobuttonpnl
             // 
-            panel1.Controls.Add(radioButton1);
-            panel1.Controls.Add(radioButton4);
-            panel1.Controls.Add(radioButton2);
-            panel1.Controls.Add(radioButton3);
-            panel1.Location = new Point(187, 5);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(109, 59);
-            panel1.TabIndex = 15;
+            radiobuttonpnl.Controls.Add(equalsrbtn);
+            radiobuttonpnl.Controls.Add(greaterThanrbtn);
+            radiobuttonpnl.Controls.Add(rangerbtn);
+            radiobuttonpnl.Controls.Add(lessThanrbtn);
+            radiobuttonpnl.Location = new Point(187, 5);
+            radiobuttonpnl.Name = "radiobuttonpnl";
+            radiobuttonpnl.Size = new Size(109, 59);
+            radiobuttonpnl.TabIndex = 15;
             // 
-            // radioButton1
+            // equalsrbtn
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.ForeColor = Color.Coral;
-            radioButton1.Location = new Point(2, 3);
-            radioButton1.Margin = new Padding(2);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(33, 19);
-            radioButton1.TabIndex = 11;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "=";
-            radioButton1.UseVisualStyleBackColor = true;
+            equalsrbtn.AutoSize = true;
+            equalsrbtn.Checked = true;
+            equalsrbtn.ForeColor = Color.Coral;
+            equalsrbtn.Location = new Point(2, 3);
+            equalsrbtn.Margin = new Padding(2);
+            equalsrbtn.Name = "equalsrbtn";
+            equalsrbtn.Size = new Size(33, 19);
+            equalsrbtn.TabIndex = 11;
+            equalsrbtn.TabStop = true;
+            equalsrbtn.Text = "=";
+            equalsrbtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // greaterThanrbtn
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.ForeColor = Color.Coral;
-            radioButton4.Location = new Point(49, 35);
-            radioButton4.Margin = new Padding(2);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(33, 19);
-            radioButton4.TabIndex = 14;
-            radioButton4.TabStop = true;
-            radioButton4.Text = ">";
-            radioButton4.UseVisualStyleBackColor = true;
+            greaterThanrbtn.AutoSize = true;
+            greaterThanrbtn.ForeColor = Color.Coral;
+            greaterThanrbtn.Location = new Point(49, 35);
+            greaterThanrbtn.Margin = new Padding(2);
+            greaterThanrbtn.Name = "greaterThanrbtn";
+            greaterThanrbtn.Size = new Size(33, 19);
+            greaterThanrbtn.TabIndex = 14;
+            greaterThanrbtn.Text = ">";
+            greaterThanrbtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rangerbtn
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.ForeColor = Color.Coral;
-            radioButton2.Location = new Point(49, 4);
-            radioButton2.Margin = new Padding(2);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(58, 19);
-            radioButton2.TabIndex = 12;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Range";
-            radioButton2.UseVisualStyleBackColor = true;
+            rangerbtn.AutoSize = true;
+            rangerbtn.ForeColor = Color.Coral;
+            rangerbtn.Location = new Point(49, 4);
+            rangerbtn.Margin = new Padding(2);
+            rangerbtn.Name = "rangerbtn";
+            rangerbtn.Size = new Size(58, 19);
+            rangerbtn.TabIndex = 12;
+            rangerbtn.Text = "Range";
+            rangerbtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // lessThanrbtn
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.ForeColor = Color.Coral;
-            radioButton3.Location = new Point(2, 35);
-            radioButton3.Margin = new Padding(2);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(33, 19);
-            radioButton3.TabIndex = 13;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "<";
-            radioButton3.UseVisualStyleBackColor = true;
+            lessThanrbtn.AutoSize = true;
+            lessThanrbtn.ForeColor = Color.Coral;
+            lessThanrbtn.Location = new Point(2, 35);
+            lessThanrbtn.Margin = new Padding(2);
+            lessThanrbtn.Name = "lessThanrbtn";
+            lessThanrbtn.Size = new Size(33, 19);
+            lessThanrbtn.TabIndex = 13;
+            lessThanrbtn.Text = "<";
+            lessThanrbtn.UseVisualStyleBackColor = true;
             // 
             // OuterBorderpnl
             // 
@@ -240,33 +290,35 @@
             Name = "AgedWIP";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)AgedGridView).EndInit();
             InnerBorderpnl.ResumeLayout(false);
             InnerBorderpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeachButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Agedgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            radiobuttonpnl.ResumeLayout(false);
+            radiobuttonpnl.PerformLayout();
             OuterBorderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private DataGridView AgedGridView;
         private Label agedlbl;
         private Button excelbtn;
         private Button tableaubtn;
         private Label Titlelbl;
         private Panel InnerBorderpnl;
         private Panel OuterBorderpnl;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Panel panel1;
+        private RadioButton greaterThanrbtn;
+        private RadioButton lessThanrbtn;
+        private RadioButton rangerbtn;
+        private RadioButton equalsrbtn;
+        private Panel radiobuttonpnl;
         private TrackBar agedDaystrackbar;
         private Label counttrackbarlbl;
         private DataGridView furtherDetailsgridview;
+        private DataGridView Agedgridview;
+        private PictureBox SeachButton;
     }
 }

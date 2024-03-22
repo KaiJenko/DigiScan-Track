@@ -73,6 +73,16 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Binoculars {
+            get {
+                object obj = ResourceManager.GetObject("Binoculars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Border {
             get {
                 object obj = ResourceManager.GetObject("Border", resourceCulture);
@@ -156,6 +166,26 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap keyboard {
             get {
                 object obj = ResourceManager.GetObject("keyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MagnifyingGlass {
+            get {
+                object obj = ResourceManager.GetObject("MagnifyingGlass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MagnifyingGlass1 {
+            get {
+                object obj = ResourceManager.GetObject("MagnifyingGlass1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
