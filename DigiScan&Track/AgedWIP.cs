@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using System.Xml;
 
 namespace DigiScan_Track
 {
@@ -14,35 +15,61 @@ namespace DigiScan_Track
         public AgedWIP()
         {
             InitializeComponent();
-            /*getSQLHomepage();*/
-        }
-
-
-
-
-
-        /*private void getSQLHomepage()
-        {
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM WIPTracking";
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            conn.Close();
-            dataGridView1.DataSource = dt;
-        }*/
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            pullMaxCountSQL();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pullMaxCountSQL()
+        {
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT MIN([DateEnteredStorage]) FROM [AgedWIP]";
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                DateTime getDate = dr.GetDateTime(0);
+                TimeSpan agedDays = DateTime.Today - getDate;
+                int agedDaysCount = agedDays.Days;
+                agedDaystrackbar.Maximum = agedDaysCount;
+            }
+
+            conn.Close();
+
+        }
+
+        private void getAgedWIPSQL()
+        {
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT [DateEnteredStorage] FROM [AgedWIP]";
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                DateTime getDate = dr.GetDateTime(0);
+                TimeSpan agedDays = DateTime.Today - getDate;
+                int agedDaysCount = agedDays.Days;
+                MessageBox.Show(agedDaysCount.ToString());
+            }
+
+            conn.Close();
+        }
+
+        private void getFurtherDetailsSQL()
+        {
+
+        }
+
+        private void agedDaystrackbar_Scroll(object sender, EventArgs e)
+        {
+            counttrackbarlbl.Text = agedDaystrackbar.Value.ToString();
         }
 
 
@@ -60,6 +87,6 @@ namespace DigiScan_Track
             }
         }
 
-       
+
     }
 }
