@@ -64,9 +64,29 @@ namespace DigiScan_Track
             conn.Close();
         }
 
-        private void getFurtherDetailsSQL()
+        private void Agedgridview_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0];
+                DataTable dt = new DataTable();
 
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation]" +
+                                  " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] WHERE [serialNumber] = '" + serialNumber.Value + "'";
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+
+                conn.Close();
+
+                furtherDetailsgridview.DataSource = dt;
+                create_furtherGridView_WIP();
+
+                conn.Close();
+            }
         }
 
         private void agedDaystrackbar_Scroll(object sender, EventArgs e)
@@ -75,6 +95,12 @@ namespace DigiScan_Track
         }
 
         private void create_defaultGridView_WIP()
+        {
+            Agedgridview.Columns[0].HeaderText = "Serial Number";
+            Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
+        }
+
+        private void create_furtherGridView_WIP()
         {
             Agedgridview.Columns[0].HeaderText = "Serial Number";
             Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
@@ -130,18 +156,18 @@ namespace DigiScan_Track
 
 
 
-            /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-            //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-            public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
+        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
+        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
+        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
+        {
+            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
+            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
+            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
             {
-                newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-                originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-                if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-                {
-                    newForm.WindowState = FormWindowState.Maximized;
-                }
+                newForm.WindowState = FormWindowState.Maximized;
             }
-
-
         }
+
+
     }
+}
