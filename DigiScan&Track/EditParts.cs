@@ -104,23 +104,36 @@ namespace DigiScan_Track
         {
             string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
             string serialNum = toEditGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            string message = "Do you want to edit " + serialNum;
+            string inStorageMessage = "Do you want to put " + serialNum + " into storage";
+            string outStorageMessage = "Do you want to remove " + serialNum + " out of storage";
             string title = "Edit Part";
 
             if (boolStorage == "True")
             {
                 MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
-                DialogResult result = MessageBox.Show(message, title, msgbtn);
+                DialogResult result = MessageBox.Show(outStorageMessage, title, msgbtn);
                 if (result == DialogResult.Yes)
                 {
                     
+                    PageEdit editPage = new PageEdit();
+                    editPage.Dock = DockStyle.Fill;
+                    this.InnerBorderpnl.Controls.Add(editPage);
+                    editPage.BringToFront();
+                    
+                   
                 }
             }
 
             else if (boolStorage == "False")
             {
+                MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
+                DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
+                if (result == DialogResult.Yes)
+                {
+
+                }
             }
 
             else
