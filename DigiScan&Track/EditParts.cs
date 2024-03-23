@@ -116,7 +116,7 @@ namespace DigiScan_Track
                 if (result == DialogResult.Yes)
                 {
                     
-                    PageEdit editPage = new PageEdit();
+                    PartEditPage editPage = new PartEditPage(serialNum);
                     editPage.Dock = DockStyle.Fill;
                     this.InnerBorderpnl.Controls.Add(editPage);
                     editPage.BringToFront();

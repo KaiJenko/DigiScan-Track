@@ -37,23 +37,23 @@
             tableaubtn = new Button();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
-            SeachButton = new PictureBox();
+            pictureBox1 = new PictureBox();
             Agedgridview = new DataGridView();
             furtherDetailsgridview = new DataGridView();
             counttrackbarlbl = new Label();
             agedDaystrackbar = new TrackBar();
-            radiobuttonpnl = new Panel();
-            equalsrbtn = new RadioButton();
-            greaterThanrbtn = new RadioButton();
-            rangerbtn = new RadioButton();
-            lessThanrbtn = new RadioButton();
+            panel1 = new Panel();
+            radioButton1 = new RadioButton();
+            radioButton4 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton3 = new RadioButton();
             OuterBorderpnl = new Panel();
             InnerBorderpnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)SeachButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).BeginInit();
-            radiobuttonpnl.SuspendLayout();
+            panel1.SuspendLayout();
             OuterBorderpnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -106,12 +106,12 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(SeachButton);
+            InnerBorderpnl.Controls.Add(pictureBox1);
             InnerBorderpnl.Controls.Add(Agedgridview);
             InnerBorderpnl.Controls.Add(furtherDetailsgridview);
             InnerBorderpnl.Controls.Add(counttrackbarlbl);
             InnerBorderpnl.Controls.Add(agedDaystrackbar);
-            InnerBorderpnl.Controls.Add(radiobuttonpnl);
+            InnerBorderpnl.Controls.Add(panel1);
             InnerBorderpnl.Controls.Add(tableaubtn);
             InnerBorderpnl.Controls.Add(agedlbl);
             InnerBorderpnl.Controls.Add(excelbtn);
@@ -120,16 +120,15 @@
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
-            // SeachButton
+            // pictureBox1
             // 
-            SeachButton.BackgroundImage = Properties.Resources.MagnifyingGlass1;
-            SeachButton.BackgroundImageLayout = ImageLayout.Stretch;
-            SeachButton.Location = new Point(582, 13);
-            SeachButton.Name = "SeachButton";
-            SeachButton.Size = new Size(20, 20);
-            SeachButton.TabIndex = 21;
-            SeachButton.TabStop = false;
-            SeachButton.Click += SearchButton_Click;
+            pictureBox1.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(570, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(20, 15);
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
             // 
             // Agedgridview
             // 
@@ -175,7 +174,6 @@
             Agedgridview.RowTemplate.Height = 25;
             Agedgridview.Size = new Size(326, 439);
             Agedgridview.TabIndex = 20;
-            Agedgridview.CellClick += Agedgridview_CellClick;
             // 
             // furtherDetailsgridview
             // 
@@ -208,66 +206,68 @@
             agedDaystrackbar.TabIndex = 17;
             agedDaystrackbar.Scroll += agedDaystrackbar_Scroll;
             // 
-            // radiobuttonpnl
+            // panel1
             // 
-            radiobuttonpnl.Controls.Add(equalsrbtn);
-            radiobuttonpnl.Controls.Add(greaterThanrbtn);
-            radiobuttonpnl.Controls.Add(rangerbtn);
-            radiobuttonpnl.Controls.Add(lessThanrbtn);
-            radiobuttonpnl.Location = new Point(187, 5);
-            radiobuttonpnl.Name = "radiobuttonpnl";
-            radiobuttonpnl.Size = new Size(109, 59);
-            radiobuttonpnl.TabIndex = 15;
+            panel1.Controls.Add(radioButton1);
+            panel1.Controls.Add(radioButton4);
+            panel1.Controls.Add(radioButton2);
+            panel1.Controls.Add(radioButton3);
+            panel1.Location = new Point(187, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(109, 59);
+            panel1.TabIndex = 15;
             // 
-            // equalsrbtn
+            // radioButton1
             // 
-            equalsrbtn.AutoSize = true;
-            equalsrbtn.Checked = true;
-            equalsrbtn.ForeColor = Color.Coral;
-            equalsrbtn.Location = new Point(2, 3);
-            equalsrbtn.Margin = new Padding(2);
-            equalsrbtn.Name = "equalsrbtn";
-            equalsrbtn.Size = new Size(33, 19);
-            equalsrbtn.TabIndex = 11;
-            equalsrbtn.TabStop = true;
-            equalsrbtn.Text = "=";
-            equalsrbtn.UseVisualStyleBackColor = true;
+            radioButton1.AutoSize = true;
+            radioButton1.ForeColor = Color.Coral;
+            radioButton1.Location = new Point(2, 3);
+            radioButton1.Margin = new Padding(2);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(33, 19);
+            radioButton1.TabIndex = 11;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "=";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
-            // greaterThanrbtn
+            // radioButton4
             // 
-            greaterThanrbtn.AutoSize = true;
-            greaterThanrbtn.ForeColor = Color.Coral;
-            greaterThanrbtn.Location = new Point(49, 35);
-            greaterThanrbtn.Margin = new Padding(2);
-            greaterThanrbtn.Name = "greaterThanrbtn";
-            greaterThanrbtn.Size = new Size(33, 19);
-            greaterThanrbtn.TabIndex = 14;
-            greaterThanrbtn.Text = ">";
-            greaterThanrbtn.UseVisualStyleBackColor = true;
+            radioButton4.AutoSize = true;
+            radioButton4.ForeColor = Color.Coral;
+            radioButton4.Location = new Point(49, 35);
+            radioButton4.Margin = new Padding(2);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(33, 19);
+            radioButton4.TabIndex = 14;
+            radioButton4.TabStop = true;
+            radioButton4.Text = ">";
+            radioButton4.UseVisualStyleBackColor = true;
             // 
-            // rangerbtn
+            // radioButton2
             // 
-            rangerbtn.AutoSize = true;
-            rangerbtn.ForeColor = Color.Coral;
-            rangerbtn.Location = new Point(49, 4);
-            rangerbtn.Margin = new Padding(2);
-            rangerbtn.Name = "rangerbtn";
-            rangerbtn.Size = new Size(58, 19);
-            rangerbtn.TabIndex = 12;
-            rangerbtn.Text = "Range";
-            rangerbtn.UseVisualStyleBackColor = true;
+            radioButton2.AutoSize = true;
+            radioButton2.ForeColor = Color.Coral;
+            radioButton2.Location = new Point(49, 4);
+            radioButton2.Margin = new Padding(2);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(58, 19);
+            radioButton2.TabIndex = 12;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Range";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
-            // lessThanrbtn
+            // radioButton3
             // 
-            lessThanrbtn.AutoSize = true;
-            lessThanrbtn.ForeColor = Color.Coral;
-            lessThanrbtn.Location = new Point(2, 35);
-            lessThanrbtn.Margin = new Padding(2);
-            lessThanrbtn.Name = "lessThanrbtn";
-            lessThanrbtn.Size = new Size(33, 19);
-            lessThanrbtn.TabIndex = 13;
-            lessThanrbtn.Text = "<";
-            lessThanrbtn.UseVisualStyleBackColor = true;
+            radioButton3.AutoSize = true;
+            radioButton3.ForeColor = Color.Coral;
+            radioButton3.Location = new Point(2, 35);
+            radioButton3.Margin = new Padding(2);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(33, 19);
+            radioButton3.TabIndex = 13;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "<";
+            radioButton3.UseVisualStyleBackColor = true;
             // 
             // OuterBorderpnl
             // 
@@ -293,12 +293,12 @@
             Load += Form1_Load;
             InnerBorderpnl.ResumeLayout(false);
             InnerBorderpnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)SeachButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Agedgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).EndInit();
-            radiobuttonpnl.ResumeLayout(false);
-            radiobuttonpnl.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             OuterBorderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -311,15 +311,15 @@
         private Label Titlelbl;
         private Panel InnerBorderpnl;
         private Panel OuterBorderpnl;
-        private RadioButton greaterThanrbtn;
-        private RadioButton lessThanrbtn;
-        private RadioButton rangerbtn;
-        private RadioButton equalsrbtn;
-        private Panel radiobuttonpnl;
+        private RadioButton radioButton4;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private Panel panel1;
         private TrackBar agedDaystrackbar;
         private Label counttrackbarlbl;
         private DataGridView furtherDetailsgridview;
         private DataGridView Agedgridview;
-        private PictureBox SeachButton;
+        private PictureBox pictureBox1;
     }
 }

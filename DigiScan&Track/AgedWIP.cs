@@ -37,7 +37,7 @@ namespace DigiScan_Track
                 DateTime getDate = dr.GetDateTime(0);
                 TimeSpan agedDays = DateTime.Today - getDate;
                 int agedDaysCount = agedDays.Days + 1;
-                agedDaystrackbar.Maximum = agedDaysCount + 1;
+                agedDaystrackbar.Maximum = agedDaysCount;
             }
 
             conn.Close();
@@ -64,29 +64,9 @@ namespace DigiScan_Track
             conn.Close();
         }
 
-        private void Agedgridview_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void getFurtherDetailsSQL()
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridViewCell serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0];
-                DataTable dt = new DataTable();
 
-                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                conn.Open();
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation]" +
-                                  " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] WHERE [serialNumber] = '" + serialNumber.Value + "'";
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                dt.Load(dr);
-
-                conn.Close();
-
-                furtherDetailsgridview.DataSource = dt;
-                create_furtherGridView_WIP();
-
-                conn.Close();
-            }
         }
 
         private void agedDaystrackbar_Scroll(object sender, EventArgs e)
@@ -98,60 +78,6 @@ namespace DigiScan_Track
         {
             Agedgridview.Columns[0].HeaderText = "Serial Number";
             Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
-        }
-
-        private void create_furtherGridView_WIP()
-        {
-            Agedgridview.Columns[0].HeaderText = "Serial Number";
-            Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
-        }
-
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            string sqlquery = "";
-            string searchValue = agedDaystrackbar.Value.ToString();
-            foreach (RadioButton radiobutton in radiobuttonpnl.Controls)
-            {
-                if (radiobutton.Checked)
-                {
-                    switch (radiobutton.Text)
-                    {
-                        case "=":
-                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) = '" + searchValue + "'";
-                            break;
-                        case "Range":
-                            MessageBox.Show("Equals");
-                            break;
-                        case "<":
-                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) < '" + searchValue + "'";
-                            break;
-                        case ">":
-                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) > '" + searchValue + "'";
-                            break;
-                        default:
-                            MessageBox.Show("Hi");
-                            break;
-                    }
-                }
-            }
-
-            DataTable dt = new DataTable();
-
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) FROM [AgedWIP] " + sqlquery;
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            dt.Load(dr);
-
-            conn.Close();
-
-            Agedgridview.DataSource = dt;
-            create_defaultGridView_WIP();
-
-            conn.Close();
-
         }
 
 
@@ -167,7 +93,5 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-
     }
 }
