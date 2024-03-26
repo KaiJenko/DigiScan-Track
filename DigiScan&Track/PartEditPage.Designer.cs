@@ -35,7 +35,8 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             agedlbl = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
+            SearchButton = new PictureBox();
+            userInputpnl = new Panel();
             storagechbox = new CheckBox();
             storagertxt = new RichTextBox();
             richTextBox15 = new RichTextBox();
@@ -56,7 +57,8 @@
             partTobeEditedGridView = new DataGridView();
             richTextBoxtooltip = new ToolTip(components);
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SearchButton).BeginInit();
+            userInputpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)partTobeEditedGridView).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +78,8 @@
             // 
             panel1.BackColor = Color.DodgerBlue;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(SearchButton);
+            panel1.Controls.Add(userInputpnl);
             panel1.Controls.Add(partTobeEditedGridView);
             panel1.Controls.Add(agedlbl);
             panel1.Location = new Point(17, 183);
@@ -85,30 +88,43 @@
             panel1.Size = new Size(1409, 540);
             panel1.TabIndex = 11;
             // 
-            // panel2
+            // SearchButton
             // 
-            panel2.BackColor = Color.FromArgb(46, 51, 73);
-            panel2.Controls.Add(storagechbox);
-            panel2.Controls.Add(storagertxt);
-            panel2.Controls.Add(richTextBox15);
-            panel2.Controls.Add(timeOutrtxt);
-            panel2.Controls.Add(richTextBox11);
-            panel2.Controls.Add(timeInrtxt);
-            panel2.Controls.Add(richTextBox12);
-            panel2.Controls.Add(workstationrtxt);
-            panel2.Controls.Add(richTextBox9);
-            panel2.Controls.Add(departmentrtxt);
-            panel2.Controls.Add(richTextBox7);
-            panel2.Controls.Add(batchNumrtxt);
-            panel2.Controls.Add(richTextBox5);
-            panel2.Controls.Add(serialNumrtxt);
-            panel2.Controls.Add(richTextBox3);
-            panel2.Controls.Add(partNumrtxt);
-            panel2.Controls.Add(richTextBox1);
-            panel2.Location = new Point(13, 320);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1374, 68);
-            panel2.TabIndex = 17;
+            SearchButton.BackColor = Color.Transparent;
+            SearchButton.BackgroundImage = Properties.Resources.spanner;
+            SearchButton.BackgroundImageLayout = ImageLayout.Stretch;
+            SearchButton.Location = new Point(634, 406);
+            SearchButton.Margin = new Padding(4, 5, 4, 5);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(147, 127);
+            SearchButton.TabIndex = 23;
+            SearchButton.TabStop = false;
+            SearchButton.Click += InputEdit_Click;
+            // 
+            // userInputpnl
+            // 
+            userInputpnl.BackColor = Color.FromArgb(46, 51, 73);
+            userInputpnl.Controls.Add(storagechbox);
+            userInputpnl.Controls.Add(storagertxt);
+            userInputpnl.Controls.Add(richTextBox15);
+            userInputpnl.Controls.Add(timeOutrtxt);
+            userInputpnl.Controls.Add(richTextBox11);
+            userInputpnl.Controls.Add(timeInrtxt);
+            userInputpnl.Controls.Add(richTextBox12);
+            userInputpnl.Controls.Add(workstationrtxt);
+            userInputpnl.Controls.Add(richTextBox9);
+            userInputpnl.Controls.Add(departmentrtxt);
+            userInputpnl.Controls.Add(richTextBox7);
+            userInputpnl.Controls.Add(batchNumrtxt);
+            userInputpnl.Controls.Add(richTextBox5);
+            userInputpnl.Controls.Add(serialNumrtxt);
+            userInputpnl.Controls.Add(richTextBox3);
+            userInputpnl.Controls.Add(partNumrtxt);
+            userInputpnl.Controls.Add(richTextBox1);
+            userInputpnl.Location = new Point(13, 320);
+            userInputpnl.Name = "userInputpnl";
+            userInputpnl.Size = new Size(1374, 68);
+            userInputpnl.TabIndex = 17;
             // 
             // storagechbox
             // 
@@ -118,10 +134,12 @@
             storagechbox.Name = "storagechbox";
             storagechbox.Size = new Size(22, 21);
             storagechbox.TabIndex = 18;
+            storagechbox.Tag = "InStorage";
             storagechbox.UseVisualStyleBackColor = false;
             // 
             // storagertxt
             // 
+            storagertxt.BackColor = Color.White;
             storagertxt.BorderStyle = BorderStyle.FixedSingle;
             storagertxt.Dock = DockStyle.Left;
             storagertxt.Enabled = false;
@@ -130,6 +148,7 @@
             storagertxt.Size = new Size(89, 68);
             storagertxt.TabIndex = 17;
             storagertxt.Text = "";
+            richTextBoxtooltip.SetToolTip(storagertxt, "Storage - tick the checkbox if the part is \r\neither currently/will be located in storage");
             // 
             // richTextBox15
             // 
@@ -144,13 +163,16 @@
             // 
             // timeOutrtxt
             // 
+            timeOutrtxt.BackColor = Color.White;
             timeOutrtxt.BorderStyle = BorderStyle.FixedSingle;
             timeOutrtxt.Dock = DockStyle.Left;
             timeOutrtxt.Location = new Point(1080, 0);
             timeOutrtxt.Name = "timeOutrtxt";
             timeOutrtxt.Size = new Size(200, 68);
             timeOutrtxt.TabIndex = 15;
+            timeOutrtxt.Tag = "WSTimestampOUT";
             timeOutrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(timeOutrtxt, "Timestamp OUT - the time when \r\nthe part left the users workstation ");
             // 
             // richTextBox11
             // 
@@ -165,13 +187,16 @@
             // 
             // timeInrtxt
             // 
+            timeInrtxt.BackColor = Color.White;
             timeInrtxt.BorderStyle = BorderStyle.FixedSingle;
             timeInrtxt.Dock = DockStyle.Left;
             timeInrtxt.Location = new Point(875, 0);
             timeInrtxt.Name = "timeInrtxt";
             timeInrtxt.Size = new Size(200, 68);
             timeInrtxt.TabIndex = 13;
+            timeInrtxt.Tag = "WSTimestampIN";
             timeInrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(timeInrtxt, "Timestamp IN - the time when the \r\npart entered the users workstation");
             // 
             // richTextBox12
             // 
@@ -186,13 +211,16 @@
             // 
             // workstationrtxt
             // 
+            workstationrtxt.BackColor = Color.White;
             workstationrtxt.BorderStyle = BorderStyle.FixedSingle;
             workstationrtxt.Dock = DockStyle.Left;
             workstationrtxt.Location = new Point(700, 0);
             workstationrtxt.Name = "workstationrtxt";
             workstationrtxt.Size = new Size(170, 68);
             workstationrtxt.TabIndex = 10;
+            workstationrtxt.Tag = "Workstation";
             workstationrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(workstationrtxt, "Workstation - which aspect of \r\nthe workline the user works on");
             // 
             // richTextBox9
             // 
@@ -207,13 +235,16 @@
             // 
             // departmentrtxt
             // 
+            departmentrtxt.BackColor = Color.White;
             departmentrtxt.BorderStyle = BorderStyle.FixedSingle;
             departmentrtxt.Dock = DockStyle.Left;
             departmentrtxt.Location = new Point(525, 0);
             departmentrtxt.Name = "departmentrtxt";
             departmentrtxt.Size = new Size(170, 68);
             departmentrtxt.TabIndex = 8;
+            departmentrtxt.Tag = "Department";
             departmentrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(departmentrtxt, "Department - where the \r\nuser's workstation is located");
             // 
             // richTextBox7
             // 
@@ -228,13 +259,16 @@
             // 
             // batchNumrtxt
             // 
+            batchNumrtxt.BackColor = Color.White;
             batchNumrtxt.BorderStyle = BorderStyle.FixedSingle;
             batchNumrtxt.Dock = DockStyle.Left;
             batchNumrtxt.Location = new Point(350, 0);
             batchNumrtxt.Name = "batchNumrtxt";
             batchNumrtxt.Size = new Size(170, 68);
             batchNumrtxt.TabIndex = 6;
+            batchNumrtxt.Tag = "BatchNumber";
             batchNumrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(batchNumrtxt, "Batch Number - preceded \r\nby BAT on the barcode");
             // 
             // richTextBox5
             // 
@@ -249,13 +283,16 @@
             // 
             // serialNumrtxt
             // 
+            serialNumrtxt.BackColor = Color.White;
             serialNumrtxt.BorderStyle = BorderStyle.FixedSingle;
             serialNumrtxt.Dock = DockStyle.Left;
             serialNumrtxt.Location = new Point(175, 0);
             serialNumrtxt.Name = "serialNumrtxt";
             serialNumrtxt.Size = new Size(170, 68);
             serialNumrtxt.TabIndex = 3;
+            serialNumrtxt.Tag = "SerialNumber";
             serialNumrtxt.Text = "";
+            richTextBoxtooltip.SetToolTip(serialNumrtxt, "Serial Number - the unique \r\nidentifier for the part");
             // 
             // richTextBox3
             // 
@@ -270,14 +307,16 @@
             // 
             // partNumrtxt
             // 
+            partNumrtxt.BackColor = Color.White;
             partNumrtxt.BorderStyle = BorderStyle.FixedSingle;
             partNumrtxt.Dock = DockStyle.Left;
             partNumrtxt.Location = new Point(0, 0);
             partNumrtxt.Name = "partNumrtxt";
             partNumrtxt.Size = new Size(170, 68);
             partNumrtxt.TabIndex = 1;
+            partNumrtxt.Tag = "PartNumber";
             partNumrtxt.Text = "";
-            richTextBoxtooltip.SetToolTip(partNumrtxt, "Please input a serial number");
+            richTextBoxtooltip.SetToolTip(partNumrtxt, "Part Number - in bold on the \r\nbarcode and engraved on the part");
             // 
             // richTextBox1
             // 
@@ -340,6 +379,9 @@
             // richTextBoxtooltip
             // 
             richTextBoxtooltip.AutomaticDelay = 100;
+            richTextBoxtooltip.AutoPopDelay = 5000;
+            richTextBoxtooltip.InitialDelay = 100;
+            richTextBoxtooltip.ReshowDelay = 20;
             richTextBoxtooltip.ToolTipTitle = "Info";
             // 
             // PartEditPage
@@ -353,8 +395,9 @@
             Size = new Size(1447, 870);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SearchButton).EndInit();
+            userInputpnl.ResumeLayout(false);
+            userInputpnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)partTobeEditedGridView).EndInit();
             ResumeLayout(false);
         }
@@ -364,7 +407,7 @@
         private Label agedlbl;
         private Panel panel1;
         private DataGridView partTobeEditedGridView;
-        private Panel panel2;
+        private Panel userInputpnl;
         private RichTextBox workstationrtxt;
         private RichTextBox richTextBox9;
         private RichTextBox departmentrtxt;
@@ -383,5 +426,6 @@
         private CheckBox storagechbox;
         private RichTextBox storagertxt;
         private ToolTip richTextBoxtooltip;
+        private PictureBox SearchButton;
     }
 }

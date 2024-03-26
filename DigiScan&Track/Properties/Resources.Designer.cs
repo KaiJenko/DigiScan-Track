@@ -233,9 +233,39 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools__5_ {
+            get {
+                object obj = ResourceManager.GetObject("output-onlinepngtools (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools__5_1 {
+            get {
+                object obj = ResourceManager.GetObject("output-onlinepngtools (5)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap output_onlinepngtools1 {
             get {
                 object obj = ResourceManager.GetObject("output-onlinepngtools1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Picture1 {
+            get {
+                object obj = ResourceManager.GetObject("Picture1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
