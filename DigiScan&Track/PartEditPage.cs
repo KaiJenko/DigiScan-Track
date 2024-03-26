@@ -17,7 +17,7 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             editPartDetailsSQL(serialNumber);
-            userInputSQL();
+
         }
 
         private void editPartDetailsSQL(string serialNumber)
@@ -34,9 +34,6 @@ namespace DigiScan_Track
             partTobeEditedGridView.DataSource = dt;
         }
 
-        private void userInputSQL()
-        {
-            
-        }
+
     }
 }

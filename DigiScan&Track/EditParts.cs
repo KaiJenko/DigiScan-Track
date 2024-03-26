@@ -9,7 +9,7 @@ namespace DigiScan_Track
 {
     public partial class EditParts : Form
     {
-
+        private PartEditPage editPage;
         SqlConnection conn = new SqlConnection();
 
         public EditParts()
@@ -115,13 +115,14 @@ namespace DigiScan_Track
                 DialogResult result = MessageBox.Show(outStorageMessage, title, msgbtn);
                 if (result == DialogResult.Yes)
                 {
-                    
+
                     PartEditPage editPage = new PartEditPage(serialNum);
                     editPage.Dock = DockStyle.Fill;
                     this.InnerBorderpnl.Controls.Add(editPage);
+                    xbtn.Visible = true;
+                    xbtn.BringToFront();
                     editPage.BringToFront();
-                    
-                   
+
                 }
             }
 
@@ -141,9 +142,9 @@ namespace DigiScan_Track
                 MessageBox.Show(boolStorage);
             }
         }
-        
-            
-        
+
+
+
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
@@ -157,6 +158,11 @@ namespace DigiScan_Track
             }
         }
 
-        
+        private void xbtn_Click(object sender, EventArgs e)
+        {
+            Control editPartsPage = InnerBorderpnl.Controls[0];
+            InnerBorderpnl.Controls.Remove(editPartsPage);
+            xbtn.Visible = false;
+        }
     }
 }

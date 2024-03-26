@@ -48,6 +48,7 @@
             partNumbercmbox = new ComboBox();
             label5 = new Label();
             OuterBorderpnl = new Panel();
+            xbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
@@ -60,9 +61,10 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(24, 30, 54);
-            pictureBox1.Location = new Point(18, 51);
+            pictureBox1.Location = new Point(26, 85);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(442, 419);
+            pictureBox1.Size = new Size(631, 698);
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
@@ -72,9 +74,10 @@
             departmentcmbox.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             departmentcmbox.ForeColor = Color.White;
             departmentcmbox.FormattingEnabled = true;
-            departmentcmbox.Location = new Point(214, 30);
+            departmentcmbox.Location = new Point(306, 50);
+            departmentcmbox.Margin = new Padding(4, 5, 4, 5);
             departmentcmbox.Name = "departmentcmbox";
-            departmentcmbox.Size = new Size(201, 33);
+            departmentcmbox.Size = new Size(285, 48);
             departmentcmbox.TabIndex = 7;
             departmentcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
             // 
@@ -83,9 +86,10 @@
             label2.BackColor = Color.FromArgb(46, 51, 73);
             label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(64, 127);
+            label2.Location = new Point(91, 212);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(145, 47);
+            label2.Size = new Size(207, 78);
             label2.TabIndex = 8;
             label2.Text = "Scan 2D Barcode from Unit:";
             label2.TextAlign = ContentAlignment.MiddleRight;
@@ -93,9 +97,10 @@
             // searchtxt
             // 
             searchtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            searchtxt.Location = new Point(214, 137);
+            searchtxt.Location = new Point(306, 228);
+            searchtxt.Margin = new Padding(4, 5, 4, 5);
             searchtxt.Name = "searchtxt";
-            searchtxt.Size = new Size(201, 29);
+            searchtxt.Size = new Size(285, 39);
             searchtxt.TabIndex = 9;
             // 
             // label1
@@ -103,9 +108,10 @@
             label1.BackColor = Color.FromArgb(46, 51, 73);
             label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(41, 89);
+            label1.Location = new Point(59, 148);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(172, 28);
+            label1.Size = new Size(246, 47);
             label1.TabIndex = 6;
             label1.Text = "Select Part Number:";
             // 
@@ -114,18 +120,20 @@
             label3.BackColor = Color.FromArgb(46, 51, 73);
             label3.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(3, 2);
+            label3.Location = new Point(4, 3);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(224, 28);
+            label3.Size = new Size(320, 47);
             label3.TabIndex = 10;
             label3.Text = "Search for Part to Edit";
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = SystemColors.ActiveCaptionText;
-            pictureBox2.Location = new Point(2, 262);
+            pictureBox2.Location = new Point(3, 437);
+            pictureBox2.Margin = new Padding(4, 5, 4, 5);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(431, 2);
+            pictureBox2.Size = new Size(616, 3);
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
             // 
@@ -134,9 +142,10 @@
             label4.BackColor = Color.FromArgb(46, 51, 73);
             label4.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(29, 283);
+            label4.Location = new Point(41, 472);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(352, 28);
+            label4.Size = new Size(503, 47);
             label4.TabIndex = 12;
             label4.Text = "Add New Part Number - Admin Only";
             // 
@@ -147,9 +156,10 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(140, 10);
+            Titlelbl.Location = new Point(200, 17);
+            Titlelbl.Margin = new Padding(4, 0, 4, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(803, 47);
+            Titlelbl.Size = new Size(1190, 70);
             Titlelbl.TabIndex = 14;
             Titlelbl.Text = "DigiScan && Track - Edit Parts\r\n";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -161,9 +171,10 @@
             InnerBorderpnl.Controls.Add(toEditGridView);
             InnerBorderpnl.Controls.Add(panel1);
             InnerBorderpnl.Controls.Add(pictureBox1);
-            InnerBorderpnl.Location = new Point(4, 3);
+            InnerBorderpnl.Location = new Point(6, 5);
+            InnerBorderpnl.Margin = new Padding(4, 5, 4, 5);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1013, 522);
+            InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
             // 
             // toEditGridView
@@ -189,7 +200,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             toEditGridView.DefaultCellStyle = dataGridViewCellStyle2;
             toEditGridView.GridColor = Color.White;
-            toEditGridView.Location = new Point(476, 25);
+            toEditGridView.Location = new Point(680, 42);
+            toEditGridView.Margin = new Padding(4, 5, 4, 5);
             toEditGridView.Name = "toEditGridView";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
@@ -208,7 +220,7 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             toEditGridView.RowTemplate.Height = 25;
-            toEditGridView.Size = new Size(518, 464);
+            toEditGridView.Size = new Size(740, 773);
             toEditGridView.TabIndex = 15;
             toEditGridView.CellContentClick += toEditGridView_CellContentClick;
             // 
@@ -224,9 +236,10 @@
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(22, 55);
+            panel1.Location = new Point(31, 92);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(434, 411);
+            panel1.Size = new Size(620, 685);
             panel1.TabIndex = 14;
             // 
             // SearchButton
@@ -234,9 +247,10 @@
             SearchButton.BackColor = Color.White;
             SearchButton.BackgroundImage = Properties.Resources.MagnifyingGlass1;
             SearchButton.BackgroundImageLayout = ImageLayout.Stretch;
-            SearchButton.Location = new Point(390, 142);
+            SearchButton.Location = new Point(557, 231);
+            SearchButton.Margin = new Padding(4, 5, 4, 5);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(20, 20);
+            SearchButton.Size = new Size(29, 33);
             SearchButton.TabIndex = 22;
             SearchButton.TabStop = false;
             SearchButton.Click += SearchButton_Click;
@@ -248,9 +262,10 @@
             partNumbercmbox.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             partNumbercmbox.ForeColor = Color.White;
             partNumbercmbox.FormattingEnabled = true;
-            partNumbercmbox.Location = new Point(214, 83);
+            partNumbercmbox.Location = new Point(306, 138);
+            partNumbercmbox.Margin = new Padding(4, 5, 4, 5);
             partNumbercmbox.Name = "partNumbercmbox";
-            partNumbercmbox.Size = new Size(201, 33);
+            partNumbercmbox.Size = new Size(285, 48);
             partNumbercmbox.TabIndex = 14;
             // 
             // label5
@@ -258,9 +273,10 @@
             label5.BackColor = Color.FromArgb(46, 51, 73);
             label5.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(47, 35);
+            label5.Location = new Point(67, 58);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(166, 28);
+            label5.Size = new Size(237, 47);
             label5.TabIndex = 13;
             label5.Text = "Select Department:";
             // 
@@ -269,20 +285,34 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(16, 69);
+            OuterBorderpnl.Location = new Point(23, 115);
+            OuterBorderpnl.Margin = new Padding(4, 5, 4, 5);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1020, 528);
+            OuterBorderpnl.Size = new Size(1457, 880);
             OuterBorderpnl.TabIndex = 15;
+            // 
+            // xbtn
+            // 
+            xbtn.Location = new Point(1412, 46);
+            xbtn.Name = "xbtn";
+            xbtn.Size = new Size(64, 34);
+            xbtn.TabIndex = 16;
+            xbtn.Text = "X";
+            xbtn.UseVisualStyleBackColor = true;
+            xbtn.Visible = false;
+            xbtn.Click += xbtn_Click;
             // 
             // EditParts
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1503, 1015);
+            Controls.Add(xbtn);
             Controls.Add(Titlelbl);
             Controls.Add(OuterBorderpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "EditParts";
             Text = "Form1";
             Load += Form1_Load;
@@ -315,5 +345,6 @@
         private Label label5;
         private DataGridView toEditGridView;
         private PictureBox SearchButton;
+        private Button xbtn;
     }
 }
