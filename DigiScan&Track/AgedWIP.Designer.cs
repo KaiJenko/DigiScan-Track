@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             agedlbl = new Label();
             excelbtn = new Button();
             tableaubtn = new Button();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
-            higherRangenud = new NumericUpDown();
+            rangepnl = new Panel();
             lowerRangenud = new NumericUpDown();
+            higherRangenud = new NumericUpDown();
+            lowerlbl = new Label();
+            upperlbl = new Label();
             searchpbox = new PictureBox();
             Agedgridview = new DataGridView();
             furtherDetailsgridview = new DataGridView();
@@ -50,19 +53,16 @@
             rangerbtn = new RadioButton();
             lessThanrbtn = new RadioButton();
             OuterBorderpnl = new Panel();
-            lowerlbl = new Label();
-            upperlbl = new Label();
-            rangepnl = new Panel();
             InnerBorderpnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)higherRangenud).BeginInit();
+            rangepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lowerRangenud).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)higherRangenud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).BeginInit();
             radioButtonpnl.SuspendLayout();
             OuterBorderpnl.SuspendLayout();
-            rangepnl.SuspendLayout();
             SuspendLayout();
             // 
             // agedlbl
@@ -134,19 +134,57 @@
             InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
             // 
+            // rangepnl
+            // 
+            rangepnl.Controls.Add(lowerRangenud);
+            rangepnl.Controls.Add(higherRangenud);
+            rangepnl.Controls.Add(lowerlbl);
+            rangepnl.Controls.Add(upperlbl);
+            rangepnl.Location = new Point(547, 53);
+            rangepnl.Name = "rangepnl";
+            rangepnl.Size = new Size(527, 52);
+            rangepnl.TabIndex = 26;
+            rangepnl.Visible = false;
+            // 
+            // lowerRangenud
+            // 
+            lowerRangenud.Location = new Point(195, 12);
+            lowerRangenud.Name = "lowerRangenud";
+            lowerRangenud.Size = new Size(71, 31);
+            lowerRangenud.TabIndex = 22;
+            // 
             // higherRangenud
             // 
-            higherRangenud.Location = new Point(199, 17);
+            higherRangenud.Location = new Point(453, 12);
             higherRangenud.Name = "higherRangenud";
             higherRangenud.Size = new Size(71, 31);
             higherRangenud.TabIndex = 23;
             // 
-            // lowerRangenud
+            // lowerlbl
             // 
-            lowerRangenud.Location = new Point(67, 17);
-            lowerRangenud.Name = "lowerRangenud";
-            lowerRangenud.Size = new Size(71, 31);
-            lowerRangenud.TabIndex = 22;
+            lowerlbl.AutoSize = true;
+            lowerlbl.BackColor = Color.Transparent;
+            lowerlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lowerlbl.ForeColor = Color.Coral;
+            lowerlbl.Location = new Point(16, 11);
+            lowerlbl.Margin = new Padding(4, 0, 4, 0);
+            lowerlbl.Name = "lowerlbl";
+            lowerlbl.Size = new Size(172, 32);
+            lowerlbl.TabIndex = 24;
+            lowerlbl.Text = "Lower Bound:";
+            // 
+            // upperlbl
+            // 
+            upperlbl.AutoSize = true;
+            upperlbl.BackColor = Color.Transparent;
+            upperlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            upperlbl.ForeColor = Color.Coral;
+            upperlbl.Location = new Point(273, 11);
+            upperlbl.Margin = new Padding(4, 0, 4, 0);
+            upperlbl.Name = "upperlbl";
+            upperlbl.Size = new Size(173, 32);
+            upperlbl.TabIndex = 25;
+            upperlbl.Text = "Upper Bound:";
             // 
             // searchpbox
             // 
@@ -165,43 +203,43 @@
             Agedgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
             Agedgridview.BorderStyle = BorderStyle.None;
             Agedgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             Agedgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            Agedgridview.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            Agedgridview.DefaultCellStyle = dataGridViewCellStyle6;
             Agedgridview.GridColor = Color.White;
             Agedgridview.Location = new Point(71, 113);
             Agedgridview.Margin = new Padding(4, 5, 4, 5);
             Agedgridview.Name = "Agedgridview";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             Agedgridview.RowHeadersVisible = false;
             Agedgridview.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle8;
             Agedgridview.RowTemplate.Height = 25;
             Agedgridview.Size = new Size(466, 732);
             Agedgridview.TabIndex = 20;
@@ -287,7 +325,7 @@
             rangerbtn.TabStop = true;
             rangerbtn.Text = "Range";
             rangerbtn.UseVisualStyleBackColor = true;
-            rangerbtn.Click += rangerbtn_Click;
+            rangerbtn.CheckedChanged += rangerbtn_Click;
             // 
             // lessThanrbtn
             // 
@@ -312,44 +350,6 @@
             OuterBorderpnl.Size = new Size(1457, 880);
             OuterBorderpnl.TabIndex = 14;
             // 
-            // lowerlbl
-            // 
-            lowerlbl.AutoSize = true;
-            lowerlbl.BackColor = Color.Transparent;
-            lowerlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lowerlbl.ForeColor = Color.Coral;
-            lowerlbl.Location = new Point(17, 15);
-            lowerlbl.Margin = new Padding(4, 0, 4, 0);
-            lowerlbl.Name = "lowerlbl";
-            lowerlbl.Size = new Size(48, 32);
-            lowerlbl.TabIndex = 24;
-            lowerlbl.Text = "LB:";
-            // 
-            // upperlbl
-            // 
-            upperlbl.AutoSize = true;
-            upperlbl.BackColor = Color.Transparent;
-            upperlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            upperlbl.ForeColor = Color.Coral;
-            upperlbl.Location = new Point(145, 14);
-            upperlbl.Margin = new Padding(4, 0, 4, 0);
-            upperlbl.Name = "upperlbl";
-            upperlbl.Size = new Size(53, 32);
-            upperlbl.TabIndex = 25;
-            upperlbl.Text = "UB:";
-            // 
-            // rangepnl
-            // 
-            rangepnl.Controls.Add(lowerRangenud);
-            rangepnl.Controls.Add(higherRangenud);
-            rangepnl.Controls.Add(lowerlbl);
-            rangepnl.Controls.Add(upperlbl);
-            rangepnl.Location = new Point(443, 3);
-            rangepnl.Name = "rangepnl";
-            rangepnl.Size = new Size(307, 52);
-            rangepnl.TabIndex = 26;
-            rangepnl.Visible = false;
-            // 
             // AgedWIP
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -365,8 +365,10 @@
             Load += Form1_Load;
             InnerBorderpnl.ResumeLayout(false);
             InnerBorderpnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)higherRangenud).EndInit();
+            rangepnl.ResumeLayout(false);
+            rangepnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)lowerRangenud).EndInit();
+            ((System.ComponentModel.ISupportInitialize)higherRangenud).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchpbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)Agedgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
@@ -374,8 +376,6 @@
             radioButtonpnl.ResumeLayout(false);
             radioButtonpnl.PerformLayout();
             OuterBorderpnl.ResumeLayout(false);
-            rangepnl.ResumeLayout(false);
-            rangepnl.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

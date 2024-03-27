@@ -108,10 +108,10 @@
             label1.BackColor = Color.FromArgb(46, 51, 73);
             label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(59, 148);
+            label1.Location = new Point(33, 139);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(246, 47);
+            label1.Size = new Size(265, 47);
             label1.TabIndex = 6;
             label1.Text = "Select Part Number:";
             // 
@@ -273,10 +273,10 @@
             label5.BackColor = Color.FromArgb(46, 51, 73);
             label5.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(67, 58);
+            label5.Location = new Point(41, 50);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(237, 47);
+            label5.Size = new Size(257, 47);
             label5.TabIndex = 13;
             label5.Text = "Select Department:";
             // 

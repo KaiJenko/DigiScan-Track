@@ -105,7 +105,7 @@ namespace DigiScan_Track
                             sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) > '" + searchValue + "'";
                             break;
                         default:
-                            MessageBox.Show("Hi");
+                            MessageBox.Show("Error");
                             break;
                     }
                 }
@@ -132,9 +132,23 @@ namespace DigiScan_Track
 
         private void rangerbtn_Click(object sender, EventArgs e)
         {
-            rangepnl.Visible = true;
-            agedDaystrackbar.Visible = false;
+            if (rangerbtn.Checked)
+            {
+                rangepnl.Visible = true;
+                agedDaystrackbar.Visible = false;
+                counttrackbarlbl.Visible = false;
+            }
+
+            else
+            {
+                rangepnl.Visible = false;
+                agedDaystrackbar.Visible = true;
+                counttrackbarlbl.Visible = true;
+            }
+
         }
+
+
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
