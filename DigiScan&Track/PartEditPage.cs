@@ -38,11 +38,33 @@ namespace DigiScan_Track
         {
             DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[0];
             int count = 0;
+
+            /*foreach (Control control in userInputpnl.Controls)
+            {
+                MessageBox.Show(control.Name);
+            }*/
+            string sqlquery = "";
+
             foreach (Control control in userInputpnl.Controls)
             {
-                MessageBox.Show(control.ToString());
-                string sqlquery = "";
-                if (control is RichTextBox)
+
+               
+
+                if (control is CheckBox)
+                {
+                    CheckBox checkbox = control as CheckBox;
+                    if (checkbox.Checked)
+                    {
+                        sqlquery += " , [" + checkbox.Tag + "] = '1'";
+                    }
+
+                    else if (checkbox.Checked = false)
+                    {
+                        sqlquery += " , [" + checkbox.Tag + "] = '0'";
+                    }
+                }
+
+                else if (control is RichTextBox)
                 {
                     RichTextBox richtextbox = control as RichTextBox;
                     if (richtextbox.Text != "")
@@ -60,32 +82,22 @@ namespace DigiScan_Track
                         }
 
                     }
-                    
-                }
-                else if (control is CheckBox) 
-                {
-                    CheckBox checkbox = control as CheckBox;
-                    if (checkbox.Checked)
-                    {
-                        sqlquery += " , [" + checkbox.Tag + "] = '1'";
-                    }
 
-                    else if (checkbox.Checked = false)
-                    {
-                        sqlquery += " , [" + checkbox.Tag + "] = '0'";
-                    }
                 }
-
-                DataTable dt = new DataTable();
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                conn.Open();
-                string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.ToString() + "'";
-                SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
-                cmd.ExecuteNonQuery();
-                SqlDataReader dr = cmd.ExecuteReader();
 
             }
+
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
+            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+                
+
         }
     }
 }

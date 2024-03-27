@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace DigiScan_Track
@@ -38,6 +39,7 @@ namespace DigiScan_Track
                 TimeSpan agedDays = DateTime.Today - getDate;
                 int agedDaysCount = agedDays.Days + 1;
                 agedDaystrackbar.Maximum = agedDaysCount;
+                higherRangenud.Maximum = agedDaysCount;
             }
 
             conn.Close();
@@ -80,6 +82,59 @@ namespace DigiScan_Track
             Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string sqlquery = "";
+            string searchValue = agedDaystrackbar.Value.ToString();
+            foreach (RadioButton radiobutton in radioButtonpnl.Controls)
+            {
+                if (radiobutton.Checked)
+                {
+                    switch (radiobutton.Text)
+                    {
+                        case "=":
+                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) = '" + searchValue + "'";
+                            break;
+                        case "Range":
+                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) BETWEEN " + lowerRangenud.Value + " AND " + higherRangenud.Value;
+                            break;
+                        case "<":
+                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) < '" + searchValue + "'";
+                            break;
+                        case ">":
+                            sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) > '" + searchValue + "'";
+                            break;
+                        default:
+                            MessageBox.Show("Hi");
+                            break;
+                    }
+                }
+            }
+
+            DataTable dt = new DataTable();
+
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) FROM [AgedWIP] " + sqlquery;
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            dt.Load(dr);
+
+            conn.Close();
+
+            Agedgridview.DataSource = dt;
+            create_defaultGridView_WIP();
+
+            conn.Close();
+
+        }
+
+        private void rangerbtn_Click(object sender, EventArgs e)
+        {
+            rangepnl.Visible = true;
+            agedDaystrackbar.Visible = false;
+        }
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
@@ -93,5 +148,7 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
+
+
     }
 }
