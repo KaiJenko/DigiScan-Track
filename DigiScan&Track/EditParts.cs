@@ -9,8 +9,6 @@ namespace DigiScan_Track
 {
     public partial class EditParts : Form
     {
-        private PartEditPage editPage;
-        SqlConnection conn = new SqlConnection();
 
         public EditParts()
         {
@@ -77,13 +75,29 @@ namespace DigiScan_Track
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            string SQLQuery = "";
             string department = departmentcmbox.Text;
             string partNumber = partNumbercmbox.Text;
             string serialNumber = searchtxt.Text;
 
-            string query = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
-                           "  AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
-            sqlQuery(query, toEditGridView);
+            if (partNumber == "")
+            {
+                MessageBox.Show("Please choose a part number to search for");
+            }
+
+            else if (serialNumber == "")
+            {
+                SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
+                           "  AND [PartNumber] = '" + partNumber + "'";
+            }
+
+            else
+            {
+                SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
+                           " AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
+            }
+            
+            sqlQuery(SQLQuery, toEditGridView);
         }
 
         private void sqlQuery(string command, DataGridView gridview)
@@ -104,8 +118,8 @@ namespace DigiScan_Track
         {
             string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
             string serialNum = toEditGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            string inStorageMessage = "Do you want to put " + serialNum + " into storage";
-            string outStorageMessage = "Do you want to remove " + serialNum + " out of storage";
+            string inStorageMessage = "This part: " + serialNum + " is not in storage, would you like to edit this";
+            string outStorageMessage = "This part " + serialNum + " is in storage, would you like to edit this";
             string title = "Edit Part";
 
             if (boolStorage == "True")
@@ -133,7 +147,12 @@ namespace DigiScan_Track
                 DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
                 if (result == DialogResult.Yes)
                 {
-
+                    PartEditPage editPage = new PartEditPage(serialNum);
+                    editPage.Dock = DockStyle.Fill;
+                    this.InnerBorderpnl.Controls.Add(editPage);
+                    xbtn.Visible = true;
+                    xbtn.BringToFront();
+                    editPage.BringToFront();
                 }
             }
 
@@ -143,7 +162,12 @@ namespace DigiScan_Track
             }
         }
 
-
+        private void xbtn_Click(object sender, EventArgs e)
+        {
+            Control editPartsPage = InnerBorderpnl.Controls[0];
+            InnerBorderpnl.Controls.Remove(editPartsPage);
+            xbtn.Visible = false;
+        }
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
@@ -158,11 +182,6 @@ namespace DigiScan_Track
             }
         }
 
-        private void xbtn_Click(object sender, EventArgs e)
-        {
-            Control editPartsPage = InnerBorderpnl.Controls[0];
-            InnerBorderpnl.Controls.Remove(editPartsPage);
-            xbtn.Visible = false;
-        }
+        
     }
 }
