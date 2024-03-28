@@ -89,15 +89,17 @@ namespace DigiScan_Track
             {
                 SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                            "  AND [PartNumber] = '" + partNumber + "'";
+                sqlQuery(SQLQuery, toEditGridView);
             }
 
             else
             {
                 SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                            " AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
+                sqlQuery(SQLQuery, toEditGridView);
             }
 
-            sqlQuery(SQLQuery, toEditGridView);
+            
         }
 
         private void sqlQuery(string command, DataGridView gridview)

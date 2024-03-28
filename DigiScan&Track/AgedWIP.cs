@@ -147,6 +147,7 @@ namespace DigiScan_Track
 
         private void Agedgridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            moreInfolbl.Visible = false;
             string serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             DataTable dt = new DataTable();
