@@ -61,7 +61,7 @@ namespace DigiScan_Track
                 "Precision",
                 "Production",
                 "Modelling",
-                "Shim Grinding"
+                "Shim Grind"
             };
 
             // Calculate the size of each PictureBox
@@ -118,11 +118,8 @@ namespace DigiScan_Track
             if (clickedButton.Text == "Input Part")
             {
 
-                
-
                 if (Application.OpenForms["Homepage"] is HomePage homepage)
                 {
-
                     ManualInput newForm = new ManualInput(departmentName, workstation);
 
                     newForm.TopLevel = false;
@@ -135,8 +132,8 @@ namespace DigiScan_Track
 
             else if (clickedButton.Text == "View Parts")
             {
-                 if (Application.OpenForms["Homepage"] is HomePage homepage)
-                 {
+                if (Application.OpenForms["Homepage"] is HomePage homepage)
+                {
                     WIPTracker WIP = new WIPTracker(departmentName, workstation);
 
                     WIP.TopLevel = false;
@@ -144,7 +141,7 @@ namespace DigiScan_Track
                     homepage.InnerBodypnl.Controls.Clear();
                     homepage.InnerBodypnl.Controls.Add(WIP);
                     WIP.Show();
-                 }
+                }
             }
         }
 
@@ -168,8 +165,16 @@ namespace DigiScan_Track
             title.Text = image;
             title.Font = new Font("Arial", 12, FontStyle.Bold);
             title.ForeColor = Color.White;
-            title.BackColor = Color.FromArgb(20, Color.Black);
-            title.AutoSize = false;
+            title.BackColor = Color.FromArgb(150, Color.Black);
+            if (title.Text.Length > 10)
+            {
+                title.AutoSize = true;
+            }
+            else
+            {
+                title.AutoSize = false;
+            }
+
             title.TextAlign = ContentAlignment.MiddleCenter;
 
             Button partInput = new Button();
@@ -180,6 +185,10 @@ namespace DigiScan_Track
             partInput.TextAlign = ContentAlignment.MiddleCenter;
             partInput.Size = new Size(100, 23);
             partInput.Click += ButtonClicked;
+            partInput.Cursor = Cursors.Hand;
+            partInput.FlatStyle = FlatStyle.Popup;
+            partInput.BackColor = Color.PaleTurquoise;
+
 
             Button tableView = new Button();
             tableView.Text = "View Parts";
@@ -189,6 +198,11 @@ namespace DigiScan_Track
             tableView.TextAlign = ContentAlignment.MiddleCenter; // Center the text
             tableView.Size = new Size(100, 23);
             tableView.Click += ButtonClicked;
+            tableView.Cursor = Cursors.Hand;
+            tableView.FlatStyle = FlatStyle.Popup;
+            tableView.BackColor = Color.DarkTurquoise;
+
+
 
             tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom

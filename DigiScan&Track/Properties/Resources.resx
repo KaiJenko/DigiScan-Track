@@ -190,7 +190,7 @@
   <data name="Monitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Shim Grinding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shim Grind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shim Grinding - Gears.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cog" type="System.Resources.ResXFileRef, System.Windows.Forms">

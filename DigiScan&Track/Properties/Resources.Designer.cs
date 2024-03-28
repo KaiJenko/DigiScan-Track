@@ -303,9 +303,9 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Shim_Grinding {
+        internal static System.Drawing.Bitmap Shim_Grind {
             get {
-                object obj = ResourceManager.GetObject("Shim Grinding", resourceCulture);
+                object obj = ResourceManager.GetObject("Shim Grind", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
