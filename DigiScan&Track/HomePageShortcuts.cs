@@ -1,17 +1,18 @@
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Xml.Serialization;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace DigiScan_Track
 {
     public partial class HomePageShortcuts : Form
     {
+
         public HomePageShortcuts()
         {
             InitializeComponent();
-            /*getSQLHomepage();*/
             loadDepartmentcmb();
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,8 +34,9 @@ namespace DigiScan_Track
             }
             conn.Close();
             Departmentcmb.SelectedItem = Departmentcmb.Items[0].ToString();
-
+            Departmentcmb.SelectedItem = Color.FromArgb(255, 46, 51, 73);
         }
+
 
         private void Departmentcmb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -212,6 +214,23 @@ namespace DigiScan_Track
             pictureBox.Controls.Add(tableLayoutPanel); // Add the label to the PictureBox
 
             HomepageImageflow.Controls.Add(pictureBox);
+        }
+
+        public void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) { return; }
+
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            ComboBox comboBox = sender as ComboBox;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(46, 51, 73)), e.Bounds);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(24, 30, 54)), e.Bounds);
+            }
+            e.Graphics.DrawString(comboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(Color.White), e.Bounds);
         }
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/

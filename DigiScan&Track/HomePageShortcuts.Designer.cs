@@ -76,6 +76,7 @@
             // 
             Departmentcmb.BackColor = Color.FromArgb(46, 51, 73);
             Departmentcmb.Cursor = Cursors.Hand;
+            Departmentcmb.DrawMode = DrawMode.OwnerDrawFixed;
             Departmentcmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Departmentcmb.FlatStyle = FlatStyle.Popup;
             Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -83,8 +84,9 @@
             Departmentcmb.FormattingEnabled = true;
             Departmentcmb.Location = new Point(849, 9);
             Departmentcmb.Name = "Departmentcmb";
-            Departmentcmb.Size = new Size(147, 29);
+            Departmentcmb.Size = new Size(147, 30);
             Departmentcmb.TabIndex = 11;
+            Departmentcmb.DrawItem += ComboBox_DrawItem;
             Departmentcmb.SelectedIndexChanged += Departmentcmb_SelectedIndexChanged;
             // 
             // Shortcutlbl
