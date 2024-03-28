@@ -96,7 +96,7 @@ namespace DigiScan_Track
                 SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                            " AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
             }
-            
+
             sqlQuery(SQLQuery, toEditGridView);
         }
 
@@ -182,6 +182,6 @@ namespace DigiScan_Track
             }
         }
 
-        
+
     }
 }

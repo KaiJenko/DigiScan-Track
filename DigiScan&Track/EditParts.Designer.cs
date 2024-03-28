@@ -86,10 +86,10 @@
             label2.BackColor = Color.FromArgb(46, 51, 73);
             label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(91, 212);
+            label2.Location = new Point(78, 208);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(207, 78);
+            label2.Size = new Size(211, 78);
             label2.TabIndex = 8;
             label2.Text = "Scan 2D Barcode from Unit:";
             label2.TextAlign = ContentAlignment.MiddleRight;
@@ -145,7 +145,7 @@
             label4.Location = new Point(41, 472);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(503, 47);
+            label4.Size = new Size(545, 47);
             label4.TabIndex = 12;
             label4.Text = "Add New Part Number - Admin Only";
             // 

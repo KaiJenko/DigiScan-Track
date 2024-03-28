@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             agedlbl = new Label();
             excelbtn = new Button();
             tableaubtn = new Button();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
+            moreInfolbl = new Label();
             rangepnl = new Panel();
             lowerRangenud = new NumericUpDown();
             higherRangenud = new NumericUpDown();
@@ -118,6 +119,7 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(moreInfolbl);
             InnerBorderpnl.Controls.Add(rangepnl);
             InnerBorderpnl.Controls.Add(searchpbox);
             InnerBorderpnl.Controls.Add(Agedgridview);
@@ -133,6 +135,19 @@
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
+            // 
+            // moreInfolbl
+            // 
+            moreInfolbl.AutoSize = true;
+            moreInfolbl.BackColor = Color.FromArgb(45, 66, 91);
+            moreInfolbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            moreInfolbl.ForeColor = Color.Coral;
+            moreInfolbl.Location = new Point(656, 434);
+            moreInfolbl.Margin = new Padding(4, 0, 4, 0);
+            moreInfolbl.Name = "moreInfolbl";
+            moreInfolbl.Size = new Size(625, 32);
+            moreInfolbl.TabIndex = 27;
+            moreInfolbl.Text = "Please select a row for more information on that part";
             // 
             // rangepnl
             // 
@@ -203,57 +218,58 @@
             Agedgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
             Agedgridview.BorderStyle = BorderStyle.None;
             Agedgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             Agedgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            Agedgridview.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            Agedgridview.DefaultCellStyle = dataGridViewCellStyle2;
             Agedgridview.GridColor = Color.White;
             Agedgridview.Location = new Point(71, 113);
             Agedgridview.Margin = new Padding(4, 5, 4, 5);
             Agedgridview.Name = "Agedgridview";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             Agedgridview.RowHeadersVisible = false;
             Agedgridview.RowHeadersWidth = 62;
-            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle4;
             Agedgridview.RowTemplate.Height = 25;
-            Agedgridview.Size = new Size(466, 732);
+            Agedgridview.Size = new Size(414, 732);
             Agedgridview.TabIndex = 20;
+            Agedgridview.CellContentClick += Agedgridview_CellContentClick;
             // 
             // furtherDetailsgridview
             // 
             furtherDetailsgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
             furtherDetailsgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            furtherDetailsgridview.Location = new Point(614, 113);
+            furtherDetailsgridview.Location = new Point(541, 355);
             furtherDetailsgridview.Margin = new Padding(4, 5, 4, 5);
             furtherDetailsgridview.Name = "furtherDetailsgridview";
             furtherDetailsgridview.RowHeadersWidth = 62;
             furtherDetailsgridview.RowTemplate.Height = 25;
-            furtherDetailsgridview.Size = new Size(750, 732);
+            furtherDetailsgridview.Size = new Size(853, 192);
             furtherDetailsgridview.TabIndex = 19;
             // 
             // counttrackbarlbl
@@ -402,5 +418,6 @@
         private Label upperlbl;
         private Label lowerlbl;
         private Panel rangepnl;
+        private Label moreInfolbl;
     }
 }

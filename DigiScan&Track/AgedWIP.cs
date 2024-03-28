@@ -66,10 +66,7 @@ namespace DigiScan_Track
             conn.Close();
         }
 
-        private void getFurtherDetailsSQL()
-        {
 
-        }
 
         private void agedDaystrackbar_Scroll(object sender, EventArgs e)
         {
@@ -148,7 +145,28 @@ namespace DigiScan_Track
 
         }
 
+        private void Agedgridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0].Value.ToString();
 
+            DataTable dt = new DataTable();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT AgedWIP.[serialNumber], WIPTracking.[PartNumber], WIPTracking.[BatchNumber], WIPTracking.[Department], WIPTracking.[Workstation], " +
+                              "AgedWIP.[DateEnteredStorage], AgedWIP.[ReasonForStorage], AgedWIP.[UserWhoInputted] FROM [DigiTrackAndScan].[dbo].[AgedWIP] " +
+                              "LEFT JOIN [DigiTrackAndScan].[dbo].WIPTracking ON AgedWIP.SerialNumber = WIPTracking.SerialNumber WHERE AgedWIP.SerialNumber = '" + serialNumber + "'";
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            dt.Load(dr);
+
+            conn.Close();
+
+            furtherDetailsgridview.DataSource = dt;
+
+            conn.Close();
+
+        }
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
@@ -162,7 +180,5 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-
     }
 }

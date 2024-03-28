@@ -36,7 +36,7 @@ namespace DigiScan_Track
 
         private void InputEdit_Click(object sender, EventArgs e)
         {
-            DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[0];
+            DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
             int count = 0;
 
             /*foreach (Control control in userInputpnl.Controls)
@@ -55,12 +55,12 @@ namespace DigiScan_Track
                     CheckBox checkbox = control as CheckBox;
                     if (checkbox.Checked)
                     {
-                        sqlquery += " , [" + checkbox.Tag + "] = '1'";
+                        sqlquery += " [" + checkbox.Tag + "] = 1";
                     }
 
                     else if (checkbox.Checked = false)
                     {
-                        sqlquery += " , [" + checkbox.Tag + "] = '0'";
+                        sqlquery += " [" + checkbox.Tag + "] = 0";
                     }
                 }
 
