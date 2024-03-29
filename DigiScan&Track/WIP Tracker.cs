@@ -1,8 +1,12 @@
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace DigiScan_Track
 {
@@ -20,8 +24,7 @@ namespace DigiScan_Track
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             searchcmb.SelectedIndex = 0;
-            transparentBackground("searchbtn", "resetbtn", "addFieldbtn");
-
+            transparentBackground("searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,6 +88,7 @@ namespace DigiScan_Track
             {
                 departmentlbl.Text = "";
                 workstationlbl.Text = "";
+
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
                           " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
                 defaultOrCustom = 0;
@@ -129,6 +133,8 @@ namespace DigiScan_Track
 
         private void searchbtn_Click(object sender, EventArgs e)
         {
+            buttonPressedColourChange(sender);
+
             string searchval = searchtxt.Text.Trim();
             string dropdownSelection = searchcmb.Text.Replace(" ", "");
 
@@ -211,17 +217,25 @@ namespace DigiScan_Track
                 }
 
             }
+
+            else
+            {
+                MessageBox.Show("Please input a value into the search query");
+            }
         }
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
+            buttonPressedColourChange(sender);
             searchFieldpnl.Controls.Clear();
             getSQLWIPTracker(null, null);
             defaultOrCustom = 0;
         }
 
+
         private void addFieldbtn_Click(object sender, EventArgs e)
         {
+            buttonPressedColourChange(sender);
             string searchField = searchcmb.Text.Replace(" ", "");
             string searchValue = searchtxt.Text.Trim();
 
@@ -237,6 +251,7 @@ namespace DigiScan_Track
                 field.Text = searchField + " - " + searchValue;
                 field.AutoSize = true;
                 field.MaximumSize = new Size(150, 50);
+                field.Image = Properties.Resources.redBorder;
 
                 searchFieldpnl.Controls.Add(field);
             }
@@ -264,17 +279,31 @@ namespace DigiScan_Track
 
         public void transparentBackground(params string[] buttonName) //params means array doesnt need to be created
         {
-            foreach(string button in buttonName)
+            foreach (string button in buttonName)
             {
                 Control[] controls = this.Controls.Find(button, true);
                 Button background = (Button)controls[0];
                 background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+                background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+                background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,0,0,0);
             }
-            
+
         }
 
-
-
+        private void buttonPressedColourChange(object sender)
+        {
+            Button button = sender as Button;
+            Timer timer = new Timer();
+            timer.Interval = 80;
+            button.ForeColor = Color.Turquoise;
+            timer.Tick += (sender, e) =>
+            {
+                button.ForeColor = Color.White;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
+        }
 
 
 

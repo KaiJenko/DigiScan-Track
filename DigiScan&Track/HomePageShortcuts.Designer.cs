@@ -55,10 +55,10 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
-            InnerBorderpnl.Controls.Add(HomepageImageflow);
             InnerBorderpnl.Controls.Add(Departmentcmb);
             InnerBorderpnl.Controls.Add(Shortcutlbl);
             InnerBorderpnl.Controls.Add(Departmentlbl);
+            InnerBorderpnl.Controls.Add(HomepageImageflow);
             InnerBorderpnl.Location = new Point(4, 3);
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1013, 522);
@@ -82,7 +82,7 @@
             Departmentcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Departmentcmb.ForeColor = Color.White;
             Departmentcmb.FormattingEnabled = true;
-            Departmentcmb.Location = new Point(849, 9);
+            Departmentcmb.Location = new Point(849, 21);
             Departmentcmb.Name = "Departmentcmb";
             Departmentcmb.Size = new Size(147, 30);
             Departmentcmb.TabIndex = 11;
@@ -93,7 +93,7 @@
             // 
             Shortcutlbl.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Shortcutlbl.ForeColor = Color.White;
-            Shortcutlbl.Location = new Point(15, 6);
+            Shortcutlbl.Location = new Point(15, 18);
             Shortcutlbl.Name = "Shortcutlbl";
             Shortcutlbl.Size = new Size(573, 35);
             Shortcutlbl.TabIndex = 11;
@@ -103,7 +103,7 @@
             // 
             Departmentlbl.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Departmentlbl.ForeColor = Color.White;
-            Departmentlbl.Location = new Point(594, 14);
+            Departmentlbl.Location = new Point(594, 26);
             Departmentlbl.Name = "Departmentlbl";
             Departmentlbl.Size = new Size(249, 24);
             Departmentlbl.TabIndex = 12;

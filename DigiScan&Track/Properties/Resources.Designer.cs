@@ -93,6 +93,16 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackBorder {
+            get {
+                object obj = ResourceManager.GetObject("blackBorder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Border {
             get {
                 object obj = ResourceManager.GetObject("Border", resourceCulture);
@@ -456,6 +466,16 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap Production {
             get {
                 object obj = ResourceManager.GetObject("Production", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redBorder {
+            get {
+                object obj = ResourceManager.GetObject("redBorder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

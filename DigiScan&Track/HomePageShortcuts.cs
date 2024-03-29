@@ -80,12 +80,12 @@ namespace DigiScan_Track
 
             string[] compositeImages =
             {
-                "Multi-spindle", 
-                "Tape Winding", 
-                "Braiding", 
-                "Mandrels", 
-                "Filament winding", 
-                "Ultrasonic" 
+                "Multi-spindle",
+                "Tape Winding",
+                "Braiding",
+                "Mandrels",
+                "Filament winding",
+                "Ultrasonic"
             };
 
             string[] fuelPipesImages =
@@ -120,7 +120,7 @@ namespace DigiScan_Track
                     {
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
-                break;
+                    break;
 
                 case "Composites":
                     HomepageImageflow.Controls.Clear();
@@ -128,7 +128,7 @@ namespace DigiScan_Track
                     {
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
-                break;
+                    break;
 
                 case "Fuel Pipes":
                     HomepageImageflow.Controls.Clear();
@@ -154,7 +154,7 @@ namespace DigiScan_Track
                     }
                     HomepageImageflow.PerformLayout();
                     break;
-                
+
 
                 case "Transmission":
                     HomepageImageflow.Controls.Clear();
@@ -162,7 +162,7 @@ namespace DigiScan_Track
                     {
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
-                break;
+                    break;
 
             }
         }
@@ -215,7 +215,7 @@ namespace DigiScan_Track
             tableLayoutPanel.BackColor = Color.Transparent;
             tableLayoutPanel.Dock = DockStyle.Fill;
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 75)); //is this the display problem 
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute,40));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
 
             Label title = new Label();
@@ -267,7 +267,7 @@ namespace DigiScan_Track
 
 
             tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell
-   
+
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
             tableLayoutPanel.SetColumnSpan(partInput, 1); // Set column span to center the button
             tableLayoutPanel.Controls.Add(tableView, 1, 3); // Add button 2 below button 1
