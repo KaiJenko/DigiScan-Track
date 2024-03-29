@@ -263,11 +263,9 @@ namespace DigiScan_Track
                 ImageList imageList = new ImageList();
                 imageList.Images.Add(Properties.Resources.cross);
                 field.TextImageRelation = TextImageRelation.TextBeforeImage;
-                field.ImageList = imageList;
-                
-                field.ImageIndex = 0;
                 field.ImageAlign = ContentAlignment.MiddleRight;
-
+                field.ImageIndex = 0;
+                field.ImageList = imageList;
                 searchFieldpnl.Controls.Add(field);
                 transparentBackground(field.Name);
             }
@@ -290,6 +288,8 @@ namespace DigiScan_Track
                     field.Padding = new Padding(5, 0, 30, 0);
                     Button oldLabel = (Button)searchFieldpnl.Controls["label" + (index - 1)];
                     field.Location = new Point(oldLabel.Right + 10, oldLabel.Top);
+
+
 
                     searchFieldpnl.Controls.Add(field);
                     transparentBackground(field.Name);
