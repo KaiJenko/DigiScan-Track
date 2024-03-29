@@ -16,6 +16,12 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             getSQLWIPTracker(sentDepartment, sentWorkstation);
+            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+            searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            searchcmb.SelectedIndex = 0;
+
+            transparentBackground("searchbtn", "resetbtn", "addFieldbtn");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -170,7 +176,8 @@ namespace DigiScan_Track
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
 
-                if (defaultOrCustom == 0) {
+                if (defaultOrCustom == 0)
+                {
                     cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
                                       ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
                                       sqlQuery;
@@ -255,7 +262,16 @@ namespace DigiScan_Track
             }
         }
 
-
+        public void transparentBackground(params string[] buttonName) //params means array doesnt need to be created
+        {
+            foreach(string button in buttonName)
+            {
+                Control[] controls = this.Controls.Find(button, true);
+                Button background = (Button)controls[0];
+                background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            }
+            
+        }
 
 
 

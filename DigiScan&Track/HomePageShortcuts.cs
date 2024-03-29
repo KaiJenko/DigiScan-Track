@@ -209,14 +209,13 @@ namespace DigiScan_Track
             pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(image);
             pictureBox.Size = new Size(width, height);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Margin = new Padding(spacing + 60, 30, spacing, 30);
+            pictureBox.Margin = new Padding(spacing + 60, 30, spacing, 30); //display problem for laptops here
 
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
             tableLayoutPanel.BackColor = Color.Transparent;
             tableLayoutPanel.Dock = DockStyle.Fill;
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90));
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 75)); //is this the display problem 
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute,40));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
 
             Label title = new Label();
@@ -224,9 +223,14 @@ namespace DigiScan_Track
             title.Font = new Font("Arial", 12, FontStyle.Bold);
             title.ForeColor = Color.White;
             title.BackColor = Color.FromArgb(150, Color.Black);
+            title.TextAlign = ContentAlignment.MiddleCenter; // Align text to the center
+
             if (title.Text.Length > 10)
             {
                 title.AutoSize = true;
+                /*string[] titlesplit = title.Text.Split(new string[] { " " }, StringSplitOptions.None);
+                title.Text = titlesplit[0] + "\n" + titlesplit[1];
+                title.TextAlign = ContentAlignment.MiddleCenter;*/
             }
             else
             {
@@ -248,6 +252,7 @@ namespace DigiScan_Track
             partInput.BackColor = Color.PaleTurquoise;
 
 
+
             Button tableView = new Button();
             tableView.Text = "View Parts";
             tableView.Name = image;
@@ -262,6 +267,7 @@ namespace DigiScan_Track
 
 
             tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell
+   
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
             tableLayoutPanel.SetColumnSpan(partInput, 1); // Set column span to center the button
             tableLayoutPanel.Controls.Add(tableView, 1, 3); // Add button 2 below button 1
@@ -283,7 +289,7 @@ namespace DigiScan_Track
             }
             else
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(24, 30, 54)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 66, 91)), e.Bounds);
             }
             e.Graphics.DrawString(comboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(Color.White), e.Bounds);
         }
