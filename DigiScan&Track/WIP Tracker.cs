@@ -246,28 +246,53 @@ namespace DigiScan_Track
 
             if (index == 0)
             {
-                Label field = new Label();
+                Button field = new Button();
                 field.Name = "label" + index;
+                field.ForeColor = Color.White;
                 field.Text = searchField + " - " + searchValue;
+                field.MaximumSize = new Size(200, 28);
+                field.MinimumSize = new Size(50, 28);
                 field.AutoSize = true;
-                field.MaximumSize = new Size(150, 50);
-                field.Image = Properties.Resources.redBorder;
+                field.BackColor = Color.Transparent;
+                field.FlatStyle = FlatStyle.Flat;
+                field.BackgroundImage = Properties.Resources.blueBorder;
+                field.BackgroundImageLayout = ImageLayout.Stretch;
+                field.Padding = new Padding(5, 0, 10, 0);
+                
+
+                ImageList imageList = new ImageList();
+                imageList.Images.Add(Properties.Resources.cross);
+                field.TextImageRelation = TextImageRelation.TextBeforeImage;
+                field.ImageList = imageList;
+                
+                field.ImageIndex = 0;
+                field.ImageAlign = ContentAlignment.MiddleRight;
 
                 searchFieldpnl.Controls.Add(field);
+                transparentBackground(field.Name);
             }
 
             else
             {
                 if (index < 4)
                 {
-                    Label field = new Label();
+                    Button field = new Button();
                     field.Name = "label" + index;
+                    field.ForeColor = Color.White;
                     field.Text = searchField + " - " + searchValue;
+                    field.MaximumSize = new Size(200, 28);
+                    field.MinimumSize = new Size(50, 28);
                     field.AutoSize = true;
-                    Label oldLabel = (Label)searchFieldpnl.Controls["label" + (index - 1)];
+                    field.BackColor = Color.Transparent;
+                    field.FlatStyle = FlatStyle.Flat;
+                    field.BackgroundImage = Properties.Resources.blueBorder;
+                    field.BackgroundImageLayout = ImageLayout.Stretch;
+                    field.Padding = new Padding(5, 0, 30, 0);
+                    Button oldLabel = (Button)searchFieldpnl.Controls["label" + (index - 1)];
                     field.Location = new Point(oldLabel.Right + 10, oldLabel.Top);
-                    field.MaximumSize = new Size(150, 50);
+
                     searchFieldpnl.Controls.Add(field);
+                    transparentBackground(field.Name);
                 }
 
                 else
@@ -279,14 +304,17 @@ namespace DigiScan_Track
 
         public void transparentBackground(params string[] buttonName) //params means array doesnt need to be created
         {
+            string hi = buttonName[0];
             foreach (string button in buttonName)
             {
                 Control[] controls = this.Controls.Find(button, true);
                 Button background = (Button)controls[0];
                 background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
                 background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-                background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,0,0,0);
+                background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
             }
+
+
 
         }
 
