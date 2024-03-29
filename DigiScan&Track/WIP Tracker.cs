@@ -2,6 +2,7 @@ using System.Data;
 using System.Data.SqlClient;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace DigiScan_Track
 {
@@ -19,7 +20,6 @@ namespace DigiScan_Track
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             searchcmb.SelectedIndex = 0;
-
             transparentBackground("searchbtn", "resetbtn", "addFieldbtn");
 
         }
