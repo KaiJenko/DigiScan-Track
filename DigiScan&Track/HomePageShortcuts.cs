@@ -33,7 +33,7 @@ namespace DigiScan_Track
                 Departmentcmb.Items.Add(dr["Department"].ToString());
             }
             conn.Close();
-            Departmentcmb.SelectedItem = Departmentcmb.Items[0].ToString();
+            Departmentcmb.SelectedItem = Departmentcmb.Items[3].ToString();
             Departmentcmb.SelectedItem = Color.FromArgb(255, 46, 51, 73);
         }
 
@@ -48,12 +48,16 @@ namespace DigiScan_Track
               "GLMRS",
               "Shipping",
               "HMO",
-              "GPS"
+              "GPS",
+              "Folding Bay"
             };
 
-            string[] nacellesImages =
+            string[] actuationImages =
             {
-
+                "Nacelles",
+                "High-Lift",
+                "Trac Lock",
+                "Folding Wings"
             };
 
             string[] gearsImages =
@@ -66,35 +70,69 @@ namespace DigiScan_Track
                 "Shim Grind"
             };
 
+            string[] transmissionImages =
+            {
+                "Machined",
+                "Taping",
+                "Curing",
+                "Pressure Test"
+            };
+
+            string[] compositeImages =
+            {
+                "Multi-spindle", 
+                "Tape Winding", 
+                "Braiding", 
+                "Mandrels", 
+                "Filament winding", 
+                "Ultrasonic" 
+            };
+
+            string[] fuelPipesImages =
+            {
+                "Dry Winding",
+                "Assembly",
+                "Heat Treat",
+                "Overwrap",
+                "Finite Analysis"
+            };
+
+
+
             // Calculate the size of each PictureBox
             int pictureBoxWidth = 250;
             int pictureBoxHeight = 160;
-            int MilitaryLength = militaryImages.Length;
-            int NacellesLength = nacellesImages.Length;
-            int GearsLength = gearsImages.Length;
+            int pictureLength = actuationImages.Length;
             int flowLayoutPanelWidth = HomepageImageflow.ClientSize.Width;
 
             // Calculate the total width occupied by the PictureBoxes (excluding margins)
-            int totalPictureBoxWidth = MilitaryLength * pictureBoxWidth;
+            int totalPictureBoxWidth = pictureLength * pictureBoxWidth;
 
             // Calculate the horizontal spacing between PictureBoxes
-            int horizontalSpacing = (flowLayoutPanelWidth - totalPictureBoxWidth) / (MilitaryLength + 1);
+            int horizontalSpacing = (flowLayoutPanelWidth - totalPictureBoxWidth) / (pictureLength + 1);
 
 
             switch (comboboxItem)
             {
-                case "Military":
+                case "Actuation":
                     HomepageImageflow.Controls.Clear();
-                    foreach (string image in militaryImages)
+                    foreach (string image in actuationImages)
                     {
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
-                    HomepageImageflow.PerformLayout();
-                    break;
+                break;
 
-                case "Nacelles":
+                case "Composites":
                     HomepageImageflow.Controls.Clear();
-                    foreach (string image in nacellesImages)
+                    foreach (string image in compositeImages)
+                    {
+                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                    }
+                break;
+
+                case "Fuel Pipes":
+                    HomepageImageflow.Controls.Clear();
+                    foreach (string image in fuelPipesImages)
                     {
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
@@ -107,6 +145,24 @@ namespace DigiScan_Track
                         createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
+
+                case "Military":
+                    HomepageImageflow.Controls.Clear();
+                    foreach (string image in militaryImages)
+                    {
+                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                    }
+                    HomepageImageflow.PerformLayout();
+                    break;
+                
+
+                case "Transmission":
+                    HomepageImageflow.Controls.Clear();
+                    foreach (string image in transmissionImages)
+                    {
+                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                    }
+                break;
 
             }
         }
@@ -203,7 +259,6 @@ namespace DigiScan_Track
             tableView.Cursor = Cursors.Hand;
             tableView.FlatStyle = FlatStyle.Popup;
             tableView.BackColor = Color.DarkTurquoise;
-
 
 
             tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell

@@ -19,9 +19,6 @@ namespace DigiScan_Track
 
         }
 
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -38,7 +35,6 @@ namespace DigiScan_Track
             homepageshortcut.Show();
 
         }
-
 
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
@@ -164,7 +160,7 @@ namespace DigiScan_Track
                 Control buttonControl = Controls.Find(PageButtons[x], true).FirstOrDefault();
                 if (buttonControl is Button button)
                 {
-                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(18, 18));
+                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(22, 22));
                     button.ImageAlign = ContentAlignment.MiddleRight;
                     button.Padding = new Padding(0, 0, 10, 0);
                 }
