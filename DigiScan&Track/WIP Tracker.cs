@@ -44,13 +44,13 @@ namespace DigiScan_Track
             WIPgridView.Columns[6].HeaderText = "Time out";
             WIPgridView.Columns[7].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 120;
-            WIPgridView.Columns[1].Width = 120;
-            WIPgridView.Columns[2].Width = 120;
+            WIPgridView.Columns[0].Width = 118;
+            WIPgridView.Columns[1].Width = 118;
+            WIPgridView.Columns[2].Width = 118;
             WIPgridView.Columns[3].Width = 110;
-            WIPgridView.Columns[4].Width = 130;
-            WIPgridView.Columns[5].Width = 140;
-            WIPgridView.Columns[6].Width = 140;
+            WIPgridView.Columns[4].Width = 128;
+            WIPgridView.Columns[5].Width = 150;
+            WIPgridView.Columns[6].Width = 150;
             WIPgridView.Columns[7].Width = 70;
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
@@ -358,20 +358,6 @@ namespace DigiScan_Track
 
         private void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            /*if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
-            {
-                object cellvalue = WIPgridView[e.ColumnIndex, e.RowIndex].Value;
-                *//*    MessageBox.Show(cellvalue.ToString());*//*
-                if (WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
-                {
-                    if (cellvalue != null && cellvalue.GetType() == typeof(bool))
-                    {
-                        bool isChecked = (bool)cellvalue;
-
-                        string displayText = isChecked ? "Yes" : "No";
-                    }
-                }
-            }*/
 
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
             {
@@ -379,11 +365,8 @@ namespace DigiScan_Track
 
                 if (WIPgridView[e.ColumnIndex, e.RowIndex].Value != DBNull.Value)
                 {
-                    // Get the cell value
                     bool isChecked = (bool)WIPgridView[e.ColumnIndex, e.RowIndex].Value;
                     string displayText = isChecked ? "Yes" : "No";
-
-                    // Draw the text in the cell
                     using (StringFormat sf = new StringFormat())
                     {
                         sf.Alignment = StringAlignment.Center;
@@ -415,6 +398,6 @@ namespace DigiScan_Track
             }
         }
     }
-        
-    
+
+
 }
