@@ -285,11 +285,11 @@ namespace DigiScan_Track
             ComboBox comboBox = sender as ComboBox;
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(46, 51, 73)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(24, 30, 54)), e.Bounds);
             }
             else
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 66, 91)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(46, 51, 73)), e.Bounds);
             }
             e.Graphics.DrawString(comboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(Color.White), e.Bounds);
         }

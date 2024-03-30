@@ -246,28 +246,103 @@ namespace DigiScan_Track
 
             if (index == 0)
             {
+                /*Panel panel = new Panel();
+                panel.BackgroundImage = Properties.Resources.blueBorder;
+                panel.BackgroundImageLayout = ImageLayout.Stretch;
+                panel.Size = new Size(200, 25);
+                panel.AutoSize = true;
+
                 Button field = new Button();
                 field.Name = "label" + index;
                 field.ForeColor = Color.White;
                 field.Text = searchField + " - " + searchValue;
-                field.MaximumSize = new Size(200, 28);
-                field.MinimumSize = new Size(50, 28);
                 field.AutoSize = true;
                 field.BackColor = Color.Transparent;
                 field.FlatStyle = FlatStyle.Flat;
-                field.BackgroundImage = Properties.Resources.blueBorder;
-                field.BackgroundImageLayout = ImageLayout.Stretch;
-                field.Padding = new Padding(5, 0, 10, 0);
-                
+                field.Padding = new Padding(5, 0, 0, 0);
 
-                ImageList imageList = new ImageList();
-                imageList.Images.Add(Properties.Resources.cross);
-                field.TextImageRelation = TextImageRelation.TextBeforeImage;
-                field.ImageAlign = ContentAlignment.MiddleRight;
+
+                PictureBox pic = new PictureBox();
+                pic.BackgroundImage = Properties.Resources.cross;
+                pic.BackgroundImageLayout = ImageLayout.Stretch;
+                pic.Size = new Size(15, 15);
+                pic.Cursor = Cursors.Hand;
+                pic.BackColor = Color.Transparent;
+                pic.Padding = new Padding(20,0,0,0);
+
+                pic.MouseDown += (sender, e) =>
+                {
+                    Point clickLocation = pic.PointToClient(Cursor.Position);
+                    if (new Rectangle(Point.Empty, pic.Size).Contains(clickLocation))
+                    {
+                        MessageBox.Show("Image clicked!");
+                    }
+                };
+
+                panel.Controls.Add(pic);
+                panel.Controls.Add(field);*/
+
+                Panel panel = new Panel();
+
+                panel.BackgroundImage = Properties.Resources.blueBorder;
+                panel.BackgroundImageLayout = ImageLayout.Stretch;
+                panel.MinimumSize = new Size(100, 25);
+                panel.MaximumSize = new Size(500, 25);
+                panel.AutoSize = true;
+
+                Label label = new Label();
+                label.Name = "label" + index;
+                label.Text = searchField + " - " + searchValue;
+                label.ForeColor = Color.White;
+                label.BackColor = Color.Transparent;
+                label.Padding = new Padding(10, 0, 0, 0);
+                label.AutoSize = true;
+
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Image = Properties.Resources.cross;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox.Size = new Size(15, 15);
+                pictureBox.Cursor = Cursors.Hand;
+
+                label.Location = new Point(5, 5);
+                pictureBox.Location = new Point(label.Right + 50, 5);
+
+                pictureBox.MouseDown += (sender, e) =>
+                {
+                    Point clickLocation = pictureBox.PointToClient(Cursor.Position);
+                    if (new Rectangle(Point.Empty, pictureBox.Size).Contains(clickLocation))
+                    {
+                        MessageBox.Show("Image clicked!");
+                    }
+                };
+
+                panel.Controls.Add(label);
+                panel.Controls.Add(pictureBox);
+                searchFieldpnl.Controls.Add(panel);
+
+
+                /*    ImageList imageList = new ImageList();
+                    imageList.Images.Add(Properties.Resources.cross);*/
+
+                /*field.ImageAlign = ContentAlignment.MiddleRight;
                 field.ImageIndex = 0;
-                field.ImageList = imageList;
-                searchFieldpnl.Controls.Add(field);
-                transparentBackground(field.Name);
+                field.Image = imageList.Images[0];*/
+                /*
+                                field.MouseDown += (sender, e) =>
+                                {
+                                    foreach(Control control in field)
+                                    {
+
+                                    }
+
+                                    if (new Rectangle(Point.Empty, field.Size).Contains(clickLocation))
+                                    {
+                                        MessageBox.Show("Image clicked!");
+                                    }
+                                };*/
+
+
+                /* transparentBackground(field.Name);*/
             }
 
             else
@@ -302,6 +377,11 @@ namespace DigiScan_Track
             }
         }
 
+        private void image_click()
+        {
+
+        }
+
         public void transparentBackground(params string[] buttonName) //params means array doesnt need to be created
         {
             string hi = buttonName[0];
@@ -313,9 +393,6 @@ namespace DigiScan_Track
                 background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
                 background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
             }
-
-
-
         }
 
         private void buttonPressedColourChange(object sender)
