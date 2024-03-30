@@ -28,15 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgedWIP));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             agedlbl = new Label();
-            excelbtn = new Button();
-            tableaubtn = new Button();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
+            tableaubtn = new Button();
+            excelbtn = new Button();
+            resetbtn = new Button();
+            Agedgridview = new DataGridView();
             moreInfolbl = new Label();
             rangepnl = new Panel();
             lowerRangenud = new NumericUpDown();
@@ -44,8 +53,6 @@
             lowerlbl = new Label();
             upperlbl = new Label();
             searchpbox = new PictureBox();
-            Agedgridview = new DataGridView();
-            furtherDetailsgridview = new DataGridView();
             counttrackbarlbl = new Label();
             agedDaystrackbar = new TrackBar();
             radioButtonpnl = new Panel();
@@ -53,16 +60,17 @@
             greaterThanrbtn = new RadioButton();
             rangerbtn = new RadioButton();
             lessThanrbtn = new RadioButton();
+            furtherDetailsgridview = new DataGridView();
             OuterBorderpnl = new Panel();
             InnerBorderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
             rangepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lowerRangenud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)higherRangenud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchpbox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).BeginInit();
             radioButtonpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             OuterBorderpnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,26 +84,6 @@
             agedlbl.Size = new Size(166, 21);
             agedlbl.TabIndex = 8;
             agedlbl.Text = "Search Days as Aged";
-            // 
-            // excelbtn
-            // 
-            excelbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            excelbtn.Location = new Point(827, 9);
-            excelbtn.Name = "excelbtn";
-            excelbtn.Size = new Size(69, 42);
-            excelbtn.TabIndex = 9;
-            excelbtn.Text = "Excel Export";
-            excelbtn.UseVisualStyleBackColor = true;
-            // 
-            // tableaubtn
-            // 
-            tableaubtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tableaubtn.Location = new Point(911, 9);
-            tableaubtn.Name = "tableaubtn";
-            tableaubtn.Size = new Size(69, 42);
-            tableaubtn.TabIndex = 10;
-            tableaubtn.Text = "Tableau Metrics";
-            tableaubtn.UseVisualStyleBackColor = true;
             // 
             // Titlelbl
             // 
@@ -115,29 +103,146 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(tableaubtn);
+            InnerBorderpnl.Controls.Add(excelbtn);
+            InnerBorderpnl.Controls.Add(resetbtn);
+            InnerBorderpnl.Controls.Add(Agedgridview);
             InnerBorderpnl.Controls.Add(moreInfolbl);
             InnerBorderpnl.Controls.Add(rangepnl);
             InnerBorderpnl.Controls.Add(searchpbox);
-            InnerBorderpnl.Controls.Add(Agedgridview);
-            InnerBorderpnl.Controls.Add(furtherDetailsgridview);
             InnerBorderpnl.Controls.Add(counttrackbarlbl);
             InnerBorderpnl.Controls.Add(agedDaystrackbar);
             InnerBorderpnl.Controls.Add(radioButtonpnl);
-            InnerBorderpnl.Controls.Add(tableaubtn);
             InnerBorderpnl.Controls.Add(agedlbl);
-            InnerBorderpnl.Controls.Add(excelbtn);
+            InnerBorderpnl.Controls.Add(furtherDetailsgridview);
             InnerBorderpnl.Location = new Point(4, 3);
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
+            // tableaubtn
+            // 
+            tableaubtn.BackColor = Color.Transparent;
+            tableaubtn.BackgroundImage = (Image)resources.GetObject("tableaubtn.BackgroundImage");
+            tableaubtn.BackgroundImageLayout = ImageLayout.Stretch;
+            tableaubtn.Cursor = Cursors.Hand;
+            tableaubtn.FlatAppearance.BorderSize = 0;
+            tableaubtn.FlatStyle = FlatStyle.Flat;
+            tableaubtn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tableaubtn.ForeColor = Color.White;
+            tableaubtn.Location = new Point(844, 44);
+            tableaubtn.Name = "tableaubtn";
+            tableaubtn.Size = new Size(130, 36);
+            tableaubtn.TabIndex = 34;
+            tableaubtn.Text = "Tableau Metrics";
+            tableaubtn.UseVisualStyleBackColor = false;
+            // 
+            // excelbtn
+            // 
+            excelbtn.BackColor = Color.Transparent;
+            excelbtn.BackgroundImage = (Image)resources.GetObject("excelbtn.BackgroundImage");
+            excelbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            excelbtn.Cursor = Cursors.Hand;
+            excelbtn.FlatAppearance.BorderSize = 0;
+            excelbtn.FlatStyle = FlatStyle.Flat;
+            excelbtn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            excelbtn.ForeColor = Color.White;
+            excelbtn.Location = new Point(844, 6);
+            excelbtn.Name = "excelbtn";
+            excelbtn.Size = new Size(135, 36);
+            excelbtn.TabIndex = 33;
+            excelbtn.Text = "Excel Export";
+            excelbtn.UseVisualStyleBackColor = false;
+            // 
+            // resetbtn
+            // 
+            resetbtn.BackColor = Color.Transparent;
+            resetbtn.BackgroundImage = (Image)resources.GetObject("resetbtn.BackgroundImage");
+            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.Cursor = Cursors.Hand;
+            resetbtn.FlatAppearance.BorderSize = 0;
+            resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.ForeColor = Color.White;
+            resetbtn.Location = new Point(651, 4);
+            resetbtn.Name = "resetbtn";
+            resetbtn.Size = new Size(69, 25);
+            resetbtn.TabIndex = 32;
+            resetbtn.Text = "Reset";
+            resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += resetbtn_Click;
+            // 
+            // Agedgridview
+            // 
+            Agedgridview.AllowUserToAddRows = false;
+            Agedgridview.AllowUserToDeleteRows = false;
+            Agedgridview.AllowUserToResizeColumns = false;
+            Agedgridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            Agedgridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            Agedgridview.BackgroundColor = Color.FromArgb(113, 96, 232);
+            Agedgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            Agedgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            Agedgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.Coral;
+            dataGridViewCellStyle2.Padding = new Padding(25, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            Agedgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Agedgridview.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            Agedgridview.DefaultCellStyle = dataGridViewCellStyle3;
+            Agedgridview.EnableHeadersVisualStyles = false;
+            Agedgridview.GridColor = Color.Silver;
+            Agedgridview.Location = new Point(27, 86);
+            Agedgridview.MultiSelect = false;
+            Agedgridview.Name = "Agedgridview";
+            Agedgridview.ReadOnly = true;
+            Agedgridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            Agedgridview.RowHeadersVisible = false;
+            Agedgridview.RowHeadersWidth = 62;
+            Agedgridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            Agedgridview.RowTemplate.Height = 25;
+            Agedgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Agedgridview.Size = new Size(250, 410);
+            Agedgridview.TabIndex = 28;
+            Agedgridview.CellContentClick += Agedgridview_CellContentClick;
+            Agedgridview.CellMouseEnter += Agedgridview_CellMouseEnter;
+            Agedgridview.CellMouseLeave += Agedgridview_CellMouseLeave;
+            // 
             // moreInfolbl
             // 
             moreInfolbl.AutoSize = true;
-            moreInfolbl.BackColor = Color.FromArgb(45, 66, 91);
+            moreInfolbl.BackColor = Color.FromArgb(113, 96, 232);
             moreInfolbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             moreInfolbl.ForeColor = Color.Coral;
-            moreInfolbl.Location = new Point(459, 260);
+            moreInfolbl.Location = new Point(438, 261);
             moreInfolbl.Name = "moreInfolbl";
             moreInfolbl.Size = new Size(413, 21);
             moreInfolbl.TabIndex = 27;
@@ -158,6 +263,7 @@
             // 
             // lowerRangenud
             // 
+            lowerRangenud.Cursor = Cursors.Hand;
             lowerRangenud.Location = new Point(136, 7);
             lowerRangenud.Margin = new Padding(2);
             lowerRangenud.Name = "lowerRangenud";
@@ -166,6 +272,7 @@
             // 
             // higherRangenud
             // 
+            higherRangenud.Cursor = Cursors.Hand;
             higherRangenud.Location = new Point(317, 7);
             higherRangenud.Margin = new Padding(2);
             higherRangenud.Name = "higherRangenud";
@@ -200,80 +307,20 @@
             // 
             searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass1;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
-            searchpbox.Location = new Point(573, 15);
+            searchpbox.Cursor = Cursors.Hand;
+            searchpbox.Location = new Point(529, 13);
             searchpbox.Name = "searchpbox";
             searchpbox.Size = new Size(20, 15);
             searchpbox.TabIndex = 21;
             searchpbox.TabStop = false;
             searchpbox.Click += SearchButton_Click;
             // 
-            // Agedgridview
-            // 
-            Agedgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
-            Agedgridview.BorderStyle = BorderStyle.None;
-            Agedgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            Agedgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            Agedgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            Agedgridview.DefaultCellStyle = dataGridViewCellStyle2;
-            Agedgridview.GridColor = Color.White;
-            Agedgridview.Location = new Point(50, 68);
-            Agedgridview.Name = "Agedgridview";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            Agedgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            Agedgridview.RowHeadersVisible = false;
-            Agedgridview.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            Agedgridview.RowTemplate.Height = 25;
-            Agedgridview.Size = new Size(290, 439);
-            Agedgridview.TabIndex = 20;
-            Agedgridview.CellContentClick += Agedgridview_CellContentClick;
-            // 
-            // furtherDetailsgridview
-            // 
-            furtherDetailsgridview.AllowUserToAddRows = false;
-            furtherDetailsgridview.AllowUserToDeleteRows = false;
-            furtherDetailsgridview.BackgroundColor = Color.FromArgb(45, 66, 91);
-            furtherDetailsgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            furtherDetailsgridview.Location = new Point(379, 213);
-            furtherDetailsgridview.Name = "furtherDetailsgridview";
-            furtherDetailsgridview.ReadOnly = true;
-            furtherDetailsgridview.RowHeadersVisible = false;
-            furtherDetailsgridview.RowHeadersWidth = 62;
-            furtherDetailsgridview.RowTemplate.Height = 25;
-            furtherDetailsgridview.Size = new Size(597, 115);
-            furtherDetailsgridview.TabIndex = 19;
-            // 
             // counttrackbarlbl
             // 
             counttrackbarlbl.AutoSize = true;
             counttrackbarlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             counttrackbarlbl.ForeColor = Color.Coral;
-            counttrackbarlbl.Location = new Point(544, 9);
+            counttrackbarlbl.Location = new Point(548, 7);
             counttrackbarlbl.Name = "counttrackbarlbl";
             counttrackbarlbl.Size = new Size(23, 25);
             counttrackbarlbl.TabIndex = 18;
@@ -281,6 +328,7 @@
             // 
             // agedDaystrackbar
             // 
+            agedDaystrackbar.Cursor = Cursors.Hand;
             agedDaystrackbar.Location = new Point(302, 33);
             agedDaystrackbar.Maximum = 50;
             agedDaystrackbar.Name = "agedDaystrackbar";
@@ -302,6 +350,8 @@
             // equalsrbtn
             // 
             equalsrbtn.AutoSize = true;
+            equalsrbtn.Checked = true;
+            equalsrbtn.Cursor = Cursors.Hand;
             equalsrbtn.ForeColor = Color.Coral;
             equalsrbtn.Location = new Point(2, 3);
             equalsrbtn.Margin = new Padding(2);
@@ -315,26 +365,26 @@
             // greaterThanrbtn
             // 
             greaterThanrbtn.AutoSize = true;
+            greaterThanrbtn.Cursor = Cursors.Hand;
             greaterThanrbtn.ForeColor = Color.Coral;
             greaterThanrbtn.Location = new Point(49, 35);
             greaterThanrbtn.Margin = new Padding(2);
             greaterThanrbtn.Name = "greaterThanrbtn";
             greaterThanrbtn.Size = new Size(33, 19);
             greaterThanrbtn.TabIndex = 14;
-            greaterThanrbtn.TabStop = true;
             greaterThanrbtn.Text = ">";
             greaterThanrbtn.UseVisualStyleBackColor = true;
             // 
             // rangerbtn
             // 
             rangerbtn.AutoSize = true;
+            rangerbtn.Cursor = Cursors.Hand;
             rangerbtn.ForeColor = Color.Coral;
             rangerbtn.Location = new Point(49, 4);
             rangerbtn.Margin = new Padding(2);
             rangerbtn.Name = "rangerbtn";
             rangerbtn.Size = new Size(58, 19);
             rangerbtn.TabIndex = 12;
-            rangerbtn.TabStop = true;
             rangerbtn.Text = "Range";
             rangerbtn.UseVisualStyleBackColor = true;
             rangerbtn.CheckedChanged += rangerbtn_Click;
@@ -342,15 +392,77 @@
             // lessThanrbtn
             // 
             lessThanrbtn.AutoSize = true;
+            lessThanrbtn.Cursor = Cursors.Hand;
             lessThanrbtn.ForeColor = Color.Coral;
             lessThanrbtn.Location = new Point(2, 35);
             lessThanrbtn.Margin = new Padding(2);
             lessThanrbtn.Name = "lessThanrbtn";
             lessThanrbtn.Size = new Size(33, 19);
             lessThanrbtn.TabIndex = 13;
-            lessThanrbtn.TabStop = true;
             lessThanrbtn.Text = "<";
             lessThanrbtn.UseVisualStyleBackColor = true;
+            // 
+            // furtherDetailsgridview
+            // 
+            furtherDetailsgridview.AllowUserToAddRows = false;
+            furtherDetailsgridview.AllowUserToDeleteRows = false;
+            furtherDetailsgridview.AllowUserToResizeColumns = false;
+            furtherDetailsgridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            furtherDetailsgridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            furtherDetailsgridview.BackgroundColor = Color.FromArgb(113, 96, 232);
+            furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            furtherDetailsgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Coral;
+            dataGridViewCellStyle7.Padding = new Padding(15, 0, 0, 0);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Coral;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            furtherDetailsgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.DefaultCellStyle = dataGridViewCellStyle8;
+            furtherDetailsgridview.EnableHeadersVisualStyles = false;
+            furtherDetailsgridview.GridColor = Color.Silver;
+            furtherDetailsgridview.Location = new Point(304, 199);
+            furtherDetailsgridview.MultiSelect = false;
+            furtherDetailsgridview.Name = "furtherDetailsgridview";
+            furtherDetailsgridview.ReadOnly = true;
+            furtherDetailsgridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            furtherDetailsgridview.RowHeadersVisible = false;
+            furtherDetailsgridview.RowHeadersWidth = 62;
+            furtherDetailsgridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            furtherDetailsgridview.RowTemplate.Height = 50;
+            furtherDetailsgridview.RowTemplate.Resizable = DataGridViewTriState.True;
+            furtherDetailsgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            furtherDetailsgridview.Size = new Size(686, 142);
+            furtherDetailsgridview.TabIndex = 29;
             // 
             // OuterBorderpnl
             // 
@@ -376,16 +488,16 @@
             Load += Form1_Load;
             InnerBorderpnl.ResumeLayout(false);
             InnerBorderpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Agedgridview).EndInit();
             rangepnl.ResumeLayout(false);
             rangepnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)lowerRangenud).EndInit();
             ((System.ComponentModel.ISupportInitialize)higherRangenud).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchpbox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Agedgridview).EndInit();
-            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)agedDaystrackbar).EndInit();
             radioButtonpnl.ResumeLayout(false);
             radioButtonpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             OuterBorderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -393,8 +505,6 @@
 
         #endregion
         private Label agedlbl;
-        private Button excelbtn;
-        private Button tableaubtn;
         private Label Titlelbl;
         private Panel InnerBorderpnl;
         private Panel OuterBorderpnl;
@@ -405,8 +515,6 @@
         private Panel radioButtonpnl;
         private TrackBar agedDaystrackbar;
         private Label counttrackbarlbl;
-        private DataGridView furtherDetailsgridview;
-        private DataGridView Agedgridview;
         private PictureBox searchpbox;
         private NumericUpDown lowerRangenud;
         private NumericUpDown higherRangenud;
@@ -414,5 +522,10 @@
         private Label lowerlbl;
         private Panel rangepnl;
         private Label moreInfolbl;
+        private DataGridView Agedgridview;
+        private DataGridView furtherDetailsgridview;
+        private Button tableaubtn;
+        private Button excelbtn;
+        private Button resetbtn;
     }
 }

@@ -106,7 +106,6 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
             WIPgridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             WIPgridView.BackgroundColor = Color.FromArgb(113, 96, 232);
-            WIPgridView.BorderStyle = BorderStyle.None;
             WIPgridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             WIPgridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             WIPgridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -133,6 +132,7 @@
             WIPgridView.MultiSelect = false;
             WIPgridView.Name = "WIPgridView";
             WIPgridView.ReadOnly = true;
+            WIPgridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
@@ -151,7 +151,7 @@
             WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             WIPgridView.RowTemplate.Height = 25;
             WIPgridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            WIPgridView.Size = new Size(980, 410);
+            WIPgridView.Size = new Size(982, 410);
             WIPgridView.TabIndex = 6;
             WIPgridView.CellPainting += WIPgridView_CellPainting;
             // 

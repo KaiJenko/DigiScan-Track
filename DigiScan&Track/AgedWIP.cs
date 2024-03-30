@@ -3,8 +3,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace DigiScan_Track
 {
@@ -18,6 +20,9 @@ namespace DigiScan_Track
             InitializeComponent();
             pullMaxCountSQL();
             getAgedWIPSQL();
+
+            WIPTracker wip = new WIPTracker(null, null);
+            wip.transparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,7 +81,29 @@ namespace DigiScan_Track
         private void create_defaultGridView_WIP()
         {
             Agedgridview.Columns[0].HeaderText = "Serial Number";
-            Agedgridview.Columns[1].HeaderText = "Number of Days Aged";
+            Agedgridview.Columns[1].HeaderText = "Days Aged";
+
+            Agedgridview.Columns[0].Width = 124;
+            Agedgridview.Columns[1].Width = 124;
+        }
+
+        private void furtherDetailsSQL()
+        {
+            furtherDetailsgridview.Columns[0].HeaderText = "Serial No";
+            furtherDetailsgridview.Columns[1].HeaderText = "Part No";
+            furtherDetailsgridview.Columns[2].HeaderText = "Batch No";
+            furtherDetailsgridview.Columns[3].HeaderText = "Department";
+            furtherDetailsgridview.Columns[4].HeaderText = "Stored Date";
+            furtherDetailsgridview.Columns[5].HeaderText = "Reason";
+            furtherDetailsgridview.Columns[6].HeaderText = "User Responsible";
+
+            furtherDetailsgridview.Columns[0].Width = 95;
+            furtherDetailsgridview.Columns[1].Width = 95;
+            furtherDetailsgridview.Columns[2].Width = 95;
+            furtherDetailsgridview.Columns[3].Width = 95;
+            furtherDetailsgridview.Columns[4].Width = 95;
+            furtherDetailsgridview.Columns[5].Width = 95;
+            furtherDetailsgridview.Columns[6].Width = 95;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -147,28 +174,40 @@ namespace DigiScan_Track
 
         private void Agedgridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            moreInfolbl.Visible = false;
-            string serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0].Value.ToString();
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                moreInfolbl.Visible = false;
+                string serialNumber = Agedgridview.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            DataTable dt = new DataTable();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT AgedWIP.[serialNumber], WIPTracking.[PartNumber], WIPTracking.[BatchNumber], WIPTracking.[Department], WIPTracking.[Workstation], " +
-                              "AgedWIP.[DateEnteredStorage], AgedWIP.[ReasonForStorage], AgedWIP.[UserWhoInputted] FROM [DigiTrackAndScan].[dbo].[AgedWIP] " +
-                              "LEFT JOIN [DigiTrackAndScan].[dbo].WIPTracking ON AgedWIP.SerialNumber = WIPTracking.SerialNumber WHERE AgedWIP.SerialNumber = '" + serialNumber + "'";
-            SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT AgedWIP.[serialNumber], WIPTracking.[PartNumber], WIPTracking.[BatchNumber], WIPTracking.[Department], " +
+                                  "AgedWIP.[DateEnteredStorage], AgedWIP.[ReasonForStorage], AgedWIP.[UserWhoInputted] FROM [DigiTrackAndScan].[dbo].[AgedWIP] " +
+                                  "LEFT JOIN [DigiTrackAndScan].[dbo].WIPTracking ON AgedWIP.SerialNumber = WIPTracking.SerialNumber WHERE AgedWIP.SerialNumber = '" + serialNumber + "'";
+                SqlDataReader dr = cmd.ExecuteReader();
 
-            dt.Load(dr);
+                dt.Load(dr);
 
-            conn.Close();
+                conn.Close();
 
-            furtherDetailsgridview.DataSource = dt;
+                furtherDetailsgridview.DataSource = dt;
+                furtherDetailsSQL();
 
-            conn.Close();
-
+                conn.Close();
+            }
         }
 
+        private void resetbtn_Click(object sender, EventArgs e)
+        {
+            agedDaystrackbar.Value = 0;
+            equalsrbtn.Checked = true;
+            counttrackbarlbl.Text = "0";
+            lowerRangenud.Value = 0;
+            higherRangenud.Value = 0;
+            getAgedWIPSQL();
+        }
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
@@ -179,6 +218,22 @@ namespace DigiScan_Track
             if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
             {
                 newForm.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Agedgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Coral;
+            }
+        }
+
+        private void Agedgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
             }
         }
     }

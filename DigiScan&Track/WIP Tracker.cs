@@ -24,7 +24,7 @@ namespace DigiScan_Track
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             searchcmb.SelectedIndex = 0;
-            transparentBackground("searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
+            transparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -68,12 +68,12 @@ namespace DigiScan_Track
             WIPgridView.Columns[4].HeaderText = "Time out";
             WIPgridView.Columns[5].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 150;
-            WIPgridView.Columns[1].Width = 150;
-            WIPgridView.Columns[2].Width = 150;
-            WIPgridView.Columns[3].Width = 150;
-            WIPgridView.Columns[4].Width = 150;
-            WIPgridView.Columns[5].Width = 75;
+            WIPgridView.Columns[0].Width = 160;
+            WIPgridView.Columns[1].Width = 160;
+            WIPgridView.Columns[2].Width = 160;
+            WIPgridView.Columns[3].Width = 160;
+            WIPgridView.Columns[4].Width = 160;
+            WIPgridView.Columns[5].Width = 85;
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -328,16 +328,19 @@ namespace DigiScan_Track
 
         }
 
-        public void transparentBackground(params string[] buttonName) //params means array doesnt need to be created
+        public void transparentBackground(Form form, params string[] buttonName) //params means array doesnt need to be created
         {
-            string hi = buttonName[0];
+            string newbtn = buttonName[0];
             foreach (string button in buttonName)
             {
-                Control[] controls = this.Controls.Find(button, true);
-                Button background = (Button)controls[0];
-                background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-                background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-                background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+                Control[] controls = form.Controls.Find(button, true);
+                if (controls.Length > 0)
+                {
+                    Button background = (Button)controls[0];
+                    background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+                    background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+                    background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+                }
             }
         }
 
@@ -397,6 +400,8 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
+
+      
     }
 
 
