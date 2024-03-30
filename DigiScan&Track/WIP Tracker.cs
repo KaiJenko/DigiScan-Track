@@ -286,9 +286,8 @@ namespace DigiScan_Track
 
                 panel.BackgroundImage = Properties.Resources.blueBorder;
                 panel.BackgroundImageLayout = ImageLayout.Stretch;
-                panel.MinimumSize = new Size(100, 25);
+                panel.MinimumSize = new Size(0, 25);
                 panel.MaximumSize = new Size(500, 25);
-                panel.AutoSize = true;
 
                 Label label = new Label();
                 label.Name = "label" + index;
@@ -304,8 +303,14 @@ namespace DigiScan_Track
                 pictureBox.Size = new Size(15, 15);
                 pictureBox.Cursor = Cursors.Hand;
 
+                panel.Controls.Add(label);
+                panel.Controls.Add(pictureBox);
+
                 label.Location = new Point(5, 5);
-                pictureBox.Location = new Point(label.Right + 50, 5);
+                pictureBox.Location = new Point(label.Right, 5);
+                pictureBox.Padding = new Padding(1, 1, 1, 1);
+
+                panel.Size = new Size(pictureBox.Right + 15, 25);
 
                 pictureBox.MouseDown += (sender, e) =>
                 {
@@ -316,8 +321,8 @@ namespace DigiScan_Track
                     }
                 };
 
-                panel.Controls.Add(label);
-                panel.Controls.Add(pictureBox);
+                /*  panel.Controls.Add(label);
+                  panel.Controls.Add(pictureBox);*/
                 searchFieldpnl.Controls.Add(panel);
 
 
