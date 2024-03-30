@@ -272,6 +272,7 @@
             WIPgridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             WIPgridView.Size = new Size(989, 425);
             WIPgridView.TabIndex = 6;
+            WIPgridView.CellPainting += WIPgridView_CellPainting;
             // 
             // bottomLeftBorderbtn
             // 

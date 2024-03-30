@@ -356,18 +356,52 @@ namespace DigiScan_Track
             timer.Start();
         }
 
-        private void WIPgridView_CellPainting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            object cellvalue = WIPgridView[e.ColumnIndex, e.RowIndex].Value;
-        /*    MessageBox.Show(cellvalue.ToString());*/
-            if (WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
+            /*if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
-                if (cellvalue.ToString() == "True")
+                object cellvalue = WIPgridView[e.ColumnIndex, e.RowIndex].Value;
+                *//*    MessageBox.Show(cellvalue.ToString());*//*
+                if (WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
                 {
-                    e.Value = ((bool)e.Value) ? "Yes" : "No";
+                    if (cellvalue != null && cellvalue.GetType() == typeof(bool))
+                    {
+                        bool isChecked = (bool)cellvalue;
+
+                        string displayText = isChecked ? "Yes" : "No";
+                    }
+                }
+            }*/
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (WIPgridView[e.ColumnIndex, e.RowIndex].Value != DBNull.Value)
+                {
+                    // Get the cell value
+                    bool isChecked = (bool)WIPgridView[e.ColumnIndex, e.RowIndex].Value;
+                    string displayText = isChecked ? "Yes" : "No";
+
+                    // Draw the text in the cell
+                    using (StringFormat sf = new StringFormat())
+                    {
+                        sf.Alignment = StringAlignment.Center;
+                        sf.LineAlignment = StringAlignment.Center;
+
+                        using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
+                        {
+                            e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
+                        }
+                    }
+
+                    e.Handled = true;
                 }
             }
         }
+
+
+
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
@@ -380,7 +414,7 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-        
     }
+        
+    
 }
