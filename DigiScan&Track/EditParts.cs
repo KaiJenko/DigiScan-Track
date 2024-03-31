@@ -9,15 +9,19 @@ namespace DigiScan_Track
 {
     public partial class EditParts : Form
     {
-
+        SqlConnection conn = new SqlConnection();
         public EditParts()
         {
             InitializeComponent();
             loadDepartmentcmb();
+            loadsecondDepartmentcmb();
             partsToEditSQL();
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+            WIPTracker wiptracker = new WIPTracker(null, null);
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            toEditGridView.CellPainting += wiptracker.WIPgridView_CellPainting;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,10 +40,31 @@ namespace DigiScan_Track
             while (dr.Read())
             {
                 departmentcmbox.Items.Add(dr["Department"].ToString());
+
             }
             conn.Close();
 
             departmentcmbox.SelectedIndex = 0;
+
+
+        }
+
+        private void loadsecondDepartmentcmb()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT Distinct(Department) FROM Departments";
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                addPartcmbox.Items.Add(dr["Department"].ToString());
+
+            }
+            conn.Close();
+
+            addPartcmbox.SelectedIndex = 0;
 
         }
 
@@ -105,8 +130,25 @@ namespace DigiScan_Track
 
         private void partsToEditSQL()
         {
-            string pullPartsToEdit = "SELECT * FROM WIPTracking";
+            string pullPartsToEdit = "SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking";
             sqlQuery(pullPartsToEdit, toEditGridView);
+            partsToEditLayout();
+        }
+
+        private void partsToEditLayout()
+        {
+            toEditGridView.Columns[0].HeaderText = "Serial No";
+            toEditGridView.Columns[1].HeaderText = "Part No";
+            toEditGridView.Columns[2].HeaderText = "Batch No";
+            toEditGridView.Columns[3].HeaderText = "Department";
+            toEditGridView.Columns[4].HeaderText = "In Storage";
+
+            toEditGridView.Columns[0].Width = 103;
+            toEditGridView.Columns[1].Width = 103;
+            toEditGridView.Columns[2].Width = 103;
+            toEditGridView.Columns[3].Width = 100;
+            toEditGridView.Columns[4].Width = 80;
+
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -207,6 +249,64 @@ namespace DigiScan_Track
             xbtn.Visible = false;
         }
 
+        public void toEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && toEditGridView.Columns[e.ColumnIndex].Name == "InStorage")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (toEditGridView[e.ColumnIndex, e.RowIndex].Value != DBNull.Value)
+                {
+                    bool isChecked = (bool)toEditGridView[e.ColumnIndex, e.RowIndex].Value;
+                    string displayText = isChecked ? "Yes" : "No";
+                    using (StringFormat sf = new StringFormat())
+                    {
+                        sf.Alignment = StringAlignment.Center;
+                        sf.LineAlignment = StringAlignment.Center;
+
+                        using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
+                        {
+                            e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
+                        }
+                    }
+
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void submitAddpbox_Click(object sender, EventArgs e)
+        {
+            string department = addPartcmbox.SelectedItem.ToString();
+            string partNum = addParttxt.Text;
+
+            string message = "Do you want to insert part number: " + partNum + " into: " + department;
+            string title = "Add New Part Number to: " + department;
+            MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
+
+            DialogResult result = MessageBox.Show(message, title, msgbtn);
+            if (result == DialogResult.Yes)
+            {
+
+
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
+                                  " VALUES (@Department, @PartNumber)";
+                SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+
+                cmd.Parameters.AddWithValue("@Department", department);
+                cmd.Parameters.AddWithValue("@PartNumber", partNum);
+
+                cmd.ExecuteNonQuery();
+
+                addParttxt.Clear();
+                MessageBox.Show("You have inputted a new part");
+            }
+
+
+        }
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this

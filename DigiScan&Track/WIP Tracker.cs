@@ -359,7 +359,7 @@ namespace DigiScan_Track
             timer.Start();
         }
 
-        private void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        public void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
 
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
