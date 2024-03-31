@@ -281,31 +281,38 @@ namespace DigiScan_Track
             string department = addPartcmbox.SelectedItem.ToString();
             string partNum = addParttxt.Text;
 
-            string message = "Do you want to insert part number: " + partNum + " into: " + department;
-            string title = "Add New Part Number to: " + department;
-            MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
-
-            DialogResult result = MessageBox.Show(message, title, msgbtn);
-            if (result == DialogResult.Yes)
+            if (partNum != "")
             {
 
+                string message = "Do you want to insert part number: " + partNum + " into: " + department;
+                string title = "Add New Part Number to: " + department;
+                MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
-                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                conn.Open();
-                string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
-                                  " VALUES (@Department, @PartNumber)";
-                SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+                DialogResult result = MessageBox.Show(message, title, msgbtn);
+                if (result == DialogResult.Yes)
+                {
 
-                cmd.Parameters.AddWithValue("@Department", department);
-                cmd.Parameters.AddWithValue("@PartNumber", partNum);
+                    conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                    conn.Open();
+                    string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
+                                      " VALUES (@Department, @PartNumber)";
+                    SqlCommand cmd = new SqlCommand(sqlInsert, conn);
 
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@Department", department);
+                    cmd.Parameters.AddWithValue("@PartNumber", partNum);
 
-                addParttxt.Clear();
-                MessageBox.Show("You have inputted a new part");
+                    cmd.ExecuteNonQuery();
+
+                    addParttxt.Clear();
+                    MessageBox.Show("You have inputted a new part");
+                }
+
             }
 
-
+            else
+            {
+                MessageBox.Show("Please input a part number");
+            }
         }
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
