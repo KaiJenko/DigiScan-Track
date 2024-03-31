@@ -17,14 +17,15 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             editPartDetailsSQL(serialNumber);
-
+            furtherEditPartsSQL(serialNumber);
         }
 
         private void editPartDetailsSQL(string serialNumber)
         {
-            DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+
+            DataTable dt = new DataTable();
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "'";
@@ -32,23 +33,44 @@ namespace DigiScan_Track
             dt.Load(dr);
             conn.Close();
             partTobeEditedGridView.DataSource = dt;
+            partsEditLayout();
+
+
         }
+
+        private void furtherEditPartsSQL(string serialNumber)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+
+            DataTable dt = new DataTable();
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT [DateEnteredStorage], [ReasonForStorage], [UserWhoInputted] FROM [AgedWIP] WHERE [SerialNumber] = '" + serialNumber + "'";
+            SqlDataReader dr = cmd.ExecuteReader();
+            dt.Load(dr);
+            conn.Close();
+            furtherDetailsgridview.DataSource = dt;
+            furtherDetailsLayout();
+
+            if (furtherDetailsgridview.Rows.Count == 0)
+            {
+                furtherDetailsgridview.Visible = false;
+                furtherDetailspnl.Visible = false;
+
+            }
+        }
+
 
         private void InputEdit_Click(object sender, EventArgs e)
         {
             DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
             int count = 0;
 
-            /*foreach (Control control in userInputpnl.Controls)
-            {
-                MessageBox.Show(control.Name);
-            }*/
             string sqlquery = "";
 
             foreach (Control control in userInputpnl.Controls)
             {
-
-               
 
                 if (control is CheckBox)
                 {
@@ -94,10 +116,40 @@ namespace DigiScan_Track
             string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
             SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
             cmd.ExecuteNonQuery();
-            SqlDataReader dr = cmd.ExecuteReader();
 
-                
+        }
 
+        private void partsEditLayout()
+        {
+            partTobeEditedGridView.Columns[0].HeaderText = "Part No";
+            partTobeEditedGridView.Columns[1].HeaderText = "Serial No";
+            partTobeEditedGridView.Columns[2].HeaderText = "Batch No";
+            partTobeEditedGridView.Columns[3].HeaderText = "Department";
+            partTobeEditedGridView.Columns[4].HeaderText = "Workstation";
+            partTobeEditedGridView.Columns[5].HeaderText = "Time In";
+            partTobeEditedGridView.Columns[6].HeaderText = "Time Out";
+            partTobeEditedGridView.Columns[7].HeaderText = "In Storage";
+
+            partTobeEditedGridView.Columns[0].Width = 110;
+            partTobeEditedGridView.Columns[1].Width = 110;
+            partTobeEditedGridView.Columns[2].Width = 110;
+            partTobeEditedGridView.Columns[3].Width = 120;
+            partTobeEditedGridView.Columns[4].Width = 130;
+            partTobeEditedGridView.Columns[5].Width = 140;
+            partTobeEditedGridView.Columns[6].Width = 140;
+            partTobeEditedGridView.Columns[7].Width = 90;
+
+        }
+
+        private void furtherDetailsLayout()
+        {
+            furtherDetailsgridview.Columns[0].HeaderText = "Storage Date";
+            furtherDetailsgridview.Columns[1].HeaderText = "Reason";
+            furtherDetailsgridview.Columns[2].HeaderText = "User";
+
+            furtherDetailsgridview.Columns[0].Width = 150;
+            furtherDetailsgridview.Columns[1].Width = 200;
+            furtherDetailsgridview.Columns[2].Width = 150;
         }
     }
 }
