@@ -52,9 +52,31 @@ namespace DigiScan_Track
 
         private void loadDetails(string chosenDepartment)
         {
-            string[] departmentList = { "Nacelles", "Gears", "Military" };
+            int countDepartments = departmentcmbox.Items.Count;
+            string[] departmentList = new string[countDepartments];
+            for (int x = 0; x < countDepartments; x++)
+            {
+                string department = departmentcmbox.Items[x].ToString();
+                departmentList[x] = department;
+            }
 
-            string[][] partNumbers = new string[3][];
+            string[][] partNumbers = new string[countDepartments][];
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT Department, PartNumber FROM PartNumbers";
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                departmentcmbox.Items.Add(dr["Department"].ToString());
+            }
+            conn.Close();
+            departmentcmbox.SelectedItem = departmentcmbox.Items[0].ToString();
+
+
+
             partNumbers[0] = new string[0] { };
             partNumbers[1] = new string[4] { "COG78643", "FYG345", "AAG320", "BIO879" };
             partNumbers[2] = new string[6] { "TYM93787", "AQM45", "TYM8143", "AUM15", "PLM258", "PGM55" };
@@ -99,7 +121,7 @@ namespace DigiScan_Track
                 sqlQuery(SQLQuery, toEditGridView);
             }
 
-            
+
         }
 
         private void sqlQuery(string command, DataGridView gridview)
