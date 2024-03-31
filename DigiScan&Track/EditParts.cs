@@ -15,6 +15,9 @@ namespace DigiScan_Track
             InitializeComponent();
             loadDepartmentcmb();
             partsToEditSQL();
+            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+            departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,7 +38,8 @@ namespace DigiScan_Track
                 departmentcmbox.Items.Add(dr["Department"].ToString());
             }
             conn.Close();
-            departmentcmbox.SelectedItem = departmentcmbox.Items[0].ToString();
+
+            departmentcmbox.SelectedIndex = 0;
 
         }
 
@@ -54,39 +58,49 @@ namespace DigiScan_Track
         {
             int countDepartments = departmentcmbox.Items.Count;
             string[] departmentList = new string[countDepartments];
+
             for (int x = 0; x < countDepartments; x++)
             {
                 string department = departmentcmbox.Items[x].ToString();
                 departmentList[x] = department;
             }
 
-            string[][] partNumbers = new string[countDepartments][];
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT Department, PartNumber FROM PartNumbers";
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+
+            string[] partNumbers = new string[countDepartments];
+
+            for (int x = 0; x < countDepartments; x++)
             {
-                departmentcmbox.Items.Add(dr["Department"].ToString());
+                string department = departmentcmbox.Items[x].ToString();
+
+                cmd.CommandText = "SELECT [PartNumber] FROM PartNumbers WHERE [Department] = @Department";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Department", department);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    List<string> str = new List<string>();
+                    while (dr.Read())
+                    {
+                        str.Add(dr["PartNumber"].ToString());
+                    }
+                    partNumbers[x] = string.Join(",", str);
+                }
             }
-            conn.Close();
-            departmentcmbox.SelectedItem = departmentcmbox.Items[0].ToString();
-
-
-
-            partNumbers[0] = new string[0] { };
-            partNumbers[1] = new string[4] { "COG78643", "FYG345", "AAG320", "BIO879" };
-            partNumbers[2] = new string[6] { "TYM93787", "AQM45", "TYM8143", "AUM15", "PLM258", "PGM55" };
 
             int index = Array.IndexOf(departmentList, chosenDepartment);
 
-            for (int i = 0; i < partNumbers[index].Length; i++)
+            string[] arraySplit = partNumbers[index].Split(new string[] { "," }, StringSplitOptions.None);
+
+            for (int x = 0; x < arraySplit.Length; x++)
             {
-                partNumbercmbox.Items.Add(partNumbers[index][i]);
+                partNumbercmbox.Items.Add(arraySplit[x]);
             }
+            partNumbercmbox.SelectedIndex = 0;
+            partNumbercmbox.SelectedItem = Color.FromArgb(255, 46, 51, 73);
         }
 
         private void partsToEditSQL()

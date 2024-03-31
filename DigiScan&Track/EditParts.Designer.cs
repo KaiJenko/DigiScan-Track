@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             departmentcmbox = new ComboBox();
             label2 = new Label();
@@ -42,20 +43,20 @@
             label4 = new Label();
             Titlelbl = new Label();
             InnerBorderpnl = new Panel();
-            toEditGridView = new DataGridView();
             panel1 = new Panel();
             SearchButton = new PictureBox();
             partNumbercmbox = new ComboBox();
             label5 = new Label();
             OuterBorderpnl = new Panel();
             xbtn = new Button();
+            toEditGridView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)toEditGridView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SearchButton).BeginInit();
             OuterBorderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)toEditGridView).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -70,12 +71,16 @@
             // departmentcmbox
             // 
             departmentcmbox.BackColor = Color.FromArgb(46, 51, 73);
-            departmentcmbox.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            departmentcmbox.Cursor = Cursors.Hand;
+            departmentcmbox.DrawMode = DrawMode.OwnerDrawFixed;
+            departmentcmbox.DropDownStyle = ComboBoxStyle.DropDownList;
+            departmentcmbox.FlatStyle = FlatStyle.Flat;
+            departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             departmentcmbox.ForeColor = Color.White;
             departmentcmbox.FormattingEnabled = true;
             departmentcmbox.Location = new Point(214, 30);
             departmentcmbox.Name = "departmentcmbox";
-            departmentcmbox.Size = new Size(201, 33);
+            departmentcmbox.Size = new Size(201, 30);
             departmentcmbox.TabIndex = 7;
             departmentcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
             // 
@@ -167,53 +172,6 @@
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
-            // toEditGridView
-            // 
-            toEditGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            toEditGridView.BackgroundColor = Color.FromArgb(113, 96, 232);
-            toEditGridView.BorderStyle = BorderStyle.None;
-            toEditGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            toEditGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            toEditGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            toEditGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            toEditGridView.GridColor = Color.White;
-            toEditGridView.Location = new Point(476, 25);
-            toEditGridView.Name = "toEditGridView";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            toEditGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            toEditGridView.RowHeadersVisible = false;
-            toEditGridView.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            toEditGridView.RowTemplate.Height = 25;
-            toEditGridView.Size = new Size(518, 464);
-            toEditGridView.TabIndex = 15;
-            toEditGridView.CellContentClick += toEditGridView_CellContentClick;
-            // 
             // panel1
             // 
             panel1.Controls.Add(SearchButton);
@@ -236,7 +194,8 @@
             SearchButton.BackColor = Color.White;
             SearchButton.BackgroundImage = Properties.Resources.MagnifyingGlass1;
             SearchButton.BackgroundImageLayout = ImageLayout.Stretch;
-            SearchButton.Location = new Point(390, 139);
+            SearchButton.Cursor = Cursors.Hand;
+            SearchButton.Location = new Point(390, 141);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(20, 20);
             SearchButton.TabIndex = 22;
@@ -246,13 +205,17 @@
             // partNumbercmbox
             // 
             partNumbercmbox.BackColor = Color.FromArgb(46, 51, 73);
+            partNumbercmbox.Cursor = Cursors.Hand;
+            partNumbercmbox.DrawMode = DrawMode.OwnerDrawFixed;
+            partNumbercmbox.DropDownStyle = ComboBoxStyle.DropDownList;
             partNumbercmbox.Enabled = false;
-            partNumbercmbox.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            partNumbercmbox.FlatStyle = FlatStyle.Flat;
+            partNumbercmbox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             partNumbercmbox.ForeColor = Color.White;
             partNumbercmbox.FormattingEnabled = true;
             partNumbercmbox.Location = new Point(214, 83);
             partNumbercmbox.Name = "partNumbercmbox";
-            partNumbercmbox.Size = new Size(201, 33);
+            partNumbercmbox.Size = new Size(201, 30);
             partNumbercmbox.TabIndex = 14;
             // 
             // label5
@@ -279,7 +242,7 @@
             // xbtn
             // 
             xbtn.Location = new Point(988, 28);
-            xbtn.Margin = new Padding(2, 2, 2, 2);
+            xbtn.Margin = new Padding(2);
             xbtn.Name = "xbtn";
             xbtn.Size = new Size(45, 20);
             xbtn.TabIndex = 16;
@@ -287,6 +250,67 @@
             xbtn.UseVisualStyleBackColor = true;
             xbtn.Visible = false;
             xbtn.Click += xbtn_Click;
+            // 
+            // toEditGridView
+            // 
+            toEditGridView.AllowUserToAddRows = false;
+            toEditGridView.AllowUserToDeleteRows = false;
+            toEditGridView.AllowUserToResizeColumns = false;
+            toEditGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            toEditGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            toEditGridView.BackgroundColor = Color.FromArgb(113, 96, 232);
+            toEditGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            toEditGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            toEditGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.Coral;
+            dataGridViewCellStyle2.Padding = new Padding(25, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            toEditGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            toEditGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            toEditGridView.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            toEditGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            toEditGridView.EnableHeadersVisualStyles = false;
+            toEditGridView.GridColor = Color.Silver;
+            toEditGridView.Location = new Point(487, 24);
+            toEditGridView.MultiSelect = false;
+            toEditGridView.Name = "toEditGridView";
+            toEditGridView.ReadOnly = true;
+            toEditGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            toEditGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            toEditGridView.RowHeadersVisible = false;
+            toEditGridView.RowHeadersWidth = 62;
+            toEditGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            toEditGridView.RowTemplate.Height = 25;
+            toEditGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            toEditGridView.Size = new Size(507, 472);
+            toEditGridView.TabIndex = 29;
             // 
             // EditParts
             // 
@@ -304,11 +328,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             InnerBorderpnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)toEditGridView).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SearchButton).EndInit();
             OuterBorderpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)toEditGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -328,8 +352,8 @@
         private Panel panel1;
         private ComboBox partNumbercmbox;
         private Label label5;
-        private DataGridView toEditGridView;
         private PictureBox SearchButton;
         private Button xbtn;
+        private DataGridView toEditGridView;
     }
 }

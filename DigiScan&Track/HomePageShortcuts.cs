@@ -28,7 +28,7 @@ namespace DigiScan_Track
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT Distinct(Department) FROM Departments";
             SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read()) // Loop through the result set
+            while (dr.Read())
             {
                 Departmentcmb.Items.Add(dr["Department"].ToString());
             }
@@ -223,20 +223,15 @@ namespace DigiScan_Track
             title.Font = new Font("Arial", 12, FontStyle.Bold);
             title.ForeColor = Color.White;
             title.BackColor = Color.FromArgb(150, Color.Black);
-            title.TextAlign = ContentAlignment.MiddleCenter; // Align text to the center
-
+            title.TextAlign = ContentAlignment.MiddleCenter;
             if (title.Text.Length > 10)
             {
                 title.AutoSize = true;
-                /*string[] titlesplit = title.Text.Split(new string[] { " " }, StringSplitOptions.None);
-                title.Text = titlesplit[0] + "\n" + titlesplit[1];
-                title.TextAlign = ContentAlignment.MiddleCenter;*/
             }
             else
             {
                 title.AutoSize = false;
             }
-
             title.TextAlign = ContentAlignment.MiddleCenter;
 
             Button partInput = new Button();
@@ -256,9 +251,9 @@ namespace DigiScan_Track
             Button tableView = new Button();
             tableView.Text = "View Parts";
             tableView.Name = image;
-            tableView.ForeColor = Color.Black; // Set the text color
+            tableView.ForeColor = Color.Black; 
             tableView.AutoSize = false;
-            tableView.TextAlign = ContentAlignment.MiddleCenter; // Center the text
+            tableView.TextAlign = ContentAlignment.MiddleCenter; 
             tableView.Size = new Size(100, 23);
             tableView.Click += ButtonClicked;
             tableView.Cursor = Cursors.Hand;
@@ -266,7 +261,7 @@ namespace DigiScan_Track
             tableView.BackColor = Color.DarkTurquoise;
 
 
-            tableLayoutPanel.Controls.Add(title, 1, 1); // Add label to center cell
+            tableLayoutPanel.Controls.Add(title, 1, 1); 
 
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
             tableLayoutPanel.SetColumnSpan(partInput, 1); // Set column span to center the button
