@@ -165,8 +165,9 @@ namespace DigiScan_Track
 
             else if (serialNumber == "")
             {
-                SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
-                           "  AND [PartNumber] = '" + partNumber + "'";
+                SQLQuery = " SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking" +
+                           " WHERE [Department] = '" + department + "'" +
+                           " AND [PartNumber] = '" + partNumber + "'";
                 sqlQuery(SQLQuery, toEditGridView);
             }
 
@@ -176,8 +177,6 @@ namespace DigiScan_Track
                            " AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
                 sqlQuery(SQLQuery, toEditGridView);
             }
-
-
         }
 
         private void sqlQuery(string command, DataGridView gridview)
@@ -196,8 +195,8 @@ namespace DigiScan_Track
 
         private void toEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
-            string serialNum = toEditGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            string serialNum = toEditGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             string inStorageMessage = "This part: " + serialNum + " is not in storage, would you like to edit this";
             string outStorageMessage = "This part " + serialNum + " is in storage, would you like to edit this";
             string title = "Edit Part";
@@ -213,8 +212,8 @@ namespace DigiScan_Track
                     PartEditPage editPage = new PartEditPage(serialNum);
                     editPage.Dock = DockStyle.Fill;
                     this.InnerBorderpnl.Controls.Add(editPage);
-                    xbtn.Visible = true;
-                    xbtn.BringToFront();
+                    crossOffpbox.Visible = true;
+                    crossOffpbox.BringToFront();
                     editPage.BringToFront();
 
                 }
@@ -230,8 +229,8 @@ namespace DigiScan_Track
                     PartEditPage editPage = new PartEditPage(serialNum);
                     editPage.Dock = DockStyle.Fill;
                     this.InnerBorderpnl.Controls.Add(editPage);
-                    xbtn.Visible = true;
-                    xbtn.BringToFront();
+                    crossOffpbox.Visible = true;
+                    crossOffpbox.BringToFront();
                     editPage.BringToFront();
                 }
             }
@@ -242,11 +241,11 @@ namespace DigiScan_Track
             }
         }
 
-        private void xbtn_Click(object sender, EventArgs e)
+        private void crossOffpbox_Click(object sender, EventArgs e)
         {
             Control editPartsPage = InnerBorderpnl.Controls[0];
             InnerBorderpnl.Controls.Remove(editPartsPage);
-            xbtn.Visible = false;
+            crossOffpbox.Visible = false;
         }
 
         public void toEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -327,6 +326,21 @@ namespace DigiScan_Track
             }
         }
 
+        private void toEditgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                toEditGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Coral;
+            }
+        }
+
+        private void toEditgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                toEditGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+            }
+        }
 
     }
 }

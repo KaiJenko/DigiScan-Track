@@ -400,8 +400,6 @@ namespace DigiScan_Track
                 newForm.WindowState = FormWindowState.Maximized;
             }
         }
-
-
     }
 
 
