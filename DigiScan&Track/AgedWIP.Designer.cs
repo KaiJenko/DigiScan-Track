@@ -164,7 +164,7 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(651, 4);
+            resetbtn.Location = new Point(454, 4);
             resetbtn.Name = "resetbtn";
             resetbtn.Size = new Size(69, 25);
             resetbtn.TabIndex = 32;
@@ -242,7 +242,7 @@
             moreInfolbl.BackColor = Color.FromArgb(113, 96, 232);
             moreInfolbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             moreInfolbl.ForeColor = Color.Coral;
-            moreInfolbl.Location = new Point(438, 261);
+            moreInfolbl.Location = new Point(438, 266);
             moreInfolbl.Name = "moreInfolbl";
             moreInfolbl.Size = new Size(413, 21);
             moreInfolbl.TabIndex = 27;
@@ -308,7 +308,7 @@
             searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass1;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
-            searchpbox.Location = new Point(529, 13);
+            searchpbox.Location = new Point(526, 11);
             searchpbox.Name = "searchpbox";
             searchpbox.Size = new Size(20, 15);
             searchpbox.TabIndex = 21;
@@ -317,11 +317,13 @@
             // 
             // counttrackbarlbl
             // 
+            counttrackbarlbl.Anchor = AnchorStyles.Right;
             counttrackbarlbl.AutoSize = true;
             counttrackbarlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             counttrackbarlbl.ForeColor = Color.Coral;
-            counttrackbarlbl.Location = new Point(548, 7);
+            counttrackbarlbl.Location = new Point(548, 5);
             counttrackbarlbl.Name = "counttrackbarlbl";
+            counttrackbarlbl.RightToLeft = RightToLeft.No;
             counttrackbarlbl.Size = new Size(23, 25);
             counttrackbarlbl.TabIndex = 18;
             counttrackbarlbl.Text = "0";
@@ -415,11 +417,10 @@
             furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
             furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             furtherDetailsgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle7.ForeColor = Color.Coral;
-            dataGridViewCellStyle7.Padding = new Padding(15, 0, 0, 0);
             dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle7.SelectionForeColor = Color.Coral;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
@@ -435,7 +436,7 @@
             furtherDetailsgridview.DefaultCellStyle = dataGridViewCellStyle8;
             furtherDetailsgridview.EnableHeadersVisualStyles = false;
             furtherDetailsgridview.GridColor = Color.Silver;
-            furtherDetailsgridview.Location = new Point(304, 199);
+            furtherDetailsgridview.Location = new Point(302, 231);
             furtherDetailsgridview.MultiSelect = false;
             furtherDetailsgridview.Name = "furtherDetailsgridview";
             furtherDetailsgridview.ReadOnly = true;
@@ -461,7 +462,7 @@
             furtherDetailsgridview.RowTemplate.Height = 50;
             furtherDetailsgridview.RowTemplate.Resizable = DataGridViewTriState.True;
             furtherDetailsgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            furtherDetailsgridview.Size = new Size(686, 142);
+            furtherDetailsgridview.Size = new Size(686, 99);
             furtherDetailsgridview.TabIndex = 29;
             // 
             // OuterBorderpnl

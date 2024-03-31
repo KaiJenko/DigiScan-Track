@@ -112,7 +112,7 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.ForeColor = Color.Turquoise;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
@@ -242,8 +242,8 @@
             // 
             searchBylbl.AutoSize = true;
             searchBylbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            searchBylbl.ForeColor = Color.FromArgb(0, 126, 249);
-            searchBylbl.Location = new Point(30, 15);
+            searchBylbl.ForeColor = Color.Turquoise;
+            searchBylbl.Location = new Point(30, 12);
             searchBylbl.Name = "searchBylbl";
             searchBylbl.Size = new Size(98, 25);
             searchBylbl.TabIndex = 5;
