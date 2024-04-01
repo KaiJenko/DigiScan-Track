@@ -28,23 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             agedlbl = new Label();
             Titlelbl = new Label();
             BodyLayoutpnl = new Panel();
+            searchpbox = new PictureBox();
+            customInputnud = new NumericUpDown();
+            recentScannedGridView = new DataGridView();
             radioButtonpnl = new Panel();
-            sixtyrbtn = new RadioButton();
+            customrbtn = new RadioButton();
             tenrbtn = new RadioButton();
             fiverbtn = new RadioButton();
             tworbtn = new RadioButton();
-            recentScannedGridView = new DataGridView();
             Borderpnl = new Panel();
             BodyLayoutpnl.SuspendLayout();
-            radioButtonpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)searchpbox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customInputnud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)recentScannedGridView).BeginInit();
+            radioButtonpnl.SuspendLayout();
             Borderpnl.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +58,7 @@
             agedlbl.AutoSize = true;
             agedlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             agedlbl.ForeColor = Color.White;
-            agedlbl.Location = new Point(28, 18);
+            agedlbl.Location = new Point(28, 19);
             agedlbl.Name = "agedlbl";
             agedlbl.Size = new Size(460, 25);
             agedlbl.TabIndex = 9;
@@ -75,44 +80,130 @@
             // BodyLayoutpnl
             // 
             BodyLayoutpnl.BackColor = Color.FromArgb(46, 51, 73);
-            BodyLayoutpnl.Controls.Add(radioButtonpnl);
+            BodyLayoutpnl.Controls.Add(searchpbox);
+            BodyLayoutpnl.Controls.Add(customInputnud);
             BodyLayoutpnl.Controls.Add(recentScannedGridView);
+            BodyLayoutpnl.Controls.Add(radioButtonpnl);
             BodyLayoutpnl.Controls.Add(agedlbl);
             BodyLayoutpnl.Location = new Point(4, 3);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
             BodyLayoutpnl.Size = new Size(1013, 522);
             BodyLayoutpnl.TabIndex = 11;
             // 
+            // searchpbox
+            // 
+            searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
+            searchpbox.Cursor = Cursors.Hand;
+            searchpbox.Location = new Point(965, 24);
+            searchpbox.Name = "searchpbox";
+            searchpbox.Size = new Size(25, 25);
+            searchpbox.TabIndex = 22;
+            searchpbox.TabStop = false;
+            searchpbox.Visible = false;
+            searchpbox.Click += searchpbox_Click;
+            // 
+            // customInputnud
+            // 
+            customInputnud.BackColor = Color.FromArgb(46, 51, 73);
+            customInputnud.BorderStyle = BorderStyle.FixedSingle;
+            customInputnud.Cursor = Cursors.Hand;
+            customInputnud.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            customInputnud.ForeColor = Color.FromArgb(0, 126, 249);
+            customInputnud.Location = new Point(905, 22);
+            customInputnud.Name = "customInputnud";
+            customInputnud.Size = new Size(53, 29);
+            customInputnud.TabIndex = 4;
+            customInputnud.Visible = false;
+            // 
+            // recentScannedGridView
+            // 
+            recentScannedGridView.AllowUserToAddRows = false;
+            recentScannedGridView.AllowUserToDeleteRows = false;
+            recentScannedGridView.AllowUserToResizeColumns = false;
+            recentScannedGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            recentScannedGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            recentScannedGridView.BackgroundColor = Color.FromArgb(113, 96, 232);
+            recentScannedGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            recentScannedGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            recentScannedGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.Turquoise;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            recentScannedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            recentScannedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            recentScannedGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            recentScannedGridView.EnableHeadersVisualStyles = false;
+            recentScannedGridView.GridColor = Color.Silver;
+            recentScannedGridView.Location = new Point(16, 71);
+            recentScannedGridView.MultiSelect = false;
+            recentScannedGridView.Name = "recentScannedGridView";
+            recentScannedGridView.ReadOnly = true;
+            recentScannedGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            recentScannedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            recentScannedGridView.RowHeadersVisible = false;
+            recentScannedGridView.RowHeadersWidth = 62;
+            recentScannedGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            recentScannedGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            recentScannedGridView.RowTemplate.Height = 25;
+            recentScannedGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            recentScannedGridView.Size = new Size(982, 410);
+            recentScannedGridView.TabIndex = 13;
+            // 
             // radioButtonpnl
             // 
-            radioButtonpnl.Controls.Add(sixtyrbtn);
+            radioButtonpnl.Controls.Add(customrbtn);
             radioButtonpnl.Controls.Add(tenrbtn);
             radioButtonpnl.Controls.Add(fiverbtn);
             radioButtonpnl.Controls.Add(tworbtn);
-            radioButtonpnl.Location = new Point(515, 5);
+            radioButtonpnl.Location = new Point(487, 7);
             radioButtonpnl.Name = "radioButtonpnl";
-            radioButtonpnl.Size = new Size(402, 51);
+            radioButtonpnl.Size = new Size(401, 51);
             radioButtonpnl.TabIndex = 12;
             // 
-            // sixtyrbtn
+            // customrbtn
             // 
-            sixtyrbtn.AutoSize = true;
-            sixtyrbtn.Checked = true;
-            sixtyrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            sixtyrbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            sixtyrbtn.Location = new Point(321, 16);
-            sixtyrbtn.Name = "sixtyrbtn";
-            sixtyrbtn.Size = new Size(72, 24);
-            sixtyrbtn.TabIndex = 3;
-            sixtyrbtn.TabStop = true;
-            sixtyrbtn.Tag = "60";
-            sixtyrbtn.Text = "1 Hour";
-            sixtyrbtn.UseVisualStyleBackColor = true;
-            sixtyrbtn.CheckedChanged += radioButton_CheckedChanged;
+            customrbtn.AutoSize = true;
+            customrbtn.Cursor = Cursors.Hand;
+            customrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            customrbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            customrbtn.Location = new Point(321, 16);
+            customrbtn.Name = "customrbtn";
+            customrbtn.Size = new Size(78, 24);
+            customrbtn.TabIndex = 3;
+            customrbtn.Tag = "custom";
+            customrbtn.Text = "Custom";
+            customrbtn.UseVisualStyleBackColor = true;
+            customrbtn.CheckedChanged += radioButton_CheckedChanged;
             // 
             // tenrbtn
             // 
             tenrbtn.AutoSize = true;
+            tenrbtn.Cursor = Cursors.Hand;
             tenrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             tenrbtn.ForeColor = Color.FromArgb(0, 126, 249);
             tenrbtn.Location = new Point(215, 16);
@@ -127,6 +218,7 @@
             // fiverbtn
             // 
             fiverbtn.AutoSize = true;
+            fiverbtn.Cursor = Cursors.Hand;
             fiverbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             fiverbtn.ForeColor = Color.FromArgb(0, 126, 249);
             fiverbtn.Location = new Point(115, 16);
@@ -141,6 +233,7 @@
             // tworbtn
             // 
             tworbtn.AutoSize = true;
+            tworbtn.Cursor = Cursors.Hand;
             tworbtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             tworbtn.ForeColor = Color.FromArgb(0, 126, 249);
             tworbtn.Location = new Point(3, 16);
@@ -151,51 +244,6 @@
             tworbtn.Text = " 2  Minutes ";
             tworbtn.UseVisualStyleBackColor = true;
             tworbtn.CheckedChanged += radioButton_CheckedChanged;
-            // 
-            // recentScannedGridView
-            // 
-            recentScannedGridView.BackgroundColor = Color.FromArgb(45, 66, 91);
-            recentScannedGridView.BorderStyle = BorderStyle.None;
-            recentScannedGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            recentScannedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            recentScannedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            recentScannedGridView.DefaultCellStyle = dataGridViewCellStyle6;
-            recentScannedGridView.GridColor = Color.White;
-            recentScannedGridView.Location = new Point(14, 62);
-            recentScannedGridView.Name = "recentScannedGridView";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            recentScannedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            recentScannedGridView.RowHeadersVisible = false;
-            recentScannedGridView.RowHeadersWidth = 62;
-            dataGridViewCellStyle8.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            recentScannedGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            recentScannedGridView.RowTemplate.Height = 25;
-            recentScannedGridView.Size = new Size(989, 443);
-            recentScannedGridView.TabIndex = 11;
             // 
             // Borderpnl
             // 
@@ -221,9 +269,11 @@
             Load += Form1_Load;
             BodyLayoutpnl.ResumeLayout(false);
             BodyLayoutpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)searchpbox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customInputnud).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).EndInit();
             radioButtonpnl.ResumeLayout(false);
             radioButtonpnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)recentScannedGridView).EndInit();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -237,8 +287,10 @@
         private Panel radioButtonpnl;
         private RadioButton fiverbtn;
         private RadioButton tworbtn;
-        private DataGridView recentScannedGridView;
-        private RadioButton sixtyrbtn;
+        private RadioButton customrbtn;
         private RadioButton tenrbtn;
+        private DataGridView recentScannedGridView;
+        private NumericUpDown customInputnud;
+        private PictureBox searchpbox;
     }
 }

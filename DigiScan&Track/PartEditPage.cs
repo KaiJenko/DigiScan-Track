@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DigiScan_Track
 {
@@ -35,7 +37,6 @@ namespace DigiScan_Track
             partTobeEditedGridView.DataSource = dt;
             partsEditLayout();
 
-
         }
 
         private void furtherEditPartsSQL(string serialNumber)
@@ -57,66 +58,85 @@ namespace DigiScan_Track
             {
                 furtherDetailsgridview.Visible = false;
                 furtherDetailspnl.Visible = false;
-
             }
         }
 
 
         private void InputEdit_Click(object sender, EventArgs e)
         {
-            DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
-            int count = 0;
-
-            string sqlquery = "";
-
+            int repeat = 0;
             foreach (Control control in userInputpnl.Controls)
             {
 
-                if (control is CheckBox)
+                if (control is RichTextBox richTextBox)
                 {
-                    CheckBox checkbox = control as CheckBox;
-                    if (checkbox.Checked)
+                    if (!string.IsNullOrWhiteSpace(richTextBox.Text))
                     {
-                        sqlquery += " [" + checkbox.Tag + "] = 1";
-                    }
 
-                    else if (checkbox.Checked = false)
-                    {
-                        sqlquery += " [" + checkbox.Tag + "] = 0";
-                    }
-                }
+                        DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
+                        int count = 0;
 
-                else if (control is RichTextBox)
-                {
-                    RichTextBox richtextbox = control as RichTextBox;
-                    if (richtextbox.Text != "")
-                    {
-                        if (count == 0)
+                        string sqlquery = "";
+
+                        foreach (Control userControl in userInputpnl.Controls)
                         {
-                            sqlquery += " [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
-                            count++;
+
+                            if (control is CheckBox)
+                            {
+                                CheckBox checkbox = control as CheckBox;
+                                if (checkbox.Checked)
+                                {
+                                    sqlquery += " [" + checkbox.Tag + "] = 1";
+                                }
+
+                                else if (checkbox.Checked = false)
+                                {
+                                    sqlquery += " [" + checkbox.Tag + "] = 0";
+                                }
+                            }
+
+                            else if (control is RichTextBox)
+                            {
+                                RichTextBox richtextbox = control as RichTextBox;
+                                if (richtextbox.Text != "")
+                                {
+                                    if (count == 0)
+                                    {
+                                        sqlquery += " [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
+                                        count++;
+                                    }
+
+                                    else if (count > 0)
+                                    {
+                                        sqlquery += " , [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
+                                        count++;
+                                    }
+
+                                }
+
+                            }
+
                         }
 
-                        else if (count > 0)
+                        DataTable dt = new DataTable();
+                        SqlConnection conn = new SqlConnection();
+                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                        conn.Open();
+                        string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
+                        SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
+                        cmd.ExecuteNonQuery();
+                    }                                  
+                    
+                    else
+                    {
+                        if (repeat == 0)
                         {
-                            sqlquery += " , [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
-                            count++;
+                            MessageBox.Show("Please input at least one different value");
+                            repeat++;
                         }
-
                     }
-
                 }
-
             }
-
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
-            SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
-            cmd.ExecuteNonQuery();
-
         }
 
         private void partsEditLayout()

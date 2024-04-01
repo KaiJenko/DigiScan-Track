@@ -12,8 +12,16 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             insertDepartment(departmentName, workstation);
-        }
+            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+            departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            workstationcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
+            partNumcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
 
+            WIPTracker wip = new WIPTracker(null, null);
+            wip.transparentBackground(this, "submitbtn", "resetbtn");
+
+
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,7 +38,15 @@ namespace DigiScan_Track
                 string manager = lineManagertxt.Text.ToString();
                 string department = departmentcmbox.Text.ToString();
                 string workstation = workstationcmbox.Text.ToString();
-                string timestamp = timestamptxt.Value.ToString();
+                string timestamp = "";
+                if (nocheckbox.Checked == true)
+                {
+                    timestamp = "GETDATE()";
+                }
+                else
+                {
+                    timestamp = timestamptxt.Value.ToString();
+                } 
                 string reason = reasontxt.Text.ToString();
                 string notes = notestxt.Text.ToString();
 
@@ -38,16 +54,22 @@ namespace DigiScan_Track
                 ComboBox[] comboBoxes = { partNumcmbox, departmentcmbox, workstationcmbox };
                 Label[] textboxlabels = { serialNumlbl, batchNumlbl, reasonlbl };
                 Label[] combolabels = { partNumberlbl, departmentlbl, workstationlbl };
+                int index = 0;
 
                 for (int x = 0; x < textboxes.Length; x++)
                 {
                     if (string.IsNullOrEmpty(textboxes[x].Text))
                     {
-                        textboxlabels[x].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                        if (index == 0)
+                        {
+                            MessageBox.Show("You have empty fields");
+                            index++;
+                        }
+                        textboxlabels[x].ForeColor = Color.Red;
                     }
                     else
                     {
-                        textboxlabels[x].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                        textboxlabels[x].ForeColor = Color.FromArgb(0, 126, 249);
                     }
                 }
 
@@ -55,51 +77,42 @@ namespace DigiScan_Track
                 {
                     if (comboBoxes[y].SelectedIndex == -1)
                     {
-                        combolabels[y].ForeColor = Color.Red; // Change text color of the corresponding label to red
+                        combolabels[y].ForeColor = Color.Red;
                     }
                     else
                     {
-                        combolabels[y].ForeColor = Color.FromArgb(0, 126, 249); // Reset text color to default if the textbox is not empty
+                        combolabels[y].ForeColor = Color.FromArgb(0, 126, 249);
                     }
                 }
 
-                if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation" && timestamp != null)
+                if (index == 0)
                 {
+                    if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation")
+                    {
 
+                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                        conn.Open();
+                        string sqlInsert = "INSERT INTO WIPTracking (PartNumber, SerialNumber, BatchNumber, Department, Workstation, WSTimestampIN)" +
+                                            " VALUES (@part, @serial, @batch, @department, @workstation, + " + timestamp + ")";
+                        SqlCommand cmd = new SqlCommand(sqlInsert, conn);
 
-                    conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                    conn.Open();
-                    string sqlInsert = "INSERT INTO WIPTracking (PartNumber, SerialNumber, BatchNumber, Department, Workstation, WSTimestampIN)" +
-                                      " VALUES (@part, @serial, @batch, @department, @workstation, @time)";
-                    SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+                        cmd.Parameters.AddWithValue("@part", partNumber);
+                        cmd.Parameters.AddWithValue("@serial", serialNumber);
+                        cmd.Parameters.AddWithValue("@batch", batchNumber);
+                        cmd.Parameters.AddWithValue("@department", department);
+                        cmd.Parameters.AddWithValue("@workstation", workstation);
 
-                    cmd.Parameters.AddWithValue("@part", partNumber);
-                    cmd.Parameters.AddWithValue("@serial", serialNumber);
-                    cmd.Parameters.AddWithValue("@batch", batchNumber);
-                    cmd.Parameters.AddWithValue("@department", department);
-                    cmd.Parameters.AddWithValue("@workstation", workstation);
-                    cmd.Parameters.AddWithValue("@time", timestamp);
+                        cmd.ExecuteNonQuery();
 
-                    cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data inserted");
 
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    MessageBox.Show("Data inserted");
-                }
-
-                else
-                {
-                    MessageBox.Show("You have empty fields");
+                        conn.Close();
+                    }
                 }
             }
-
             catch (Exception ex)
-            {
+            { 
                 MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 
@@ -152,57 +165,120 @@ namespace DigiScan_Track
         {
             if (department != null)
             {
+                loadDepartmentcmb();
+                loadWorkstationcmb(department);
                 int departmentIndex = departmentcmbox.FindString(department);
                 departmentcmbox.SelectedIndex = departmentIndex;
                 int workstationIndex = workstationcmbox.FindString(workstation);
                 workstationcmbox.SelectedIndex = workstationIndex;
-
+                loadPartNumbers(department);
             }
-
             else
             {
-                departmentcmbox.SelectedIndex = -1;
-                workstationcmbox.SelectedIndex = -1;
+                loadDepartmentcmb();
+                loadWorkstationcmb(departmentcmbox.SelectedItem.ToString());
             }
 
         }
 
-        private void loadDetails(string chosenDepartment)
+        private void loadPartNumbers(string chosenDepartment)
         {
-            string[] departmentList = { "Nacelles", "Gears", "Military" };
-            string[][] workstations = new string[3][];
-            workstations[0] = new string[0] { };
-            workstations[1] = new string[6] { "Bevelling", "Etching", "Precision", "Production", "Modelling", "Shim Grinding" };
-            workstations[2] = new string[4] { "GLMRS", "Shipping", "HMO", "GPS" };
-
-            string[][] partNumbers = new string[3][];
-            partNumbers[0] = new string[0] { };
-            partNumbers[1] = new string[4] { "COG78643", "FYG345", "AAG320", "BIO879" };
-            partNumbers[2] = new string[6] { "TYM93787", "AQM45", "TYM8143", "AUM15", "PLM258", "PGM55" };
-
-
-            int index = Array.IndexOf(departmentList, chosenDepartment);
-
-            for (int i = 0; i < workstations[index].Length; i++)
+            if (partNumcmbox.Items.Count == 0)
             {
-                workstationcmbox.Items.Add(workstations[index][i]);
-            }
+                int countDepartments = departmentcmbox.Items.Count;
+                string[] departmentList = new string[countDepartments];
 
-            for (int i = 0; i < partNumbers[index].Length; i++)
+                for (int x = 0; x < countDepartments; x++)
+                {
+                    string department = departmentcmbox.Items[x].ToString();
+                    departmentList[x] = department;
+                }
+
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+
+                string[] partNumbers = new string[countDepartments];
+
+                for (int x = 0; x < countDepartments; x++)
+                {
+                    string department = departmentcmbox.Items[x].ToString();
+
+                    cmd.CommandText = "SELECT [PartNumber] FROM PartNumbers WHERE [Department] = @Department";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Department", department);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        List<string> str = new List<string>();
+                        while (dr.Read())
+                        {
+                            str.Add(dr["PartNumber"].ToString());
+                        }
+                        partNumbers[x] = string.Join(",", str);
+                    }
+                }
+
+                int index = Array.IndexOf(departmentList, chosenDepartment);
+
+                string[] arraySplit = partNumbers[index].Split(new string[] { "," }, StringSplitOptions.None);
+
+                for (int x = 0; x < arraySplit.Length; x++)
+                {
+                    partNumcmbox.Items.Add(arraySplit[x]);
+                }
+            }
+        }
+
+        private void loadDepartmentcmb()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT Distinct(Department) FROM Departments";
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
             {
-                partNumcmbox.Items.Add(partNumbers[index][i]);
+                departmentcmbox.Items.Add(dr["Department"].ToString());
             }
+            conn.Close();
 
+            departmentcmbox.SelectedIndex = 0;
+        }
+
+        private void loadWorkstationcmb(string department)
+        {
+            if (workstationcmbox.Items.Count == 0)
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT [Unit] FROM Departments WHERE [Department] = '" + department + "'";
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    workstationcmbox.Items.Add(dr["Unit"].ToString());
+                }
+                conn.Close();
+
+                workstationcmbox.SelectedIndex = 0;
+            }
         }
 
         private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedDepartment = departmentcmbox.SelectedItem.ToString();
-            partNumcmbox.Items.Clear();
-            workstationcmbox.Items.Clear();
-
-            loadDetails(selectedDepartment);
-            workstationcmbox.SelectedIndex = 0;
+            if (departmentcmbox.SelectedItem != null)
+            {
+                string selectedDepartment = departmentcmbox.SelectedItem.ToString();
+                partNumcmbox.Items.Clear();
+                workstationcmbox.Items.Clear();
+                loadWorkstationcmb(selectedDepartment);
+                loadPartNumbers(selectedDepartment);
+                partNumcmbox.SelectedIndex = 0;
+            }
         }
 
 

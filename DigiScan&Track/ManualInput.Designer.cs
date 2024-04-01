@@ -105,6 +105,7 @@
             timestamptxt.CalendarFont = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             timestamptxt.CalendarTitleBackColor = SystemColors.ControlText;
             timestamptxt.CalendarTitleForeColor = Color.AliceBlue;
+            timestamptxt.Cursor = Cursors.Hand;
             timestamptxt.CustomFormat = "dd/MM/yyyy hh:mm";
             timestamptxt.Enabled = false;
             timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -119,6 +120,7 @@
             resetbtn.BackColor = Color.Transparent;
             resetbtn.BackgroundImage = Properties.Resources.Border;
             resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.Cursor = Cursors.Hand;
             resetbtn.FlatAppearance.BorderSize = 0;
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -136,6 +138,7 @@
             submitbtn.BackColor = Color.Transparent;
             submitbtn.BackgroundImage = Properties.Resources.Border;
             submitbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            submitbtn.Cursor = Cursors.Hand;
             submitbtn.FlatAppearance.BorderSize = 0;
             submitbtn.FlatStyle = FlatStyle.Flat;
             submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -201,6 +204,7 @@
             // 
             nocheckbox.Checked = true;
             nocheckbox.CheckState = CheckState.Checked;
+            nocheckbox.Cursor = Cursors.Hand;
             nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             nocheckbox.ForeColor = Color.White;
             nocheckbox.Location = new Point(529, 315);
@@ -213,6 +217,7 @@
             // 
             // yescheckbox
             // 
+            yescheckbox.Cursor = Cursors.Hand;
             yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             yescheckbox.ForeColor = Color.White;
             yescheckbox.Location = new Point(428, 315);
@@ -237,11 +242,11 @@
             // departmentcmbox
             // 
             departmentcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            departmentcmbox.Cursor = Cursors.Hand;
             departmentcmbox.FlatStyle = FlatStyle.Flat;
             departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             departmentcmbox.ForeColor = Color.White;
             departmentcmbox.FormattingEnabled = true;
-            departmentcmbox.Items.AddRange(new object[] { "Nacelles", "Military", "Gears" });
             departmentcmbox.Location = new Point(109, 79);
             departmentcmbox.Name = "departmentcmbox";
             departmentcmbox.Size = new Size(155, 29);
@@ -359,6 +364,7 @@
             // workstationcmbox
             // 
             workstationcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            workstationcmbox.Cursor = Cursors.Hand;
             workstationcmbox.FlatStyle = FlatStyle.Flat;
             workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             workstationcmbox.ForeColor = Color.White;
@@ -372,6 +378,7 @@
             // partNumcmbox
             // 
             partNumcmbox.BackColor = Color.FromArgb(46, 51, 73);
+            partNumcmbox.Cursor = Cursors.Hand;
             partNumcmbox.FlatStyle = FlatStyle.Flat;
             partNumcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             partNumcmbox.ForeColor = Color.White;
