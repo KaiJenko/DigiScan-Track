@@ -25,6 +25,7 @@ namespace DigiScan_Track
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             searchcmb.SelectedIndex = 0;
             transparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
+            WIPgridView.CellPainting += WIPgridView_CellPainting;
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -41,6 +41,7 @@
             WIPTrackerbtn = new Button();
             HomePageShortcutsbtn = new Button();
             Usernamepnl = new Panel();
+            periodOnlinelbl = new Label();
             timePeriodlbl = new Label();
             collapsepicbox = new PictureBox();
             userimagepicbox = new PictureBox();
@@ -48,6 +49,7 @@
             selectionpnl = new Panel();
             currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
+            loginbtn = new Button();
             Bodypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
             dashpnl.SuspendLayout();
@@ -271,6 +273,8 @@
             // 
             // Usernamepnl
             // 
+            Usernamepnl.Controls.Add(loginbtn);
+            Usernamepnl.Controls.Add(periodOnlinelbl);
             Usernamepnl.Controls.Add(timePeriodlbl);
             Usernamepnl.Controls.Add(collapsepicbox);
             Usernamepnl.Controls.Add(userimagepicbox);
@@ -280,6 +284,16 @@
             Usernamepnl.Name = "Usernamepnl";
             Usernamepnl.Size = new Size(148, 113);
             Usernamepnl.TabIndex = 4;
+            // 
+            // periodOnlinelbl
+            // 
+            periodOnlinelbl.AutoSize = true;
+            periodOnlinelbl.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
+            periodOnlinelbl.ForeColor = Color.FromArgb(0, 126, 249);
+            periodOnlinelbl.Location = new Point(66, 99);
+            periodOnlinelbl.Name = "periodOnlinelbl";
+            periodOnlinelbl.Size = new Size(0, 12);
+            periodOnlinelbl.TabIndex = 9;
             // 
             // timePeriodlbl
             // 
@@ -359,6 +373,24 @@
             manualTablepnl.Size = new Size(1207, 612);
             manualTablepnl.TabIndex = 1;
             // 
+            // loginbtn
+            // 
+            loginbtn.BackColor = Color.Transparent;
+            loginbtn.BackgroundImage = Properties.Resources.Border;
+            loginbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            loginbtn.Cursor = Cursors.Hand;
+            loginbtn.FlatAppearance.BorderSize = 0;
+            loginbtn.FlatStyle = FlatStyle.Flat;
+            loginbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            loginbtn.ForeColor = Color.White;
+            loginbtn.Location = new Point(29, 64);
+            loginbtn.Name = "loginbtn";
+            loginbtn.Size = new Size(93, 34);
+            loginbtn.TabIndex = 31;
+            loginbtn.Text = "Login";
+            loginbtn.UseVisualStyleBackColor = false;
+            loginbtn.Click += loginbtn_Click;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -408,5 +440,7 @@
         public Button ManualInputbtn;
         public Panel InnerBodypnl;
         public Panel currentFormpnl;
+        private Label periodOnlinelbl;
+        private Button loginbtn;
     }
 }

@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.Xml.Serialization;
+using Timer = System.Windows.Forms.Timer;
 
 namespace DigiScan_Track
 {
@@ -11,12 +12,16 @@ namespace DigiScan_Track
         int originalArrowWidth;
         int originalArrowHeight;
         int originalexpandWidth;
+        Timer timer;
+        DateTime startTime;
 
         public HomePage()
         {
             InitializeComponent();
             LoadButtonImages();
-
+            createTimer();
+            startTime = DateTime.Now;
+            timer.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,6 +38,27 @@ namespace DigiScan_Track
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(homepageshortcut);
             homepageshortcut.Show();
+
+
+
+        }
+
+        private void createTimer()
+        {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += TimerCalculation;
+        }
+
+        private void TimerCalculation(object sender, EventArgs e)
+        {
+
+            TimeSpan elapsedTimer = DateTime.Now - startTime;
+            periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
+        }
+
+        private void loginbtn_Click(object sender, EventArgs e)
+        {
 
         }
 
@@ -264,5 +290,7 @@ namespace DigiScan_Track
                 }
             }
         }
+
+        
     }
 }
