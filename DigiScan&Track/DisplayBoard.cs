@@ -23,7 +23,7 @@ namespace DigiScan_Track
         {
 
         }
-        
+
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -100,12 +100,12 @@ namespace DigiScan_Track
             recentScannedGridView.Columns[4].HeaderText = "Workstation";
             recentScannedGridView.Columns[5].HeaderText = "Time In";
 
-            recentScannedGridView.Columns[0].Width = 95;
-            recentScannedGridView.Columns[1].Width = 95;
-            recentScannedGridView.Columns[2].Width = 95;
-            recentScannedGridView.Columns[3].Width = 95;
-            recentScannedGridView.Columns[4].Width = 95;
-            recentScannedGridView.Columns[5].Width = 95;
+            recentScannedGridView.Columns[0].Width = 150;
+            recentScannedGridView.Columns[1].Width = 150;
+            recentScannedGridView.Columns[2].Width = 150;
+            recentScannedGridView.Columns[3].Width = 180;
+            recentScannedGridView.Columns[4].Width = 180;
+            recentScannedGridView.Columns[5].Width = 180;
 
 
         }
