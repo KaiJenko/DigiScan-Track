@@ -105,6 +105,7 @@
             ouPasswordtxt.TabIndex = 12;
             ouPasswordtxt.Tag = "Password";
             ouPasswordtxt.Text = "Password";
+            ouPasswordtxt.UseSystemPasswordChar = true;
             ouPasswordtxt.Enter += TextBox_Enter;
             ouPasswordtxt.Leave += TextBox_Leave;
             // 
@@ -120,6 +121,7 @@
             ouUsernametxt.TabIndex = 11;
             ouUsernametxt.Tag = "Username";
             ouUsernametxt.Text = "Username";
+            ouUsernametxt.UseSystemPasswordChar = true;
             ouUsernametxt.Enter += TextBox_Enter;
             ouUsernametxt.Leave += TextBox_Leave;
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace DigiScan_Track
 {
     public partial class LoginPage : Form
     {
+
+        SqlConnection conn = new SqlConnection();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -19,9 +23,21 @@ namespace DigiScan_Track
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            string fullName = ouUsernametxt.Text;
+            string username = ouUsernametxt.Text;
             string password = ouPasswordtxt.Text;
 
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT [Username], [Password] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                MessageBox.Show("You are logged in");
+            }
+
+            conn.Close();
         }
 
         private void clearFieldslbl_Click(object sender, EventArgs e)
