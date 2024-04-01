@@ -99,15 +99,12 @@
             ouPasswordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ouPasswordtxt.ForeColor = Color.RosyBrown;
             ouPasswordtxt.Location = new Point(87, 325);
-            ouPasswordtxt.Multiline = true;
             ouPasswordtxt.Name = "ouPasswordtxt";
-            ouPasswordtxt.Size = new Size(169, 23);
+            ouPasswordtxt.PlaceholderText = "Password";
+            ouPasswordtxt.Size = new Size(169, 18);
             ouPasswordtxt.TabIndex = 12;
             ouPasswordtxt.Tag = "Password";
-            ouPasswordtxt.Text = "Password";
             ouPasswordtxt.UseSystemPasswordChar = true;
-            ouPasswordtxt.Enter += TextBox_Enter;
-            ouPasswordtxt.Leave += TextBox_Leave;
             // 
             // ouUsernametxt
             // 
@@ -117,13 +114,10 @@
             ouUsernametxt.Location = new Point(87, 260);
             ouUsernametxt.Multiline = true;
             ouUsernametxt.Name = "ouUsernametxt";
+            ouUsernametxt.PlaceholderText = "Username";
             ouUsernametxt.Size = new Size(169, 23);
             ouUsernametxt.TabIndex = 11;
             ouUsernametxt.Tag = "Username";
-            ouUsernametxt.Text = "Username";
-            ouUsernametxt.UseSystemPasswordChar = true;
-            ouUsernametxt.Enter += TextBox_Enter;
-            ouUsernametxt.Leave += TextBox_Leave;
             // 
             // registerLinklbl
             // 
@@ -267,14 +261,12 @@
             retypePasswordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             retypePasswordtxt.ForeColor = Color.RosyBrown;
             retypePasswordtxt.Location = new Point(87, 337);
-            retypePasswordtxt.Multiline = true;
             retypePasswordtxt.Name = "retypePasswordtxt";
-            retypePasswordtxt.Size = new Size(169, 23);
+            retypePasswordtxt.PlaceholderText = "Retype Password";
+            retypePasswordtxt.Size = new Size(169, 18);
             retypePasswordtxt.TabIndex = 18;
             retypePasswordtxt.Tag = "Retype Password";
-            retypePasswordtxt.Text = "Retype Password";
-            retypePasswordtxt.Enter += TextBox_Enter;
-            retypePasswordtxt.Leave += TextBox_Leave;
+            retypePasswordtxt.UseSystemPasswordChar = true;
             // 
             // dividerpnl
             // 
@@ -302,12 +294,10 @@
             employeeIDtxt.Location = new Point(87, 251);
             employeeIDtxt.Multiline = true;
             employeeIDtxt.Name = "employeeIDtxt";
+            employeeIDtxt.PlaceholderText = "Employee ID";
             employeeIDtxt.Size = new Size(169, 23);
             employeeIDtxt.TabIndex = 15;
             employeeIDtxt.Tag = "Employee ID";
-            employeeIDtxt.Text = "Employee ID";
-            employeeIDtxt.Enter += TextBox_Enter;
-            employeeIDtxt.Leave += TextBox_Leave;
             // 
             // divider1pnl
             // 
@@ -333,14 +323,12 @@
             passwordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             passwordtxt.ForeColor = Color.RosyBrown;
             passwordtxt.Location = new Point(87, 292);
-            passwordtxt.Multiline = true;
             passwordtxt.Name = "passwordtxt";
-            passwordtxt.Size = new Size(169, 23);
+            passwordtxt.PlaceholderText = "Password";
+            passwordtxt.Size = new Size(169, 18);
             passwordtxt.TabIndex = 12;
             passwordtxt.Tag = "Password";
-            passwordtxt.Text = "Password";
-            passwordtxt.Enter += TextBox_Enter;
-            passwordtxt.Leave += TextBox_Leave;
+            passwordtxt.UseSystemPasswordChar = true;
             // 
             // fullNametxt
             // 
@@ -350,12 +338,10 @@
             fullNametxt.Location = new Point(87, 204);
             fullNametxt.Multiline = true;
             fullNametxt.Name = "fullNametxt";
+            fullNametxt.PlaceholderText = "Full Name";
             fullNametxt.Size = new Size(169, 23);
             fullNametxt.TabIndex = 11;
             fullNametxt.Tag = "Full Name";
-            fullNametxt.Text = "Full Name";
-            fullNametxt.Enter += TextBox_Enter;
-            fullNametxt.Leave += TextBox_Leave;
             // 
             // signInLinklbl
             // 
@@ -406,6 +392,7 @@
             createLoginbtn.TabIndex = 7;
             createLoginbtn.Text = "CREATE LOGIN";
             createLoginbtn.UseVisualStyleBackColor = false;
+            createLoginbtn.Click += createLoginbtn_Click;
             // 
             // divider2pnl
             // 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DigiScan_Track
 {
@@ -87,5 +88,43 @@ namespace DigiScan_Track
                 textBox.ForeColor = Color.RosyBrown;
             }
         }
+
+        private void createLoginbtn_Click(object sender, EventArgs e)
+        {
+            string fullName = fullNametxt.Text;
+            string employeeID = employeeIDtxt.Text;
+            string password = passwordtxt.Text;
+            string retypePassword = retypePasswordtxt.Text;
+
+            string username = fullName.Replace(" ", ".");
+
+            if (password == retypePassword)
+            {
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT [FullName], [EmployeeID] FROM [UserLogin] WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
+                SqlDataReader dr = cmd.ExecuteReader();
+                
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    string sqlUpdate = " UPDATE [UserLogin] SET [Username] = '" + username + "', [Password] = '" + password + "' " +
+                                       " WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
+                    SqlCommand cmd2 = new SqlCommand(sqlUpdate, conn);
+                    cmd2.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+
+            else
+            {
+                MessageBox.Show("Passwords do not match");
+            }
+        }
+
+
     }
 }
