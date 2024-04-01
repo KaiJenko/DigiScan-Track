@@ -103,9 +103,9 @@ namespace DigiScan_Track
             recentScannedGridView.Columns[0].Width = 150;
             recentScannedGridView.Columns[1].Width = 150;
             recentScannedGridView.Columns[2].Width = 150;
-            recentScannedGridView.Columns[3].Width = 180;
-            recentScannedGridView.Columns[4].Width = 180;
-            recentScannedGridView.Columns[5].Width = 180;
+            recentScannedGridView.Columns[3].Width = 175;
+            recentScannedGridView.Columns[4].Width = 175;
+            recentScannedGridView.Columns[5].Width = 175;
 
 
         }

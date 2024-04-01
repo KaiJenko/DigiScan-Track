@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DigiScan_Track
+{
+    public class UserLoginDetails
+    {
+
+        private static UserLoginDetails instance;
+
+        public string Username { get; set; }
+        public string Permission { get; set; }
+
+        private UserLoginDetails() { }
+
+        public static UserLoginDetails Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new UserLoginDetails();
+                }
+                return instance;
+            }
+        }
+    }
+}

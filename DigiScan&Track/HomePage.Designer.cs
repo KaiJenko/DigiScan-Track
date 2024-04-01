@@ -41,6 +41,7 @@
             WIPTrackerbtn = new Button();
             HomePageShortcutsbtn = new Button();
             Usernamepnl = new Panel();
+            loginbtn = new Button();
             periodOnlinelbl = new Label();
             timePeriodlbl = new Label();
             collapsepicbox = new PictureBox();
@@ -49,7 +50,6 @@
             selectionpnl = new Panel();
             currentFormpnl = new Panel();
             manualTablepnl = new TableLayoutPanel();
-            loginbtn = new Button();
             Bodypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)expandpicbox).BeginInit();
             dashpnl.SuspendLayout();
@@ -145,7 +145,7 @@
             DisplayBoardbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             DisplayBoardbtn.ForeColor = Color.FromArgb(0, 126, 249);
             DisplayBoardbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            DisplayBoardbtn.Location = new Point(0, 363);
+            DisplayBoardbtn.Location = new Point(0, 371);
             DisplayBoardbtn.Name = "DisplayBoardbtn";
             DisplayBoardbtn.Size = new Size(148, 50);
             DisplayBoardbtn.TabIndex = 10;
@@ -168,7 +168,7 @@
             ManualInputbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ManualInputbtn.ForeColor = Color.FromArgb(0, 126, 249);
             ManualInputbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ManualInputbtn.Location = new Point(0, 313);
+            ManualInputbtn.Location = new Point(0, 321);
             ManualInputbtn.Name = "ManualInputbtn";
             ManualInputbtn.Size = new Size(148, 50);
             ManualInputbtn.TabIndex = 7;
@@ -191,7 +191,7 @@
             EditPartsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             EditPartsbtn.ForeColor = Color.FromArgb(0, 126, 249);
             EditPartsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            EditPartsbtn.Location = new Point(0, 263);
+            EditPartsbtn.Location = new Point(0, 271);
             EditPartsbtn.Name = "EditPartsbtn";
             EditPartsbtn.Size = new Size(148, 50);
             EditPartsbtn.TabIndex = 6;
@@ -214,7 +214,7 @@
             AgedWIPbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AgedWIPbtn.ForeColor = Color.FromArgb(0, 126, 249);
             AgedWIPbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            AgedWIPbtn.Location = new Point(0, 213);
+            AgedWIPbtn.Location = new Point(0, 221);
             AgedWIPbtn.Name = "AgedWIPbtn";
             AgedWIPbtn.Size = new Size(148, 50);
             AgedWIPbtn.TabIndex = 8;
@@ -237,7 +237,7 @@
             WIPTrackerbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             WIPTrackerbtn.ForeColor = Color.FromArgb(0, 126, 249);
             WIPTrackerbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            WIPTrackerbtn.Location = new Point(0, 163);
+            WIPTrackerbtn.Location = new Point(0, 171);
             WIPTrackerbtn.Name = "WIPTrackerbtn";
             WIPTrackerbtn.Size = new Size(148, 50);
             WIPTrackerbtn.TabIndex = 5;
@@ -260,7 +260,7 @@
             HomePageShortcutsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             HomePageShortcutsbtn.ForeColor = Color.FromArgb(0, 126, 249);
             HomePageShortcutsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            HomePageShortcutsbtn.Location = new Point(0, 113);
+            HomePageShortcutsbtn.Location = new Point(0, 121);
             HomePageShortcutsbtn.Name = "HomePageShortcutsbtn";
             HomePageShortcutsbtn.Size = new Size(148, 50);
             HomePageShortcutsbtn.TabIndex = 9;
@@ -282,15 +282,33 @@
             Usernamepnl.Dock = DockStyle.Top;
             Usernamepnl.Location = new Point(0, 0);
             Usernamepnl.Name = "Usernamepnl";
-            Usernamepnl.Size = new Size(148, 113);
+            Usernamepnl.Size = new Size(148, 121);
             Usernamepnl.TabIndex = 4;
+            // 
+            // loginbtn
+            // 
+            loginbtn.BackColor = Color.Transparent;
+            loginbtn.BackgroundImage = Properties.Resources.Border;
+            loginbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            loginbtn.Cursor = Cursors.Hand;
+            loginbtn.FlatAppearance.BorderSize = 0;
+            loginbtn.FlatStyle = FlatStyle.Flat;
+            loginbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            loginbtn.ForeColor = Color.White;
+            loginbtn.Location = new Point(37, 68);
+            loginbtn.Name = "loginbtn";
+            loginbtn.Size = new Size(78, 34);
+            loginbtn.TabIndex = 31;
+            loginbtn.Text = "Login";
+            loginbtn.UseVisualStyleBackColor = false;
+            loginbtn.Click += loginbtn_Click;
             // 
             // periodOnlinelbl
             // 
             periodOnlinelbl.AutoSize = true;
             periodOnlinelbl.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
             periodOnlinelbl.ForeColor = Color.FromArgb(0, 126, 249);
-            periodOnlinelbl.Location = new Point(66, 99);
+            periodOnlinelbl.Location = new Point(66, 107);
             periodOnlinelbl.Name = "periodOnlinelbl";
             periodOnlinelbl.Size = new Size(0, 12);
             periodOnlinelbl.TabIndex = 9;
@@ -300,7 +318,7 @@
             timePeriodlbl.AutoSize = true;
             timePeriodlbl.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
             timePeriodlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timePeriodlbl.Location = new Point(1, 98);
+            timePeriodlbl.Location = new Point(1, 106);
             timePeriodlbl.Name = "timePeriodlbl";
             timePeriodlbl.Size = new Size(67, 12);
             timePeriodlbl.TabIndex = 8;
@@ -323,10 +341,10 @@
             // userimagepicbox
             // 
             userimagepicbox.Image = Properties.Resources.output_onlinepngtools__2_;
-            userimagepicbox.Location = new Point(45, 7);
+            userimagepicbox.Location = new Point(45, 5);
             userimagepicbox.Name = "userimagepicbox";
             userimagepicbox.Size = new Size(63, 63);
-            userimagepicbox.SizeMode = PictureBoxSizeMode.StretchImage;
+            userimagepicbox.SizeMode = PictureBoxSizeMode.Zoom;
             userimagepicbox.TabIndex = 5;
             userimagepicbox.TabStop = false;
             // 
@@ -340,6 +358,7 @@
             usernamelbl.Size = new Size(93, 18);
             usernamelbl.TabIndex = 6;
             usernamelbl.Text = "User Name";
+            usernamelbl.Visible = false;
             // 
             // selectionpnl
             // 
@@ -372,24 +391,6 @@
             manualTablepnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             manualTablepnl.Size = new Size(1207, 612);
             manualTablepnl.TabIndex = 1;
-            // 
-            // loginbtn
-            // 
-            loginbtn.BackColor = Color.Transparent;
-            loginbtn.BackgroundImage = Properties.Resources.Border;
-            loginbtn.BackgroundImageLayout = ImageLayout.Stretch;
-            loginbtn.Cursor = Cursors.Hand;
-            loginbtn.FlatAppearance.BorderSize = 0;
-            loginbtn.FlatStyle = FlatStyle.Flat;
-            loginbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            loginbtn.ForeColor = Color.White;
-            loginbtn.Location = new Point(29, 64);
-            loginbtn.Name = "loginbtn";
-            loginbtn.Size = new Size(93, 34);
-            loginbtn.TabIndex = 31;
-            loginbtn.Text = "Login";
-            loginbtn.UseVisualStyleBackColor = false;
-            loginbtn.Click += loginbtn_Click;
             // 
             // HomePage
             // 

@@ -57,12 +57,6 @@ namespace DigiScan_Track
             periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
         }
 
-        private void loginbtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
         //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
         public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
@@ -174,6 +168,17 @@ namespace DigiScan_Track
 
         }
 
+        private void loginbtn_Click(object sender, EventArgs e)
+        {
+            this.InnerBodypnl.Controls.Clear();
+            LoginPage loginpage = new LoginPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            loginpage.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(loginpage);
+            loginpage.Show();
+        }
+
+
+
         private void LoadButtonImages()
         {
             string[] PageButtons = { "HomePageShortcutsbtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
@@ -278,19 +283,21 @@ namespace DigiScan_Track
                 if (controls is Form form)
                 {
                     string formname = form.GetType().Name;
-                    /*MessageBox.Show(formname);*/
-                    buttonColour();
-                    currentFormpnl.BringToFront();
-                    string buttonname = formname + "btn";
-                    Button button = this.Controls.Find(buttonname, true).FirstOrDefault() as Button;
-                    currentFormpnl.Height = button.Height;
-                    currentFormpnl.Top = button.Top;
-                    currentFormpnl.Left = button.Left;
-                    button.BackColor = Color.FromArgb(46, 51, 73);
+                    if (formname != "LoginPage")
+                    {
+                        buttonColour();
+                        currentFormpnl.BringToFront();
+                        string buttonname = formname + "btn";
+                        Button button = this.Controls.Find(buttonname, true).FirstOrDefault() as Button;
+                        currentFormpnl.Height = button.Height;
+                        currentFormpnl.Top = button.Top;
+                        currentFormpnl.Left = button.Left;
+                        button.BackColor = Color.FromArgb(46, 51, 73);
+                    }
                 }
             }
         }
 
-        
+
     }
 }
