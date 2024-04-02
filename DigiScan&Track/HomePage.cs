@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Timer = System.Windows.Forms.Timer;
@@ -37,6 +38,13 @@ namespace DigiScan_Track
             timer.Start();
         }
 
+        private void TimerCalculation(object sender, EventArgs e)
+        {
+
+            TimeSpan elapsedTimer = DateTime.Now - startTime;
+            periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
+        }
+
 
         private void currentFormSelect()
         {
@@ -55,15 +63,6 @@ namespace DigiScan_Track
             homepageshortcut.Show();
         }
 
-        
-
-        private void TimerCalculation(object sender, EventArgs e)
-        {
-
-            TimeSpan elapsedTimer = DateTime.Now - startTime;
-            periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
-        }
-
         public void setLogin()
         {
             string username = UserLoginDetails.Instance.Username;
@@ -77,8 +76,9 @@ namespace DigiScan_Track
             }
         }
 
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
+        /*------------------------------------------------Code which is always open and working------------------------------------------------------------------*/
+
+        //This is the old method for opening my forms - however I chose to go down a different route and have multiple forms instead of just one open
         public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
         {
             newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
@@ -100,119 +100,69 @@ namespace DigiScan_Track
 
         public void HomeAreabtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            this.InnerBodypnl.Controls.Clear();
-
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = HomePageShortcutsbtn.Height;
-            currentFormpnl.Top = HomePageShortcutsbtn.Top;
-            currentFormpnl.Left = HomePageShortcutsbtn.Left;
-            HomePageShortcutsbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-
-            HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            homepageshortcut.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(homepageshortcut);
-            homepageshortcut.Show();
+            HomePageShortcuts shortcut = new HomePageShortcuts();
+            homePageButtonClick(shortcut, sender, e);
         }
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = WIPTrackerbtn.Height;
-            currentFormpnl.Top = WIPTrackerbtn.Top;
-            currentFormpnl.Left = WIPTrackerbtn.Left;
-            WIPTrackerbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            WIPTracker wiptracker = new WIPTracker(null, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            wiptracker.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(wiptracker);
-            wiptracker.Show();
+            WIPTracker wip = new WIPTracker(null, null);
+            homePageButtonClick(wip, sender, e);
         }
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = AgedWIPbtn.Height;
-            currentFormpnl.Top = AgedWIPbtn.Top;
-            currentFormpnl.Left = AgedWIPbtn.Left;
-            AgedWIPbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            AgedWIP agedwip = new AgedWIP() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            agedwip.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(agedwip);
-            agedwip.Show();
+            AgedWIP agedwip = new AgedWIP();
+            homePageButtonClick(agedwip, sender, e);
         }
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = EditPartsbtn.Height;
-            currentFormpnl.Top = EditPartsbtn.Top;
-            currentFormpnl.Left = EditPartsbtn.Left;
-            EditPartsbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            EditParts editparts = new EditParts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            editparts.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(editparts);
-            editparts.Show();
+            EditParts edit = new EditParts();
+            homePageButtonClick(edit, sender, e);
         }
 
         public void ManualInputbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = ManualInputbtn.Height;
-            currentFormpnl.Top = ManualInputbtn.Top;
-            currentFormpnl.Left = ManualInputbtn.Left;
-            ManualInputbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            ManualInput manualinput = new ManualInput(null, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            manualinput.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(manualinput);
-            manualinput.Show();
+            ManualInput manual = new ManualInput(null, null);
+            homePageButtonClick(manual, sender, e);
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = DisplayBoardbtn.Height;
-            currentFormpnl.Top = DisplayBoardbtn.Top;
-            currentFormpnl.Left = DisplayBoardbtn.Left;
-            DisplayBoardbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            DisplayBoard displayboard = new DisplayBoard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            displayboard.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(displayboard);
-            displayboard.Show();
+            DisplayBoard display = new DisplayBoard();
+            homePageButtonClick(display, sender, e);
 
         }
 
         private void settingsbtn_Click(object sender, EventArgs e)
         {
-            buttonColour();
-            currentFormpnl.BringToFront();
-            currentFormpnl.Height = DisplayBoardbtn.Height;
-            currentFormpnl.Top = DisplayBoardbtn.Top;
-            currentFormpnl.Left = DisplayBoardbtn.Left;
-            DisplayBoardbtn.BackColor = Color.FromArgb(46, 51, 73);
-
-            this.InnerBodypnl.Controls.Clear();
-            SettingsPage settings = new SettingsPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            settings.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(settings);
-            settings.Show();
+            SettingsPage settings = new SettingsPage();
+            homePageButtonClick(settings, sender, e);
 
         }
+
+        private void homePageButtonClick(Form newForm, object sender, EventArgs e)
+        {
+            Button buttonClicked = sender as Button;
+            buttonColour();
+
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = buttonClicked.Height;
+            currentFormpnl.Top = buttonClicked.Top;
+            currentFormpnl.Left = buttonClicked.Left;
+            buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
+
+            InnerBodypnl.Controls.Clear();
+            newForm.Dock = DockStyle.Fill;
+            newForm.TopLevel = false;
+            newForm.TopMost = true;
+            newForm.FormBorderStyle = FormBorderStyle.None;
+
+            InnerBodypnl.Controls.Add(newForm);
+            newForm.Show();
+        }
+
 
 
         private void LoadButtonImages()
@@ -220,32 +170,26 @@ namespace DigiScan_Track
             WIPTracker wip = new WIPTracker(null, null);
             wip.transparentBackground(this, "loginbtn");
 
-            string[] PageButtons = { "HomePageShortcutsbtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "SettingsPagebtn" };
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
+            int x = images.Length - 1;
 
-            for (int x = 0; x < PageButtons.Length; x++)
+            foreach (Control control in dashpnl.Controls)
             {
-                string imageName = images[x];
-
-                Control buttonControl = Controls.Find(PageButtons[x], true).FirstOrDefault();
-                if (buttonControl is Button button)
+                if (control.GetType() == typeof(Button))
                 {
-                    button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(22, 22));
-                    button.ImageAlign = ContentAlignment.MiddleRight;
-                    button.Padding = new Padding(0, 0, 10, 0);
+                    string imageName = images[x];
+
+                    if (control is Button button)
+                    {
+                        button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(22, 22));
+                        button.ImageAlign = ContentAlignment.MiddleRight;
+                        button.Padding = new Padding(0, 0, 10, 0);
+                        x--;
+                    }
                 }
-            }
+            }           
         }
 
-        private void currentPageHighlight(string buttonName)
-        {
-            Button buttonClicked = Controls.Find(buttonName, true).FirstOrDefault() as Button;
-            selectionpnl.BringToFront();
-            selectionpnl.Height = buttonClicked.Height;
-            selectionpnl.Top = buttonClicked.Top;
-            selectionpnl.Left = buttonClicked.Left;
-            buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
-        }
 
         private void hoverButton(object sender, EventArgs e)
         {
@@ -262,12 +206,7 @@ namespace DigiScan_Track
 
             Button hoverbtn = sender as Button;
             selectionpnl.SendToBack();
-            if (hoverbtn.Bounds.Contains(currentFormpnl.Bounds))
-            {
-                // If the background color matches, don't change it
-                return;
-            }
-            else
+            if (!hoverbtn.Bounds.Contains(currentFormpnl.Bounds))
             {
                 hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
             }
@@ -327,7 +266,7 @@ namespace DigiScan_Track
                         buttonColour();
                         currentFormpnl.BringToFront();
                         string buttonname = formname + "btn";
-                        Button button = this.Controls.Find(buttonname, true).FirstOrDefault() as Button;
+                        Button button = Controls.Find(buttonname, true).FirstOrDefault() as Button;
                         currentFormpnl.Height = button.Height;
                         currentFormpnl.Top = button.Top;
                         currentFormpnl.Left = button.Left;
