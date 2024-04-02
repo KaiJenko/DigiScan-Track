@@ -46,7 +46,7 @@ namespace DigiScan_Track
                 else
                 {
                     timestamp = timestamptxt.Value.ToString();
-                } 
+                }
                 string reason = reasontxt.Text.ToString();
                 string notes = notestxt.Text.ToString();
 
@@ -110,10 +110,16 @@ namespace DigiScan_Track
                     }
                 }
             }
+            catch (SqlException sqlex)
+            {
+                MessageBox.Show("This serial number is already in the database");
+                serialNumlbl.ForeColor = Color.Red;
+            }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
         }
 
         private void resetbtn_Click(object sender, EventArgs e)

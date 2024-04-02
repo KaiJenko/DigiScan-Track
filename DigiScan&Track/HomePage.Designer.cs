@@ -33,7 +33,7 @@
             expandpicbox = new PictureBox();
             InnerBodypnl = new Panel();
             dashpnl = new Panel();
-            Settingsbtn = new Button();
+            SettingsPagebtn = new Button();
             DisplayBoardbtn = new Button();
             ManualInputbtn = new Button();
             EditPartsbtn = new Button();
@@ -96,7 +96,7 @@
             // dashpnl
             // 
             dashpnl.BackColor = Color.FromArgb(24, 30, 54);
-            dashpnl.Controls.Add(Settingsbtn);
+            dashpnl.Controls.Add(SettingsPagebtn);
             dashpnl.Controls.Add(DisplayBoardbtn);
             dashpnl.Controls.Add(ManualInputbtn);
             dashpnl.Controls.Add(EditPartsbtn);
@@ -113,25 +113,26 @@
             dashpnl.Size = new Size(148, 612);
             dashpnl.TabIndex = 2;
             // 
-            // Settingsbtn
+            // SettingsPagebtn
             // 
-            Settingsbtn.BackgroundImageLayout = ImageLayout.Stretch;
-            Settingsbtn.Cursor = Cursors.Hand;
-            Settingsbtn.Dock = DockStyle.Bottom;
-            Settingsbtn.FlatAppearance.BorderSize = 0;
-            Settingsbtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            Settingsbtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
-            Settingsbtn.FlatStyle = FlatStyle.Flat;
-            Settingsbtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Settingsbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            Settingsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            Settingsbtn.Location = new Point(0, 572);
-            Settingsbtn.Name = "Settingsbtn";
-            Settingsbtn.Size = new Size(148, 40);
-            Settingsbtn.TabIndex = 11;
-            Settingsbtn.Text = "Settings";
-            Settingsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            Settingsbtn.UseVisualStyleBackColor = true;
+            SettingsPagebtn.BackgroundImageLayout = ImageLayout.Stretch;
+            SettingsPagebtn.Cursor = Cursors.Hand;
+            SettingsPagebtn.Dock = DockStyle.Bottom;
+            SettingsPagebtn.FlatAppearance.BorderSize = 0;
+            SettingsPagebtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            SettingsPagebtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
+            SettingsPagebtn.FlatStyle = FlatStyle.Flat;
+            SettingsPagebtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            SettingsPagebtn.ForeColor = Color.FromArgb(0, 126, 249);
+            SettingsPagebtn.ImageAlign = ContentAlignment.MiddleLeft;
+            SettingsPagebtn.Location = new Point(0, 572);
+            SettingsPagebtn.Name = "SettingsPagebtn";
+            SettingsPagebtn.Size = new Size(148, 40);
+            SettingsPagebtn.TabIndex = 11;
+            SettingsPagebtn.Text = "Settings";
+            SettingsPagebtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            SettingsPagebtn.UseVisualStyleBackColor = true;
+            SettingsPagebtn.Click += settingsbtn_Click;
             // 
             // DisplayBoardbtn
             // 
@@ -434,7 +435,7 @@
         private PictureBox collapsepicbox;
         private Panel selectionpnl;
         private TableLayoutPanel manualTablepnl;
-        private Button Settingsbtn;
+        private Button SettingsPagebtn;
         private PictureBox expandpicbox;
         public Button HomePageShortcutsbtn;
         public Button EditPartsbtn;

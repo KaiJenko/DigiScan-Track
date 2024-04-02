@@ -8,10 +8,10 @@ namespace DigiScan_Track
     public partial class HomePage : Form
     {
 
-        SqlConnection conn = new SqlConnection();
         int originalArrowWidth;
         int originalArrowHeight;
         int originalexpandWidth;
+
         Timer timer;
         DateTime startTime;
 
@@ -19,12 +19,26 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             LoadButtonImages();
-            createTimer();
+            createTimer();          
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            currentFormSelect();
+        }
+
+
+        private void createTimer()
+        {
+            timer = new Timer();
+            timer.Interval = 1100;
+            timer.Tick += TimerCalculation;
             startTime = DateTime.Now;
             timer.Start();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void currentFormSelect()
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
@@ -32,21 +46,16 @@ namespace DigiScan_Track
             currentFormpnl.Height = HomePageShortcutsbtn.Height;
             currentFormpnl.Top = HomePageShortcutsbtn.Top;
             currentFormpnl.Left = HomePageShortcutsbtn.Left;
+
             HomePageShortcutsbtn.BackColor = Color.FromArgb(46, 51, 73);
             this.InnerBodypnl.Controls.Clear();
             HomePageShortcuts homepageshortcut = new HomePageShortcuts { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(homepageshortcut);
             homepageshortcut.Show();
-
         }
 
-        private void createTimer()
-        {
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Tick += TimerCalculation;
-        }
+        
 
         private void TimerCalculation(object sender, EventArgs e)
         {
@@ -78,6 +87,15 @@ namespace DigiScan_Track
             {
                 newForm.WindowState = FormWindowState.Maximized;
             }
+        }
+
+        private void loginbtn_Click(object sender, EventArgs e)
+        {
+            this.InnerBodypnl.Controls.Clear();
+            LoginPage loginpage = new LoginPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            loginpage.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(loginpage);
+            loginpage.Show();
         }
 
         public void HomeAreabtn_Click(object sender, EventArgs e)
@@ -179,20 +197,30 @@ namespace DigiScan_Track
 
         }
 
-        private void loginbtn_Click(object sender, EventArgs e)
+        private void settingsbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            LoginPage loginpage = new LoginPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            loginpage.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(loginpage);
-            loginpage.Show();
-        }
+            buttonColour();
+            currentFormpnl.BringToFront();
+            currentFormpnl.Height = DisplayBoardbtn.Height;
+            currentFormpnl.Top = DisplayBoardbtn.Top;
+            currentFormpnl.Left = DisplayBoardbtn.Left;
+            DisplayBoardbtn.BackColor = Color.FromArgb(46, 51, 73);
 
+            this.InnerBodypnl.Controls.Clear();
+            SettingsPage settings = new SettingsPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            settings.FormBorderStyle = FormBorderStyle.None;
+            this.InnerBodypnl.Controls.Add(settings);
+            settings.Show();
+
+        }
 
 
         private void LoadButtonImages()
         {
-            string[] PageButtons = { "HomePageShortcutsbtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "Settingsbtn" };
+            WIPTracker wip = new WIPTracker(null, null);
+            wip.transparentBackground(this, "loginbtn");
+
+            string[] PageButtons = { "HomePageShortcutsbtn", "WIPTrackerbtn", "AgedWIPbtn", "EditPartsbtn", "ManualInputbtn", "DisplayBoardbtn", "SettingsPagebtn" };
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
 
             for (int x = 0; x < PageButtons.Length; x++)
@@ -308,7 +336,5 @@ namespace DigiScan_Track
                 }
             }
         }
-
-
     }
 }

@@ -254,6 +254,7 @@
             newUserpnl.Name = "newUserpnl";
             newUserpnl.Size = new Size(310, 490);
             newUserpnl.TabIndex = 13;
+            newUserpnl.Visible = false;
             // 
             // retypePasswordtxt
             // 
