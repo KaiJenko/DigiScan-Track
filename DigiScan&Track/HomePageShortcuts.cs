@@ -277,6 +277,9 @@ namespace DigiScan_Track
 
         public void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
+            if (e.Index < 0 || e.Index >= ((ComboBox)sender).Items.Count)
+                return; // Invalid index, nothing to draw
+
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             ComboBox comboBox = sender as ComboBox;
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)

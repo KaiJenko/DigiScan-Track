@@ -1,11 +1,5 @@
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
-using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
 namespace DigiScan_Track
@@ -20,11 +14,12 @@ namespace DigiScan_Track
         public WIPTracker(string sentDepartment, string sentWorkstation)
         {
             InitializeComponent();
-            getSQLWIPTracker(sentDepartment, sentWorkstation);
-            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
-            searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
-            searchcmb.SelectedIndex = 0;
+            getWIPTrackerSQL(sentDepartment, sentWorkstation);           
             transparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
+
+            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+            searchcmb.SelectedIndex = 0;
+            searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             WIPgridView.CellPainting += WIPgridView_CellPainting;
         }
 
@@ -33,55 +28,9 @@ namespace DigiScan_Track
 
         }
 
-        private void create_defaultGridView_WIP()
-        {
 
-            WIPgridView.Columns[0].HeaderText = "Part No";
-            WIPgridView.Columns[1].HeaderText = "Serial No";
-            WIPgridView.Columns[2].HeaderText = "Batch No";
-            WIPgridView.Columns[3].HeaderText = "Department";
-            WIPgridView.Columns[4].HeaderText = "Workstation";
-            WIPgridView.Columns[5].HeaderText = "Time in";
-            WIPgridView.Columns[6].HeaderText = "Time out";
-            WIPgridView.Columns[7].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 118;
-            WIPgridView.Columns[1].Width = 118;
-            WIPgridView.Columns[2].Width = 118;
-            WIPgridView.Columns[3].Width = 110;
-            WIPgridView.Columns[4].Width = 128;
-            WIPgridView.Columns[5].Width = 150;
-            WIPgridView.Columns[6].Width = 150;
-            WIPgridView.Columns[7].Width = 70;
-
-            WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
-            WIPgridView.ColumnHeadersHeight = 50;
-
-        }
-
-        private void create_customGridView_WIP()
-        {
-
-            WIPgridView.Columns[0].HeaderText = "Part No";
-            WIPgridView.Columns[1].HeaderText = "Serial No";
-            WIPgridView.Columns[2].HeaderText = "Batch No";
-            WIPgridView.Columns[3].HeaderText = "Time in";
-            WIPgridView.Columns[4].HeaderText = "Time out";
-            WIPgridView.Columns[5].HeaderText = "Storage";
-
-            WIPgridView.Columns[0].Width = 160;
-            WIPgridView.Columns[1].Width = 160;
-            WIPgridView.Columns[2].Width = 160;
-            WIPgridView.Columns[3].Width = 160;
-            WIPgridView.Columns[4].Width = 160;
-            WIPgridView.Columns[5].Width = 85;
-
-            WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
-            WIPgridView.ColumnHeadersHeight = 50;
-
-        }
-
-        private void getSQLWIPTracker(string department, string workstation)
+        private void getWIPTrackerSQL(string department, string workstation)
         {
             string cmdText = "";
 
@@ -131,6 +80,54 @@ namespace DigiScan_Track
             }
 
         }
+
+        private void create_defaultGridView_WIP()
+        {
+            WIPgridView.Columns[0].HeaderText = "Part No";
+            WIPgridView.Columns[1].HeaderText = "Serial No";
+            WIPgridView.Columns[2].HeaderText = "Batch No";
+            WIPgridView.Columns[3].HeaderText = "Department";
+            WIPgridView.Columns[4].HeaderText = "Workstation";
+            WIPgridView.Columns[5].HeaderText = "Time in";
+            WIPgridView.Columns[6].HeaderText = "Time out";
+            WIPgridView.Columns[7].HeaderText = "Storage";
+
+            WIPgridView.Columns[0].Width = 118;
+            WIPgridView.Columns[1].Width = 118;
+            WIPgridView.Columns[2].Width = 118;
+            WIPgridView.Columns[3].Width = 110;
+            WIPgridView.Columns[4].Width = 128;
+            WIPgridView.Columns[5].Width = 150;
+            WIPgridView.Columns[6].Width = 150;
+            WIPgridView.Columns[7].Width = 70;
+
+            WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
+            WIPgridView.ColumnHeadersHeight = 50;
+        }
+
+
+
+        private void create_customGridView_WIP()
+        {
+            WIPgridView.Columns[0].HeaderText = "Part No";
+            WIPgridView.Columns[1].HeaderText = "Serial No";
+            WIPgridView.Columns[2].HeaderText = "Batch No";
+            WIPgridView.Columns[3].HeaderText = "Time in";
+            WIPgridView.Columns[4].HeaderText = "Time out";
+            WIPgridView.Columns[5].HeaderText = "Storage";
+
+            WIPgridView.Columns[0].Width = 160;
+            WIPgridView.Columns[1].Width = 160;
+            WIPgridView.Columns[2].Width = 160;
+            WIPgridView.Columns[3].Width = 160;
+            WIPgridView.Columns[4].Width = 160;
+            WIPgridView.Columns[5].Width = 85;
+
+            WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
+            WIPgridView.ColumnHeadersHeight = 50;
+        }
+
+        
 
         private void searchbtn_Click(object sender, EventArgs e)
         {
@@ -195,8 +192,12 @@ namespace DigiScan_Track
                     cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
                     SqlDataReader dr = cmd.ExecuteReader();
 
-                    dt.Load(dr);
+                    if (!dr.HasRows)
+                    {
+                        MessageBox.Show("No search results im afraid");
+                    }
 
+                    dt.Load(dr);
                     con.Close();
 
                     WIPgridView.DataSource = dt;
@@ -212,8 +213,12 @@ namespace DigiScan_Track
                     cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
                     SqlDataReader dr = cmd.ExecuteReader();
 
-                    dt.Load(dr);
+                    if (!dr.HasRows)
+                    {
+                        MessageBox.Show("No search results im afraid");
+                    }
 
+                    dt.Load(dr);
                     con.Close();
 
                     WIPgridView.DataSource = dt;
@@ -228,13 +233,16 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void resetbtn_Click(object sender, EventArgs e)
         {
             buttonPressedColourChange(sender);
             searchFieldpnl.Controls.Clear();
-            getSQLWIPTracker(null, null);
+            getWIPTrackerSQL(null, null);
             defaultOrCustom = 0;
         }
+
 
 
         private void addFieldbtn_Click(object sender, EventArgs e)
@@ -262,6 +270,7 @@ namespace DigiScan_Track
                 panel.MinimumSize = new Size(0, 25);
                 panel.MaximumSize = new Size(500, 25);
 
+
                 Label searchFieldLabel = new Label();
                 searchFieldLabel.Text = searchField + " - " + searchValue;
                 searchFieldLabel.ForeColor = Color.White;
@@ -269,14 +278,17 @@ namespace DigiScan_Track
                 searchFieldLabel.Padding = new Padding(10, 0, 0, 0);
                 searchFieldLabel.AutoSize = true;
 
+
                 PictureBox redCrosspbox = new PictureBox();
                 redCrosspbox.Image = Properties.Resources.cross;
                 redCrosspbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 redCrosspbox.Size = new Size(15, 15);
                 redCrosspbox.Cursor = Cursors.Hand;
 
+
                 panel.Controls.Add(searchFieldLabel);
                 panel.Controls.Add(redCrosspbox);
+
 
                 searchFieldLabel.Location = new Point(5, 5);
                 redCrosspbox.Location = new Point(searchFieldLabel.Right, 5);
@@ -284,13 +296,12 @@ namespace DigiScan_Track
                 panel.Size = new Size(redCrosspbox.Right + 15, 25);
                 searchFieldpnl.Controls.Add(panel);
 
+
                 if (index > 0)
                 {
                     Panel nextPanel = (Panel)searchFieldpnl.Controls["InnerPanel" + (index - 1)];
                     panel.Location = new Point(nextPanel.Right + 10, nextPanel.Top);
                 }
-
-
 
                 redCrosspbox.MouseDown += (sender, e) =>
                 {
@@ -299,10 +310,16 @@ namespace DigiScan_Track
                     {
                         clearPanels(panel);
                         index--;
+                        if (index == -1)
+                        {
+                            resetbtn.PerformClick();
+                        }
                     }
                 };
             }
         }
+
+
 
         private void clearPanels(Panel panel)
         {
@@ -329,21 +346,24 @@ namespace DigiScan_Track
 
         }
 
+
+
         public void transparentBackground(Form form, params string[] buttonName) //params means array doesnt need to be created
         {
-            string newbtn = buttonName[0];
             foreach (string button in buttonName)
             {
                 Control[] controls = form.Controls.Find(button, true);
                 if (controls.Length > 0)
                 {
                     Button background = (Button)controls[0];
-                    background.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-                    background.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-                    background.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+                    background.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    background.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    background.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0, 0);
                 }
             }
         }
+
+
 
         private void buttonPressedColourChange(object sender)
         {
@@ -360,9 +380,10 @@ namespace DigiScan_Track
             timer.Start();
         }
 
+
+
         public void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
             {
                 e.PaintBackground(e.CellBounds, true);
@@ -381,27 +402,9 @@ namespace DigiScan_Track
                             e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
                         }
                     }
-
                     e.Handled = true;
                 }
             }
         }
-
-
-
-
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
-        {
-            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-            {
-                newForm.WindowState = FormWindowState.Maximized;
-            }
-        }
     }
-
-
 }

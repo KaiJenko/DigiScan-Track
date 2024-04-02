@@ -300,7 +300,7 @@
             loginbtn.Name = "loginbtn";
             loginbtn.Size = new Size(78, 34);
             loginbtn.TabIndex = 31;
-            loginbtn.Text = "Login";
+            loginbtn.Text = "LOG IN";
             loginbtn.UseVisualStyleBackColor = false;
             loginbtn.Click += loginbtn_Click;
             // 

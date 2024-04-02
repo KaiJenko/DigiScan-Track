@@ -154,7 +154,7 @@ namespace DigiScan_Track
 
         private void homePageButtonClick(Form newForm, object sender, EventArgs e)
         {
-            
+
             Button buttonClicked = sender as Button;
             buttonColour();
 
@@ -211,7 +211,7 @@ namespace DigiScan_Track
                         x--;
                     }
                 }
-            }           
+            }
         }
 
 
