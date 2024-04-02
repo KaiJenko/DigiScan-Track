@@ -250,7 +250,7 @@
             newUserpnl.Controls.Add(fullNamepbox);
             newUserpnl.Controls.Add(enterDetailslbl);
             newUserpnl.Controls.Add(logopbox);
-            newUserpnl.Location = new Point(44, 45);
+            newUserpnl.Location = new Point(376, 45);
             newUserpnl.Name = "newUserpnl";
             newUserpnl.Size = new Size(310, 490);
             newUserpnl.TabIndex = 13;

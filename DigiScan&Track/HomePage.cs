@@ -39,8 +39,6 @@ namespace DigiScan_Track
             this.InnerBodypnl.Controls.Add(homepageshortcut);
             homepageshortcut.Show();
 
-
-
         }
 
         private void createTimer()
@@ -55,6 +53,19 @@ namespace DigiScan_Track
 
             TimeSpan elapsedTimer = DateTime.Now - startTime;
             periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
+        }
+
+        public void setLogin()
+        {
+            string username = UserLoginDetails.Instance.Username;
+            bool hasPermission = UserLoginDetails.Instance.loggedIN;
+            if (hasPermission)
+            {
+                loginbtn.Visible = false;
+                usernamelbl.Visible = true;
+                usernamelbl.Text = username;
+                MessageBox.Show("hi");
+            }
         }
 
         /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/

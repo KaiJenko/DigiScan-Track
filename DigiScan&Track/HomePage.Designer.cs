@@ -353,7 +353,7 @@
             usernamelbl.AutoSize = true;
             usernamelbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             usernamelbl.ForeColor = Color.FromArgb(0, 126, 249);
-            usernamelbl.Location = new Point(29, 73);
+            usernamelbl.Location = new Point(15, 73);
             usernamelbl.Name = "usernamelbl";
             usernamelbl.Size = new Size(93, 18);
             usernamelbl.TabIndex = 6;

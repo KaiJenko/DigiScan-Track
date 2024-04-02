@@ -30,15 +30,39 @@ namespace DigiScan_Track
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT [Username], [Password] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
+            cmd.CommandText = "SELECT [Username], [Password], [Permission] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.HasRows)
             {
-                MessageBox.Show("You are logged in");
+                dr.Read();
+                string PermissionLevel = dr["Permission"].ToString();
+                MessageBox.Show("You have been logged in");
+                UserLoginDetails.Instance.Username = username;
+                UserLoginDetails.Instance.loggedIN = true;
+                UserLoginDetails.Instance.Permission = PermissionLevel;
+                UpdateHomePageLoginStatus();
+
+            }
+
+            else
+            {
+                MessageBox.Show("Login values incorrect");
             }
 
             conn.Close();
+        }
+
+        public void UpdateHomePageLoginStatus()
+        {
+            if (Application.OpenForms["HomePage"] is HomePage homePage)
+            {
+                homePage.Invoke((MethodInvoker)delegate
+                {
+                    homePage.setLogin();
+                    homePage.HomePageShortcutsbtn.PerformClick();
+                });
+            }
         }
 
         private void clearFieldslbl_Click(object sender, EventArgs e)
@@ -105,15 +129,23 @@ namespace DigiScan_Track
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT [FullName], [EmployeeID] FROM [UserLogin] WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
                 SqlDataReader dr = cmd.ExecuteReader();
-                
+
 
                 if (dr.HasRows)
                 {
                     dr.Close();
-                    string sqlUpdate = " UPDATE [UserLogin] SET [Username] = '" + username + "', [Password] = '" + password + "' " +
+                    string sqlUpdate = " UPDATE [UserLogin] SET [Username] = '" + username + "', [Password] = '" + password + "', [Permission] = 'Read'" +
                                        " WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
                     SqlCommand cmd2 = new SqlCommand(sqlUpdate, conn);
                     cmd2.ExecuteNonQuery();
+                    MessageBox.Show("Employee login created");
+                    newUserpnl.Visible = false;
+                    oldUserpnl.Visible = true;
+                }
+
+                else
+                {
+                    MessageBox.Show("Employee not found");
                 }
 
                 conn.Close();

@@ -12,7 +12,8 @@ namespace DigiScan_Track
         private static UserLoginDetails instance;
 
         public string Username { get; set; }
-        public string Permission { get; set; }
+        public bool loggedIN { get; set; }
+        public string Permission {  get; set; }
 
         private UserLoginDetails() { }
 
