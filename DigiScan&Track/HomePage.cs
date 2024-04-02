@@ -13,6 +13,8 @@ namespace DigiScan_Track
         int originalArrowHeight;
         int originalexpandWidth;
 
+        public Button prev;
+
         Timer timer;
         DateTime startTime;
 
@@ -20,13 +22,15 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             LoadButtonImages();
-            createTimer();          
+            createTimer();
+            prev = HomePageShortcutsbtn;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             currentFormSelect();
         }
+
 
 
         private void createTimer()
@@ -38,12 +42,15 @@ namespace DigiScan_Track
             timer.Start();
         }
 
+
+
         private void TimerCalculation(object sender, EventArgs e)
         {
 
             TimeSpan elapsedTimer = DateTime.Now - startTime;
             periodOnlinelbl.Text = elapsedTimer.ToString(@"hh\:mm\:ss");
         }
+
 
 
         private void currentFormSelect()
@@ -61,7 +68,10 @@ namespace DigiScan_Track
             homepageshortcut.FormBorderStyle = FormBorderStyle.None;
             this.InnerBodypnl.Controls.Add(homepageshortcut);
             homepageshortcut.Show();
+            HomePageShortcutsbtn.Enabled = false;
         }
+
+
 
         public void setLogin()
         {
@@ -144,14 +154,28 @@ namespace DigiScan_Track
 
         private void homePageButtonClick(Form newForm, object sender, EventArgs e)
         {
+            
             Button buttonClicked = sender as Button;
             buttonColour();
+
+            if (prev == buttonClicked)
+            {
+                buttonClicked.Enabled = false;
+            }
+
+            else
+            {
+                prev.Enabled = true;
+                prev = buttonClicked;
+
+            }
 
             currentFormpnl.BringToFront();
             currentFormpnl.Height = buttonClicked.Height;
             currentFormpnl.Top = buttonClicked.Top;
             currentFormpnl.Left = buttonClicked.Left;
             buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
+            buttonClicked.Enabled = false;
 
             InnerBodypnl.Controls.Clear();
             newForm.Dock = DockStyle.Fill;
@@ -191,6 +215,7 @@ namespace DigiScan_Track
         }
 
 
+
         private void hoverButton(object sender, EventArgs e)
         {
             Button hoverbtn = sender as Button;
@@ -200,6 +225,8 @@ namespace DigiScan_Track
             selectionpnl.Left = hoverbtn.Left;
             hoverbtn.BackColor = Color.FromArgb(46, 51, 73);
         }
+
+
 
         private void unHoverButton(object sender, EventArgs e)
         {
@@ -211,6 +238,8 @@ namespace DigiScan_Track
                 hoverbtn.BackColor = Color.FromArgb(24, 30, 54);
             }
         }
+
+
 
         public void buttonColour()
         {
@@ -224,6 +253,8 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void enlargeImage(object sender, EventArgs e)
         {
             PictureBox picturebox = sender as PictureBox;
@@ -234,11 +265,15 @@ namespace DigiScan_Track
             picturebox.Size = new Size(newWidth, newHeight);
         }
 
+
+
         private void shrinkImage(object sender, EventArgs e)
         {
             PictureBox picturebox = sender as PictureBox;
             picturebox.Size = new Size(originalArrowWidth, originalArrowHeight);
         }
+
+
 
         private void collapsepicbox_Click(object sender, EventArgs e)
         {
@@ -248,11 +283,15 @@ namespace DigiScan_Track
             expandpicbox.Visible = true;
         }
 
+
+
         private void expandpicbox_Click(object sender, EventArgs e)
         {
             manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
             expandpicbox.Visible = false;
         }
+
+
 
         public void InnerBodypnl_ControlAdded(object sender, ControlEventArgs e)
         {
