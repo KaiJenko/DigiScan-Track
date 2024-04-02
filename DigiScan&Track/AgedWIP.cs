@@ -1,12 +1,6 @@
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using System.Xml;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace DigiScan_Track
 {
@@ -25,10 +19,14 @@ namespace DigiScan_Track
             wip.transparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
         }
 
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void pullMaxCountSQL()
         {
@@ -46,10 +44,10 @@ namespace DigiScan_Track
                 agedDaystrackbar.Maximum = agedDaysCount;
                 higherRangenud.Maximum = agedDaysCount;
             }
-
             conn.Close();
-
         }
+
+
 
         private void getAgedWIPSQL()
         {
@@ -78,6 +76,8 @@ namespace DigiScan_Track
             counttrackbarlbl.Text = agedDaystrackbar.Value.ToString();
         }
 
+
+
         private void create_defaultGridView_WIP()
         {
             Agedgridview.Columns[0].HeaderText = "Serial Number";
@@ -86,6 +86,8 @@ namespace DigiScan_Track
             Agedgridview.Columns[0].Width = 124;
             Agedgridview.Columns[1].Width = 124;
         }
+
+
 
         private void furtherDetailsSQL()
         {
@@ -105,6 +107,8 @@ namespace DigiScan_Track
             furtherDetailsgridview.Columns[5].Width = 95;
             furtherDetailsgridview.Columns[6].Width = 95;
         }
+
+
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
@@ -151,8 +155,9 @@ namespace DigiScan_Track
             create_defaultGridView_WIP();
 
             conn.Close();
-
         }
+
+
 
         private void rangerbtn_Click(object sender, EventArgs e)
         {
@@ -171,6 +176,8 @@ namespace DigiScan_Track
             }
 
         }
+
+
 
         private void Agedgridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -199,6 +206,8 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void resetbtn_Click(object sender, EventArgs e)
         {
             agedDaystrackbar.Value = 0;
@@ -209,17 +218,7 @@ namespace DigiScan_Track
             getAgedWIPSQL();
         }
 
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
-        {
-            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-            {
-                newForm.WindowState = FormWindowState.Maximized;
-            }
-        }
+
 
         private void Agedgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -229,6 +228,8 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void Agedgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -236,5 +237,56 @@ namespace DigiScan_Track
                 Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
             }
         }
+
+        private void excelbtn_Click(object sender, EventArgs e)
+        {
+            string filePath = "C:\\Users\\kaije\\Downloads\\ExportedData.xlsx";
+            exportToExcel(Agedgridview, filePath);
+        }
+
+        private void exportToExcel(DataGridView datagridview, string filePath)
+        {
+            if (Agedgridview.Rows.Count > 0)
+            {
+                Excel.Application excel = new Excel.Application();
+                Excel.Workbook workbook = excel.Workbooks.Add();
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];
+
+                for (int x = 0; x < Agedgridview.Rows.Count; x++)
+                {
+                    for (int y = 0; y < Agedgridview.Columns.Count; y++)
+                    {
+                        worksheet.Cells[x + 1, y + 1] = Agedgridview.Rows[x].Cells[y].Value.ToString();
+                    }
+                }
+
+                worksheet.Columns.AutoFit();
+                workbook.SaveAs(filePath);
+                ReleaseObject(worksheet);
+                ReleaseObject(workbook);
+                ReleaseObject(excel);
+
+            }
+        }
+
+        private static void ReleaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
     }
+
+
 }

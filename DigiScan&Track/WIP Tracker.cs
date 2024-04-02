@@ -81,6 +81,8 @@ namespace DigiScan_Track
 
         }
 
+
+
         private void create_defaultGridView_WIP()
         {
             WIPgridView.Columns[0].HeaderText = "Part No";
@@ -247,75 +249,84 @@ namespace DigiScan_Track
 
         private void addFieldbtn_Click(object sender, EventArgs e)
         {
-            buttonPressedColourChange(sender);
-            string searchField = searchcmb.Text.Replace(" ", "");
-            string searchValue = searchtxt.Text.Trim();
-
-            searchcmb.Text = null;
-            searchtxt.Text = null;
-
-            int index = searchFieldpnl.Controls.Count;
-
-            if (index == 3)
+            if (searchtxt.Text != "")
             {
-                MessageBox.Show("No more search fields can be added");
+                buttonPressedColourChange(sender);
+                string searchField = searchcmb.Text.Replace(" ", "");
+                string searchValue = searchtxt.Text.Trim();
+
+                searchcmb.Text = null;
+                searchtxt.Text = null;
+
+                int index = searchFieldpnl.Controls.Count;
+
+                if (index == 3)
+                {
+                    MessageBox.Show("No more search fields can be added");
+                }
+
+                else
+                {
+                    Panel panel = new Panel();
+                    panel.Name = "InnerPanel" + index;
+                    panel.BackgroundImage = Properties.Resources.blueBorder;
+                    panel.BackgroundImageLayout = ImageLayout.Stretch;
+                    panel.MinimumSize = new Size(0, 25);
+                    panel.MaximumSize = new Size(500, 25);
+
+
+                    Label searchFieldLabel = new Label();
+                    searchFieldLabel.Text = searchField + " - " + searchValue;
+                    searchFieldLabel.ForeColor = Color.White;
+                    searchFieldLabel.BackColor = Color.Transparent;
+                    searchFieldLabel.Padding = new Padding(10, 0, 0, 0);
+                    searchFieldLabel.AutoSize = true;
+
+
+                    PictureBox redCrosspbox = new PictureBox();
+                    redCrosspbox.Image = Properties.Resources.cross;
+                    redCrosspbox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    redCrosspbox.Size = new Size(15, 15);
+                    redCrosspbox.Cursor = Cursors.Hand;
+
+
+                    panel.Controls.Add(searchFieldLabel);
+                    panel.Controls.Add(redCrosspbox);
+
+
+                    searchFieldLabel.Location = new Point(5, 5);
+                    redCrosspbox.Location = new Point(searchFieldLabel.Right, 5);
+                    redCrosspbox.Padding = new Padding(1, 1, 1, 1);
+                    panel.Size = new Size(redCrosspbox.Right + 15, 25);
+                    searchFieldpnl.Controls.Add(panel);
+
+
+                    if (index > 0)
+                    {
+                        Panel nextPanel = (Panel)searchFieldpnl.Controls["InnerPanel" + (index - 1)];
+                        panel.Location = new Point(nextPanel.Right + 10, nextPanel.Top);
+                    }
+
+                    redCrosspbox.MouseDown += (sender, e) =>
+                    {
+                        Point clickLocation = redCrosspbox.PointToClient(Cursor.Position);
+                        if (new Rectangle(Point.Empty, redCrosspbox.Size).Contains(clickLocation))
+                        {
+                            clearPanels(panel);
+                            index--;
+                            if (index == -1)
+                            {
+                                resetbtn.PerformClick();
+                            }
+                        }
+                    };
+                }
             }
 
             else
             {
-                Panel panel = new Panel();
-                panel.Name = "InnerPanel" + index;
-                panel.BackgroundImage = Properties.Resources.blueBorder;
-                panel.BackgroundImageLayout = ImageLayout.Stretch;
-                panel.MinimumSize = new Size(0, 25);
-                panel.MaximumSize = new Size(500, 25);
-
-
-                Label searchFieldLabel = new Label();
-                searchFieldLabel.Text = searchField + " - " + searchValue;
-                searchFieldLabel.ForeColor = Color.White;
-                searchFieldLabel.BackColor = Color.Transparent;
-                searchFieldLabel.Padding = new Padding(10, 0, 0, 0);
-                searchFieldLabel.AutoSize = true;
-
-
-                PictureBox redCrosspbox = new PictureBox();
-                redCrosspbox.Image = Properties.Resources.cross;
-                redCrosspbox.SizeMode = PictureBoxSizeMode.StretchImage;
-                redCrosspbox.Size = new Size(15, 15);
-                redCrosspbox.Cursor = Cursors.Hand;
-
-
-                panel.Controls.Add(searchFieldLabel);
-                panel.Controls.Add(redCrosspbox);
-
-
-                searchFieldLabel.Location = new Point(5, 5);
-                redCrosspbox.Location = new Point(searchFieldLabel.Right, 5);
-                redCrosspbox.Padding = new Padding(1, 1, 1, 1);
-                panel.Size = new Size(redCrosspbox.Right + 15, 25);
-                searchFieldpnl.Controls.Add(panel);
-
-
-                if (index > 0)
-                {
-                    Panel nextPanel = (Panel)searchFieldpnl.Controls["InnerPanel" + (index - 1)];
-                    panel.Location = new Point(nextPanel.Right + 10, nextPanel.Top);
-                }
-
-                redCrosspbox.MouseDown += (sender, e) =>
-                {
-                    Point clickLocation = redCrosspbox.PointToClient(Cursor.Position);
-                    if (new Rectangle(Point.Empty, redCrosspbox.Size).Contains(clickLocation))
-                    {
-                        clearPanels(panel);
-                        index--;
-                        if (index == -1)
-                        {
-                            resetbtn.PerformClick();
-                        }
-                    }
-                };
+                MessageBox.Show("Please input a value in the textbox");
+                searchcmb.SelectedIndex = 0;
             }
         }
 

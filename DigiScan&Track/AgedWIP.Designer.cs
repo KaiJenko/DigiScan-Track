@@ -153,6 +153,7 @@
             excelbtn.TabIndex = 33;
             excelbtn.Text = "Excel Export";
             excelbtn.UseVisualStyleBackColor = false;
+            excelbtn.Click += excelbtn_Click;
             // 
             // resetbtn
             // 
