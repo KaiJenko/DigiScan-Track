@@ -97,11 +97,8 @@ namespace DigiScan_Track
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            this.InnerBodypnl.Controls.Clear();
-            LoginPage loginpage = new LoginPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            loginpage.FormBorderStyle = FormBorderStyle.None;
-            this.InnerBodypnl.Controls.Add(loginpage);
-            loginpage.Show();
+            LoginPage loginpage = new LoginPage();
+            HomePageButtonClick(loginpage, sender, e);
         }
 
         public void HomeAreabtn_Click(object sender, EventArgs e)
@@ -169,8 +166,19 @@ namespace DigiScan_Track
             currentFormpnl.Height = buttonClicked.Height;
             currentFormpnl.Top = buttonClicked.Top;
             currentFormpnl.Left = buttonClicked.Left;
-            buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
-            buttonClicked.Enabled = false;
+
+            if (buttonClicked.Name == "loginbtn")
+            {
+                buttonClicked.BackColor = Color.Transparent;
+                currentFormpnl.Visible = false;
+            }
+            else
+            {
+                buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
+                buttonClicked.Enabled = false;
+            }
+            
+            
 
             InnerBodypnl.Controls.Clear();
             newForm.Dock = DockStyle.Fill;

@@ -35,6 +35,9 @@ namespace DigiScan_Track
                 UserLoginDetails.Instance.loggedIN = true;
                 UserLoginDetails.Instance.Permission = PermissionLevel;
                 UpdateHomePageLoginStatus();
+
+                HomePage homePage = new HomePage();
+                homePage.HomePageShortcutsbtn.PerformClick();
             }
 
             else
