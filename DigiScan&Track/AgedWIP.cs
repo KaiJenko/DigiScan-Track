@@ -1,5 +1,9 @@
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using DataTable = System.Data.DataTable;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace DigiScan_Track
@@ -240,50 +244,48 @@ namespace DigiScan_Track
 
         private void excelbtn_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\kaije\\Downloads\\ExportedData.xlsx";
-            exportToExcel(Agedgridview, filePath);
+            exportToExcel(Agedgridview);
+
         }
 
-        private void exportToExcel(DataGridView datagridview, string filePath)
+
+        Workbook workbook;
+        Worksheet worksheet;
+        string filepath;
+
+        private void exportToExcel(DataGridView datagridview)
         {
-            if (Agedgridview.Rows.Count > 0)
+            if (datagridview.Rows.Count > 0)
             {
                 Excel.Application excel = new Excel.Application();
-                Excel.Workbook workbook = excel.Workbooks.Add();
-                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];
+                workbook = excel.Workbooks.Add();
+                worksheet = (Worksheet)workbook.Worksheets[1];
 
-                for (int x = 0; x < Agedgridview.Rows.Count; x++)
+                for (int x = 0; x < datagridview.Rows.Count; x++)
                 {
-                    for (int y = 0; y < Agedgridview.Columns.Count; y++)
+                    for (int y = 0; y < datagridview.Columns.Count; y++)
                     {
-                        worksheet.Cells[x + 1, y + 1] = Agedgridview.Rows[x].Cells[y].Value.ToString();
+                        worksheet.Cells[x + 1, y + 1] = datagridview.Rows[x].Cells[y].Value.ToString();
                     }
                 }
 
-                worksheet.Columns.AutoFit();
-                workbook.SaveAs(filePath);
-                ReleaseObject(worksheet);
-                ReleaseObject(workbook);
-                ReleaseObject(excel);
+                using(SaveFileDialog sfd = new SaveFileDialog() {Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        filepath = sfd.FileName;
+                        if (File.Exists(filepath))
+                        {
 
-            }
-        }
-
-        private static void ReleaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
-            }
-            finally
-            {
-                GC.Collect();
+                            File.Delete(filepath);
+                        }
+                        worksheet.Columns.AutoFit();
+                        workbook.SaveAs(filepath);
+                        workbook.Close();
+                    }
+                    
+                }
+                
             }
         }
     }
