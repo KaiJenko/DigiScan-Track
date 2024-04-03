@@ -63,6 +63,16 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_bar_left {
+            get {
+                object obj = ResourceManager.GetObject("arrow-bar-left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Assembly {
             get {
                 object obj = ResourceManager.GetObject("Assembly", resourceCulture);
@@ -86,16 +96,6 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap Binoculars {
             get {
                 object obj = ResourceManager.GetObject("Binoculars", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blackBorder {
-            get {
-                object obj = ResourceManager.GetObject("blackBorder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +176,16 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap Dry_Winding {
             get {
                 object obj = ResourceManager.GetObject("Dry Winding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +323,16 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_arrow {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Machined {
             get {
                 object obj = ResourceManager.GetObject("Machined", resourceCulture);
@@ -326,16 +346,6 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap MagnifyingGlass {
             get {
                 object obj = ResourceManager.GetObject("MagnifyingGlass", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MagnifyingGlass1 {
-            get {
-                object obj = ResourceManager.GetObject("MagnifyingGlass1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,69 +403,9 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap output_onlinepngtools {
-            get {
-                object obj = ResourceManager.GetObject("output-onlinepngtools", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap output_onlinepngtools__2_ {
-            get {
-                object obj = ResourceManager.GetObject("output-onlinepngtools (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap output_onlinepngtools__5_ {
-            get {
-                object obj = ResourceManager.GetObject("output-onlinepngtools (5)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap output_onlinepngtools__5_1 {
-            get {
-                object obj = ResourceManager.GetObject("output-onlinepngtools (5)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap output_onlinepngtools1 {
-            get {
-                object obj = ResourceManager.GetObject("output-onlinepngtools1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Overwrap {
             get {
                 object obj = ResourceManager.GetObject("Overwrap", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Picture1 {
-            get {
-                object obj = ResourceManager.GetObject("Picture1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -486,26 +436,6 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap Production {
             get {
                 object obj = ResourceManager.GetObject("Production", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redBorder {
-            get {
-                object obj = ResourceManager.GetObject("redBorder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redEye {
-            get {
-                object obj = ResourceManager.GetObject("redEye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,19 +533,9 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap UserImage {
+        internal static System.Drawing.Bitmap userSymbol {
             get {
-                object obj = ResourceManager.GetObject("UserImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WhiteEye {
-            get {
-                object obj = ResourceManager.GetObject("WhiteEye", resourceCulture);
+                object obj = ResourceManager.GetObject("userSymbol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

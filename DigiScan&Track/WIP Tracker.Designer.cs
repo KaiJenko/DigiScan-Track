@@ -324,7 +324,6 @@
         private Label workstationlbl;
         private Label departmentlbl;
         private ComboBox searchcmb;
-        private Button submitbtn;
         private Button bottomLeftBorderbtn;
         private DataGridView WIPgridView;
     }

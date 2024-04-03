@@ -62,7 +62,7 @@
             // 
             // ManualInputlbl
             // 
-            ManualInputlbl.AutoSize = true;
+            ManualInputlbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ManualInputlbl.BackColor = Color.Transparent;
             ManualInputlbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             ManualInputlbl.ForeColor = Color.White;
@@ -417,14 +417,9 @@
             panel1.PerformLayout();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Button button5;
-        private Button button2;
-        private Button button3;
-        private Button button4;
         private Label ManualInputlbl;
         private Panel BodyLayoutpnl;
         private DateTimePicker timestamptxt;

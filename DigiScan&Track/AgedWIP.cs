@@ -268,7 +268,7 @@ namespace DigiScan_Track
                     }
                 }
 
-                using(SaveFileDialog sfd = new SaveFileDialog() {Filter = "Excel Workbook|*.xlsx" })
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
@@ -281,8 +281,8 @@ namespace DigiScan_Track
                         worksheet.Columns.AutoFit();
                         workbook.SaveAs(filepath);
                         workbook.Close();
-                    }               
-                }       
+                    }
+                }
             }
         }
 

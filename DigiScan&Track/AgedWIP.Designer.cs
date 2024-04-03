@@ -88,7 +88,6 @@
             // Titlelbl
             // 
             Titlelbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Titlelbl.AutoSize = true;
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
@@ -306,7 +305,7 @@
             // 
             // searchpbox
             // 
-            searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
             searchpbox.Location = new Point(526, 11);
@@ -502,7 +501,6 @@
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             OuterBorderpnl.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

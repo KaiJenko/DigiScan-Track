@@ -72,7 +72,7 @@
             // expandpicbox
             // 
             expandpicbox.Cursor = Cursors.PanEast;
-            expandpicbox.Image = Properties.Resources.output_onlinepngtools1;
+            expandpicbox.Image = Properties.Resources.left_arrow;
             expandpicbox.Location = new Point(3, 1);
             expandpicbox.Name = "expandpicbox";
             expandpicbox.Size = new Size(26, 26);
@@ -328,7 +328,7 @@
             // collapsepicbox
             // 
             collapsepicbox.Cursor = Cursors.PanWest;
-            collapsepicbox.Image = Properties.Resources.output_onlinepngtools1;
+            collapsepicbox.Image = Properties.Resources.left_arrow ;
             collapsepicbox.Location = new Point(117, 4);
             collapsepicbox.Name = "collapsepicbox";
             collapsepicbox.Size = new Size(24, 26);
@@ -341,7 +341,7 @@
             // 
             // userimagepicbox
             // 
-            userimagepicbox.Image = Properties.Resources.output_onlinepngtools__2_;
+            userimagepicbox.Image = Properties.Resources.userSymbol;
             userimagepicbox.Location = new Point(45, 5);
             userimagepicbox.Name = "userimagepicbox";
             userimagepicbox.Size = new Size(63, 63);

@@ -151,10 +151,6 @@
         }
 
         #endregion
-        private Button button5;
-        private Button button2;
-        private Button button3;
-        private Button button4;
         private Panel OuterBorderpnl;
         private Label Titlelbl;
         private Panel InnerBorderpnl;

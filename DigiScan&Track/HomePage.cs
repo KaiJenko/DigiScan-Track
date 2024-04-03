@@ -163,7 +163,6 @@ namespace DigiScan_Track
             {
                 prev.Enabled = true;
                 prev = buttonClicked;
-
             }
 
             currentFormpnl.BringToFront();

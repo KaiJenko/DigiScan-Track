@@ -310,7 +310,7 @@ namespace DigiScan_Track
             else
             {
                 MessageBox.Show("Please input a part number");
-            }        
+            }
         }
 
 

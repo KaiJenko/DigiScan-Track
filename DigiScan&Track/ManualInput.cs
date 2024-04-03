@@ -123,6 +123,8 @@ namespace DigiScan_Track
             {
                 MessageBox.Show("This serial number is already in the database");
                 serialNumlbl.ForeColor = Color.Red;
+                Console.WriteLine(sqlex.Message);
+
             }
             catch (Exception ex)
             {

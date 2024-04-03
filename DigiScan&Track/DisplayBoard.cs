@@ -47,8 +47,8 @@ namespace DigiScan_Track
                             searchpbox.Visible = true;
                             break;
                         default:
-                            
-                        break;
+
+                            break;
                     }
                 }
             }

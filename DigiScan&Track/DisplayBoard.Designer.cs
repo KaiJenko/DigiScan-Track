@@ -66,7 +66,7 @@
             // 
             // Titlelbl
             // 
-            Titlelbl.AutoSize = true;
+            Titlelbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
@@ -92,7 +92,7 @@
             // 
             // searchpbox
             // 
-            searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
             searchpbox.Location = new Point(965, 24);
@@ -276,7 +276,6 @@
             radioButtonpnl.PerformLayout();
             Borderpnl.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditParts));
             pictureBox1 = new PictureBox();
             departmentcmbox = new ComboBox();
@@ -157,7 +157,6 @@
             // Titlelbl
             // 
             Titlelbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Titlelbl.AutoSize = true;
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
@@ -186,31 +185,31 @@
             toEditGridView.AllowUserToDeleteRows = false;
             toEditGridView.AllowUserToResizeColumns = false;
             toEditGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            toEditGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            toEditGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             toEditGridView.BackgroundColor = Color.FromArgb(113, 96, 232);
             toEditGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             toEditGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             toEditGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Coral;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.SelectionForeColor = Color.Coral;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            toEditGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.Coral;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Coral;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            toEditGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             toEditGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             toEditGridView.Cursor = Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            toEditGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            toEditGridView.DefaultCellStyle = dataGridViewCellStyle3;
             toEditGridView.EnableHeadersVisualStyles = false;
             toEditGridView.GridColor = Color.Silver;
             toEditGridView.Location = new Point(480, 24);
@@ -218,23 +217,23 @@
             toEditGridView.Name = "toEditGridView";
             toEditGridView.ReadOnly = true;
             toEditGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            toEditGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            toEditGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             toEditGridView.RowHeadersVisible = false;
             toEditGridView.RowHeadersWidth = 62;
             toEditGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle10.SelectionForeColor = Color.White;
-            toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             toEditGridView.RowTemplate.Height = 25;
             toEditGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             toEditGridView.Size = new Size(510, 472);
@@ -306,7 +305,7 @@
             // SearchButton
             // 
             SearchButton.BackColor = Color.White;
-            SearchButton.BackgroundImage = Properties.Resources.MagnifyingGlass1;
+            SearchButton.BackgroundImage = Properties.Resources.MagnifyingGlass;
             SearchButton.BackgroundImageLayout = ImageLayout.Stretch;
             SearchButton.Cursor = Cursors.Hand;
             SearchButton.Location = new Point(390, 141);
@@ -413,7 +412,6 @@
             OuterBorderpnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)crossOffpbox).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
