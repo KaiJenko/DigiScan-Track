@@ -153,7 +153,7 @@
             excelbtn.TabIndex = 33;
             excelbtn.Text = "Excel Export";
             excelbtn.UseVisualStyleBackColor = false;
-            excelbtn.Click += excelbtn_Click;
+            excelbtn.Click += Excelbtn_Click;
             // 
             // resetbtn
             // 
@@ -171,7 +171,7 @@
             resetbtn.TabIndex = 32;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
+            resetbtn.Click += Resetbtn_Click;
             // 
             // Agedgridview
             // 
@@ -337,7 +337,7 @@
             agedDaystrackbar.Name = "agedDaystrackbar";
             agedDaystrackbar.Size = new Size(510, 45);
             agedDaystrackbar.TabIndex = 17;
-            agedDaystrackbar.Scroll += agedDaystrackbar_Scroll;
+            agedDaystrackbar.Scroll += AgedDaystrackbar_Scroll;
             // 
             // radioButtonpnl
             // 
@@ -390,7 +390,7 @@
             rangerbtn.TabIndex = 12;
             rangerbtn.Text = "Range";
             rangerbtn.UseVisualStyleBackColor = true;
-            rangerbtn.CheckedChanged += rangerbtn_Click;
+            rangerbtn.CheckedChanged += Rangerbtn_Click;
             // 
             // lessThanrbtn
             // 

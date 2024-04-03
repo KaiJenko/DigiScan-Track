@@ -11,14 +11,16 @@ namespace DigiScan_Track
         public ManualInput(string departmentName, string workstation)
         {
             InitializeComponent();
-            insertDepartment(departmentName, workstation);
+            InsertDepartment(departmentName, workstation);
+
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             workstationcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
 
             WIPTracker wip = new WIPTracker(null, null);
-            wip.transparentBackground(this, "submitbtn", "resetbtn");
+            wip.TransparentBackground(this, "submitbtn", "resetbtn");
 
 
         }
@@ -28,7 +30,9 @@ namespace DigiScan_Track
 
         }
 
-        private void submitbtn_Click(object sender, EventArgs e)
+
+
+        private void Submitbtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -39,14 +43,17 @@ namespace DigiScan_Track
                 string department = departmentcmbox.Text.ToString();
                 string workstation = workstationcmbox.Text.ToString();
                 string timestamp = "";
+
                 if (nocheckbox.Checked == true)
                 {
                     timestamp = "GETDATE()";
                 }
+
                 else
                 {
                     timestamp = timestamptxt.Value.ToString();
                 }
+
                 string reason = reasontxt.Text.ToString();
                 string notes = notestxt.Text.ToString();
 
@@ -67,6 +74,7 @@ namespace DigiScan_Track
                         }
                         textboxlabels[x].ForeColor = Color.Red;
                     }
+
                     else
                     {
                         textboxlabels[x].ForeColor = Color.FromArgb(0, 126, 249);
@@ -79,6 +87,7 @@ namespace DigiScan_Track
                     {
                         combolabels[y].ForeColor = Color.Red;
                     }
+
                     else
                     {
                         combolabels[y].ForeColor = Color.FromArgb(0, 126, 249);
@@ -122,9 +131,10 @@ namespace DigiScan_Track
 
         }
 
-        private void resetbtn_Click(object sender, EventArgs e)
+
+
+        private void Resetbtn_Click(object sender, EventArgs e)
         {
-            //departmentcmbox.SelectedIndex = -1;
             departmentcmbox.Text = "Department";
             partNumcmbox.Text = "Part Number";
             workstationcmbox.Text = "Workstation";
@@ -137,7 +147,9 @@ namespace DigiScan_Track
 
         }
 
-        private void nocheckbox_CheckedChanged(object sender, EventArgs e)
+
+
+        private void Nocheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (nocheckbox.Checked == true)
             {
@@ -152,7 +164,9 @@ namespace DigiScan_Track
             }
         }
 
-        private void yescheckbox_CheckedChanged(object sender, EventArgs e)
+
+
+        private void Yescheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (yescheckbox.Checked == true)
             {
@@ -167,27 +181,32 @@ namespace DigiScan_Track
             }
         }
 
-        private void insertDepartment(string department, string workstation)
+
+
+        private void InsertDepartment(string department, string workstation)
         {
             if (department != null)
             {
-                loadDepartmentcmb();
-                loadWorkstationcmb(department);
+                LoadDepartmentcmb();
+                LoadWorkstationcmb(department);
                 int departmentIndex = departmentcmbox.FindString(department);
                 departmentcmbox.SelectedIndex = departmentIndex;
                 int workstationIndex = workstationcmbox.FindString(workstation);
                 workstationcmbox.SelectedIndex = workstationIndex;
-                loadPartNumbers(department);
+                LoadPartNumbers(department);
             }
+
             else
             {
-                loadDepartmentcmb();
-                loadWorkstationcmb(departmentcmbox.SelectedItem.ToString());
+                LoadDepartmentcmb();
+                LoadWorkstationcmb(departmentcmbox.SelectedItem.ToString());
             }
 
         }
 
-        private void loadPartNumbers(string chosenDepartment)
+
+
+        private void LoadPartNumbers(string chosenDepartment)
         {
             if (partNumcmbox.Items.Count == 0)
             {
@@ -237,7 +256,9 @@ namespace DigiScan_Track
             }
         }
 
-        private void loadDepartmentcmb()
+
+
+        private void LoadDepartmentcmb()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -254,7 +275,7 @@ namespace DigiScan_Track
             departmentcmbox.SelectedIndex = 0;
         }
 
-        private void loadWorkstationcmb(string department)
+        private void LoadWorkstationcmb(string department)
         {
             if (workstationcmbox.Items.Count == 0)
             {
@@ -274,32 +295,19 @@ namespace DigiScan_Track
             }
         }
 
-        private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void Departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (departmentcmbox.SelectedItem != null)
             {
                 string selectedDepartment = departmentcmbox.SelectedItem.ToString();
                 partNumcmbox.Items.Clear();
                 workstationcmbox.Items.Clear();
-                loadWorkstationcmb(selectedDepartment);
-                loadPartNumbers(selectedDepartment);
+                LoadWorkstationcmb(selectedDepartment);
+                LoadPartNumbers(selectedDepartment);
                 partNumcmbox.SelectedIndex = 0;
             }
         }
-
-
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
-        {
-            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-            {
-                newForm.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-
     }
 }

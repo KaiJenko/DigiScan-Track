@@ -130,7 +130,7 @@
             registerLinklbl.Size = new Size(66, 16);
             registerLinklbl.TabIndex = 10;
             registerLinklbl.Text = "Register";
-            registerLinklbl.Click += registerLinklbl_Click;
+            registerLinklbl.Click += RegisterLinklbl_Click;
             // 
             // newUserlbl
             // 
@@ -154,7 +154,7 @@
             clearFieldslbl.Size = new Size(76, 17);
             clearFieldslbl.TabIndex = 8;
             clearFieldslbl.Text = "Clear Fields";
-            clearFieldslbl.Click += clearFieldslbl_Click;
+            clearFieldslbl.Click += ClearFieldslbl_Click;
             // 
             // loginbtn
             // 
@@ -169,7 +169,7 @@
             loginbtn.TabIndex = 7;
             loginbtn.Text = "LOG IN";
             loginbtn.UseVisualStyleBackColor = false;
-            loginbtn.Click += loginbtn_Click;
+            loginbtn.Click += Loginbtn_Click;
             // 
             // divider4pnl
             // 
@@ -355,7 +355,7 @@
             signInLinklbl.Size = new Size(54, 16);
             signInLinklbl.TabIndex = 10;
             signInLinklbl.Text = "Sign In";
-            signInLinklbl.Click += signInLinklbl_Click;
+            signInLinklbl.Click += SignInLinklbl_Click;
             // 
             // concurrentUserlbl
             // 
@@ -379,11 +379,12 @@
             clearLabels1lbl.Size = new Size(76, 17);
             clearLabels1lbl.TabIndex = 8;
             clearLabels1lbl.Text = "Clear Fields";
-            clearLabels1lbl.Click += clearFieldslbl_Click;
+            clearLabels1lbl.Click += ClearFieldslbl_Click;
             // 
             // createLoginbtn
             // 
             createLoginbtn.BackColor = Color.FromArgb(61, 154, 226);
+            createLoginbtn.Cursor = Cursors.Hand;
             createLoginbtn.FlatStyle = FlatStyle.Flat;
             createLoginbtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             createLoginbtn.ForeColor = Color.White;
@@ -393,7 +394,7 @@
             createLoginbtn.TabIndex = 7;
             createLoginbtn.Text = "CREATE LOGIN";
             createLoginbtn.UseVisualStyleBackColor = false;
-            createLoginbtn.Click += createLoginbtn_Click;
+            createLoginbtn.Click += CreateLoginbtn_Click;
             // 
             // divider2pnl
             // 

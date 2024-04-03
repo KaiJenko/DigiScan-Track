@@ -1,5 +1,6 @@
 using System.Data.SqlClient;
 
+
 namespace DigiScan_Track
 {
     public partial class HomePageShortcuts : Form
@@ -8,7 +9,7 @@ namespace DigiScan_Track
         public HomePageShortcuts()
         {
             InitializeComponent();
-            loadDepartmentcmbSQL();
+            LoadDepartmentcmbSQL();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -18,7 +19,7 @@ namespace DigiScan_Track
 
 
 
-        private void loadDepartmentcmbSQL()
+        private void LoadDepartmentcmbSQL()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -114,7 +115,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in actuationImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
 
@@ -122,7 +123,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in compositeImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
 
@@ -130,7 +131,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in fuelPipesImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
 
@@ -138,7 +139,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in gearsImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
 
@@ -146,7 +147,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in militaryImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     HomepageImageflow.PerformLayout();
                     break;
@@ -156,7 +157,7 @@ namespace DigiScan_Track
                     HomepageImageflow.Controls.Clear();
                     foreach (string image in transmissionImages)
                     {
-                        createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
+                        Createshortcuts(pictureBoxWidth, pictureBoxHeight, image, horizontalSpacing);
                     }
                     break;
 
@@ -165,7 +166,7 @@ namespace DigiScan_Track
 
 
 
-        private void createshortcuts(int width, int height, string image, int spacing)
+        private void Createshortcuts(int width, int height, string image, int spacing)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(image);

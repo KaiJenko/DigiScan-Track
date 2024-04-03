@@ -131,7 +131,7 @@
             resetbtn.TabIndex = 31;
             resetbtn.Text = "Reset Form";
             resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
+            resetbtn.Click += Resetbtn_Click;
             // 
             // submitbtn
             // 
@@ -149,7 +149,7 @@
             submitbtn.TabIndex = 30;
             submitbtn.Text = "Submit Form";
             submitbtn.UseVisualStyleBackColor = false;
-            submitbtn.Click += submitbtn_Click;
+            submitbtn.Click += Submitbtn_Click;
             // 
             // notestxt
             // 
@@ -213,7 +213,7 @@
             nocheckbox.TabIndex = 23;
             nocheckbox.Text = "No";
             nocheckbox.UseVisualStyleBackColor = true;
-            nocheckbox.CheckedChanged += nocheckbox_CheckedChanged;
+            nocheckbox.CheckedChanged += Nocheckbox_CheckedChanged;
             // 
             // yescheckbox
             // 
@@ -226,7 +226,7 @@
             yescheckbox.TabIndex = 22;
             yescheckbox.Text = "Yes";
             yescheckbox.UseVisualStyleBackColor = true;
-            yescheckbox.CheckedChanged += yescheckbox_CheckedChanged;
+            yescheckbox.CheckedChanged += Yescheckbox_CheckedChanged;
             // 
             // timestamplbl
             // 
@@ -252,7 +252,7 @@
             departmentcmbox.Size = new Size(155, 29);
             departmentcmbox.TabIndex = 18;
             departmentcmbox.Text = "Department";
-            departmentcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
+            departmentcmbox.SelectedIndexChanged += Departmentcmbox_SelectedIndexChanged;
             // 
             // lineManagertxt
             // 

@@ -101,7 +101,7 @@
             searchpbox.TabIndex = 22;
             searchpbox.TabStop = false;
             searchpbox.Visible = false;
-            searchpbox.Click += searchpbox_Click;
+            searchpbox.Click += Searchpbox_Click;
             // 
             // customInputnud
             // 
@@ -198,7 +198,7 @@
             customrbtn.Tag = "custom";
             customrbtn.Text = "Custom";
             customrbtn.UseVisualStyleBackColor = true;
-            customrbtn.CheckedChanged += radioButton_CheckedChanged;
+            customrbtn.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // tenrbtn
             // 
@@ -213,7 +213,7 @@
             tenrbtn.Tag = "10";
             tenrbtn.Text = "10 Minutes";
             tenrbtn.UseVisualStyleBackColor = true;
-            tenrbtn.CheckedChanged += radioButton_CheckedChanged;
+            tenrbtn.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // fiverbtn
             // 
@@ -228,7 +228,7 @@
             fiverbtn.Tag = "5";
             fiverbtn.Text = "5 Minutes";
             fiverbtn.UseVisualStyleBackColor = true;
-            fiverbtn.CheckedChanged += radioButton_CheckedChanged;
+            fiverbtn.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // tworbtn
             // 
@@ -243,7 +243,7 @@
             tworbtn.Tag = "2";
             tworbtn.Text = " 2  Minutes ";
             tworbtn.UseVisualStyleBackColor = true;
-            tworbtn.CheckedChanged += radioButton_CheckedChanged;
+            tworbtn.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // Borderpnl
             // 

@@ -1,16 +1,12 @@
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+
 
 namespace DigiScan_Track
 {
     public partial class DisplayBoard : Form
     {
 
-        SqlConnection conn = new SqlConnection();
         string sqlQuery = "";
 
         public DisplayBoard()
@@ -25,9 +21,9 @@ namespace DigiScan_Track
         }
 
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
             foreach (RadioButton radioButton in radioButtonpnl.Controls)
             {
                 if (radioButton.Checked)
@@ -35,15 +31,15 @@ namespace DigiScan_Track
                     switch (radioButton.Tag)
                     {
                         case "2":
-                            hideCustomInput();
+                            HideCustomInput();
                             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '2'";
                             break;
                         case "5":
-                            hideCustomInput();
+                            HideCustomInput();
                             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '5'";
                             break;
                         case "10":
-                            hideCustomInput();
+                            HideCustomInput();
                             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '10'";
                             break;
                         case "custom":
@@ -51,23 +47,26 @@ namespace DigiScan_Track
                             searchpbox.Visible = true;
                             break;
                         default:
-                            break;
+                            
+                        break;
                     }
                 }
-
             }
-            executeAgedWIPSQL(sqlQuery);
+
+            ExecuteAgedWIPSQL(sqlQuery);
         }
 
 
-        private void searchpbox_Click(object sender, EventArgs e)
+
+        private void Searchpbox_Click(object sender, EventArgs e)
         {
             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '" + customInputnud.Value + "'";
-            executeAgedWIPSQL(sqlQuery);
+            ExecuteAgedWIPSQL(sqlQuery);
         }
 
 
-        private void executeAgedWIPSQL(string sqlQuery)
+
+        private void ExecuteAgedWIPSQL(string sqlQuery)
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
@@ -79,11 +78,12 @@ namespace DigiScan_Track
             dt.Load(dr);
             conn.Close();
             recentScannedGridView.DataSource = dt;
-            displayBoardSQL();
+            DisplayBoardSQL();
         }
 
 
-        private void hideCustomInput()
+
+        private void HideCustomInput()
         {
             customInputnud.Visible = false;
             searchpbox.Visible = false;
@@ -91,7 +91,8 @@ namespace DigiScan_Track
         }
 
 
-        private void displayBoardSQL()
+
+        private void DisplayBoardSQL()
         {
             recentScannedGridView.Columns[0].HeaderText = "Part No";
             recentScannedGridView.Columns[1].HeaderText = "Serial No";
@@ -106,23 +107,6 @@ namespace DigiScan_Track
             recentScannedGridView.Columns[3].Width = 175;
             recentScannedGridView.Columns[4].Width = 175;
             recentScannedGridView.Columns[5].Width = 175;
-
-
         }
-
-
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
-        {
-            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-            {
-                newForm.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-
     }
 }

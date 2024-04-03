@@ -10,14 +10,14 @@ namespace DigiScan_Track
         SqlConnection conn = new SqlConnection();
         int defaultOrCustom = 0;
 
-
         public WIPTracker(string sentDepartment, string sentWorkstation)
         {
             InitializeComponent();
-            getWIPTrackerSQL(sentDepartment, sentWorkstation);           
-            transparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
+            GetWIPTrackerSQL(sentDepartment, sentWorkstation);           
+            TransparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
 
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+
             searchcmb.SelectedIndex = 0;
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             WIPgridView.CellPainting += WIPgridView_CellPainting;
@@ -30,7 +30,7 @@ namespace DigiScan_Track
 
 
 
-        private void getWIPTrackerSQL(string department, string workstation)
+        private void GetWIPTrackerSQL(string department, string workstation)
         {
             string cmdText = "";
 
@@ -71,19 +71,19 @@ namespace DigiScan_Track
 
             if (defaultOrCustom == 0)
             {
-                create_defaultGridView_WIP();
+                Create_defaultGridView_WIP();
             }
 
             else
             {
-                create_customGridView_WIP();
+                Create_customGridView_WIP();
             }
 
         }
 
 
 
-        private void create_defaultGridView_WIP()
+        private void Create_defaultGridView_WIP()
         {
             WIPgridView.Columns[0].HeaderText = "Part No";
             WIPgridView.Columns[1].HeaderText = "Serial No";
@@ -109,7 +109,7 @@ namespace DigiScan_Track
 
 
 
-        private void create_customGridView_WIP()
+        private void Create_customGridView_WIP()
         {
             WIPgridView.Columns[0].HeaderText = "Part No";
             WIPgridView.Columns[1].HeaderText = "Serial No";
@@ -131,16 +131,16 @@ namespace DigiScan_Track
 
         
 
-        private void searchbtn_Click(object sender, EventArgs e)
+        private void Searchbtn_Click(object sender, EventArgs e)
         {
-            buttonPressedColourChange(sender);
+            ButtonPressedColourChange(sender);
 
             string searchval = searchtxt.Text.Trim();
             string dropdownSelection = searchcmb.Text.Replace(" ", "");
 
             if (searchval != "" && dropdownSelection != "")
             {
-                addFieldbtn_Click(sender, e);
+                AddFieldbtn_Click(sender, e);
 
                 int index = 0;
                 string sqlQuery = "";
@@ -203,7 +203,7 @@ namespace DigiScan_Track
                     con.Close();
 
                     WIPgridView.DataSource = dt;
-                    create_defaultGridView_WIP();
+                    Create_defaultGridView_WIP();
                 }
 
                 else
@@ -224,7 +224,7 @@ namespace DigiScan_Track
                     con.Close();
 
                     WIPgridView.DataSource = dt;
-                    create_customGridView_WIP();
+                    Create_customGridView_WIP();
                 }
 
             }
@@ -237,21 +237,21 @@ namespace DigiScan_Track
 
 
 
-        private void resetbtn_Click(object sender, EventArgs e)
+        private void Resetbtn_Click(object sender, EventArgs e)
         {
-            buttonPressedColourChange(sender);
+            ButtonPressedColourChange(sender);
             searchFieldpnl.Controls.Clear();
-            getWIPTrackerSQL(null, null);
+            GetWIPTrackerSQL(null, null);
             defaultOrCustom = 0;
         }
 
 
 
-        private void addFieldbtn_Click(object sender, EventArgs e)
+        private void AddFieldbtn_Click(object sender, EventArgs e)
         {
             if (searchtxt.Text != "")
             {
-                buttonPressedColourChange(sender);
+                ButtonPressedColourChange(sender);
                 string searchField = searchcmb.Text.Replace(" ", "");
                 string searchValue = searchtxt.Text.Trim();
 
@@ -312,7 +312,7 @@ namespace DigiScan_Track
                         Point clickLocation = redCrosspbox.PointToClient(Cursor.Position);
                         if (new Rectangle(Point.Empty, redCrosspbox.Size).Contains(clickLocation))
                         {
-                            clearPanels(panel);
+                            ClearPanels(panel);
                             index--;
                             if (index == -1)
                             {
@@ -332,7 +332,7 @@ namespace DigiScan_Track
 
 
 
-        private void clearPanels(Panel panel)
+        private void ClearPanels(Panel panel)
         {
             List<Panel> storedPanels = new List<Panel>();
             foreach (Control control in searchFieldpnl.Controls)
@@ -359,7 +359,7 @@ namespace DigiScan_Track
 
 
 
-        public void transparentBackground(Form form, params string[] buttonName) //params means array doesnt need to be created
+        public void TransparentBackground(Form form, params string[] buttonName) //params means array doesnt need to be created
         {
             foreach (string button in buttonName)
             {
@@ -376,7 +376,7 @@ namespace DigiScan_Track
 
 
 
-        private void buttonPressedColourChange(object sender)
+        private void ButtonPressedColourChange(object sender)
         {
             Button button = sender as Button;
             Timer timer = new Timer();

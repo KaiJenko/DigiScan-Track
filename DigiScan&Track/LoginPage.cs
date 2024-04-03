@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 
+
 namespace DigiScan_Track
 {
     public partial class LoginPage : Form
@@ -12,7 +13,9 @@ namespace DigiScan_Track
             InitializeComponent();
         }
 
-        private void loginbtn_Click(object sender, EventArgs e)
+
+
+        private void Loginbtn_Click(object sender, EventArgs e)
         {
             string username = ouUsernametxt.Text;
             string password = ouPasswordtxt.Text;
@@ -32,7 +35,6 @@ namespace DigiScan_Track
                 UserLoginDetails.Instance.loggedIN = true;
                 UserLoginDetails.Instance.Permission = PermissionLevel;
                 UpdateHomePageLoginStatus();
-
             }
 
             else
@@ -43,19 +45,23 @@ namespace DigiScan_Track
             conn.Close();
         }
 
-        public void UpdateHomePageLoginStatus()
+
+
+        public static void UpdateHomePageLoginStatus()
         {
             if (Application.OpenForms["HomePage"] is HomePage homePage)
             {
                 homePage.Invoke((MethodInvoker)delegate
                 {
-                    homePage.setLogin();
+                    homePage.SetLogin();
                     homePage.HomePageShortcutsbtn.PerformClick();
                 });
             }
         }
 
-        private void clearFieldslbl_Click(object sender, EventArgs e)
+
+
+        private void ClearFieldslbl_Click(object sender, EventArgs e)
         {
             ouUsernametxt.Clear();
             ouPasswordtxt.Clear();
@@ -65,7 +71,9 @@ namespace DigiScan_Track
             retypePasswordtxt.Clear();
         }
 
-        private void registerLinklbl_Click(object sender, EventArgs e)
+
+
+        private void RegisterLinklbl_Click(object sender, EventArgs e)
         {
             oldUserpnl.Visible = false;
             newUserpnl.Visible = true;
@@ -73,7 +81,9 @@ namespace DigiScan_Track
             ouPasswordtxt.Clear();
         }
 
-        private void signInLinklbl_Click(object sender, EventArgs e)
+
+
+        private void SignInLinklbl_Click(object sender, EventArgs e)
         {
             oldUserpnl.Visible = true;
             newUserpnl.Visible = false;
@@ -83,27 +93,9 @@ namespace DigiScan_Track
             retypePasswordtxt.Clear();
         }
 
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text == textBox.Tag?.ToString())
-            {
-                textBox.Clear();
-                textBox.ForeColor = Color.FromArgb(0, 126, 249);
-            }
-        }
 
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = textBox.Tag.ToString();
-                textBox.ForeColor = Color.RosyBrown;
-            }
-        }
 
-        private void createLoginbtn_Click(object sender, EventArgs e)
+        private void CreateLoginbtn_Click(object sender, EventArgs e)
         {
             string fullName = fullNametxt.Text;
             string employeeID = employeeIDtxt.Text;

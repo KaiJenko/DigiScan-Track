@@ -1,6 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace DigiScan_Track
 {
     public partial class EditParts : Form
@@ -9,8 +10,8 @@ namespace DigiScan_Track
         public EditParts()
         {
             InitializeComponent();
-            loadDepartmentcmbSQL();
-            partsToEditSQL();
+            LoadDepartmentcmbSQL();
+            PartsToEditSQL();
 
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
             WIPTracker wiptracker = new WIPTracker(null, null);
@@ -28,7 +29,7 @@ namespace DigiScan_Track
 
 
 
-        private void loadDepartmentcmbSQL()
+        private void LoadDepartmentcmbSQL()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -45,26 +46,25 @@ namespace DigiScan_Track
             conn.Close();
 
             departmentcmbox.SelectedIndex = 0;
-
-
+            addPartcmbox.SelectedIndex = 0;
         }
 
 
 
-        private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (departmentcmbox.Text != null)
             {
                 string chosenDepartment = departmentcmbox.Text.ToString();
                 partNumbercmbox.Enabled = true;
                 partNumbercmbox.Items.Clear();
-                loadDetails(chosenDepartment);
+                LoadDetails(chosenDepartment);
             }
         }
 
 
 
-        private void loadDetails(string chosenDepartment)
+        private void LoadDetails(string chosenDepartment)
         {
             int countDepartments = departmentcmbox.Items.Count;
             string[] departmentList = new string[countDepartments];
@@ -115,16 +115,16 @@ namespace DigiScan_Track
 
 
 
-        private void partsToEditSQL()
+        private void PartsToEditSQL()
         {
             string pullPartsToEdit = "SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking";
-            sqlQuery(pullPartsToEdit, toEditGridView);
-            partsToEditLayout();
+            SqlQuery(pullPartsToEdit, toEditGridView);
+            PartsToEditLayout();
         }
 
 
 
-        private void partsToEditLayout()
+        private void PartsToEditLayout()
         {
             toEditGridView.Columns[0].HeaderText = "Serial No";
             toEditGridView.Columns[1].HeaderText = "Part No";
@@ -159,20 +159,20 @@ namespace DigiScan_Track
                 SQLQuery = " SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking" +
                            " WHERE [Department] = '" + department + "'" +
                            " AND [PartNumber] = '" + partNumber + "'";
-                sqlQuery(SQLQuery, toEditGridView);
+                SqlQuery(SQLQuery, toEditGridView);
             }
 
             else
             {
                 SQLQuery = "SELECT * FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                            " AND [PartNumber] = '" + partNumber + "' AND [SerialNumber] = '" + serialNumber + "'";
-                sqlQuery(SQLQuery, toEditGridView);
+                SqlQuery(SQLQuery, toEditGridView);
             }
         }
 
 
 
-        private void sqlQuery(string command, DataGridView gridview)
+        private void SqlQuery(string command, DataGridView gridview)
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
@@ -188,7 +188,7 @@ namespace DigiScan_Track
 
 
 
-        private void toEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ToEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
             string serialNum = toEditGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -238,7 +238,7 @@ namespace DigiScan_Track
 
 
 
-        private void crossOffpbox_Click(object sender, EventArgs e)
+        private void CrossOffpbox_Click(object sender, EventArgs e)
         {
             Control editPartsPage = InnerBorderpnl.Controls[0];
             InnerBorderpnl.Controls.Remove(editPartsPage);
@@ -247,7 +247,7 @@ namespace DigiScan_Track
 
 
 
-        public void toEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        public void ToEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
 
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && toEditGridView.Columns[e.ColumnIndex].Name == "InStorage")
@@ -276,14 +276,13 @@ namespace DigiScan_Track
 
 
 
-        private void submitAddpbox_Click(object sender, EventArgs e)
+        private void SubmitAddpbox_Click(object sender, EventArgs e)
         {
             string department = addPartcmbox.SelectedItem.ToString();
             string partNum = addParttxt.Text;
 
             if (partNum != "")
             {
-
                 string message = "Do you want to insert part number: " + partNum + " into: " + department;
                 string title = "Add New Part Number to: " + department;
                 MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
@@ -295,7 +294,7 @@ namespace DigiScan_Track
                     conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                     conn.Open();
                     string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
-                                      " VALUES (@Department, @PartNumber)";
+                                        " VALUES (@Department, @PartNumber)";
                     SqlCommand cmd = new SqlCommand(sqlInsert, conn);
 
                     cmd.Parameters.AddWithValue("@Department", department);
@@ -306,18 +305,17 @@ namespace DigiScan_Track
                     addParttxt.Clear();
                     MessageBox.Show("You have inputted a new part");
                 }
-
             }
 
             else
             {
                 MessageBox.Show("Please input a part number");
-            }
+            }        
         }
 
 
 
-        private void toEditgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void ToEditgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
@@ -327,7 +325,7 @@ namespace DigiScan_Track
 
 
 
-        private void toEditgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        private void ToEditgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {

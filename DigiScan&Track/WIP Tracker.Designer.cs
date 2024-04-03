@@ -170,7 +170,7 @@
             resetbtn.TabIndex = 32;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
+            resetbtn.Click += Resetbtn_Click;
             // 
             // searchbtn
             // 
@@ -188,7 +188,7 @@
             searchbtn.TabIndex = 31;
             searchbtn.Text = "Search";
             searchbtn.UseVisualStyleBackColor = false;
-            searchbtn.Click += searchbtn_Click;
+            searchbtn.Click += Searchbtn_Click;
             // 
             // searchcmb
             // 
@@ -275,7 +275,7 @@
             addFieldbtn.TabIndex = 33;
             addFieldbtn.Text = "Add Search Field";
             addFieldbtn.UseVisualStyleBackColor = false;
-            addFieldbtn.Click += addFieldbtn_Click;
+            addFieldbtn.Click += AddFieldbtn_Click;
             // 
             // bottomLeftBorderbtn
             // 

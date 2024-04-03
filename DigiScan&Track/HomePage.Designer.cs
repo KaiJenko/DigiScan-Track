@@ -80,9 +80,9 @@
             expandpicbox.TabIndex = 4;
             expandpicbox.TabStop = false;
             expandpicbox.Visible = false;
-            expandpicbox.Click += expandpicbox_Click;
-            expandpicbox.MouseEnter += enlargeImage;
-            expandpicbox.MouseLeave += shrinkImage;
+            expandpicbox.Click += Expandpicbox_Click;
+            expandpicbox.MouseEnter += EnlargeImage;
+            expandpicbox.MouseLeave += ShrinkImage;
             // 
             // InnerBodypnl
             // 
@@ -132,7 +132,7 @@
             SettingsPagebtn.Text = "Settings";
             SettingsPagebtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             SettingsPagebtn.UseVisualStyleBackColor = true;
-            SettingsPagebtn.Click += settingsbtn_Click;
+            SettingsPagebtn.Click += Settingsbtn_Click;
             // 
             // DisplayBoardbtn
             // 
@@ -154,8 +154,8 @@
             DisplayBoardbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             DisplayBoardbtn.UseVisualStyleBackColor = true;
             DisplayBoardbtn.Click += DisplayBoardbtn_Click;
-            DisplayBoardbtn.MouseEnter += hoverButton;
-            DisplayBoardbtn.MouseLeave += unHoverButton;
+            DisplayBoardbtn.MouseEnter += HoverButton;
+            DisplayBoardbtn.MouseLeave += UnHoverButton;
             // 
             // ManualInputbtn
             // 
@@ -177,8 +177,8 @@
             ManualInputbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             ManualInputbtn.UseVisualStyleBackColor = true;
             ManualInputbtn.Click += ManualInputbtn_Click;
-            ManualInputbtn.MouseEnter += hoverButton;
-            ManualInputbtn.MouseLeave += unHoverButton;
+            ManualInputbtn.MouseEnter += HoverButton;
+            ManualInputbtn.MouseLeave += UnHoverButton;
             // 
             // EditPartsbtn
             // 
@@ -200,8 +200,8 @@
             EditPartsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             EditPartsbtn.UseVisualStyleBackColor = true;
             EditPartsbtn.Click += EditPartsbtn_Click;
-            EditPartsbtn.MouseEnter += hoverButton;
-            EditPartsbtn.MouseLeave += unHoverButton;
+            EditPartsbtn.MouseEnter += HoverButton;
+            EditPartsbtn.MouseLeave += UnHoverButton;
             // 
             // AgedWIPbtn
             // 
@@ -223,8 +223,8 @@
             AgedWIPbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             AgedWIPbtn.UseVisualStyleBackColor = true;
             AgedWIPbtn.Click += AgedWIPbtn_Click;
-            AgedWIPbtn.MouseEnter += hoverButton;
-            AgedWIPbtn.MouseLeave += unHoverButton;
+            AgedWIPbtn.MouseEnter += HoverButton;
+            AgedWIPbtn.MouseLeave += UnHoverButton;
             // 
             // WIPTrackerbtn
             // 
@@ -246,8 +246,8 @@
             WIPTrackerbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             WIPTrackerbtn.UseVisualStyleBackColor = true;
             WIPTrackerbtn.Click += WIPTrackerbtn_Click;
-            WIPTrackerbtn.MouseEnter += hoverButton;
-            WIPTrackerbtn.MouseLeave += unHoverButton;
+            WIPTrackerbtn.MouseEnter += HoverButton;
+            WIPTrackerbtn.MouseLeave += UnHoverButton;
             // 
             // HomePageShortcutsbtn
             // 
@@ -269,8 +269,8 @@
             HomePageShortcutsbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
             HomePageShortcutsbtn.UseVisualStyleBackColor = true;
             HomePageShortcutsbtn.Click += HomeAreabtn_Click;
-            HomePageShortcutsbtn.MouseEnter += hoverButton;
-            HomePageShortcutsbtn.MouseLeave += unHoverButton;
+            HomePageShortcutsbtn.MouseEnter += HoverButton;
+            HomePageShortcutsbtn.MouseLeave += UnHoverButton;
             // 
             // Usernamepnl
             // 
@@ -302,7 +302,7 @@
             loginbtn.TabIndex = 31;
             loginbtn.Text = "LOG IN";
             loginbtn.UseVisualStyleBackColor = false;
-            loginbtn.Click += loginbtn_Click;
+            loginbtn.Click += Loginbtn_Click;
             // 
             // periodOnlinelbl
             // 
@@ -335,9 +335,9 @@
             collapsepicbox.SizeMode = PictureBoxSizeMode.StretchImage;
             collapsepicbox.TabIndex = 7;
             collapsepicbox.TabStop = false;
-            collapsepicbox.Click += collapsepicbox_Click;
-            collapsepicbox.MouseEnter += enlargeImage;
-            collapsepicbox.MouseLeave += shrinkImage;
+            collapsepicbox.Click += Collapsepicbox_Click;
+            collapsepicbox.MouseEnter += EnlargeImage;
+            collapsepicbox.MouseLeave += ShrinkImage;
             // 
             // userimagepicbox
             // 

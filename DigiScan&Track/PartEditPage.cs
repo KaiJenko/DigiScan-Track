@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace DigiScan_Track
 {
@@ -18,11 +9,13 @@ namespace DigiScan_Track
         public PartEditPage(string serialNumber)
         {
             InitializeComponent();
-            editPartDetailsSQL(serialNumber);
-            furtherEditPartsSQL(serialNumber);
+            EditPartDetailsSQL(serialNumber);
+            FurtherEditPartsSQL(serialNumber);
         }
 
-        private void editPartDetailsSQL(string serialNumber)
+
+
+        private void EditPartDetailsSQL(string serialNumber)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -35,11 +28,13 @@ namespace DigiScan_Track
             dt.Load(dr);
             conn.Close();
             partTobeEditedGridView.DataSource = dt;
-            partsEditLayout();
+            PartsEditLayout();
 
         }
 
-        private void furtherEditPartsSQL(string serialNumber)
+
+
+        private void FurtherEditPartsSQL(string serialNumber)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -52,7 +47,7 @@ namespace DigiScan_Track
             dt.Load(dr);
             conn.Close();
             furtherDetailsgridview.DataSource = dt;
-            furtherDetailsLayout();
+            FurtherDetailsLayout();
 
             if (furtherDetailsgridview.Rows.Count == 0)
             {
@@ -62,17 +57,16 @@ namespace DigiScan_Track
         }
 
 
+
         private void InputEdit_Click(object sender, EventArgs e)
         {
             int repeat = 0;
             foreach (Control control in userInputpnl.Controls)
             {
-
                 if (control is RichTextBox richTextBox)
                 {
                     if (!string.IsNullOrWhiteSpace(richTextBox.Text))
                     {
-
                         DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
                         int count = 0;
 
@@ -80,7 +74,6 @@ namespace DigiScan_Track
 
                         foreach (Control userControl in userInputpnl.Controls)
                         {
-
                             if (control is CheckBox)
                             {
                                 CheckBox checkbox = control as CheckBox;
@@ -139,7 +132,9 @@ namespace DigiScan_Track
             }
         }
 
-        private void partsEditLayout()
+
+
+        private void PartsEditLayout()
         {
             partTobeEditedGridView.Columns[0].HeaderText = "Part No";
             partTobeEditedGridView.Columns[1].HeaderText = "Serial No";
@@ -161,7 +156,9 @@ namespace DigiScan_Track
 
         }
 
-        private void furtherDetailsLayout()
+
+
+        private void FurtherDetailsLayout()
         {
             furtherDetailsgridview.Columns[0].HeaderText = "Storage Date";
             furtherDetailsgridview.Columns[1].HeaderText = "Reason";

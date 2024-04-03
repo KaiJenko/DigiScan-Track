@@ -1,8 +1,5 @@
-using System.Data.SqlClient;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
-using System.Xml.Serialization;
 using Timer = System.Windows.Forms.Timer;
+
 
 namespace DigiScan_Track
 {
@@ -22,18 +19,18 @@ namespace DigiScan_Track
         {
             InitializeComponent();
             LoadButtonImages();
-            createTimer();
+            CreateTimer();
             prev = HomePageShortcutsbtn;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            currentFormSelect();
+            CurrentFormSelect();
         }
 
 
 
-        private void createTimer()
+        private void CreateTimer()
         {
             timer = new Timer();
             timer.Interval = 1100;
@@ -53,7 +50,7 @@ namespace DigiScan_Track
 
 
 
-        private void currentFormSelect()
+        private void CurrentFormSelect()
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
@@ -73,7 +70,7 @@ namespace DigiScan_Track
 
 
 
-        public void setLogin()
+        public void SetLogin()
         {
             string username = UserLoginDetails.Instance.Username;
             bool hasPermission = UserLoginDetails.Instance.loggedIN;
@@ -82,7 +79,6 @@ namespace DigiScan_Track
                 loginbtn.Visible = false;
                 usernamelbl.Visible = true;
                 usernamelbl.Text = username;
-                MessageBox.Show("hi");
             }
         }
 
@@ -99,7 +95,7 @@ namespace DigiScan_Track
             }
         }
 
-        private void loginbtn_Click(object sender, EventArgs e)
+        private void Loginbtn_Click(object sender, EventArgs e)
         {
             this.InnerBodypnl.Controls.Clear();
             LoginPage loginpage = new LoginPage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -111,52 +107,52 @@ namespace DigiScan_Track
         public void HomeAreabtn_Click(object sender, EventArgs e)
         {
             HomePageShortcuts shortcut = new HomePageShortcuts();
-            homePageButtonClick(shortcut, sender, e);
+            HomePageButtonClick(shortcut, sender, e);
         }
 
         private void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
             WIPTracker wip = new WIPTracker(null, null);
-            homePageButtonClick(wip, sender, e);
+            HomePageButtonClick(wip, sender, e);
         }
 
         private void AgedWIPbtn_Click(object sender, EventArgs e)
         {
             AgedWIP agedwip = new AgedWIP();
-            homePageButtonClick(agedwip, sender, e);
+            HomePageButtonClick(agedwip, sender, e);
         }
 
         private void EditPartsbtn_Click(object sender, EventArgs e)
         {
             EditParts edit = new EditParts();
-            homePageButtonClick(edit, sender, e);
+            HomePageButtonClick(edit, sender, e);
         }
 
         public void ManualInputbtn_Click(object sender, EventArgs e)
         {
             ManualInput manual = new ManualInput(null, null);
-            homePageButtonClick(manual, sender, e);
+            HomePageButtonClick(manual, sender, e);
         }
 
         private void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
             DisplayBoard display = new DisplayBoard();
-            homePageButtonClick(display, sender, e);
+            HomePageButtonClick(display, sender, e);
 
         }
 
-        private void settingsbtn_Click(object sender, EventArgs e)
+        private void Settingsbtn_Click(object sender, EventArgs e)
         {
             SettingsPage settings = new SettingsPage();
-            homePageButtonClick(settings, sender, e);
+            HomePageButtonClick(settings, sender, e);
 
         }
 
-        private void homePageButtonClick(Form newForm, object sender, EventArgs e)
+        private void HomePageButtonClick(Form newForm, object sender, EventArgs e)
         {
 
             Button buttonClicked = sender as Button;
-            buttonColour();
+            ButtonColour();
 
             if (prev == buttonClicked)
             {
@@ -192,7 +188,7 @@ namespace DigiScan_Track
         private void LoadButtonImages()
         {
             WIPTracker wip = new WIPTracker(null, null);
-            wip.transparentBackground(this, "loginbtn");
+            wip.TransparentBackground(this, "loginbtn");
 
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
             int x = images.Length - 1;
@@ -216,7 +212,7 @@ namespace DigiScan_Track
 
 
 
-        private void hoverButton(object sender, EventArgs e)
+        private void HoverButton(object sender, EventArgs e)
         {
             Button hoverbtn = sender as Button;
             selectionpnl.BringToFront();
@@ -228,7 +224,7 @@ namespace DigiScan_Track
 
 
 
-        private void unHoverButton(object sender, EventArgs e)
+        private void UnHoverButton(object sender, EventArgs e)
         {
 
             Button hoverbtn = sender as Button;
@@ -241,7 +237,7 @@ namespace DigiScan_Track
 
 
 
-        public void buttonColour()
+        public void ButtonColour()
         {
             foreach (Control control in dashpnl.Controls)
             {
@@ -255,7 +251,7 @@ namespace DigiScan_Track
 
 
 
-        private void enlargeImage(object sender, EventArgs e)
+        private void EnlargeImage(object sender, EventArgs e)
         {
             PictureBox picturebox = sender as PictureBox;
             originalArrowWidth = picturebox.Width;
@@ -267,7 +263,7 @@ namespace DigiScan_Track
 
 
 
-        private void shrinkImage(object sender, EventArgs e)
+        private void ShrinkImage(object sender, EventArgs e)
         {
             PictureBox picturebox = sender as PictureBox;
             picturebox.Size = new Size(originalArrowWidth, originalArrowHeight);
@@ -275,7 +271,7 @@ namespace DigiScan_Track
 
 
 
-        private void collapsepicbox_Click(object sender, EventArgs e)
+        private void Collapsepicbox_Click(object sender, EventArgs e)
         {
             originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
             manualTablepnl.ColumnStyles[0].Width = 0;
@@ -285,7 +281,7 @@ namespace DigiScan_Track
 
 
 
-        private void expandpicbox_Click(object sender, EventArgs e)
+        private void Expandpicbox_Click(object sender, EventArgs e)
         {
             manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
             expandpicbox.Visible = false;
@@ -302,7 +298,7 @@ namespace DigiScan_Track
                     string formname = form.GetType().Name;
                     if (formname != "LoginPage")
                     {
-                        buttonColour();
+                        ButtonColour();
                         currentFormpnl.BringToFront();
                         string buttonname = formname + "btn";
                         Button button = Controls.Find(buttonname, true).FirstOrDefault() as Button;

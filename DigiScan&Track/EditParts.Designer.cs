@@ -90,7 +90,7 @@
             departmentcmbox.Name = "departmentcmbox";
             departmentcmbox.Size = new Size(201, 30);
             departmentcmbox.TabIndex = 7;
-            departmentcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
+            departmentcmbox.SelectedIndexChanged += Departmentcmbox_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -239,10 +239,10 @@
             toEditGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             toEditGridView.Size = new Size(510, 472);
             toEditGridView.TabIndex = 29;
-            toEditGridView.CellContentClick += toEditGridView_CellContentClick;
-            toEditGridView.CellMouseEnter += toEditgridview_CellMouseEnter;
-            toEditGridView.CellMouseLeave += toEditgridview_CellMouseLeave;
-            toEditGridView.CellPainting += toEditGridView_CellPainting;
+            toEditGridView.CellContentClick += ToEditGridView_CellContentClick;
+            toEditGridView.CellMouseEnter += ToEditgridview_CellMouseEnter;
+            toEditGridView.CellMouseLeave += ToEditgridview_CellMouseLeave;
+            toEditGridView.CellPainting += ToEditGridView_CellPainting;
             // 
             // panel1
             // 
@@ -277,7 +277,7 @@
             submitAddpbox.Size = new Size(20, 20);
             submitAddpbox.TabIndex = 27;
             submitAddpbox.TabStop = false;
-            submitAddpbox.Click += submitAddpbox_Click;
+            submitAddpbox.Click += SubmitAddpbox_Click;
             // 
             // addPartcmbox
             // 
@@ -293,7 +293,7 @@
             addPartcmbox.Name = "addPartcmbox";
             addPartcmbox.Size = new Size(201, 30);
             addPartcmbox.TabIndex = 24;
-            addPartcmbox.SelectedIndexChanged += departmentcmbox_SelectedIndexChanged;
+            addPartcmbox.SelectedIndexChanged += Departmentcmbox_SelectedIndexChanged;
             // 
             // addParttxt
             // 
@@ -387,7 +387,7 @@
             crossOffpbox.TabIndex = 0;
             crossOffpbox.TabStop = false;
             crossOffpbox.Visible = false;
-            crossOffpbox.Click += crossOffpbox_Click;
+            crossOffpbox.Click += CrossOffpbox_Click;
             // 
             // EditParts
             // 

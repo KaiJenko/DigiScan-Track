@@ -1,8 +1,5 @@
 using Microsoft.Office.Interop.Excel;
-using OfficeOpenXml;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using DataTable = System.Data.DataTable;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -16,11 +13,11 @@ namespace DigiScan_Track
         public AgedWIP()
         {
             InitializeComponent();
-            pullMaxCountSQL();
-            getAgedWIPSQL();
+            PullMaxCountSQL();
+            GetAgedWIPSQL();
 
             WIPTracker wip = new WIPTracker(null, null);
-            wip.transparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
+            wip.TransparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
         }
 
 
@@ -32,7 +29,7 @@ namespace DigiScan_Track
 
 
 
-        private void pullMaxCountSQL()
+        private void PullMaxCountSQL()
         {
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
@@ -53,7 +50,7 @@ namespace DigiScan_Track
 
 
 
-        private void getAgedWIPSQL()
+        private void GetAgedWIPSQL()
         {
             DataTable dt = new DataTable();
 
@@ -68,21 +65,21 @@ namespace DigiScan_Track
             conn.Close();
 
             Agedgridview.DataSource = dt;
-            create_defaultGridView_WIP();
+            Create_defaultGridView_WIP();
 
             conn.Close();
         }
 
 
 
-        private void agedDaystrackbar_Scroll(object sender, EventArgs e)
+        private void AgedDaystrackbar_Scroll(object sender, EventArgs e)
         {
             counttrackbarlbl.Text = agedDaystrackbar.Value.ToString();
         }
 
 
 
-        private void create_defaultGridView_WIP()
+        private void Create_defaultGridView_WIP()
         {
             Agedgridview.Columns[0].HeaderText = "Serial Number";
             Agedgridview.Columns[1].HeaderText = "Days Aged";
@@ -93,7 +90,7 @@ namespace DigiScan_Track
 
 
 
-        private void furtherDetailsSQL()
+        private void FurtherDetailsSQL()
         {
             furtherDetailsgridview.Columns[0].HeaderText = "Serial No";
             furtherDetailsgridview.Columns[1].HeaderText = "Part No";
@@ -156,14 +153,14 @@ namespace DigiScan_Track
             conn.Close();
 
             Agedgridview.DataSource = dt;
-            create_defaultGridView_WIP();
+            Create_defaultGridView_WIP();
 
             conn.Close();
         }
 
 
 
-        private void rangerbtn_Click(object sender, EventArgs e)
+        private void Rangerbtn_Click(object sender, EventArgs e)
         {
             if (rangerbtn.Checked)
             {
@@ -204,7 +201,7 @@ namespace DigiScan_Track
                 conn.Close();
 
                 furtherDetailsgridview.DataSource = dt;
-                furtherDetailsSQL();
+                FurtherDetailsSQL();
 
                 conn.Close();
             }
@@ -212,14 +209,14 @@ namespace DigiScan_Track
 
 
 
-        private void resetbtn_Click(object sender, EventArgs e)
+        private void Resetbtn_Click(object sender, EventArgs e)
         {
             agedDaystrackbar.Value = 0;
             equalsrbtn.Checked = true;
             counttrackbarlbl.Text = "0";
             lowerRangenud.Value = 0;
             higherRangenud.Value = 0;
-            getAgedWIPSQL();
+            GetAgedWIPSQL();
         }
 
 
@@ -244,9 +241,9 @@ namespace DigiScan_Track
 
 
 
-        private void excelbtn_Click(object sender, EventArgs e)
+        private void Excelbtn_Click(object sender, EventArgs e)
         {
-            exportToExcel(Agedgridview);
+            ExportToExcel(Agedgridview);
 
         }
 
@@ -255,7 +252,7 @@ namespace DigiScan_Track
         Worksheet worksheet;
         string filepath;
 
-        private void exportToExcel(DataGridView datagridview)
+        private void ExportToExcel(DataGridView datagridview)
         {
             if (datagridview.Rows.Count > 0)
             {
@@ -284,13 +281,11 @@ namespace DigiScan_Track
                         worksheet.Columns.AutoFit();
                         workbook.SaveAs(filepath);
                         workbook.Close();
-                    }
-                    
-                }
-                
+                    }               
+                }       
             }
         }
+
+
     }
-
-
 }
