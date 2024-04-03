@@ -34,6 +34,7 @@ namespace DigiScan_Track
             conn.Close();
             Departmentcmb.SelectedItem = Departmentcmb.Items[3].ToString();
             Departmentcmb.SelectedItem = Color.FromArgb(255, 46, 51, 73);
+
         }
 
 
@@ -98,16 +99,16 @@ namespace DigiScan_Track
             };
 
             // Calculate the size of each PictureBox
-            int pictureBoxWidth = 250;
-            int pictureBoxHeight = 160;
+            double pictureBoxWidth = HomepageImageflow.Width / 3.75;
+            double pictureBoxHeight = HomepageImageflow.Height / 2.5;
             int pictureLength = actuationImages.Length;
             int flowLayoutPanelWidth = HomepageImageflow.ClientSize.Width;
 
             // Calculate the total width occupied by the PictureBoxes (excluding margins)
-            int totalPictureBoxWidth = pictureLength * pictureBoxWidth;
+            double totalPictureBoxWidth = 3 * pictureBoxWidth;
 
             // Calculate the horizontal spacing between PictureBoxes
-            int horizontalSpacing = (flowLayoutPanelWidth - totalPictureBoxWidth) / (pictureLength + 1);
+            double horizontalSpacing = (flowLayoutPanelWidth - totalPictureBoxWidth) / (pictureLength + 2);
 
             switch (comboboxItem)
             {
@@ -166,21 +167,21 @@ namespace DigiScan_Track
 
 
 
-        private void Createshortcuts(int width, int height, string image, int spacing)
+        private void Createshortcuts(double width, double height, string image, double spacing)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(image);
-            pictureBox.Size = new Size(width, height);
+            pictureBox.Size = new Size((int)width, (int)height);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Margin = new Padding(spacing + 60, 30, spacing, 30); //display problem for laptops here
+            pictureBox.Margin = new Padding((int)spacing - 5, (int)spacing - 5, (int)spacing - 5, (int)spacing - 5); //display problem for laptops here
 
 
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
             tableLayoutPanel.BackColor = Color.Transparent;
             tableLayoutPanel.Dock = DockStyle.Fill;
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 75)); //is this the display problem 
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, (float)width/3)); //is this the display problem 
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width/5)));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width/7)));
 
 
             Label title = new Label();
@@ -189,14 +190,7 @@ namespace DigiScan_Track
             title.ForeColor = Color.White;
             title.BackColor = Color.FromArgb(150, Color.Black);
             title.TextAlign = ContentAlignment.MiddleCenter;
-            if (title.Text.Length > 10)
-            {
-                title.AutoSize = true;
-            }
-            else
-            {
-                title.AutoSize = false;
-            }
+            title.AutoSize = true;
             title.TextAlign = ContentAlignment.MiddleCenter;
 
 
@@ -206,7 +200,7 @@ namespace DigiScan_Track
             partInput.ForeColor = Color.Black;
             partInput.AutoSize = false;
             partInput.TextAlign = ContentAlignment.MiddleCenter;
-            partInput.Size = new Size(100, 23);
+            partInput.Size = new Size((int)(width/3), (int)(width/10));
             partInput.Click += ShortcutButtonClicked;
             partInput.Cursor = Cursors.Hand;
             partInput.FlatStyle = FlatStyle.Popup;
@@ -216,17 +210,17 @@ namespace DigiScan_Track
             Button tableView = new Button();
             tableView.Text = "View Parts";
             tableView.Name = image;
-            tableView.ForeColor = Color.Black; 
+            tableView.ForeColor = Color.Black;
             tableView.AutoSize = false;
-            tableView.TextAlign = ContentAlignment.MiddleCenter; 
-            tableView.Size = new Size(100, 23);
+            tableView.TextAlign = ContentAlignment.MiddleCenter;
+            tableView.Size = new Size((int)(width / 3), (int)(width / 10));
             tableView.Click += ShortcutButtonClicked;
             tableView.Cursor = Cursors.Hand;
             tableView.FlatStyle = FlatStyle.Popup;
             tableView.BackColor = Color.DarkTurquoise;
 
 
-            tableLayoutPanel.Controls.Add(title, 1, 1); 
+            tableLayoutPanel.Controls.Add(title, 1, 1);
             tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
             tableLayoutPanel.SetColumnSpan(partInput, 1); // Set column span to center the button
             tableLayoutPanel.Controls.Add(tableView, 1, 3); // Add button 2 below button 1
