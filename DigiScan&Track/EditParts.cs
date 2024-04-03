@@ -1,9 +1,5 @@
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
 
 namespace DigiScan_Track
 {
@@ -13,11 +9,12 @@ namespace DigiScan_Track
         public EditParts()
         {
             InitializeComponent();
-            loadDepartmentcmb();
-            loadsecondDepartmentcmb();
+            loadDepartmentcmbSQL();
             partsToEditSQL();
+
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
             WIPTracker wiptracker = new WIPTracker(null, null);
+
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
@@ -29,7 +26,9 @@ namespace DigiScan_Track
 
         }
 
-        private void loadDepartmentcmb()
+
+
+        private void loadDepartmentcmbSQL()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -40,6 +39,7 @@ namespace DigiScan_Track
             while (dr.Read())
             {
                 departmentcmbox.Items.Add(dr["Department"].ToString());
+                addPartcmbox.Items.Add(dr["Department"].ToString());
 
             }
             conn.Close();
@@ -49,24 +49,7 @@ namespace DigiScan_Track
 
         }
 
-        private void loadsecondDepartmentcmb()
-        {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT Distinct(Department) FROM Departments";
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                addPartcmbox.Items.Add(dr["Department"].ToString());
 
-            }
-            conn.Close();
-
-            addPartcmbox.SelectedIndex = 0;
-
-        }
 
         private void departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -78,6 +61,8 @@ namespace DigiScan_Track
                 loadDetails(chosenDepartment);
             }
         }
+
+
 
         private void loadDetails(string chosenDepartment)
         {
@@ -128,12 +113,16 @@ namespace DigiScan_Track
             partNumbercmbox.SelectedItem = Color.FromArgb(255, 46, 51, 73);
         }
 
+
+
         private void partsToEditSQL()
         {
             string pullPartsToEdit = "SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking";
             sqlQuery(pullPartsToEdit, toEditGridView);
             partsToEditLayout();
         }
+
+
 
         private void partsToEditLayout()
         {
@@ -151,9 +140,11 @@ namespace DigiScan_Track
 
         }
 
+
+
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            string SQLQuery = "";
+            string SQLQuery;
             string department = departmentcmbox.Text;
             string partNumber = partNumbercmbox.Text;
             string serialNumber = searchtxt.Text;
@@ -179,6 +170,8 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void sqlQuery(string command, DataGridView gridview)
         {
             DataTable dt = new DataTable();
@@ -192,6 +185,8 @@ namespace DigiScan_Track
             conn.Close();
             gridview.DataSource = dt;
         }
+
+
 
         private void toEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -241,12 +236,16 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void crossOffpbox_Click(object sender, EventArgs e)
         {
             Control editPartsPage = InnerBorderpnl.Controls[0];
             InnerBorderpnl.Controls.Remove(editPartsPage);
             crossOffpbox.Visible = false;
         }
+
+
 
         public void toEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -274,6 +273,8 @@ namespace DigiScan_Track
                 }
             }
         }
+
+
 
         private void submitAddpbox_Click(object sender, EventArgs e)
         {
@@ -314,17 +315,7 @@ namespace DigiScan_Track
             }
         }
 
-        /*------------------------------------------------Repeated code in all Forms------------------------------------------------------------------*/
-        //This function finds out which form page to close and which to open, and what size screen the user is working on so it can replicate this
-        public static void HeaderButton(Form newForm, Form originalForm, FormWindowState windowState)
-        {
-            newForm.Show(); //in this case the newform would be the linked form of whichever button is clicked
-            originalForm.Hide(); //Closes the previous tab so does not clog up users computer
-            if (windowState == FormWindowState.Maximized) //If the user is working on a minimised screen then it stays minimised
-            {
-                newForm.WindowState = FormWindowState.Maximized;
-            }
-        }
+
 
         private void toEditgridview_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -333,6 +324,8 @@ namespace DigiScan_Track
                 toEditGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Coral;
             }
         }
+
+
 
         private void toEditgridview_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
