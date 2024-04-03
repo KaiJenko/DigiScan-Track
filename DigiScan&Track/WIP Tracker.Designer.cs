@@ -59,9 +59,10 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(140, 10);
+            Titlelbl.Location = new Point(200, 17);
+            Titlelbl.Margin = new Padding(4, 0, 4, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(830, 47);
+            Titlelbl.Size = new Size(1186, 78);
             Titlelbl.TabIndex = 13;
             Titlelbl.Text = "DigiScan && Track - WIP Tracker";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,9 +72,10 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(16, 69);
+            OuterBorderpnl.Location = new Point(23, 115);
+            OuterBorderpnl.Margin = new Padding(4, 5, 4, 5);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1020, 528);
+            OuterBorderpnl.Size = new Size(1457, 880);
             OuterBorderpnl.TabIndex = 14;
             // 
             // InnerBorderpnl
@@ -91,9 +93,10 @@
             InnerBorderpnl.Controls.Add(searchtxt);
             InnerBorderpnl.Controls.Add(addFieldbtn);
             InnerBorderpnl.Controls.Add(bottomLeftBorderbtn);
-            InnerBorderpnl.Location = new Point(4, 3);
+            InnerBorderpnl.Location = new Point(6, 5);
+            InnerBorderpnl.Margin = new Padding(4, 5, 4, 5);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1013, 522);
+            InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
             // 
             // WIPgridView
@@ -120,7 +123,7 @@
             WIPgridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
@@ -128,7 +131,8 @@
             WIPgridView.DefaultCellStyle = dataGridViewCellStyle3;
             WIPgridView.EnableHeadersVisualStyles = false;
             WIPgridView.GridColor = Color.Silver;
-            WIPgridView.Location = new Point(17, 96);
+            WIPgridView.Location = new Point(24, 160);
+            WIPgridView.Margin = new Padding(4, 5, 4, 5);
             WIPgridView.MultiSelect = false;
             WIPgridView.Name = "WIPgridView";
             WIPgridView.ReadOnly = true;
@@ -149,9 +153,9 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            WIPgridView.RowTemplate.Height = 25;
+            WIPgridView.RowTemplate.Height = 35;
             WIPgridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            WIPgridView.Size = new Size(982, 410);
+            WIPgridView.Size = new Size(1403, 683);
             WIPgridView.TabIndex = 6;
             // 
             // resetbtn
@@ -162,11 +166,12 @@
             resetbtn.Cursor = Cursors.Hand;
             resetbtn.FlatAppearance.BorderSize = 0;
             resetbtn.FlatStyle = FlatStyle.Flat;
-            resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(748, 44);
+            resetbtn.Location = new Point(1067, 73);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(104, 36);
+            resetbtn.Size = new Size(149, 60);
             resetbtn.TabIndex = 32;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
@@ -180,11 +185,12 @@
             searchbtn.Cursor = Cursors.Hand;
             searchbtn.FlatAppearance.BorderSize = 0;
             searchbtn.FlatStyle = FlatStyle.Flat;
-            searchbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            searchbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             searchbtn.ForeColor = Color.White;
-            searchbtn.Location = new Point(748, 7);
+            searchbtn.Location = new Point(1067, 12);
+            searchbtn.Margin = new Padding(4, 5, 4, 5);
             searchbtn.Name = "searchbtn";
-            searchbtn.Size = new Size(104, 36);
+            searchbtn.Size = new Size(149, 60);
             searchbtn.TabIndex = 31;
             searchbtn.Text = "Search";
             searchbtn.UseVisualStyleBackColor = false;
@@ -201,9 +207,10 @@
             searchcmb.ForeColor = Color.White;
             searchcmb.FormattingEnabled = true;
             searchcmb.Items.AddRange(new object[] { "Part Number", "Serial Number", "Batch Number", "Department", "Workstation", "In Storage" });
-            searchcmb.Location = new Point(146, 10);
+            searchcmb.Location = new Point(209, 17);
+            searchcmb.Margin = new Padding(4, 5, 4, 5);
             searchcmb.Name = "searchcmb";
-            searchcmb.Size = new Size(163, 30);
+            searchcmb.Size = new Size(231, 40);
             searchcmb.TabIndex = 13;
             // 
             // workstationlbl
@@ -212,9 +219,10 @@
             workstationlbl.BackColor = Color.Transparent;
             workstationlbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(882, 25);
+            workstationlbl.Location = new Point(1260, 42);
+            workstationlbl.Margin = new Padding(4, 0, 4, 0);
             workstationlbl.Name = "workstationlbl";
-            workstationlbl.Size = new Size(29, 15);
+            workstationlbl.Size = new Size(45, 25);
             workstationlbl.TabIndex = 12;
             workstationlbl.Text = "WS:";
             // 
@@ -224,17 +232,19 @@
             departmentlbl.BackColor = Color.Transparent;
             departmentlbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            departmentlbl.Location = new Point(885, 11);
+            departmentlbl.Location = new Point(1264, 18);
+            departmentlbl.Margin = new Padding(4, 0, 4, 0);
             departmentlbl.Name = "departmentlbl";
-            departmentlbl.Size = new Size(26, 15);
+            departmentlbl.Size = new Size(41, 25);
             departmentlbl.TabIndex = 11;
             departmentlbl.Text = "DP:";
             // 
             // searchFieldpnl
             // 
-            searchFieldpnl.Location = new Point(30, 48);
+            searchFieldpnl.Location = new Point(43, 80);
+            searchFieldpnl.Margin = new Padding(4, 5, 4, 5);
             searchFieldpnl.Name = "searchFieldpnl";
-            searchFieldpnl.Size = new Size(712, 28);
+            searchFieldpnl.Size = new Size(1017, 53);
             searchFieldpnl.TabIndex = 10;
             // 
             // searchBylbl
@@ -242,9 +252,10 @@
             searchBylbl.AutoSize = true;
             searchBylbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             searchBylbl.ForeColor = Color.Turquoise;
-            searchBylbl.Location = new Point(30, 12);
+            searchBylbl.Location = new Point(43, 20);
+            searchBylbl.Margin = new Padding(4, 0, 4, 0);
             searchBylbl.Name = "searchBylbl";
-            searchBylbl.Size = new Size(98, 25);
+            searchBylbl.Size = new Size(150, 40);
             searchBylbl.TabIndex = 5;
             searchBylbl.Text = "Search by";
             // 
@@ -254,9 +265,10 @@
             searchtxt.BorderStyle = BorderStyle.FixedSingle;
             searchtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             searchtxt.ForeColor = Color.White;
-            searchtxt.Location = new Point(338, 11);
+            searchtxt.Location = new Point(483, 18);
+            searchtxt.Margin = new Padding(4, 5, 4, 5);
             searchtxt.Name = "searchtxt";
-            searchtxt.Size = new Size(393, 29);
+            searchtxt.Size = new Size(561, 39);
             searchtxt.TabIndex = 4;
             // 
             // addFieldbtn
@@ -267,11 +279,12 @@
             addFieldbtn.Cursor = Cursors.Hand;
             addFieldbtn.FlatAppearance.BorderSize = 0;
             addFieldbtn.FlatStyle = FlatStyle.Flat;
-            addFieldbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            addFieldbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             addFieldbtn.ForeColor = Color.White;
-            addFieldbtn.Location = new Point(850, 44);
+            addFieldbtn.Location = new Point(1214, 73);
+            addFieldbtn.Margin = new Padding(4, 5, 4, 5);
             addFieldbtn.Name = "addFieldbtn";
-            addFieldbtn.Size = new Size(145, 36);
+            addFieldbtn.Size = new Size(207, 60);
             addFieldbtn.TabIndex = 33;
             addFieldbtn.Text = "Add Search Field";
             addFieldbtn.UseVisualStyleBackColor = false;
@@ -286,21 +299,23 @@
             bottomLeftBorderbtn.FlatStyle = FlatStyle.Flat;
             bottomLeftBorderbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             bottomLeftBorderbtn.ForeColor = Color.White;
-            bottomLeftBorderbtn.Location = new Point(849, 7);
+            bottomLeftBorderbtn.Location = new Point(1213, 12);
+            bottomLeftBorderbtn.Margin = new Padding(4, 5, 4, 5);
             bottomLeftBorderbtn.Name = "bottomLeftBorderbtn";
-            bottomLeftBorderbtn.Size = new Size(154, 36);
+            bottomLeftBorderbtn.Size = new Size(220, 60);
             bottomLeftBorderbtn.TabIndex = 34;
             bottomLeftBorderbtn.UseVisualStyleBackColor = false;
             // 
             // WIPTracker
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1503, 1015);
             Controls.Add(OuterBorderpnl);
             Controls.Add(Titlelbl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "WIPTracker";
             Text = "Form1";
             Load += Form1_Load;

@@ -13,7 +13,7 @@ namespace DigiScan_Track
         public WIPTracker(string sentDepartment, string sentWorkstation)
         {
             InitializeComponent();
-            GetWIPTrackerSQL(sentDepartment, sentWorkstation);           
+            GetWIPTrackerSQL(sentDepartment, sentWorkstation);
             TransparentBackground(this, "searchbtn", "resetbtn", "addFieldbtn", "bottomLeftBorderbtn");
 
             HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
@@ -40,7 +40,7 @@ namespace DigiScan_Track
                 workstationlbl.Text = "";
 
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
-                          " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking]";
+                          " ,[WSTimestampIN] ,[WSTimestampOUT] FROM [WIPTracking]";
                 defaultOrCustom = 0;
 
             }
@@ -50,7 +50,7 @@ namespace DigiScan_Track
                 departmentlbl.Text = "DP:  " + department;
                 workstationlbl.Text = "WS:  " + workstation;
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber]" +
-                          " ,[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
+                          " ,[WSTimestampIN] ,[WSTimestampOUT], [InStorage] FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
                           " AND [Workstation] = '" + workstation + "'";
                 defaultOrCustom = 1;
             }
@@ -92,16 +92,9 @@ namespace DigiScan_Track
             WIPgridView.Columns[4].HeaderText = "Workstation";
             WIPgridView.Columns[5].HeaderText = "Time in";
             WIPgridView.Columns[6].HeaderText = "Time out";
-            WIPgridView.Columns[7].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 118;
-            WIPgridView.Columns[1].Width = 118;
-            WIPgridView.Columns[2].Width = 118;
-            WIPgridView.Columns[3].Width = 110;
-            WIPgridView.Columns[4].Width = 128;
-            WIPgridView.Columns[5].Width = 150;
-            WIPgridView.Columns[6].Width = 150;
-            WIPgridView.Columns[7].Width = 70;
+
+            SetColumnWidthsAsPercentages(WIPgridView, 14, 14, 14, 12, 14, 17, 17);
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -125,11 +118,26 @@ namespace DigiScan_Track
             WIPgridView.Columns[4].Width = 160;
             WIPgridView.Columns[5].Width = 85;
 
+            SetColumnWidthsAsPercentages(WIPgridView, 17, 17, 17, 17, 17, 9);
+
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
         }
 
-        
+
+
+        private void SetColumnWidthsAsPercentages(DataGridView dataGridView, params double[] percentages)
+        {
+            int totalWidth = dataGridView.ClientSize.Width - dataGridView.RowHeadersWidth;
+
+            for (int i = 0; i < dataGridView.Columns.Count && i < percentages.Length; i++)
+            {
+                int columnWidth = (int)(totalWidth * percentages[i] / 100);
+                dataGridView.Columns[i].Width = columnWidth;
+            }
+        }
+
+
 
         private void Searchbtn_Click(object sender, EventArgs e)
         {
@@ -271,8 +279,8 @@ namespace DigiScan_Track
                     panel.Name = "InnerPanel" + index;
                     panel.BackgroundImage = Properties.Resources.blueBorder;
                     panel.BackgroundImageLayout = ImageLayout.Stretch;
-                    panel.MinimumSize = new Size(0, 25);
-                    panel.MaximumSize = new Size(500, 25);
+                    panel.MinimumSize = new Size(0, 35);
+                    panel.MaximumSize = new Size(500, 35);
 
 
                     Label searchFieldLabel = new Label();
@@ -286,7 +294,7 @@ namespace DigiScan_Track
                     PictureBox redCrosspbox = new PictureBox();
                     redCrosspbox.Image = Properties.Resources.cross;
                     redCrosspbox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    redCrosspbox.Size = new Size(15, 15);
+                    redCrosspbox.Size = new Size(20, 20);
                     redCrosspbox.Cursor = Cursors.Hand;
 
 
