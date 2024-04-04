@@ -8,6 +8,7 @@ namespace DigiScan_Track
     {
 
         string sqlQuery = "";
+        WIPTracker wip = new WIPTracker(null, null);
 
         public DisplayBoard()
         {
@@ -75,10 +76,28 @@ namespace DigiScan_Track
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT [PartNumber], [SerialNumber], [BatchNumber], [Department], [Workstation], [WSTimestampIN] FROM [WIPTracking] " + sqlQuery;
             SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            conn.Close();
-            recentScannedGridView.DataSource = dt;
-            DisplayBoardSQL();
+            if (dr.HasRows)
+            {
+                dt.Load(dr);
+                conn.Close();
+                recentScannedGridView.DataSource = dt;
+                DisplayBoardSQL();
+            }
+
+            else
+            {
+                string selectedrbtn = "";
+                foreach (RadioButton radiobtn in radioButtonpnl.Controls)
+                {
+                    if (radiobtn.Checked == true)
+                    {
+                        selectedrbtn = radiobtn.Text;
+                    }
+                }
+
+                noDatalbl.Text = "No items scanned in the last: " + selectedrbtn;
+            }
+
         }
 
 
@@ -101,12 +120,7 @@ namespace DigiScan_Track
             recentScannedGridView.Columns[4].HeaderText = "Workstation";
             recentScannedGridView.Columns[5].HeaderText = "Time In";
 
-            recentScannedGridView.Columns[0].Width = 150;
-            recentScannedGridView.Columns[1].Width = 150;
-            recentScannedGridView.Columns[2].Width = 150;
-            recentScannedGridView.Columns[3].Width = 175;
-            recentScannedGridView.Columns[4].Width = 175;
-            recentScannedGridView.Columns[5].Width = 175;
+            wip.TurnColumnIntoPercent(recentScannedGridView, 16, 16, 16, 18, 20, 20);
         }
     }
 }

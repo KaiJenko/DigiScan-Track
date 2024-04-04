@@ -177,8 +177,8 @@ namespace DigiScan_Track
                 buttonClicked.BackColor = Color.FromArgb(46, 51, 73);
                 buttonClicked.Enabled = false;
             }
-            
-            
+
+
 
             InnerBodypnl.Controls.Clear();
             newForm.Dock = DockStyle.Fill;
@@ -208,7 +208,7 @@ namespace DigiScan_Track
 
                     if (control is Button button)
                     {
-                        button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(22, 22));
+                        button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(button.Height/2, button.Height/2));
                         button.ImageAlign = ContentAlignment.MiddleRight;
                         button.Padding = new Padding(0, 0, 10, 0);
                         x--;

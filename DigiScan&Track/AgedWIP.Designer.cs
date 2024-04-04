@@ -79,9 +79,10 @@
             agedlbl.AutoSize = true;
             agedlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             agedlbl.ForeColor = Color.Coral;
-            agedlbl.Location = new Point(16, 23);
+            agedlbl.Location = new Point(13, 38);
+            agedlbl.Margin = new Padding(4, 0, 4, 0);
             agedlbl.Name = "agedlbl";
-            agedlbl.Size = new Size(166, 21);
+            agedlbl.Size = new Size(249, 32);
             agedlbl.TabIndex = 8;
             agedlbl.Text = "Search Days as Aged";
             // 
@@ -91,9 +92,10 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(140, 10);
+            Titlelbl.Location = new Point(191, 19);
+            Titlelbl.Margin = new Padding(4, 0, 4, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(749, 47);
+            Titlelbl.Size = new Size(1130, 78);
             Titlelbl.TabIndex = 13;
             Titlelbl.Text = "DigiScan && Track - Aged WIP\r\n";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -114,9 +116,10 @@
             InnerBorderpnl.Controls.Add(radioButtonpnl);
             InnerBorderpnl.Controls.Add(agedlbl);
             InnerBorderpnl.Controls.Add(furtherDetailsgridview);
-            InnerBorderpnl.Location = new Point(4, 3);
+            InnerBorderpnl.Location = new Point(6, 5);
+            InnerBorderpnl.Margin = new Padding(4, 5, 4, 5);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1013, 522);
+            InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
             // 
             // tableaubtn
@@ -127,11 +130,12 @@
             tableaubtn.Cursor = Cursors.Hand;
             tableaubtn.FlatAppearance.BorderSize = 0;
             tableaubtn.FlatStyle = FlatStyle.Flat;
-            tableaubtn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tableaubtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             tableaubtn.ForeColor = Color.White;
-            tableaubtn.Location = new Point(844, 44);
+            tableaubtn.Location = new Point(1206, 73);
+            tableaubtn.Margin = new Padding(4, 5, 4, 5);
             tableaubtn.Name = "tableaubtn";
-            tableaubtn.Size = new Size(130, 36);
+            tableaubtn.Size = new Size(186, 60);
             tableaubtn.TabIndex = 34;
             tableaubtn.Text = "Tableau Metrics";
             tableaubtn.UseVisualStyleBackColor = false;
@@ -144,11 +148,12 @@
             excelbtn.Cursor = Cursors.Hand;
             excelbtn.FlatAppearance.BorderSize = 0;
             excelbtn.FlatStyle = FlatStyle.Flat;
-            excelbtn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            excelbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             excelbtn.ForeColor = Color.White;
-            excelbtn.Location = new Point(844, 6);
+            excelbtn.Location = new Point(1206, 10);
+            excelbtn.Margin = new Padding(4, 5, 4, 5);
             excelbtn.Name = "excelbtn";
-            excelbtn.Size = new Size(135, 36);
+            excelbtn.Size = new Size(193, 60);
             excelbtn.TabIndex = 33;
             excelbtn.Text = "Excel Export";
             excelbtn.UseVisualStyleBackColor = false;
@@ -164,9 +169,10 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(454, 4);
+            resetbtn.Location = new Point(649, 7);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(69, 25);
+            resetbtn.Size = new Size(99, 42);
             resetbtn.TabIndex = 32;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
@@ -206,7 +212,8 @@
             Agedgridview.DefaultCellStyle = dataGridViewCellStyle3;
             Agedgridview.EnableHeadersVisualStyles = false;
             Agedgridview.GridColor = Color.Silver;
-            Agedgridview.Location = new Point(27, 86);
+            Agedgridview.Location = new Point(39, 143);
+            Agedgridview.Margin = new Padding(4, 5, 4, 5);
             Agedgridview.MultiSelect = false;
             Agedgridview.Name = "Agedgridview";
             Agedgridview.ReadOnly = true;
@@ -230,7 +237,7 @@
             Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
             Agedgridview.RowTemplate.Height = 25;
             Agedgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Agedgridview.Size = new Size(250, 410);
+            Agedgridview.Size = new Size(357, 683);
             Agedgridview.TabIndex = 28;
             Agedgridview.CellContentClick += Agedgridview_CellContentClick;
             Agedgridview.CellMouseEnter += Agedgridview_CellMouseEnter;
@@ -242,9 +249,10 @@
             moreInfolbl.BackColor = Color.FromArgb(113, 96, 232);
             moreInfolbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             moreInfolbl.ForeColor = Color.Coral;
-            moreInfolbl.Location = new Point(438, 266);
+            moreInfolbl.Location = new Point(626, 443);
+            moreInfolbl.Margin = new Padding(4, 0, 4, 0);
             moreInfolbl.Name = "moreInfolbl";
-            moreInfolbl.Size = new Size(413, 21);
+            moreInfolbl.Size = new Size(625, 32);
             moreInfolbl.TabIndex = 27;
             moreInfolbl.Text = "Please select a row for more information on that part";
             // 
@@ -254,29 +262,26 @@
             rangepnl.Controls.Add(higherRangenud);
             rangepnl.Controls.Add(lowerlbl);
             rangepnl.Controls.Add(upperlbl);
-            rangepnl.Location = new Point(383, 32);
-            rangepnl.Margin = new Padding(2);
+            rangepnl.Location = new Point(547, 53);
             rangepnl.Name = "rangepnl";
-            rangepnl.Size = new Size(369, 31);
+            rangepnl.Size = new Size(527, 52);
             rangepnl.TabIndex = 26;
             rangepnl.Visible = false;
             // 
             // lowerRangenud
             // 
             lowerRangenud.Cursor = Cursors.Hand;
-            lowerRangenud.Location = new Point(136, 7);
-            lowerRangenud.Margin = new Padding(2);
+            lowerRangenud.Location = new Point(190, 12);
             lowerRangenud.Name = "lowerRangenud";
-            lowerRangenud.Size = new Size(50, 23);
+            lowerRangenud.Size = new Size(71, 31);
             lowerRangenud.TabIndex = 22;
             // 
             // higherRangenud
             // 
             higherRangenud.Cursor = Cursors.Hand;
-            higherRangenud.Location = new Point(317, 7);
-            higherRangenud.Margin = new Padding(2);
+            higherRangenud.Location = new Point(453, 12);
             higherRangenud.Name = "higherRangenud";
-            higherRangenud.Size = new Size(50, 23);
+            higherRangenud.Size = new Size(71, 31);
             higherRangenud.TabIndex = 23;
             // 
             // lowerlbl
@@ -285,9 +290,10 @@
             lowerlbl.BackColor = Color.Transparent;
             lowerlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lowerlbl.ForeColor = Color.Coral;
-            lowerlbl.Location = new Point(11, 7);
+            lowerlbl.Location = new Point(8, 12);
+            lowerlbl.Margin = new Padding(4, 0, 4, 0);
             lowerlbl.Name = "lowerlbl";
-            lowerlbl.Size = new Size(114, 21);
+            lowerlbl.Size = new Size(172, 32);
             lowerlbl.TabIndex = 24;
             lowerlbl.Text = "Lower Bound:";
             // 
@@ -297,9 +303,10 @@
             upperlbl.BackColor = Color.Transparent;
             upperlbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             upperlbl.ForeColor = Color.Coral;
-            upperlbl.Location = new Point(191, 7);
+            upperlbl.Location = new Point(273, 12);
+            upperlbl.Margin = new Padding(4, 0, 4, 0);
             upperlbl.Name = "upperlbl";
-            upperlbl.Size = new Size(115, 21);
+            upperlbl.Size = new Size(173, 32);
             upperlbl.TabIndex = 25;
             upperlbl.Text = "Upper Bound:";
             // 
@@ -308,9 +315,10 @@
             searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
-            searchpbox.Location = new Point(526, 11);
+            searchpbox.Location = new Point(751, 18);
+            searchpbox.Margin = new Padding(4, 5, 4, 5);
             searchpbox.Name = "searchpbox";
-            searchpbox.Size = new Size(20, 15);
+            searchpbox.Size = new Size(29, 25);
             searchpbox.TabIndex = 21;
             searchpbox.TabStop = false;
             searchpbox.Click += SearchButton_Click;
@@ -321,20 +329,22 @@
             counttrackbarlbl.AutoSize = true;
             counttrackbarlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             counttrackbarlbl.ForeColor = Color.Coral;
-            counttrackbarlbl.Location = new Point(548, 5);
+            counttrackbarlbl.Location = new Point(783, 8);
+            counttrackbarlbl.Margin = new Padding(4, 0, 4, 0);
             counttrackbarlbl.Name = "counttrackbarlbl";
             counttrackbarlbl.RightToLeft = RightToLeft.No;
-            counttrackbarlbl.Size = new Size(23, 25);
+            counttrackbarlbl.Size = new Size(34, 40);
             counttrackbarlbl.TabIndex = 18;
             counttrackbarlbl.Text = "0";
             // 
             // agedDaystrackbar
             // 
             agedDaystrackbar.Cursor = Cursors.Hand;
-            agedDaystrackbar.Location = new Point(302, 33);
+            agedDaystrackbar.Location = new Point(431, 55);
+            agedDaystrackbar.Margin = new Padding(4, 5, 4, 5);
             agedDaystrackbar.Maximum = 50;
             agedDaystrackbar.Name = "agedDaystrackbar";
-            agedDaystrackbar.Size = new Size(510, 45);
+            agedDaystrackbar.Size = new Size(729, 69);
             agedDaystrackbar.TabIndex = 17;
             agedDaystrackbar.Scroll += AgedDaystrackbar_Scroll;
             // 
@@ -344,9 +354,10 @@
             radioButtonpnl.Controls.Add(greaterThanrbtn);
             radioButtonpnl.Controls.Add(rangerbtn);
             radioButtonpnl.Controls.Add(lessThanrbtn);
-            radioButtonpnl.Location = new Point(187, 5);
+            radioButtonpnl.Location = new Point(267, 8);
+            radioButtonpnl.Margin = new Padding(4, 5, 4, 5);
             radioButtonpnl.Name = "radioButtonpnl";
-            radioButtonpnl.Size = new Size(109, 59);
+            radioButtonpnl.Size = new Size(156, 98);
             radioButtonpnl.TabIndex = 15;
             // 
             // equalsrbtn
@@ -355,10 +366,9 @@
             equalsrbtn.Checked = true;
             equalsrbtn.Cursor = Cursors.Hand;
             equalsrbtn.ForeColor = Color.Coral;
-            equalsrbtn.Location = new Point(2, 3);
-            equalsrbtn.Margin = new Padding(2);
+            equalsrbtn.Location = new Point(3, 5);
             equalsrbtn.Name = "equalsrbtn";
-            equalsrbtn.Size = new Size(33, 19);
+            equalsrbtn.Size = new Size(49, 29);
             equalsrbtn.TabIndex = 11;
             equalsrbtn.TabStop = true;
             equalsrbtn.Text = "=";
@@ -369,10 +379,9 @@
             greaterThanrbtn.AutoSize = true;
             greaterThanrbtn.Cursor = Cursors.Hand;
             greaterThanrbtn.ForeColor = Color.Coral;
-            greaterThanrbtn.Location = new Point(49, 35);
-            greaterThanrbtn.Margin = new Padding(2);
+            greaterThanrbtn.Location = new Point(70, 58);
             greaterThanrbtn.Name = "greaterThanrbtn";
-            greaterThanrbtn.Size = new Size(33, 19);
+            greaterThanrbtn.Size = new Size(49, 29);
             greaterThanrbtn.TabIndex = 14;
             greaterThanrbtn.Text = ">";
             greaterThanrbtn.UseVisualStyleBackColor = true;
@@ -382,10 +391,9 @@
             rangerbtn.AutoSize = true;
             rangerbtn.Cursor = Cursors.Hand;
             rangerbtn.ForeColor = Color.Coral;
-            rangerbtn.Location = new Point(49, 4);
-            rangerbtn.Margin = new Padding(2);
+            rangerbtn.Location = new Point(70, 7);
             rangerbtn.Name = "rangerbtn";
-            rangerbtn.Size = new Size(58, 19);
+            rangerbtn.Size = new Size(87, 29);
             rangerbtn.TabIndex = 12;
             rangerbtn.Text = "Range";
             rangerbtn.UseVisualStyleBackColor = true;
@@ -396,10 +404,9 @@
             lessThanrbtn.AutoSize = true;
             lessThanrbtn.Cursor = Cursors.Hand;
             lessThanrbtn.ForeColor = Color.Coral;
-            lessThanrbtn.Location = new Point(2, 35);
-            lessThanrbtn.Margin = new Padding(2);
+            lessThanrbtn.Location = new Point(3, 58);
             lessThanrbtn.Name = "lessThanrbtn";
-            lessThanrbtn.Size = new Size(33, 19);
+            lessThanrbtn.Size = new Size(49, 29);
             lessThanrbtn.TabIndex = 13;
             lessThanrbtn.Text = "<";
             lessThanrbtn.UseVisualStyleBackColor = true;
@@ -413,6 +420,7 @@
             dataGridViewCellStyle6.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(113, 96, 232);
             furtherDetailsgridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            furtherDetailsgridview.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             furtherDetailsgridview.BackgroundColor = Color.FromArgb(113, 96, 232);
             furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
             furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
@@ -436,7 +444,8 @@
             furtherDetailsgridview.DefaultCellStyle = dataGridViewCellStyle8;
             furtherDetailsgridview.EnableHeadersVisualStyles = false;
             furtherDetailsgridview.GridColor = Color.Silver;
-            furtherDetailsgridview.Location = new Point(302, 231);
+            furtherDetailsgridview.Location = new Point(431, 385);
+            furtherDetailsgridview.Margin = new Padding(4, 5, 4, 5);
             furtherDetailsgridview.MultiSelect = false;
             furtherDetailsgridview.Name = "furtherDetailsgridview";
             furtherDetailsgridview.ReadOnly = true;
@@ -462,7 +471,7 @@
             furtherDetailsgridview.RowTemplate.Height = 50;
             furtherDetailsgridview.RowTemplate.Resizable = DataGridViewTriState.True;
             furtherDetailsgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            furtherDetailsgridview.Size = new Size(686, 99);
+            furtherDetailsgridview.Size = new Size(980, 165);
             furtherDetailsgridview.TabIndex = 29;
             // 
             // OuterBorderpnl
@@ -470,20 +479,22 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(16, 69);
+            OuterBorderpnl.Location = new Point(23, 115);
+            OuterBorderpnl.Margin = new Padding(4, 5, 4, 5);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1020, 528);
+            OuterBorderpnl.Size = new Size(1457, 880);
             OuterBorderpnl.TabIndex = 14;
             // 
             // AgedWIP
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1503, 1015);
             Controls.Add(Titlelbl);
             Controls.Add(OuterBorderpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "AgedWIP";
             Text = "Form1";
             Load += Form1_Load;

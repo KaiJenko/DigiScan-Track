@@ -94,7 +94,7 @@ namespace DigiScan_Track
             WIPgridView.Columns[6].HeaderText = "Time out";
 
 
-            SetColumnWidthsAsPercentages(WIPgridView, 14, 14, 14, 12, 14, 17, 17);
+            TurnColumnIntoPercent(WIPgridView, 14, 14, 14, 12, 14, 17, 17);
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -111,14 +111,8 @@ namespace DigiScan_Track
             WIPgridView.Columns[4].HeaderText = "Time out";
             WIPgridView.Columns[5].HeaderText = "Storage";
 
-            WIPgridView.Columns[0].Width = 160;
-            WIPgridView.Columns[1].Width = 160;
-            WIPgridView.Columns[2].Width = 160;
-            WIPgridView.Columns[3].Width = 160;
-            WIPgridView.Columns[4].Width = 160;
-            WIPgridView.Columns[5].Width = 85;
 
-            SetColumnWidthsAsPercentages(WIPgridView, 17, 17, 17, 17, 17, 9);
+            TurnColumnIntoPercent(WIPgridView, 17, 17, 17, 17, 17, 9);
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -126,7 +120,7 @@ namespace DigiScan_Track
 
 
 
-        private void SetColumnWidthsAsPercentages(DataGridView dataGridView, params double[] percentages)
+        public void TurnColumnIntoPercent(DataGridView dataGridView, params double[] percentages)
         {
             int totalWidth = dataGridView.ClientSize.Width - dataGridView.RowHeadersWidth;
 

@@ -6,6 +6,9 @@ namespace DigiScan_Track
 {
     public partial class PartEditPage : UserControl
     {
+
+        WIPTracker wip = new WIPTracker(null, null);
+
         public PartEditPage(string serialNumber)
         {
             InitializeComponent();
@@ -118,8 +121,8 @@ namespace DigiScan_Track
                         string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
                         SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
                         cmd.ExecuteNonQuery();
-                    }                                  
-                    
+                    }
+
                     else
                     {
                         if (repeat == 0)
@@ -145,14 +148,7 @@ namespace DigiScan_Track
             partTobeEditedGridView.Columns[6].HeaderText = "Time Out";
             partTobeEditedGridView.Columns[7].HeaderText = "In Storage";
 
-            partTobeEditedGridView.Columns[0].Width = 110;
-            partTobeEditedGridView.Columns[1].Width = 110;
-            partTobeEditedGridView.Columns[2].Width = 110;
-            partTobeEditedGridView.Columns[3].Width = 120;
-            partTobeEditedGridView.Columns[4].Width = 130;
-            partTobeEditedGridView.Columns[5].Width = 140;
-            partTobeEditedGridView.Columns[6].Width = 140;
-            partTobeEditedGridView.Columns[7].Width = 90;
+            wip.TurnColumnIntoPercent(partTobeEditedGridView, 12, 12, 12, 13, 14, 15.5, 15, 11);
 
         }
 
@@ -167,6 +163,8 @@ namespace DigiScan_Track
             furtherDetailsgridview.Columns[0].Width = 150;
             furtherDetailsgridview.Columns[1].Width = 200;
             furtherDetailsgridview.Columns[2].Width = 150;
+
+            wip.TurnColumnIntoPercent(furtherDetailsgridview, 33, 43, 33);
         }
     }
 }

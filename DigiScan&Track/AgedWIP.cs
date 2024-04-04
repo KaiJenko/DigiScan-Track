@@ -9,6 +9,7 @@ namespace DigiScan_Track
     {
 
         SqlConnection conn = new SqlConnection();
+        WIPTracker wip = new WIPTracker(null, null);
 
         public AgedWIP()
         {
@@ -16,7 +17,7 @@ namespace DigiScan_Track
             PullMaxCountSQL();
             GetAgedWIPSQL();
 
-            WIPTracker wip = new WIPTracker(null, null);
+
             wip.TransparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
         }
 
@@ -84,8 +85,7 @@ namespace DigiScan_Track
             Agedgridview.Columns[0].HeaderText = "Serial Number";
             Agedgridview.Columns[1].HeaderText = "Days Aged";
 
-            Agedgridview.Columns[0].Width = 124;
-            Agedgridview.Columns[1].Width = 124;
+            wip.TurnColumnIntoPercent(Agedgridview, 60, 60);
         }
 
 
@@ -100,13 +100,7 @@ namespace DigiScan_Track
             furtherDetailsgridview.Columns[5].HeaderText = "Reason";
             furtherDetailsgridview.Columns[6].HeaderText = "User Responsible";
 
-            furtherDetailsgridview.Columns[0].Width = 95;
-            furtherDetailsgridview.Columns[1].Width = 95;
-            furtherDetailsgridview.Columns[2].Width = 95;
-            furtherDetailsgridview.Columns[3].Width = 95;
-            furtherDetailsgridview.Columns[4].Width = 95;
-            furtherDetailsgridview.Columns[5].Width = 95;
-            furtherDetailsgridview.Columns[6].Width = 95;
+            wip.TurnColumnIntoPercent(furtherDetailsgridview, 14, 14, 14, 14, 14, 20, 14);
         }
 
 
@@ -285,7 +279,5 @@ namespace DigiScan_Track
                 }
             }
         }
-
-
     }
 }

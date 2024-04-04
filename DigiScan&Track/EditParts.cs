@@ -7,14 +7,15 @@ namespace DigiScan_Track
     public partial class EditParts : Form
     {
         SqlConnection conn = new SqlConnection();
+        HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
+        WIPTracker wiptracker = new WIPTracker(null, null);
         public EditParts()
         {
             InitializeComponent();
             LoadDepartmentcmbSQL();
             PartsToEditSQL();
 
-            HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
-            WIPTracker wiptracker = new WIPTracker(null, null);
+
 
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
@@ -132,11 +133,7 @@ namespace DigiScan_Track
             toEditGridView.Columns[3].HeaderText = "Department";
             toEditGridView.Columns[4].HeaderText = "In Storage";
 
-            toEditGridView.Columns[0].Width = 103;
-            toEditGridView.Columns[1].Width = 103;
-            toEditGridView.Columns[2].Width = 103;
-            toEditGridView.Columns[3].Width = 100;
-            toEditGridView.Columns[4].Width = 80;
+            wiptracker.TurnColumnIntoPercent(toEditGridView, 21, 21, 20, 22, 16);
 
         }
 

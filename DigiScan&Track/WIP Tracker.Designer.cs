@@ -59,10 +59,10 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(200, 17);
+            Titlelbl.Location = new Point(117, 17);
             Titlelbl.Margin = new Padding(4, 0, 4, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(1186, 78);
+            Titlelbl.Size = new Size(1269, 78);
             Titlelbl.TabIndex = 13;
             Titlelbl.Text = "DigiScan && Track - WIP Tracker";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
