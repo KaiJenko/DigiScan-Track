@@ -1,4 +1,6 @@
 using System.Data.SqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Drawing;
 
 
 namespace DigiScan_Track
@@ -36,13 +38,15 @@ namespace DigiScan_Track
         {
             try
             {
+                string department = departmentcmbox.Text.ToString();
+                string workstation = workstationcmbox.Text.ToString();
                 string partNumber = partNumcmbox.Text.ToString();
                 string serialNumber = serialNumtxt.Text.ToString();
                 string batchNumber = batchNumtxt.Text.ToString();
                 string manager = lineManagertxt.Text.ToString();
-                string department = departmentcmbox.Text.ToString();
-                string workstation = workstationcmbox.Text.ToString();
+                string reason = reasontxt.Text.ToString();
                 string timestamp = "";
+                string notes = notestxt.Text.ToString();
 
                 if (nocheckbox.Checked == true)
                 {
@@ -54,14 +58,12 @@ namespace DigiScan_Track
                     timestamp = timestamptxt.Value.ToString();
                 }
 
-                string reason = reasontxt.Text.ToString();
-                string notes = notestxt.Text.ToString();
-
                 TextBox[] textboxes = { serialNumtxt, batchNumtxt, reasontxt };
                 ComboBox[] comboBoxes = { partNumcmbox, departmentcmbox, workstationcmbox };
                 Label[] textboxlabels = { serialNumlbl, batchNumlbl, reasonlbl };
                 Label[] combolabels = { partNumberlbl, departmentlbl, workstationlbl };
                 int index = 0;
+                int index2 = 0;
 
                 for (int x = 0; x < textboxes.Length; x++)
                 {
@@ -98,30 +100,57 @@ namespace DigiScan_Track
                 {
                     if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation")
                     {
+                        if (index == 0)
+                        {
+                            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                            conn.Open();
+                            index2++;
+                        }
 
-                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                        conn.Open();
-                        string sqlInsert = "INSERT INTO WIPTracking (PartNumber, SerialNumber, BatchNumber, Department, Workstation, WSTimestampIN)" +
-                                            " VALUES (@part, @serial, @batch, @department, @workstation, + " + timestamp + ")";
-                        SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+                        else { }
+                        string sqlUpdate = " DECLARE @SerialNumber VARCHAR(100) = '" + serialNumber + "';" +
+                                           " IF EXISTS(SELECT 1 FROM[DigiTrackAndScan].[dbo].[WIPTracking] WHERE[SerialNumber] = @SerialNumber AND[WSTimestampOUT] IS NULL)" +
+                                           " BEGIN " +
+                                           "      UPDATE[DigiTrackAndScan].[dbo].[WIPTracking]" +
+                                           "      SET[WSTimestampOUT] = GETDATE() " +
+                                           "      WHERE SerialNumber = @SerialNumber AND[WSTimestampOUT] IS NULL;" +
+                                           "END";
 
-                        cmd.Parameters.AddWithValue("@part", partNumber);
-                        cmd.Parameters.AddWithValue("@serial", serialNumber);
-                        cmd.Parameters.AddWithValue("@batch", batchNumber);
-                        cmd.Parameters.AddWithValue("@department", department);
-                        cmd.Parameters.AddWithValue("@workstation", workstation);
+
+                        string sqlInsert = "INSERT INTO WIPTracking (Department, Workstation, PartNumber, SerialNumber, BatchNumber, LineManager, ManualReason, WSTimestampIN, Notes, InStorage)" +
+                                            " VALUES (@department, @workstation, @partnum, @serialnum, @batchnum, @manager, @reason, " + timestamp + ", @notes, 0)";
+
+                        SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
+                        SqlCommand cmd1 = new SqlCommand(sqlInsert, conn);
+                        
+
+                        cmd1.Parameters.AddWithValue("@department", department);
+                        cmd1.Parameters.AddWithValue("@workstation", workstation);
+                        cmd1.Parameters.AddWithValue("@partnum", partNumber);
+                        cmd1.Parameters.AddWithValue("@serialnum", serialNumber);
+                        cmd1.Parameters.AddWithValue("@batchnum", batchNumber);
+                        cmd1.Parameters.AddWithValue("@manager", manager);
+                        cmd1.Parameters.AddWithValue("@reason", reason);
+                        cmd1.Parameters.AddWithValue("@notes", notes);
+
 
                         cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
+                        
 
                         MessageBox.Show("Data inserted");
 
+                        resetbtn.PerformClick();
+
                         conn.Close();
+
+
                     }
                 }
             }
             catch (SqlException sqlex)
             {
-                MessageBox.Show("This serial number is already in the database");
+                MessageBox.Show("This serial number is already in the database" + sqlex.Message);
                 serialNumlbl.ForeColor = Color.Red;
                 Console.WriteLine(sqlex.Message);
 
@@ -276,6 +305,8 @@ namespace DigiScan_Track
 
             departmentcmbox.SelectedIndex = 0;
         }
+
+
 
         private void LoadWorkstationcmb(string department)
         {

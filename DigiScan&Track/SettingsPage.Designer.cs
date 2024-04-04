@@ -32,7 +32,7 @@
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
             panel1 = new Panel();
-            queryemaillbl = new Label();
+            emailLinklbl = new LinkLabel();
             label1 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
@@ -81,7 +81,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(queryemaillbl);
+            panel1.Controls.Add(emailLinklbl);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label4);
             panel1.Location = new Point(31, 92);
@@ -90,18 +90,17 @@
             panel1.Size = new Size(620, 685);
             panel1.TabIndex = 14;
             // 
-            // queryemaillbl
+            // emailLinklbl
             // 
-            queryemaillbl.BackColor = Color.FromArgb(46, 51, 73);
-            queryemaillbl.Cursor = Cursors.Hand;
-            queryemaillbl.Font = new Font("Segoe UI Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            queryemaillbl.ForeColor = SystemColors.MenuHighlight;
-            queryemaillbl.Location = new Point(238, 116);
-            queryemaillbl.Margin = new Padding(4, 0, 4, 0);
-            queryemaillbl.Name = "queryemaillbl";
-            queryemaillbl.Size = new Size(341, 37);
-            queryemaillbl.TabIndex = 14;
-            queryemaillbl.Text = "DigiScan&&Track Hotline";
+            emailLinklbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            emailLinklbl.LinkColor = Color.FromArgb(128, 255, 255);
+            emailLinklbl.Location = new Point(232, 116);
+            emailLinklbl.Name = "emailLinklbl";
+            emailLinklbl.Size = new Size(342, 47);
+            emailLinklbl.TabIndex = 16;
+            emailLinklbl.TabStop = true;
+            emailLinklbl.Text = "DigiScan&Track@Queries.com\r\n";
+            emailLinklbl.LinkClicked += Email_LinkClicked;
             // 
             // label1
             // 
@@ -164,7 +163,8 @@
         private Panel panel1;
         private Label label4;
         private PictureBox pictureBox1;
-        private Label queryemaillbl;
         private Label label1;
+        private LinkLabel queryEmailllbl;
+        private LinkLabel emailLinklbl;
     }
 }

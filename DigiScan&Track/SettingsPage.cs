@@ -16,21 +16,33 @@ namespace DigiScan_Track
         public SettingsPage()
         {
             InitializeComponent();
-        }
-
-        private void Query_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            String email = "DigiScanTrack@queries.com";
-            string subjectLine = "DigiScan&Track Application Query";
-
-            string mailToEmail = $"mailto:{email}?subject={subjectLine}";
-            Process.Start(new ProcessStartInfo(mailToEmail));
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
+
+        private void SendEmail(string recipientEmail, string subject)
+        {
+            try
+            {
+                string mailtoLink = $"mailto:{recipientEmail}?subject={Uri.EscapeDataString(subject)}";
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start {mailtoLink}",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Email_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SendEmail("digiscantrackQueries@gmail.com", "DigiScan&Track Application Query");
         }
     }
 }
