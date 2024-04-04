@@ -36,6 +36,7 @@
             agedlbl = new Label();
             Titlelbl = new Label();
             BodyLayoutpnl = new Panel();
+            noDatalbl = new Label();
             searchpbox = new PictureBox();
             customInputnud = new NumericUpDown();
             recentScannedGridView = new DataGridView();
@@ -45,7 +46,6 @@
             fiverbtn = new RadioButton();
             tworbtn = new RadioButton();
             Borderpnl = new Panel();
-            noDatalbl = new Label();
             BodyLayoutpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)searchpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customInputnud).BeginInit();
@@ -94,6 +94,18 @@
             BodyLayoutpnl.Name = "BodyLayoutpnl";
             BodyLayoutpnl.Size = new Size(1447, 870);
             BodyLayoutpnl.TabIndex = 11;
+            // 
+            // noDatalbl
+            // 
+            noDatalbl.AutoSize = true;
+            noDatalbl.BackColor = Color.FromArgb(113, 96, 232);
+            noDatalbl.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            noDatalbl.ForeColor = Color.Coral;
+            noDatalbl.Location = new Point(392, 358);
+            noDatalbl.Margin = new Padding(4, 0, 4, 0);
+            noDatalbl.Name = "noDatalbl";
+            noDatalbl.Size = new Size(0, 38);
+            noDatalbl.TabIndex = 23;
             // 
             // searchpbox
             // 
@@ -251,10 +263,10 @@
             tworbtn.Location = new Point(4, 27);
             tworbtn.Margin = new Padding(4, 5, 4, 5);
             tworbtn.Name = "tworbtn";
-            tworbtn.Size = new Size(155, 34);
+            tworbtn.Size = new Size(143, 34);
             tworbtn.TabIndex = 0;
             tworbtn.Tag = "2";
-            tworbtn.Text = " 2  Minutes ";
+            tworbtn.Text = "2 Minutes ";
             tworbtn.UseVisualStyleBackColor = true;
             tworbtn.CheckedChanged += RadioButton_CheckedChanged;
             // 
@@ -268,17 +280,6 @@
             Borderpnl.Name = "Borderpnl";
             Borderpnl.Size = new Size(1457, 880);
             Borderpnl.TabIndex = 14;
-            // 
-            // noDatalbl
-            // 
-            noDatalbl.AutoSize = true;
-            noDatalbl.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            noDatalbl.ForeColor = Color.White;
-            noDatalbl.Location = new Point(392, 358);
-            noDatalbl.Margin = new Padding(4, 0, 4, 0);
-            noDatalbl.Name = "noDatalbl";
-            noDatalbl.Size = new Size(0, 38);
-            noDatalbl.TabIndex = 23;
             // 
             // DisplayBoard
             // 

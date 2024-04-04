@@ -21,6 +21,7 @@ namespace DigiScan_Track
             LoadButtonImages();
             CreateTimer();
             prev = HomePageShortcutsbtn;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -82,6 +83,8 @@ namespace DigiScan_Track
             }
         }
 
+
+
         /*------------------------------------------------Code which is always open and working------------------------------------------------------------------*/
 
         //This is the old method for opening my forms - however I chose to go down a different route and have multiple forms instead of just one open
@@ -95,7 +98,7 @@ namespace DigiScan_Track
             }
         }
 
-        private void Loginbtn_Click(object sender, EventArgs e)
+        public void Loginbtn_Click(object sender, EventArgs e)
         {
             LoginPage loginpage = new LoginPage();
             HomePageButtonClick(loginpage, sender, e);
@@ -107,19 +110,19 @@ namespace DigiScan_Track
             HomePageButtonClick(shortcut, sender, e);
         }
 
-        private void WIPTrackerbtn_Click(object sender, EventArgs e)
+        public void WIPTrackerbtn_Click(object sender, EventArgs e)
         {
             WIPTracker wip = new WIPTracker(null, null);
             HomePageButtonClick(wip, sender, e);
         }
 
-        private void AgedWIPbtn_Click(object sender, EventArgs e)
+        public void AgedWIPbtn_Click(object sender, EventArgs e)
         {
             AgedWIP agedwip = new AgedWIP();
             HomePageButtonClick(agedwip, sender, e);
         }
 
-        private void EditPartsbtn_Click(object sender, EventArgs e)
+        public void EditPartsbtn_Click(object sender, EventArgs e)
         {
             EditParts edit = new EditParts();
             HomePageButtonClick(edit, sender, e);
@@ -131,14 +134,14 @@ namespace DigiScan_Track
             HomePageButtonClick(manual, sender, e);
         }
 
-        private void DisplayBoardbtn_Click(object sender, EventArgs e)
+        public void DisplayBoardbtn_Click(object sender, EventArgs e)
         {
             DisplayBoard display = new DisplayBoard();
             HomePageButtonClick(display, sender, e);
 
         }
 
-        private void Settingsbtn_Click(object sender, EventArgs e)
+        public void Settingsbtn_Click(object sender, EventArgs e)
         {
             SettingsPage settings = new SettingsPage();
             HomePageButtonClick(settings, sender, e);
@@ -154,6 +157,7 @@ namespace DigiScan_Track
             if (prev == buttonClicked)
             {
                 buttonClicked.Enabled = false;
+                buttonClicked.ForeColor = Color.Red;
             }
 
             else
@@ -208,7 +212,7 @@ namespace DigiScan_Track
 
                     if (control is Button button)
                     {
-                        button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(button.Height/2, button.Height/2));
+                        button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(button.Height / 2, button.Height / 2));
                         button.ImageAlign = ContentAlignment.MiddleRight;
                         button.Padding = new Padding(0, 0, 10, 0);
                         x--;

@@ -448,7 +448,6 @@
         private Panel dashpnl;
         private Button DisplayBoardbtn;
         private Button AgedWIPbtn;
-        private Button WIPTrackerbtn;
         private Panel Usernamepnl;
         private Label timePeriodlbl;
         private PictureBox userimagepicbox;
@@ -465,5 +464,6 @@
         public Panel currentFormpnl;
         private Label periodOnlinelbl;
         private Button loginbtn;
+        public Button WIPTrackerbtn;
     }
 }

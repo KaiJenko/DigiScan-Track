@@ -94,8 +94,15 @@ namespace DigiScan_Track
                         selectedrbtn = radiobtn.Text;
                     }
                 }
+                if (selectedrbtn == "Custom")
+                {
+                    noDatalbl.Text = string.Empty;
+                }
 
-                noDatalbl.Text = "No items scanned in the last: " + selectedrbtn;
+                else
+                {
+                    noDatalbl.Text = "No items scanned in the last: " + selectedrbtn;
+                }
             }
 
         }
