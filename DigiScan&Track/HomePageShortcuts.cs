@@ -191,7 +191,7 @@ namespace DigiScan_Track
             title.BackColor = Color.FromArgb(150, Color.Black);
             title.TextAlign = ContentAlignment.MiddleCenter;
             title.AutoSize = true;
-            title.TextAlign = ContentAlignment.MiddleCenter;
+            title.Anchor = AnchorStyles.None;
 
 
             Button partInput = new Button();
@@ -205,6 +205,7 @@ namespace DigiScan_Track
             partInput.Cursor = Cursors.Hand;
             partInput.FlatStyle = FlatStyle.Popup;
             partInput.BackColor = Color.PaleTurquoise;
+            partInput.Anchor = AnchorStyles.Top;
 
 
             Button tableView = new Button();
@@ -218,12 +219,14 @@ namespace DigiScan_Track
             tableView.Cursor = Cursors.Hand;
             tableView.FlatStyle = FlatStyle.Popup;
             tableView.BackColor = Color.DarkTurquoise;
+            tableView.Anchor = AnchorStyles.None;
 
 
-            tableLayoutPanel.Controls.Add(title, 1, 1);
-            tableLayoutPanel.Controls.Add(partInput, 1, 2); // Add button 1 to the bottom
+            tableLayoutPanel.Controls.Add(title, 0, 1);
+            tableLayoutPanel.SetColumnSpan(title, 1);
+            tableLayoutPanel.Controls.Add(partInput, 0, 2); // Add button 1 to the bottom
             tableLayoutPanel.SetColumnSpan(partInput, 1); // Set column span to center the button
-            tableLayoutPanel.Controls.Add(tableView, 1, 3); // Add button 2 below button 1
+            tableLayoutPanel.Controls.Add(tableView, 0, 2); // Add button 2 below button 1
             tableLayoutPanel.SetColumnSpan(tableView, 1); // Set column span to center the button
             pictureBox.Controls.Add(tableLayoutPanel); // Add the label to the PictureBox
 

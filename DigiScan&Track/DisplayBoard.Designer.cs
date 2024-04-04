@@ -101,7 +101,7 @@
             noDatalbl.BackColor = Color.FromArgb(113, 96, 232);
             noDatalbl.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             noDatalbl.ForeColor = Color.Coral;
-            noDatalbl.Location = new Point(392, 358);
+            noDatalbl.Location = new Point(500, 400);
             noDatalbl.Margin = new Padding(4, 0, 4, 0);
             noDatalbl.Name = "noDatalbl";
             noDatalbl.Size = new Size(0, 38);
@@ -112,10 +112,10 @@
             searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
-            searchpbox.Location = new Point(1379, 38);
+            searchpbox.Location = new Point(1377, 37);
             searchpbox.Margin = new Padding(4, 5, 4, 5);
             searchpbox.Name = "searchpbox";
-            searchpbox.Size = new Size(36, 42);
+            searchpbox.Size = new Size(36, 39);
             searchpbox.TabIndex = 22;
             searchpbox.TabStop = false;
             searchpbox.Visible = false;

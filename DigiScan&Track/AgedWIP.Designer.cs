@@ -235,7 +235,7 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            Agedgridview.RowTemplate.Height = 25;
+            Agedgridview.RowTemplate.Height = 35;
             Agedgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Agedgridview.Size = new Size(357, 683);
             Agedgridview.TabIndex = 28;

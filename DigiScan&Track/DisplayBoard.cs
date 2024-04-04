@@ -54,7 +54,7 @@ namespace DigiScan_Track
                 }
             }
 
-            ExecuteAgedWIPSQL(sqlQuery);
+            ExecuteAgedWIPSQL(sqlQuery, 0);
         }
 
 
@@ -62,12 +62,12 @@ namespace DigiScan_Track
         private void Searchpbox_Click(object sender, EventArgs e)
         {
             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '" + customInputnud.Value + "'";
-            ExecuteAgedWIPSQL(sqlQuery);
+            ExecuteAgedWIPSQL(sqlQuery, (int)customInputnud.Value);
         }
 
 
 
-        private void ExecuteAgedWIPSQL(string sqlQuery)
+        private void ExecuteAgedWIPSQL(string sqlQuery, int nudValue)
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
@@ -94,9 +94,14 @@ namespace DigiScan_Track
                         selectedrbtn = radiobtn.Text;
                     }
                 }
+
                 if (selectedrbtn == "Custom")
                 {
                     noDatalbl.Text = string.Empty;
+                    if (nudValue != 0)
+                    {
+                        noDatalbl.Text = "No items scanned in the last: " + nudValue + " minutes";
+                    }
                 }
 
                 else
