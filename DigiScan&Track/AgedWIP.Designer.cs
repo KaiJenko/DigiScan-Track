@@ -207,7 +207,7 @@
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Coral;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             Agedgridview.DefaultCellStyle = dataGridViewCellStyle3;
             Agedgridview.EnableHeadersVisualStyles = false;
@@ -233,13 +233,14 @@
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Coral;
             Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
             Agedgridview.RowTemplate.Height = 35;
             Agedgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Agedgridview.Size = new Size(357, 683);
             Agedgridview.TabIndex = 28;
             Agedgridview.CellContentClick += Agedgridview_CellContentClick;
+            Agedgridview.CellFormatting += Agedgridview_CellFormatting;
             Agedgridview.CellMouseEnter += Agedgridview_CellMouseEnter;
             Agedgridview.CellMouseLeave += Agedgridview_CellMouseLeave;
             // 

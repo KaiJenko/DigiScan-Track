@@ -17,7 +17,6 @@ namespace DigiScan_Track
             PullMaxCountSQL();
             GetAgedWIPSQL();
 
-
             wip.TransparentBackground(this, "excelbtn", "resetbtn", "tableaubtn");
         }
 
@@ -58,7 +57,7 @@ namespace DigiScan_Track
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) FROM [AgedWIP]";
+            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) AS aged FROM [AgedWIP] ORDER BY [aged] DESC";
             SqlDataReader dr = cmd.ExecuteReader();
 
             dt.Load(dr);
@@ -139,7 +138,7 @@ namespace DigiScan_Track
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) FROM [AgedWIP] " + sqlquery;
+            cmd.CommandText = "SELECT [serialNumber], DATEDIFF(day, [DateEnteredStorage] , GETDATE()) AS aged FROM [AgedWIP] " + sqlquery + " ORDER BY [aged] DESC";
             SqlDataReader dr = cmd.ExecuteReader();
 
             dt.Load(dr);
@@ -248,34 +247,85 @@ namespace DigiScan_Track
 
         private void ExportToExcel(DataGridView datagridview)
         {
+            int i = 0;
+            int j = 0;
+
             if (datagridview.Rows.Count > 0)
             {
                 Excel.Application excel = new Excel.Application();
                 workbook = excel.Workbooks.Add();
                 worksheet = (Worksheet)workbook.Worksheets[1];
 
+                worksheet.Cells[2, 1] = "Serial Num";
+                worksheet.Cells[2, 2] = "Days Aged";
+
                 for (int x = 0; x < datagridview.Rows.Count; x++)
                 {
                     for (int y = 0; y < datagridview.Columns.Count; y++)
                     {
-                        worksheet.Cells[x + 1, y + 1] = datagridview.Rows[x].Cells[y].Value.ToString();
+                        worksheet.Cells[x + 3, y + 1] = datagridview.Rows[x].Cells[y].Value.ToString();
+                        i = y;
                     }
+                    j = x;
+                }
+            }
+
+            if (furtherDetailsgridview.Rows.Count > 0)
+            {
+
+                for (int y = 0; y < furtherDetailsgridview.Columns.Count; y++)
+                {
+                    worksheet.Cells[j + 5, y + 1] = furtherDetailsgridview.Columns[y].HeaderText;
                 }
 
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                for (int x = 0; x < furtherDetailsgridview.Rows.Count; x++)
                 {
-                    if (sfd.ShowDialog() == DialogResult.OK)
+                    for (int y = 0; y < furtherDetailsgridview.Columns.Count; y++)
                     {
-                        filepath = sfd.FileName;
-                        if (File.Exists(filepath))
-                        {
-
-                            File.Delete(filepath);
-                        }
-                        worksheet.Columns.AutoFit();
-                        workbook.SaveAs(filepath);
-                        workbook.Close();
+                        worksheet.Cells[x + 6 + j, y + i] = furtherDetailsgridview.Rows[x].Cells[y].Value.ToString();
                     }
+                }
+            }
+
+            /*Excel.Range sortRange = worksheet.Range[worksheet.Cells[2, 2], worksheet.Cells[j + furtherDetailsgridview.Rows.Count + 3, 2]];
+            sortRange.Sort(sortRange.Columns[1], XlSortOrder.xlDescending);*/
+
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    filepath = sfd.FileName;
+                    if (File.Exists(filepath))
+                    {
+
+                        File.Delete(filepath);
+                    }
+                    worksheet.Columns.AutoFit();
+                    workbook.SaveAs(filepath);
+                    workbook.Close();
+                }
+            }
+        }
+
+        private void Agedgridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            object value = Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            if (Agedgridview.Columns[e.ColumnIndex].Name == "aged")
+            {
+                if (value != null && value is int && (int)value > 60)
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+
+                else if (value != null && value is int && (int)value > 30)
+                {
+                    e.CellStyle.ForeColor = Color.Yellow;
+                }
+
+                else if (value != null && value is int && (int)value > 0)
+                {
+                    e.CellStyle.ForeColor = Color.LightGreen;
                 }
             }
         }
