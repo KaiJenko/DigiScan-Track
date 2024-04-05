@@ -367,15 +367,15 @@
             // 
             // usernamelbl
             // 
-            usernamelbl.AutoSize = true;
-            usernamelbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            usernamelbl.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
             usernamelbl.ForeColor = Color.FromArgb(0, 126, 249);
-            usernamelbl.Location = new Point(21, 122);
+            usernamelbl.Location = new Point(13, 118);
             usernamelbl.Margin = new Padding(4, 0, 4, 0);
             usernamelbl.Name = "usernamelbl";
-            usernamelbl.Size = new Size(144, 29);
+            usernamelbl.Size = new Size(188, 55);
             usernamelbl.TabIndex = 6;
             usernamelbl.Text = "User Name";
+            usernamelbl.TextAlign = ContentAlignment.MiddleCenter;
             usernamelbl.Visible = false;
             // 
             // selectionpnl

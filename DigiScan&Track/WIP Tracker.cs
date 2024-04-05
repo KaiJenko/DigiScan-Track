@@ -20,7 +20,8 @@ namespace DigiScan_Track
 
             searchcmb.SelectedIndex = 0;
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
-            WIPgridView.CellPainting += WIPgridView_CellPainting;
+
+            WIPgridView.CellPainting += WIPgridview_CellPainting;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -395,27 +396,29 @@ namespace DigiScan_Track
 
 
 
-        public void WIPgridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        public void WIPgridview_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
             {
                 e.PaintBackground(e.CellBounds, true);
 
-                if (WIPgridView[e.ColumnIndex, e.RowIndex].Value != DBNull.Value)
+                if (e.Value != null && e.Value is bool)
                 {
-                    bool isChecked = (bool)WIPgridView[e.ColumnIndex, e.RowIndex].Value;
-                    string displayText = isChecked ? "Yes" : "No";
-                    using (StringFormat sf = new StringFormat())
-                    {
-                        sf.Alignment = StringAlignment.Center;
-                        sf.LineAlignment = StringAlignment.Center;
+                    bool value = (bool)e.Value;
+                    Image image = value ? Properties.Resources.GreenTick : Properties.Resources.RedCross;
 
-                        using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
-                        {
-                            e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
-                        }
-                    }
-                    e.Handled = true;
+                    int desiredWidth = 25;
+                    int desiredHeight = 25; 
+                    Image resizedImage = new Bitmap(image, desiredWidth, desiredHeight);
+
+                    // Adjust the image position
+                    int x = e.CellBounds.Left + (e.CellBounds.Width - resizedImage.Width) / 2;
+                    int y = e.CellBounds.Top + (e.CellBounds.Height - resizedImage.Height) / 2;
+
+                    // Draw the image
+                    e.Graphics.DrawImage(image, new Rectangle(x, y, resizedImage.Width, resizedImage.Height));
+
+                    e.Handled = true; 
                 }
             }
         }

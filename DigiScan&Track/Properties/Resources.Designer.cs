@@ -283,6 +283,16 @@ namespace DigiScan_Track.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GreenTick {
+            get {
+                object obj = ResourceManager.GetObject("GreenTick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Heat_Treat {
             get {
                 object obj = ResourceManager.GetObject("Heat Treat", resourceCulture);
@@ -436,6 +446,16 @@ namespace DigiScan_Track.Properties {
         internal static System.Drawing.Bitmap Production {
             get {
                 object obj = ResourceManager.GetObject("Production", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedCross {
+            get {
+                object obj = ResourceManager.GetObject("RedCross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,6 +20,10 @@ namespace DigiScan_Track
             string username = ouUsernametxt.Text;
             string password = ouPasswordtxt.Text;
 
+            string[] splitUsername = username.Split('.');
+            string firstname = splitUsername[0];
+            string lastname = splitUsername[1];
+
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -31,7 +35,7 @@ namespace DigiScan_Track
                 dr.Read();
                 string PermissionLevel = dr["Permission"].ToString();
                 MessageBox.Show("You have been logged in");
-                UserLoginDetails.Instance.Username = username;
+                UserLoginDetails.Instance.Username = firstname + " " + lastname;
                 UserLoginDetails.Instance.loggedIN = true;
                 UserLoginDetails.Instance.Permission = PermissionLevel;
                 UpdateHomePageLoginStatus();

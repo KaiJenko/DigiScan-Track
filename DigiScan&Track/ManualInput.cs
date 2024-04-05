@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace DigiScan_Track
@@ -24,12 +25,12 @@ namespace DigiScan_Track
             WIPTracker wip = new WIPTracker(null, null);
             wip.TransparentBackground(this, "submitbtn", "resetbtn");
 
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            permissionToAccess();
         }
 
 
@@ -103,7 +104,7 @@ namespace DigiScan_Track
 
                         conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                         conn.Open();
-                        string sqlSelect = "SELECT COUNT([SerialNumber]) FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "'"; 
+                        string sqlSelect = "SELECT COUNT([SerialNumber]) FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "'";
 
                         SqlCommand Selectcmd = new SqlCommand(sqlSelect, conn);
                         int rowCount = (int)Selectcmd.ExecuteScalar();
@@ -369,6 +370,32 @@ namespace DigiScan_Track
                 LoadPartNumbers(selectedDepartment);
                 partNumcmbox.SelectedIndex = 0;
             }
+        }
+
+
+
+        private void permissionToAccess()
+        {
+
+            if (UserLoginDetails.Instance.loggedIN == false)
+            {
+                MessageBox.Show("Please login to gain access");
+                BodyLayoutpnl.Enabled = false;
+            }
+
+            else if (UserLoginDetails.Instance.loggedIN == true)
+            {
+                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "Read/Write")
+                {
+                    BodyLayoutpnl.Enabled = true;
+                }
+
+                else
+                {
+                    MessageBox.Show("You do not have the necessary permission level");
+                }
+            }
+
         }
     }
 }

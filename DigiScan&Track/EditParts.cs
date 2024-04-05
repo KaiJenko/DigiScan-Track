@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace DigiScan_Track
@@ -20,7 +21,7 @@ namespace DigiScan_Track
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
-            toEditGridView.CellPainting += wiptracker.WIPgridView_CellPainting;
+            toEditGridView.CellPainting += wiptracker.WIPgridview_CellPainting;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -187,49 +188,69 @@ namespace DigiScan_Track
 
         private void ToEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-            string serialNum = toEditGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            string inStorageMessage = "This part: " + serialNum + " is not in storage, would you like to edit this";
-            string outStorageMessage = "This part " + serialNum + " is in storage, would you like to edit this";
-            string title = "Edit Part";
 
-            if (boolStorage == "True")
+            if (UserLoginDetails.Instance.loggedIN == true)
             {
-                MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
-                DialogResult result = MessageBox.Show(outStorageMessage, title, msgbtn);
-                if (result == DialogResult.Yes)
+                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "Read/Write")
                 {
 
-                    PartEditPage editPage = new PartEditPage(serialNum);
-                    editPage.Dock = DockStyle.Fill;
-                    this.InnerBorderpnl.Controls.Add(editPage);
-                    crossOffpbox.Visible = true;
-                    crossOffpbox.BringToFront();
-                    editPage.BringToFront();
+                    string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    string serialNum = toEditGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    string inStorageMessage = "This part: " + serialNum + " is not in storage, would you like to edit this";
+                    string outStorageMessage = "This part " + serialNum + " is in storage, would you like to edit this";
+                    string title = "Edit Part";
 
+                    if (boolStorage == "True")
+                    {
+                        MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
+
+                        DialogResult result = MessageBox.Show(outStorageMessage, title, msgbtn);
+                        if (result == DialogResult.Yes)
+                        {
+
+                            PartEditPage editPage = new PartEditPage(serialNum);
+                            editPage.Dock = DockStyle.Fill;
+                            this.InnerBorderpnl.Controls.Add(editPage);
+                            crossOffpbox.Visible = true;
+                            crossOffpbox.BringToFront();
+                            editPage.BringToFront();
+
+                        }
+                    }
+
+                    else if (boolStorage == "False")
+                    {
+                        MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
+
+                        DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
+                        if (result == DialogResult.Yes)
+                        {
+                            PartEditPage editPage = new PartEditPage(serialNum);
+                            editPage.Dock = DockStyle.Fill;
+                            this.InnerBorderpnl.Controls.Add(editPage);
+                            crossOffpbox.Visible = true;
+                            crossOffpbox.BringToFront();
+                            editPage.BringToFront();
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show(boolStorage);
+                    }
                 }
-            }
 
-            else if (boolStorage == "False")
-            {
-                MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
-
-                DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
-                if (result == DialogResult.Yes)
+                else
                 {
-                    PartEditPage editPage = new PartEditPage(serialNum);
-                    editPage.Dock = DockStyle.Fill;
-                    this.InnerBorderpnl.Controls.Add(editPage);
-                    crossOffpbox.Visible = true;
-                    crossOffpbox.BringToFront();
-                    editPage.BringToFront();
+                    MessageBox.Show("You do not have the necessary permission level to perform this action");
                 }
+
             }
 
             else
             {
-                MessageBox.Show(boolStorage);
+                MessageBox.Show("Please login to ascertain permission level");
             }
         }
 
