@@ -219,7 +219,7 @@
             workstationlbl.BackColor = Color.Transparent;
             workstationlbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(1260, 42);
+            workstationlbl.Location = new Point(1246, 42);
             workstationlbl.Margin = new Padding(4, 0, 4, 0);
             workstationlbl.Name = "workstationlbl";
             workstationlbl.Size = new Size(45, 25);
@@ -232,7 +232,7 @@
             departmentlbl.BackColor = Color.Transparent;
             departmentlbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            departmentlbl.Location = new Point(1264, 18);
+            departmentlbl.Location = new Point(1250, 18);
             departmentlbl.Margin = new Padding(4, 0, 4, 0);
             departmentlbl.Name = "departmentlbl";
             departmentlbl.Size = new Size(41, 25);

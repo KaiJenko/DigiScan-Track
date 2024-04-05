@@ -408,7 +408,7 @@ namespace DigiScan_Track
                     Image image = value ? Properties.Resources.GreenTick : Properties.Resources.RedCross;
 
                     int desiredWidth = 25;
-                    int desiredHeight = 25; 
+                    int desiredHeight = 25;
                     Image resizedImage = new Bitmap(image, desiredWidth, desiredHeight);
 
                     // Adjust the image position
@@ -418,7 +418,7 @@ namespace DigiScan_Track
                     // Draw the image
                     e.Graphics.DrawImage(image, new Rectangle(x, y, resizedImage.Width, resizedImage.Height));
 
-                    e.Handled = true; 
+                    e.Handled = true;
                 }
             }
         }
