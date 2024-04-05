@@ -82,6 +82,7 @@ namespace DigiScan_Track
                 conn.Close();
                 recentScannedGridView.DataSource = dt;
                 DisplayBoardSQL();
+                noDatalbl.Text = "";
             }
 
             else
@@ -100,12 +101,14 @@ namespace DigiScan_Track
                     noDatalbl.Text = string.Empty;
                     if (nudValue != 0)
                     {
+                        recentScannedGridView.Columns.Clear();
                         noDatalbl.Text = "No items scanned in the last: " + nudValue + " minutes";
                     }
                 }
 
                 else
                 {
+                    recentScannedGridView.Columns.Clear();
                     noDatalbl.Text = "No items scanned in the last: " + selectedrbtn;
                 }
             }

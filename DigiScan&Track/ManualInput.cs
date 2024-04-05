@@ -100,51 +100,78 @@ namespace DigiScan_Track
                 {
                     if (partNumber != "Part Number" && serialNumber != null && batchNumber != null && department != "Department" && workstation != "Workstation")
                     {
-                        if (index == 0)
-                        {
-                            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                            conn.Open();
-                            index2++;
-                        }
 
-                        else { }
-                        string sqlUpdate = " DECLARE @SerialNumber VARCHAR(100) = '" + serialNumber + "';" +
-                                           " IF EXISTS(SELECT 1 FROM[DigiTrackAndScan].[dbo].[WIPTracking] WHERE[SerialNumber] = @SerialNumber AND[WSTimestampOUT] IS NULL)" +
-                                           " BEGIN " +
-                                           "      UPDATE[DigiTrackAndScan].[dbo].[WIPTracking]" +
-                                           "      SET[WSTimestampOUT] = GETDATE() " +
-                                           "      WHERE SerialNumber = @SerialNumber AND[WSTimestampOUT] IS NULL;" +
-                                           "END";
+                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                        conn.Open();
+                        string sqlSelect = "SELECT COUNT([SerialNumber]) FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "'"; 
 
-
-                        string sqlInsert = "INSERT INTO WIPTracking (Department, Workstation, PartNumber, SerialNumber, BatchNumber, LineManager, ManualReason, WSTimestampIN, Notes, InStorage)" +
-                                            " VALUES (@department, @workstation, @partnum, @serialnum, @batchnum, @manager, @reason, " + timestamp + ", @notes, 0)";
-
-                        SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
-                        SqlCommand cmd1 = new SqlCommand(sqlInsert, conn);
-                        
-
-                        cmd1.Parameters.AddWithValue("@department", department);
-                        cmd1.Parameters.AddWithValue("@workstation", workstation);
-                        cmd1.Parameters.AddWithValue("@partnum", partNumber);
-                        cmd1.Parameters.AddWithValue("@serialnum", serialNumber);
-                        cmd1.Parameters.AddWithValue("@batchnum", batchNumber);
-                        cmd1.Parameters.AddWithValue("@manager", manager);
-                        cmd1.Parameters.AddWithValue("@reason", reason);
-                        cmd1.Parameters.AddWithValue("@notes", notes);
-
-
-                        cmd.ExecuteNonQuery();
-                        cmd1.ExecuteNonQuery();
-                        
-
-                        MessageBox.Show("Data inserted");
-
-                        resetbtn.PerformClick();
-
+                        SqlCommand Selectcmd = new SqlCommand(sqlSelect, conn);
+                        int rowCount = (int)Selectcmd.ExecuteScalar();
                         conn.Close();
 
+                        if (workstation == "Goods Out")
+                        {
+                            if (rowCount == workstationcmbox.Items.Count - 1)
+                            {
+                                conn.Open();
+                                string sqlUpdate0 = "UPDATE [WIPTracking] SET [Shipped] = 1 WHERE [SerialNumber] = '" + serialNumber + "'; " +
+                                                    "UPDATE [WIPTracking] SET [WSTimestampOUT] = GETDATE() WHERE [SerialNumber] = '" + serialNumber + "' AND [WSTimestampOUT] IS NULL";
+                                SqlCommand Updatecmd0 = new SqlCommand(sqlUpdate0, conn);
+                                Updatecmd0.ExecuteNonQuery();
+                                conn.Close();
+                                MessageBox.Show("The part number: " + serialNumber + " has been shipped");
+                            }
 
+                            else if (rowCount != workstationcmbox.Items.Count - 1)
+                            {
+                                MessageBox.Show("This part has not finished its workstation cycle and cannot be shipped yet");
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Error - contact help email");
+                            }
+                        }
+
+                        else
+                        {
+                            conn.Open();
+                            string sqlUpdate = " DECLARE @SerialNumber VARCHAR(100) = '" + serialNumber + "';" +
+                                               " IF EXISTS(SELECT 1 FROM[DigiTrackAndScan].[dbo].[WIPTracking] WHERE [SerialNumber] = @SerialNumber AND[WSTimestampOUT] IS NULL)" +
+                                               " BEGIN " +
+                                               "      UPDATE[DigiTrackAndScan].[dbo].[WIPTracking]" +
+                                               "      SET[WSTimestampOUT] = GETDATE() " +
+                                               "      WHERE SerialNumber = @SerialNumber AND[WSTimestampOUT] IS NULL;" +
+                                               "END";
+
+
+                            string sqlInsert = "INSERT INTO WIPTracking (Department, Workstation, PartNumber, SerialNumber, BatchNumber, LineManager, ManualReason, WSTimestampIN, Notes, InStorage, Shipped)" +
+                                                " VALUES (@department, @workstation, @partnum, @serialnum, @batchnum, @manager, @reason, " + timestamp + ", @notes, 0, 0)";
+
+                            SqlCommand Updatecmd = new SqlCommand(sqlUpdate, conn);
+                            SqlCommand Insertcmd1 = new SqlCommand(sqlInsert, conn);
+
+
+                            Insertcmd1.Parameters.AddWithValue("@department", department);
+                            Insertcmd1.Parameters.AddWithValue("@workstation", workstation);
+                            Insertcmd1.Parameters.AddWithValue("@partnum", partNumber);
+                            Insertcmd1.Parameters.AddWithValue("@serialnum", serialNumber);
+                            Insertcmd1.Parameters.AddWithValue("@batchnum", batchNumber);
+                            Insertcmd1.Parameters.AddWithValue("@manager", manager);
+                            Insertcmd1.Parameters.AddWithValue("@reason", reason);
+                            Insertcmd1.Parameters.AddWithValue("@notes", notes);
+
+
+                            Updatecmd.ExecuteNonQuery();
+                            Insertcmd1.ExecuteNonQuery();
+
+                            MessageBox.Show("Data inserted");
+
+                            resetbtn.PerformClick();
+
+                            conn.Close();
+
+                        }
                     }
                 }
             }
@@ -324,6 +351,7 @@ namespace DigiScan_Track
                 }
                 conn.Close();
 
+                workstationcmbox.Items.Add("Goods Out");
                 workstationcmbox.SelectedIndex = 0;
             }
         }

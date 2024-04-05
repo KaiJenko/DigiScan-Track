@@ -394,6 +394,7 @@
             workstationcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             workstationcmbox.ForeColor = Color.White;
             workstationcmbox.FormattingEnabled = true;
+            workstationcmbox.Items.AddRange(new object[] { "Goods Out" });
             workstationcmbox.Location = new Point(549, 78);
             workstationcmbox.Margin = new Padding(4, 5, 4, 5);
             workstationcmbox.Name = "workstationcmbox";
