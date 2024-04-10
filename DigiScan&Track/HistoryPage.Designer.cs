@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryPage));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryPage));
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
+            resetbtn = new Button();
             HistorygridView = new DataGridView();
             searchbtn = new Button();
+            historycmb = new ComboBox();
             searchBylbl = new Label();
             searchtxt = new TextBox();
             Titlelbl = new Label();
-            searchcmb = new ComboBox();
             OuterBorderpnl.SuspendLayout();
             InnerBorderpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HistorygridView).BeginInit();
@@ -62,9 +63,10 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(resetbtn);
             InnerBorderpnl.Controls.Add(HistorygridView);
             InnerBorderpnl.Controls.Add(searchbtn);
-            InnerBorderpnl.Controls.Add(searchcmb);
+            InnerBorderpnl.Controls.Add(historycmb);
             InnerBorderpnl.Controls.Add(searchBylbl);
             InnerBorderpnl.Controls.Add(searchtxt);
             InnerBorderpnl.Location = new Point(6, 5);
@@ -72,6 +74,25 @@
             InnerBorderpnl.Name = "InnerBorderpnl";
             InnerBorderpnl.Size = new Size(1447, 870);
             InnerBorderpnl.TabIndex = 11;
+            // 
+            // resetbtn
+            // 
+            resetbtn.BackColor = Color.Transparent;
+            resetbtn.BackgroundImage = (Image)resources.GetObject("resetbtn.BackgroundImage");
+            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.Cursor = Cursors.Hand;
+            resetbtn.FlatAppearance.BorderSize = 0;
+            resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.ForeColor = Color.White;
+            resetbtn.Location = new Point(1201, 21);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
+            resetbtn.Name = "resetbtn";
+            resetbtn.Size = new Size(149, 60);
+            resetbtn.TabIndex = 35;
+            resetbtn.Text = "Reset";
+            resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += Resetbtn_Click;
             // 
             // HistorygridView
             // 
@@ -149,7 +170,24 @@
             searchbtn.TabIndex = 31;
             searchbtn.Text = "Search";
             searchbtn.UseVisualStyleBackColor = false;
-            searchbtn.Click += searchbtn_Click;
+            searchbtn.Click += Searchbtn_Click;
+            // 
+            // historycmb
+            // 
+            historycmb.BackColor = Color.FromArgb(46, 51, 73);
+            historycmb.Cursor = Cursors.Hand;
+            historycmb.DrawMode = DrawMode.OwnerDrawFixed;
+            historycmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            historycmb.FlatStyle = FlatStyle.Flat;
+            historycmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            historycmb.ForeColor = Color.White;
+            historycmb.FormattingEnabled = true;
+            historycmb.Items.AddRange(new object[] { "Username", "Part/Serial" });
+            historycmb.Location = new Point(209, 32);
+            historycmb.Margin = new Padding(4, 5, 4, 5);
+            historycmb.Name = "historycmb";
+            historycmb.Size = new Size(231, 40);
+            historycmb.TabIndex = 13;
             // 
             // searchBylbl
             // 
@@ -189,23 +227,6 @@
             Titlelbl.Text = "DigiScan && Track - Action History";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // searchcmb
-            // 
-            searchcmb.BackColor = Color.FromArgb(46, 51, 73);
-            searchcmb.Cursor = Cursors.Hand;
-            searchcmb.DrawMode = DrawMode.OwnerDrawFixed;
-            searchcmb.DropDownStyle = ComboBoxStyle.DropDownList;
-            searchcmb.FlatStyle = FlatStyle.Flat;
-            searchcmb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            searchcmb.ForeColor = Color.White;
-            searchcmb.FormattingEnabled = true;
-            searchcmb.Items.AddRange(new object[] { "Username", "SerialNumber" });
-            searchcmb.Location = new Point(209, 32);
-            searchcmb.Margin = new Padding(4, 5, 4, 5);
-            searchcmb.Name = "searchcmb";
-            searchcmb.Size = new Size(231, 40);
-            searchcmb.TabIndex = 13;
-            // 
             // HistoryPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -233,6 +254,7 @@
         private Label searchBylbl;
         private TextBox searchtxt;
         private Label Titlelbl;
-        private ComboBox searchcmb;
+        private ComboBox historycmb;
+        private Button resetbtn;
     }
 }
