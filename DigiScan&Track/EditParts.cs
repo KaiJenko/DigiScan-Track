@@ -296,45 +296,79 @@ namespace DigiScan_Track
 
         private void SubmitAddpbox_Click(object sender, EventArgs e)
         {
-            string department = addPartcmbox.SelectedItem.ToString();
-            string partNum = addParttxt.Text;
-            try
+            if (UserLoginDetails.Instance.loggedIN)
             {
-                if (partNum != "")
+                if (UserLoginDetails.Instance.Permission != "Read")
                 {
-                    string message = "Do you want to insert part number: " + partNum + " into: " + department;
-                    string title = "Add New Part Number to: " + department;
-                    MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
-
-                    DialogResult result = MessageBox.Show(message, title, msgbtn);
-                    if (result == DialogResult.Yes)
+                    string department = addPartcmbox.SelectedItem.ToString();
+                    string partNum = addParttxt.Text;
+                    try
                     {
+                        if (partNum != "")
+                        {
+                            string message = "Do you want to insert part number: " + partNum + " into: " + department;
+                            string title = "Add New Part Number to: " + department;
+                            MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
-                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                        conn.Open();
-                        string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
-                                            " VALUES (@Department, @PartNumber)";
-                        SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+                            DialogResult result = MessageBox.Show(message, title, msgbtn);
+                            if (result == DialogResult.Yes)
+                            {
 
-                        cmd.Parameters.AddWithValue("@Department", department);
-                        cmd.Parameters.AddWithValue("@PartNumber", partNum);
+                                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                                conn.Open();
+                                string sqlInsert = "INSERT INTO [PartNumbers] (Department, PartNumber)" +
+                                                    " VALUES (@Department, @PartNumber)";
+                                SqlCommand cmd = new SqlCommand(sqlInsert, conn);
 
-                        cmd.ExecuteNonQuery();
+                                cmd.Parameters.AddWithValue("@Department", department);
+                                cmd.Parameters.AddWithValue("@PartNumber", partNum);
 
-                        addParttxt.Clear();
-                        MessageBox.Show("You have inputted a new part");
+                                cmd.ExecuteNonQuery();
+
+                                addParttxt.Clear();
+                                MessageBox.Show("You have inputted a new part");
+
+
+                                string username = UserLoginDetails.Instance.Username;
+                                string action = "Added a new part";
+
+                                string sqlInsert2 = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
+                                                    " VALUES (@username, @action, GETDATE(), @partserial)";
+
+                                SqlCommand cmd2 = new SqlCommand(sqlInsert2, conn);
+
+                                cmd2.Parameters.AddWithValue("@username", username);
+                                cmd2.Parameters.AddWithValue("@action", action);
+                                cmd2.Parameters.AddWithValue("@partserial", partNum);
+
+                                cmd2.ExecuteNonQuery();
+                                conn.Close();
+                            }
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Please input a part number");
+                        }
+                    }
+                    catch (SqlException sqlex)
+                    {
+                        MessageBox.Show("ERROR: This part is already in the database");
                     }
                 }
 
                 else
                 {
-                    MessageBox.Show("Please input a part number");
+                    MessageBox.Show("Obtain a higher permission level");
                 }
             }
-            catch (SqlException sqlex)
+
+            else
             {
-                MessageBox.Show("ERROR: This part is already in the database");
+                MessageBox.Show("Please login");
             }
+
+            
         }
 
 
