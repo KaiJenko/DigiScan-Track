@@ -141,6 +141,12 @@ namespace DigiScan_Track
 
         }
 
+        private void actionHistorybtn_Click(object sender, EventArgs e)
+        {
+            HistoryPage history = new HistoryPage();
+            HomePageButtonClick(history, sender, e);
+        }
+
         public void Settingsbtn_Click(object sender, EventArgs e)
         {
             SettingsPage settings = new SettingsPage();
@@ -201,7 +207,7 @@ namespace DigiScan_Track
             WIPTracker wip = new WIPTracker(null, null);
             wip.TransparentBackground(this, "loginbtn");
 
-            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog" };
+            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog", "newHistory" };
             int x = images.Length - 1;
 
             foreach (Control control in dashpnl.Controls)
@@ -321,5 +327,7 @@ namespace DigiScan_Track
                 }
             }
         }
+
+
     }
 }

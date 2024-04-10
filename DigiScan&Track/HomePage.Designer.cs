@@ -33,6 +33,7 @@
             expandpicbox = new PictureBox();
             InnerBodypnl = new Panel();
             dashpnl = new Panel();
+            HistoryPagebtn = new Button();
             SettingsPagebtn = new Button();
             DisplayBoardbtn = new Button();
             ManualInputbtn = new Button();
@@ -99,6 +100,7 @@
             // dashpnl
             // 
             dashpnl.BackColor = Color.FromArgb(24, 30, 54);
+            dashpnl.Controls.Add(HistoryPagebtn);
             dashpnl.Controls.Add(SettingsPagebtn);
             dashpnl.Controls.Add(DisplayBoardbtn);
             dashpnl.Controls.Add(ManualInputbtn);
@@ -115,6 +117,28 @@
             dashpnl.Name = "dashpnl";
             dashpnl.Size = new Size(211, 1020);
             dashpnl.TabIndex = 2;
+            // 
+            // HistoryPagebtn
+            // 
+            HistoryPagebtn.BackgroundImageLayout = ImageLayout.Stretch;
+            HistoryPagebtn.Cursor = Cursors.Hand;
+            HistoryPagebtn.Dock = DockStyle.Top;
+            HistoryPagebtn.FlatAppearance.BorderSize = 0;
+            HistoryPagebtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            HistoryPagebtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(46, 51, 73);
+            HistoryPagebtn.FlatStyle = FlatStyle.Flat;
+            HistoryPagebtn.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            HistoryPagebtn.ForeColor = Color.FromArgb(0, 126, 249);
+            HistoryPagebtn.ImageAlign = ContentAlignment.MiddleLeft;
+            HistoryPagebtn.Location = new Point(0, 700);
+            HistoryPagebtn.Margin = new Padding(4, 5, 4, 5);
+            HistoryPagebtn.Name = "HistoryPagebtn";
+            HistoryPagebtn.Size = new Size(211, 83);
+            HistoryPagebtn.TabIndex = 12;
+            HistoryPagebtn.Text = "Action History";
+            HistoryPagebtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            HistoryPagebtn.UseVisualStyleBackColor = true;
+            HistoryPagebtn.Click += actionHistorybtn_Click;
             // 
             // SettingsPagebtn
             // 
@@ -465,5 +489,6 @@
         private Label periodOnlinelbl;
         private Button loginbtn;
         public Button WIPTrackerbtn;
+        private Button HistoryPagebtn;
     }
 }
