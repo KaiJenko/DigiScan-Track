@@ -130,6 +130,8 @@
             customInputnud.ForeColor = Color.FromArgb(0, 126, 249);
             customInputnud.Location = new Point(1293, 37);
             customInputnud.Margin = new Padding(4, 5, 4, 5);
+            customInputnud.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            customInputnud.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             customInputnud.Name = "customInputnud";
             customInputnud.Size = new Size(76, 39);
             customInputnud.TabIndex = 4;

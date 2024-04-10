@@ -165,7 +165,7 @@ namespace DigiScan_Track
 
                         else if (index != 0)
                         {
-                            sqlQuery += " AND [" + SearchField + "] LIKE '%" + searchval + "%'";
+                            sqlQuery += " AND [" + SearchField + "] LIKE %" + searchval + "%";
                         }
 
                         if (defaultOrCustom == 1)
@@ -191,10 +191,9 @@ namespace DigiScan_Track
                 if (defaultOrCustom == 0)
                 {
                     cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
-                                      ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " +
-                                      sqlQuery;
+                                      ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " + sqlQuery;
 
-                    cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); //reduces SQL injection
+                    cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); // the ' ' bug was found here and solved
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     if (!dr.HasRows)

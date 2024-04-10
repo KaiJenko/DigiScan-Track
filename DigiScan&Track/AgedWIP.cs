@@ -104,7 +104,7 @@ namespace DigiScan_Track
 
 
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void AgedSearchButton_Click(object sender, EventArgs e)
         {
             string sqlquery = "";
             string searchValue = agedDaystrackbar.Value.ToString();

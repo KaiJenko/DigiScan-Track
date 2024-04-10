@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.1.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="25.1.38" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 

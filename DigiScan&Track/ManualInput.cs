@@ -35,7 +35,7 @@ namespace DigiScan_Track
 
 
 
-        private void Submitbtn_Click(object sender, EventArgs e)
+        private void ManualSubmitbtn_Click(object sender, EventArgs e)
         {
             try
             {

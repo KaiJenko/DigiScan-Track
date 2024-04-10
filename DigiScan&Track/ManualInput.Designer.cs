@@ -154,7 +154,7 @@
             submitbtn.TabIndex = 30;
             submitbtn.Text = "Submit Form";
             submitbtn.UseVisualStyleBackColor = false;
-            submitbtn.Click += Submitbtn_Click;
+            submitbtn.Click += ManualSubmitbtn_Click;
             // 
             // notestxt
             // 

@@ -322,7 +322,7 @@
             searchpbox.Size = new Size(29, 25);
             searchpbox.TabIndex = 21;
             searchpbox.TabStop = false;
-            searchpbox.Click += SearchButton_Click;
+            searchpbox.Click += AgedSearchButton_Click;
             // 
             // counttrackbarlbl
             // 
