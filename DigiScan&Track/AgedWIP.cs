@@ -236,7 +236,24 @@ namespace DigiScan_Track
 
         private void Excelbtn_Click(object sender, EventArgs e)
         {
-            ExportToExcel(Agedgridview);
+
+            if (UserLoginDetails.Instance.loggedIN == true)
+            {
+                if (UserLoginDetails.Instance.Permission != "Read")
+                {
+                    ExportToExcel(Agedgridview);
+                }
+
+                else
+                {
+                    MessageBox.Show("Please obtain higher permission level");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Please login");
+            }
 
         }
 
@@ -305,6 +322,21 @@ namespace DigiScan_Track
                     workbook.Close();
                 }
             }
+
+            string username = UserLoginDetails.Instance.Username;
+            string action = "Exported Aged Parts";
+
+            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+            conn.Open();
+            string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime)" +
+                                " VALUES (@username, @action, GETDATE())";
+            SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@action", action);
+
+
+            cmd.ExecuteNonQuery();
         }
 
         private void Agedgridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
