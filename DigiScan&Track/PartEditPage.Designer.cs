@@ -42,7 +42,6 @@
             agedlbl = new Label();
             panel1 = new Panel();
             furtherDetailspnl = new Panel();
-            richTextBox18 = new RichTextBox();
             richTextBox19 = new RichTextBox();
             richTextBox20 = new RichTextBox();
             richTextBox21 = new RichTextBox();
@@ -70,6 +69,7 @@
             partNumrtxt = new RichTextBox();
             richTextBox1 = new RichTextBox();
             richTextBoxtooltip = new ToolTip(components);
+            richTextBox18 = new RichTextBox();
             panel1.SuspendLayout();
             furtherDetailspnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
@@ -108,7 +108,7 @@
             // 
             // furtherDetailspnl
             // 
-            furtherDetailspnl.BackColor = Color.FromArgb(46, 51, 73);
+            furtherDetailspnl.BackColor = Color.FromArgb(113, 96, 232);
             furtherDetailspnl.Controls.Add(richTextBox18);
             furtherDetailspnl.Controls.Add(richTextBox19);
             furtherDetailspnl.Controls.Add(richTextBox20);
@@ -121,17 +121,6 @@
             furtherDetailspnl.Size = new Size(713, 68);
             furtherDetailspnl.TabIndex = 19;
             // 
-            // richTextBox18
-            // 
-            richTextBox18.BackColor = Color.FromArgb(113, 96, 232);
-            richTextBox18.BorderStyle = BorderStyle.None;
-            richTextBox18.Dock = DockStyle.Left;
-            richTextBox18.Location = new Point(704, 0);
-            richTextBox18.Name = "richTextBox18";
-            richTextBox18.Size = new Size(6, 68);
-            richTextBox18.TabIndex = 7;
-            richTextBox18.Text = "";
-            // 
             // richTextBox19
             // 
             richTextBox19.BackColor = Color.BlanchedAlmond;
@@ -140,7 +129,7 @@
             richTextBox19.Dock = DockStyle.Left;
             richTextBox19.Location = new Point(497, 0);
             richTextBox19.Name = "richTextBox19";
-            richTextBox19.Size = new Size(207, 68);
+            richTextBox19.Size = new Size(216, 68);
             richTextBox19.TabIndex = 6;
             richTextBox19.Tag = "BatchNumber";
             richTextBox19.Text = "";
@@ -575,6 +564,17 @@
             richTextBoxtooltip.ReshowDelay = 20;
             richTextBoxtooltip.ToolTipTitle = "Info";
             // 
+            // richTextBox18
+            // 
+            richTextBox18.BackColor = Color.FromArgb(113, 96, 232);
+            richTextBox18.BorderStyle = BorderStyle.None;
+            richTextBox18.Dock = DockStyle.Left;
+            richTextBox18.Location = new Point(713, 0);
+            richTextBox18.Name = "richTextBox18";
+            richTextBox18.Size = new Size(6, 68);
+            richTextBox18.TabIndex = 7;
+            richTextBox18.Text = "";
+            // 
             // PartEditPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -621,12 +621,12 @@
         private DataGridView partTobeEditedGridView;
         private DataGridView furtherDetailsgridview;
         private Panel furtherDetailspnl;
-        private RichTextBox richTextBox18;
         private RichTextBox richTextBox19;
         private RichTextBox richTextBox20;
         private RichTextBox richTextBox21;
         private RichTextBox richTextBox22;
         private RichTextBox richTextBox23;
         private RichTextBox richTextBox24;
+        private RichTextBox richTextBox18;
     }
 }

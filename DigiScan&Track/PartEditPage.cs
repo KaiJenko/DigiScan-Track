@@ -114,13 +114,33 @@ namespace DigiScan_Track
 
                         }
 
+                        string serialNum = partToBeEdited.Value.ToString();
+
                         DataTable dt = new DataTable();
                         SqlConnection conn = new SqlConnection();
+
                         conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                         conn.Open();
-                        string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + partToBeEdited.Value.ToString() + "'";
+
+                        string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + serialNum + "'";
                         SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
                         cmd.ExecuteNonQuery();
+
+                        string username = UserLoginDetails.Instance.Username;
+                        string action = "Edited a part";
+
+                        string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
+                                            " VALUES (@username, @action, GETDATE(), @partserial)";
+
+                        SqlCommand cmd2 = new SqlCommand(sqlInsert, conn);
+
+                        cmd2.Parameters.AddWithValue("@username", username);
+                        cmd2.Parameters.AddWithValue("@action", action);
+                        cmd2.Parameters.AddWithValue("@partserial", serialNum);
+
+                        cmd2.ExecuteNonQuery();
+
+                        conn.Close();
                     }
 
                     else

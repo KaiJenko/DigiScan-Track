@@ -168,6 +168,8 @@ namespace DigiScan_Track
 
                             MessageBox.Show("Data inserted");
 
+                            AddHistoryRow(serialNumber);
+
                             resetbtn.PerformClick();
 
                             conn.Close();
@@ -188,6 +190,26 @@ namespace DigiScan_Track
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+
+
+
+        private void AddHistoryRow(string serialNum)
+        {
+            string username = UserLoginDetails.Instance.Username;
+            string action = "Created a new record";
+
+            string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
+                                " VALUES (@username, @action, GETDATE(), @partserial)";
+
+            SqlCommand cmd = new SqlCommand(sqlInsert, conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@action", action);
+            cmd.Parameters.AddWithValue("@partserial", serialNum);
+
+            cmd.ExecuteNonQuery();
         }
 
 

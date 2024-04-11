@@ -41,7 +41,7 @@ namespace DigiScan_Track
                 workstationlbl.Text = "";
 
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
-                          " ,[WSTimestampIN] ,[WSTimestampOUT] FROM [WIPTracking]";
+                          " ,[WSTimestampIN] ,[WSTimestampOUT] FROM [WIPTracking] ORDER BY [SerialNumber]";
                 defaultOrCustom = 0;
 
             }
@@ -52,7 +52,7 @@ namespace DigiScan_Track
                 workstationlbl.Text = "WS:  " + workstation;
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber]" +
                           " ,[WSTimestampIN] ,[WSTimestampOUT], [InStorage] FROM [WIPTracking] WHERE [Department] = '" + department + "'" +
-                          " AND [Workstation] = '" + workstation + "'";
+                          " AND [Workstation] = '" + workstation + "' ORDER BY [SerialNumber]";
                 defaultOrCustom = 1;
             }
 
