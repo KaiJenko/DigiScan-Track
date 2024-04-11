@@ -24,7 +24,7 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Agedgridview.CurrentCell = null;
         }
 
 
@@ -218,7 +218,7 @@ namespace DigiScan_Track
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Coral;
+                Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Turquoise;
             }
         }
 
@@ -348,16 +348,19 @@ namespace DigiScan_Track
                 if (value != null && value is int && (int)value > 60)
                 {
                     e.CellStyle.ForeColor = Color.Red;
+                    e.CellStyle.SelectionForeColor = Color.Red;
                 }
 
                 else if (value != null && value is int && (int)value > 30)
                 {
                     e.CellStyle.ForeColor = Color.Yellow;
+                    e.CellStyle.SelectionForeColor = Color.Yellow;
                 }
 
                 else if (value != null && value is int && (int)value > 0)
                 {
                     e.CellStyle.ForeColor = Color.LightGreen;
+                    e.CellStyle.SelectionForeColor = Color.LightGreen;
                 }
             }
         }

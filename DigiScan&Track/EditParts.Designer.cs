@@ -239,14 +239,14 @@
             toEditGridView.RowHeadersVisible = false;
             toEditGridView.RowHeadersWidth = 62;
             toEditGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            toEditGridView.RowTemplate.Height = 25;
+            toEditGridView.RowTemplate.Height = 35;
             toEditGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             toEditGridView.Size = new Size(729, 787);
             toEditGridView.TabIndex = 29;

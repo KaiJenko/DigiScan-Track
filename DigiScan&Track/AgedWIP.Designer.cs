@@ -233,7 +233,7 @@
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Coral;
+            dataGridViewCellStyle5.SelectionForeColor = Color.DarkTurquoise;
             Agedgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
             Agedgridview.RowTemplate.Height = 35;
             Agedgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
@@ -15,8 +16,7 @@ namespace DigiScan_Track
             InitializeComponent();
             LoadDepartmentcmbSQL();
             PartsToEditSQL();
-
-
+            
 
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
@@ -26,7 +26,7 @@ namespace DigiScan_Track
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            toEditGridView.CurrentCell = null;
         }
 
 
@@ -182,6 +182,8 @@ namespace DigiScan_Track
             dt.Load(dr);
             conn.Close();
             gridview.DataSource = dt;
+            toEditGridView.CurrentCell = null;
+
         }
 
 
@@ -368,7 +370,7 @@ namespace DigiScan_Track
                 MessageBox.Show("Please login");
             }
 
-            
+
         }
 
 
@@ -377,7 +379,7 @@ namespace DigiScan_Track
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                toEditGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Coral;
+                toEditGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Turquoise;
             }
         }
 
@@ -387,7 +389,7 @@ namespace DigiScan_Track
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                toEditGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+                toEditGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
             }
         }
 
