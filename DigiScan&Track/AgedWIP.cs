@@ -184,7 +184,7 @@ namespace DigiScan_Track
                 conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT AgedWIP.[serialNumber], WIPTracking.[PartNumber], WIPTracking.[BatchNumber], WIPTracking.[Department], " +
+                cmd.CommandText = "SELECT DISTINCT(AgedWIP.[serialNumber]), WIPTracking.[PartNumber], WIPTracking.[BatchNumber], WIPTracking.[Department], " +
                                   "AgedWIP.[DateEnteredStorage], AgedWIP.[ReasonForStorage], AgedWIP.[UserWhoInputted] FROM [DigiTrackAndScan].[dbo].[AgedWIP] " +
                                   "LEFT JOIN [DigiTrackAndScan].[dbo].WIPTracking ON AgedWIP.SerialNumber = WIPTracking.SerialNumber WHERE AgedWIP.SerialNumber = '" + serialNumber + "'";
                 SqlDataReader dr = cmd.ExecuteReader();

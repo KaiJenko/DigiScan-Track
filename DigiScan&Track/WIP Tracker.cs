@@ -41,8 +41,8 @@ namespace DigiScan_Track
                 departmentlbl.Text = "";
                 workstationlbl.Text = "";
 
-                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
-                          " ,[WSTimestampIN] ,[WSTimestampOUT] FROM [WIPTracking] ORDER BY [SerialNumber]";
+                cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[Department] ,[Workstation] " +
+                          " ,[WSTimestampIN] ,[WSTimestampOUT], [InStorage] FROM [WIPTracking] ORDER BY [SerialNumber]";
                 defaultOrCustom = 0;
 
             }
@@ -89,14 +89,15 @@ namespace DigiScan_Track
         {
             WIPgridView.Columns[0].HeaderText = "Part No";
             WIPgridView.Columns[1].HeaderText = "Serial No";
-            WIPgridView.Columns[2].HeaderText = "Batch No";
-            WIPgridView.Columns[3].HeaderText = "Department";
-            WIPgridView.Columns[4].HeaderText = "Workstation";
-            WIPgridView.Columns[5].HeaderText = "Time in";
-            WIPgridView.Columns[6].HeaderText = "Time out";
+            WIPgridView.Columns[2].HeaderText = "Department";
+            WIPgridView.Columns[3].HeaderText = "Workstation";
+            WIPgridView.Columns[4].HeaderText = "Time in";
+            WIPgridView.Columns[5].HeaderText = "Time out";
+            WIPgridView.Columns[5].HeaderText = "Time out";
+            WIPgridView.Columns[5].HeaderText = "In Storage";
 
 
-            TurnColumnIntoPercent(WIPgridView, 14, 14, 14, 12, 14, 17, 17);
+            TurnColumnIntoPercent(WIPgridView, 14, 14, 12, 14, 17, 17, 12);
 
             WIPgridView.ColumnHeadersDefaultCellStyle.Font = new Font(WIPgridView.Font.FontFamily, 12, FontStyle.Bold);
             WIPgridView.ColumnHeadersHeight = 50;
@@ -166,7 +167,7 @@ namespace DigiScan_Track
 
                         else if (index != 0)
                         {
-                            sqlQuery += " AND [" + SearchField + "] LIKE %" + searchval + "%";
+                            sqlQuery += " AND [" + SearchField + "] LIKE '%" + searchval + "%'";
                         }
 
                         if (defaultOrCustom == 1)
@@ -191,7 +192,7 @@ namespace DigiScan_Track
 
                 if (defaultOrCustom == 0)
                 {
-                    cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[BatchNumber] ,[Department] ,[Workstation] " +
+                    cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[Department] ,[Workstation] " +
                                       ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " + sqlQuery;
 
                     cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); // the ' ' bug was found here and solved

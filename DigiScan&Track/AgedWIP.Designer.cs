@@ -426,7 +426,7 @@
             furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
             furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             furtherDetailsgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle7.ForeColor = Color.Coral;
@@ -461,7 +461,7 @@
             furtherDetailsgridview.RowHeadersVisible = false;
             furtherDetailsgridview.RowHeadersWidth = 62;
             furtherDetailsgridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle10.ForeColor = Color.White;
