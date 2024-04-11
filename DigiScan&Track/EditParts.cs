@@ -16,17 +16,18 @@ namespace DigiScan_Track
             InitializeComponent();
             LoadDepartmentcmbSQL();
             PartsToEditSQL();
-            
+
 
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
-            toEditGridView.CellPainting += wiptracker.WIPgridview_CellPainting;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             toEditGridView.CurrentCell = null;
+            toEditGridView.CellPainting += wiptracker.WIPgridview_CellPainting;
         }
 
 
@@ -269,29 +270,7 @@ namespace DigiScan_Track
 
         public void ToEditGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && toEditGridView.Columns[e.ColumnIndex].Name == "InStorage")
-            {
-                e.PaintBackground(e.CellBounds, true);
-
-                if (toEditGridView[e.ColumnIndex, e.RowIndex].Value != DBNull.Value)
-                {
-                    bool isChecked = (bool)toEditGridView[e.ColumnIndex, e.RowIndex].Value;
-                    string displayText = isChecked ? "Yes" : "No";
-                    using (StringFormat sf = new StringFormat())
-                    {
-                        sf.Alignment = StringAlignment.Center;
-                        sf.LineAlignment = StringAlignment.Center;
-
-                        using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
-                        {
-                            e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
-                        }
-                    }
-
-                    e.Handled = true;
-                }
-            }
+            wiptracker.GridviewCellPainting(toEditGridView, sender, e);
         }
 
 
@@ -393,5 +372,10 @@ namespace DigiScan_Track
             }
         }
 
+        private void resetbtn_Click(object sender, EventArgs e)
+        {
+            PartsToEditSQL();
+            searchtxt.Clear();
+        }
     }
 }

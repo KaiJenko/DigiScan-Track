@@ -148,7 +148,7 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            HistorygridView.RowTemplate.Height = 35;
+            HistorygridView.RowTemplate.Height = 45;
             HistorygridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             HistorygridView.Size = new Size(1403, 743);
             HistorygridView.TabIndex = 6;

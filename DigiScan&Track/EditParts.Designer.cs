@@ -56,6 +56,7 @@
             label7 = new Label();
             OuterBorderpnl = new Panel();
             crossOffpbox = new PictureBox();
+            resetbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
@@ -257,6 +258,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(resetbtn);
             panel1.Controls.Add(submitAddpbox);
             panel1.Controls.Add(addPartcmbox);
             panel1.Controls.Add(addParttxt);
@@ -412,6 +414,25 @@
             crossOffpbox.Visible = false;
             crossOffpbox.Click += CrossOffpbox_Click;
             // 
+            // resetbtn
+            // 
+            resetbtn.BackColor = Color.Transparent;
+            resetbtn.BackgroundImage = (Image)resources.GetObject("resetbtn.BackgroundImage");
+            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.Cursor = Cursors.Hand;
+            resetbtn.FlatAppearance.BorderSize = 0;
+            resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.ForeColor = Color.White;
+            resetbtn.Location = new Point(492, 286);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
+            resetbtn.Name = "resetbtn";
+            resetbtn.Size = new Size(99, 42);
+            resetbtn.TabIndex = 33;
+            resetbtn.Text = "Reset";
+            resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += resetbtn_Click;
+            // 
             // EditParts
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -462,5 +483,6 @@
         private Label label7;
         private PictureBox submitAddpbox;
         private PictureBox crossOffpbox;
+        private Button resetbtn;
     }
 }

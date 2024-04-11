@@ -399,7 +399,12 @@ namespace DigiScan_Track
 
         public void WIPgridview_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "InStorage")
+            GridviewCellPainting(WIPgridView, sender, e);
+        }
+
+        public void GridviewCellPainting(DataGridView gridview, object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "InStorage")
             {
                 e.PaintBackground(e.CellBounds, true);
 
@@ -423,11 +428,11 @@ namespace DigiScan_Track
                 }
             }
 
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
             {
                 e.PaintBackground(e.CellBounds, true);
 
-                if (WIPgridView[e.ColumnIndex, e.RowIndex].Value == DBNull.Value)
+                if (gridview[e.ColumnIndex, e.RowIndex].Value == DBNull.Value)
                 {
                     string displayText = "Current Location";
                     using (StringFormat sf = new StringFormat())
@@ -438,7 +443,7 @@ namespace DigiScan_Track
                         using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
                         {
                             e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
-                            WIPgridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.RebeccaPurple;
+                            gridview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.RebeccaPurple;
                         }
                     }
 
