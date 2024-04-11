@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
 namespace DigiScan_Track
@@ -416,6 +417,29 @@ namespace DigiScan_Track
 
                     // Draw the image
                     e.Graphics.DrawImage(image, new Rectangle(x, y, resizedImage.Width, resizedImage.Height));
+
+                    e.Handled = true;
+                }
+            }
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && WIPgridView.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (WIPgridView[e.ColumnIndex, e.RowIndex].Value == DBNull.Value)
+                {
+                    string displayText = "Current Location";
+                    using (StringFormat sf = new StringFormat())
+                    {
+                        sf.Alignment = StringAlignment.Center;
+                        sf.LineAlignment = StringAlignment.Center;
+
+                        using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
+                        {
+                            e.Graphics.DrawString(displayText, e.CellStyle.Font, brush, e.CellBounds, sf);
+                            WIPgridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.RebeccaPurple;
+                        }
+                    }
 
                     e.Handled = true;
                 }

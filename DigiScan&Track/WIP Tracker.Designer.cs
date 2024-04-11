@@ -148,12 +148,12 @@
             WIPgridView.RowHeadersWidth = 62;
             WIPgridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             WIPgridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            WIPgridView.RowTemplate.Height = 35;
+            WIPgridView.RowTemplate.Height = 40;
             WIPgridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             WIPgridView.Size = new Size(1403, 683);
             WIPgridView.TabIndex = 6;
