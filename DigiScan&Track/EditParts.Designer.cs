@@ -46,6 +46,7 @@
             InnerBorderpnl = new Panel();
             toEditGridView = new DataGridView();
             panel1 = new Panel();
+            resetbtn = new Button();
             submitAddpbox = new PictureBox();
             addPartcmbox = new ComboBox();
             addParttxt = new TextBox();
@@ -56,7 +57,6 @@
             label7 = new Label();
             OuterBorderpnl = new Panel();
             crossOffpbox = new PictureBox();
-            resetbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
@@ -246,8 +246,10 @@
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             toEditGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            toEditGridView.RowTemplate.Height = 35;
+            toEditGridView.RowTemplate.Height = 50;
+            toEditGridView.RowTemplate.Resizable = DataGridViewTriState.False;
             toEditGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             toEditGridView.Size = new Size(729, 787);
             toEditGridView.TabIndex = 29;
@@ -279,6 +281,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(620, 685);
             panel1.TabIndex = 14;
+            // 
+            // resetbtn
+            // 
+            resetbtn.BackColor = Color.Transparent;
+            resetbtn.BackgroundImage = (Image)resources.GetObject("resetbtn.BackgroundImage");
+            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
+            resetbtn.Cursor = Cursors.Hand;
+            resetbtn.FlatAppearance.BorderSize = 0;
+            resetbtn.FlatStyle = FlatStyle.Flat;
+            resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            resetbtn.ForeColor = Color.White;
+            resetbtn.Location = new Point(492, 286);
+            resetbtn.Margin = new Padding(4, 5, 4, 5);
+            resetbtn.Name = "resetbtn";
+            resetbtn.Size = new Size(99, 42);
+            resetbtn.TabIndex = 33;
+            resetbtn.Text = "Reset";
+            resetbtn.UseVisualStyleBackColor = false;
+            resetbtn.Click += resetbtn_Click;
             // 
             // submitAddpbox
             // 
@@ -413,25 +434,6 @@
             crossOffpbox.TabStop = false;
             crossOffpbox.Visible = false;
             crossOffpbox.Click += CrossOffpbox_Click;
-            // 
-            // resetbtn
-            // 
-            resetbtn.BackColor = Color.Transparent;
-            resetbtn.BackgroundImage = (Image)resources.GetObject("resetbtn.BackgroundImage");
-            resetbtn.BackgroundImageLayout = ImageLayout.Stretch;
-            resetbtn.Cursor = Cursors.Hand;
-            resetbtn.FlatAppearance.BorderSize = 0;
-            resetbtn.FlatStyle = FlatStyle.Flat;
-            resetbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(492, 286);
-            resetbtn.Margin = new Padding(4, 5, 4, 5);
-            resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(99, 42);
-            resetbtn.TabIndex = 33;
-            resetbtn.Text = "Reset";
-            resetbtn.UseVisualStyleBackColor = false;
-            resetbtn.Click += resetbtn_Click;
             // 
             // EditParts
             // 

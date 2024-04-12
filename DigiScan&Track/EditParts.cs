@@ -120,7 +120,7 @@ namespace DigiScan_Track
 
         private void PartsToEditSQL()
         {
-            string pullPartsToEdit = "SELECT [SerialNumber], [PartNumber], [BatchNumber], [Department], [InStorage] FROM WIPTracking";
+            string pullPartsToEdit = "SELECT [SerialNumber], [PartNumber], [Department], [Workstation], [InStorage] FROM WIPTracking";
             SqlQuery(pullPartsToEdit, toEditGridView);
             PartsToEditLayout();
         }
@@ -131,8 +131,8 @@ namespace DigiScan_Track
         {
             toEditGridView.Columns[0].HeaderText = "Serial No";
             toEditGridView.Columns[1].HeaderText = "Part No";
-            toEditGridView.Columns[2].HeaderText = "Batch No";
-            toEditGridView.Columns[3].HeaderText = "Department";
+            toEditGridView.Columns[2].HeaderText = "Department";
+            toEditGridView.Columns[3].HeaderText = "Workstation";
             toEditGridView.Columns[4].HeaderText = "In Storage";
 
             wiptracker.TurnColumnIntoPercent(toEditGridView, 21, 21, 20, 22, 16);
@@ -200,6 +200,7 @@ namespace DigiScan_Track
 
                     string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
                     string serialNum = toEditGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    string workstation = toEditGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                     string inStorageMessage = "This part: " + serialNum + " is not in storage, would you like to edit this";
                     string outStorageMessage = "This part " + serialNum + " is in storage, would you like to edit this";
                     string title = "Edit Part";
@@ -212,7 +213,7 @@ namespace DigiScan_Track
                         if (result == DialogResult.Yes)
                         {
 
-                            PartEditPage editPage = new PartEditPage(serialNum);
+                            PartEditPage editPage = new PartEditPage(serialNum, workstation);
                             editPage.Dock = DockStyle.Fill;
                             this.InnerBorderpnl.Controls.Add(editPage);
                             crossOffpbox.Visible = true;
@@ -229,7 +230,7 @@ namespace DigiScan_Track
                         DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
                         if (result == DialogResult.Yes)
                         {
-                            PartEditPage editPage = new PartEditPage(serialNum);
+                            PartEditPage editPage = new PartEditPage(serialNum,workstation);
                             editPage.Dock = DockStyle.Fill;
                             this.InnerBorderpnl.Controls.Add(editPage);
                             crossOffpbox.Visible = true;

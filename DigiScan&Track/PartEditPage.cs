@@ -9,16 +9,16 @@ namespace DigiScan_Track
 
         WIPTracker wip = new WIPTracker(null, null);
 
-        public PartEditPage(string serialNumber)
+        public PartEditPage(string serialNumber, string workstation)
         {
             InitializeComponent();
-            EditPartDetailsSQL(serialNumber);
-            FurtherEditPartsSQL(serialNumber);
+            EditPartDetailsSQL(serialNumber, workstation);
+            FurtherEditPartsSQL(serialNumber, workstation);
         }
 
 
 
-        private void EditPartDetailsSQL(string serialNumber)
+        private void EditPartDetailsSQL(string serialNumber, string workstation)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -26,7 +26,8 @@ namespace DigiScan_Track
             DataTable dt = new DataTable();
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "'";
+            cmd.CommandText = "SELECT [PartNumber], [SerialNumber], [BatchNumber], [Department], [Workstation], [WSTimestampIN], [WSTimestampOUT]," +
+                              " [InStorage] FROM [WIPTracking] WHERE [SerialNumber] = '" + serialNumber + "' AND [Workstation] = '" + workstation + "'";
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             conn.Close();
@@ -37,7 +38,7 @@ namespace DigiScan_Track
 
 
 
-        private void FurtherEditPartsSQL(string serialNumber)
+        private void FurtherEditPartsSQL(string serialNumber, string workstation)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -63,99 +64,101 @@ namespace DigiScan_Track
 
         private void InputEdit_Click(object sender, EventArgs e)
         {
+
+            DataGridViewCell partToBeEdited = null;
             int repeat = 0;
+            int count = 0;
+            string sqlquery = "";
+
             foreach (Control control in userInputpnl.Controls)
             {
                 if (control is RichTextBox richTextBox)
                 {
                     if (!string.IsNullOrWhiteSpace(richTextBox.Text))
                     {
-                        DataGridViewCell partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
-                        int count = 0;
+                        partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
 
-                        string sqlquery = "";
-
-                        foreach (Control userControl in userInputpnl.Controls)
+                        if (control is CheckBox)
                         {
-                            if (control is CheckBox)
+                            CheckBox checkbox = control as CheckBox;
+                            if (checkbox.Checked)
                             {
-                                CheckBox checkbox = control as CheckBox;
-                                if (checkbox.Checked)
-                                {
-                                    sqlquery += " [" + checkbox.Tag + "] = 1";
-                                }
-
-                                else if (checkbox.Checked = false)
-                                {
-                                    sqlquery += " [" + checkbox.Tag + "] = 0";
-                                }
+                                sqlquery += " [" + checkbox.Tag + "] = 1";
                             }
 
-                            else if (control is RichTextBox)
+                            else if (checkbox.Checked = false)
                             {
-                                RichTextBox richtextbox = control as RichTextBox;
-                                if (richtextbox.Text != "")
+                                sqlquery += " [" + checkbox.Tag + "] = 0";
+                            }
+                        }
+
+                        else if (control is RichTextBox)
+                        {
+                            RichTextBox richtextbox = control as RichTextBox;
+                            if (richtextbox.Text != "")
+                            {
+                                if (count == 0)
                                 {
-                                    if (count == 0)
-                                    {
-                                        sqlquery += " [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
-                                        count++;
-                                    }
+                                    sqlquery += " [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
+                                    count++;
+                                }
 
-                                    else if (count > 0)
-                                    {
-                                        sqlquery += " , [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
-                                        count++;
-                                    }
-
+                                else if (count > 0)
+                                {
+                                    sqlquery += " , [" + richtextbox.Tag + "] = '" + richtextbox.Text + "'";
+                                    count++;
                                 }
 
                             }
 
                         }
-
-                        string serialNum = partToBeEdited.Value.ToString();
-
-                        DataTable dt = new DataTable();
-                        SqlConnection conn = new SqlConnection();
-
-                        conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                        conn.Open();
-
-                        string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + serialNum + "'";
-                        SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
-                        cmd.ExecuteNonQuery();
-
-                        string username = UserLoginDetails.Instance.Username;
-                        string action = "Edited a part";
-
-                        string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
-                                            " VALUES (@username, @action, GETDATE(), @partserial)";
-
-                        SqlCommand cmd2 = new SqlCommand(sqlInsert, conn);
-
-                        cmd2.Parameters.AddWithValue("@username", username);
-                        cmd2.Parameters.AddWithValue("@action", action);
-                        cmd2.Parameters.AddWithValue("@partserial", serialNum);
-
-                        cmd2.ExecuteNonQuery();
-
-                        conn.Close();
                     }
 
                     else
                     {
                         if (repeat == 0)
                         {
-                            MessageBox.Show("Please input at least one different value");
+                            /*MessageBox.Show("Please input at least one different value");*/
                             repeat++;
                         }
                     }
                 }
             }
+
+            if (sqlquery != "")
+            {
+                string serialNum = partToBeEdited.Value.ToString();
+
+                DataTable dt = new DataTable();
+                SqlConnection conn = new SqlConnection();
+
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+
+                string sqlUpdate = "UPDATE [WIPTracking] SET " + sqlquery + " WHERE [SerialNumber] = '" + serialNum + "'";
+                SqlCommand cmd = new SqlCommand(sqlUpdate, conn);
+                cmd.ExecuteNonQuery();
+
+                string username = UserLoginDetails.Instance.Username;
+                string action = "Edited a part";
+
+                string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
+                                    " VALUES (@username, @action, GETDATE(), @partserial)";
+
+                SqlCommand cmd2 = new SqlCommand(sqlInsert, conn);
+
+                cmd2.Parameters.AddWithValue("@username", username);
+                cmd2.Parameters.AddWithValue("@action", action);
+                cmd2.Parameters.AddWithValue("@partserial", serialNum);
+
+                cmd2.ExecuteNonQuery();
+
+                conn.Close();
+            }
+
         }
-
-
+            
+    
 
         private void PartsEditLayout()
         {
@@ -168,7 +171,7 @@ namespace DigiScan_Track
             partTobeEditedGridView.Columns[6].HeaderText = "Time Out";
             partTobeEditedGridView.Columns[7].HeaderText = "In Storage";
 
-            wip.TurnColumnIntoPercent(partTobeEditedGridView, 12, 12, 12, 13, 14, 15.5, 15, 11);
+            wip.TurnColumnIntoPercent(partTobeEditedGridView, 12, 12, 12, 13, 14, 15, 15, 12);
 
         }
 

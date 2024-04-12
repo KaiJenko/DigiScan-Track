@@ -42,6 +42,7 @@
             agedlbl = new Label();
             panel1 = new Panel();
             furtherDetailspnl = new Panel();
+            richTextBox18 = new RichTextBox();
             richTextBox19 = new RichTextBox();
             richTextBox20 = new RichTextBox();
             richTextBox21 = new RichTextBox();
@@ -69,7 +70,7 @@
             partNumrtxt = new RichTextBox();
             richTextBox1 = new RichTextBox();
             richTextBoxtooltip = new ToolTip(components);
-            richTextBox18 = new RichTextBox();
+            Borderpnl = new Panel();
             panel1.SuspendLayout();
             furtherDetailspnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
@@ -92,7 +93,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(113, 96, 232);
+            panel1.BackColor = Color.FromArgb(46, 51, 73);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(furtherDetailspnl);
             panel1.Controls.Add(furtherDetailsgridview);
@@ -120,6 +121,17 @@
             furtherDetailspnl.Name = "furtherDetailspnl";
             furtherDetailspnl.Size = new Size(713, 68);
             furtherDetailspnl.TabIndex = 19;
+            // 
+            // richTextBox18
+            // 
+            richTextBox18.BackColor = Color.FromArgb(113, 96, 232);
+            richTextBox18.BorderStyle = BorderStyle.None;
+            richTextBox18.Dock = DockStyle.Left;
+            richTextBox18.Location = new Point(713, 0);
+            richTextBox18.Name = "richTextBox18";
+            richTextBox18.Size = new Size(6, 68);
+            richTextBox18.TabIndex = 7;
+            richTextBox18.Text = "";
             // 
             // richTextBox19
             // 
@@ -564,16 +576,15 @@
             richTextBoxtooltip.ReshowDelay = 20;
             richTextBoxtooltip.ToolTipTitle = "Info";
             // 
-            // richTextBox18
+            // Borderpnl
             // 
-            richTextBox18.BackColor = Color.FromArgb(113, 96, 232);
-            richTextBox18.BorderStyle = BorderStyle.None;
-            richTextBox18.Dock = DockStyle.Left;
-            richTextBox18.Location = new Point(713, 0);
-            richTextBox18.Name = "richTextBox18";
-            richTextBox18.Size = new Size(6, 68);
-            richTextBox18.TabIndex = 7;
-            richTextBox18.Text = "";
+            Borderpnl.Anchor = AnchorStyles.None;
+            Borderpnl.BackColor = Color.FromArgb(24, 30, 54);
+            Borderpnl.Location = new Point(12, 121);
+            Borderpnl.Margin = new Padding(4, 5, 4, 5);
+            Borderpnl.Name = "Borderpnl";
+            Borderpnl.Size = new Size(1420, 610);
+            Borderpnl.TabIndex = 14;
             // 
             // PartEditPage
             // 
@@ -581,6 +592,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             Controls.Add(panel1);
+            Controls.Add(Borderpnl);
             Margin = new Padding(4, 5, 4, 5);
             Name = "PartEditPage";
             Size = new Size(1447, 870);
@@ -628,5 +640,6 @@
         private RichTextBox richTextBox23;
         private RichTextBox richTextBox24;
         private RichTextBox richTextBox18;
+        private Panel Borderpnl;
     }
 }
