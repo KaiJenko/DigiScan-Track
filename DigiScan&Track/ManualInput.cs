@@ -410,7 +410,7 @@ namespace DigiScan_Track
 
             else if (UserLoginDetails.Instance.loggedIN == true)
             {
-                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "Read/Write")
+                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "ReadWrite")
                 {
                     BodyLayoutpnl.Enabled = true;
                 }

@@ -195,7 +195,7 @@ namespace DigiScan_Track
             if (UserLoginDetails.Instance.loggedIN == true)
             {
 
-                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "Read/Write")
+                if (UserLoginDetails.Instance.Permission == "Admin" || UserLoginDetails.Instance.Permission == "ReadWrite")
                 {
 
                     string boolStorage = toEditGridView.Rows[e.RowIndex].Cells[4].Value.ToString();

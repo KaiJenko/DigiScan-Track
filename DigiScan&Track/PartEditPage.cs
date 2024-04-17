@@ -154,11 +154,13 @@ namespace DigiScan_Track
                 cmd2.ExecuteNonQuery();
 
                 conn.Close();
+
+                MessageBox.Show("Updated");
             }
 
         }
-            
-    
+
+
 
         private void PartsEditLayout()
         {

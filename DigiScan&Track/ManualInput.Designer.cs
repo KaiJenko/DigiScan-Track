@@ -226,7 +226,8 @@
             nocheckbox.UseVisualStyleBackColor = true;
             nocheckbox.CheckedChanged += Nocheckbox_CheckedChanged;
             // 
-            // yescheckbox
+            //
+            // checkbox
             // 
             yescheckbox.Cursor = Cursors.Hand;
             yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
