@@ -53,10 +53,9 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(12, 88);
-            OuterBorderpnl.Margin = new Padding(4, 5, 4, 5);
+            OuterBorderpnl.Location = new Point(8, 53);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1457, 880);
+            OuterBorderpnl.Size = new Size(1020, 528);
             OuterBorderpnl.TabIndex = 16;
             // 
             // InnerBorderpnl
@@ -69,10 +68,9 @@
             InnerBorderpnl.Controls.Add(historycmb);
             InnerBorderpnl.Controls.Add(searchBylbl);
             InnerBorderpnl.Controls.Add(searchtxt);
-            InnerBorderpnl.Location = new Point(6, 5);
-            InnerBorderpnl.Margin = new Padding(4, 5, 4, 5);
+            InnerBorderpnl.Location = new Point(4, 3);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1447, 870);
+            InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
             // resetbtn
@@ -85,10 +83,9 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(1201, 21);
-            resetbtn.Margin = new Padding(4, 5, 4, 5);
+            resetbtn.Location = new Point(841, 13);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(149, 60);
+            resetbtn.Size = new Size(104, 36);
             resetbtn.TabIndex = 35;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
@@ -126,8 +123,7 @@
             HistorygridView.DefaultCellStyle = dataGridViewCellStyle3;
             HistorygridView.EnableHeadersVisualStyles = false;
             HistorygridView.GridColor = Color.Silver;
-            HistorygridView.Location = new Point(24, 100);
-            HistorygridView.Margin = new Padding(4, 5, 4, 5);
+            HistorygridView.Location = new Point(17, 60);
             HistorygridView.MultiSelect = false;
             HistorygridView.Name = "HistorygridView";
             HistorygridView.ReadOnly = true;
@@ -150,7 +146,7 @@
             HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             HistorygridView.RowTemplate.Height = 45;
             HistorygridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            HistorygridView.Size = new Size(1403, 743);
+            HistorygridView.Size = new Size(982, 446);
             HistorygridView.TabIndex = 6;
             // 
             // searchbtn
@@ -163,14 +159,13 @@
             searchbtn.FlatStyle = FlatStyle.Flat;
             searchbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             searchbtn.ForeColor = Color.White;
-            searchbtn.Location = new Point(1055, 21);
-            searchbtn.Margin = new Padding(4, 5, 4, 5);
+            searchbtn.Location = new Point(738, 13);
             searchbtn.Name = "searchbtn";
-            searchbtn.Size = new Size(149, 60);
+            searchbtn.Size = new Size(104, 36);
             searchbtn.TabIndex = 31;
             searchbtn.Text = "Search";
             searchbtn.UseVisualStyleBackColor = false;
-            searchbtn.Click += Searchbtn_Click;
+            searchbtn.Click += HistorySearchbtn_Click;
             // 
             // historycmb
             // 
@@ -183,10 +178,9 @@
             historycmb.ForeColor = Color.White;
             historycmb.FormattingEnabled = true;
             historycmb.Items.AddRange(new object[] { "Username", "Part/Serial" });
-            historycmb.Location = new Point(209, 32);
-            historycmb.Margin = new Padding(4, 5, 4, 5);
+            historycmb.Location = new Point(146, 16);
             historycmb.Name = "historycmb";
-            historycmb.Size = new Size(231, 40);
+            historycmb.Size = new Size(163, 30);
             historycmb.TabIndex = 13;
             // 
             // searchBylbl
@@ -194,10 +188,9 @@
             searchBylbl.AutoSize = true;
             searchBylbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             searchBylbl.ForeColor = Color.Turquoise;
-            searchBylbl.Location = new Point(40, 32);
-            searchBylbl.Margin = new Padding(4, 0, 4, 0);
+            searchBylbl.Location = new Point(28, 17);
             searchBylbl.Name = "searchBylbl";
-            searchBylbl.Size = new Size(150, 40);
+            searchBylbl.Size = new Size(98, 25);
             searchBylbl.TabIndex = 5;
             searchBylbl.Text = "Search by";
             // 
@@ -207,11 +200,11 @@
             searchtxt.BorderStyle = BorderStyle.FixedSingle;
             searchtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             searchtxt.ForeColor = Color.White;
-            searchtxt.Location = new Point(469, 32);
-            searchtxt.Margin = new Padding(4, 5, 4, 5);
+            searchtxt.Location = new Point(328, 16);
             searchtxt.Name = "searchtxt";
-            searchtxt.Size = new Size(561, 39);
+            searchtxt.Size = new Size(393, 29);
             searchtxt.TabIndex = 4;
+            searchtxt.KeyPress += searchtxt_KeyPress;
             // 
             // Titlelbl
             // 
@@ -219,23 +212,23 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(57, 7);
-            Titlelbl.Margin = new Padding(4, 0, 4, 0);
+            Titlelbl.Location = new Point(40, 4);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(1387, 78);
+            Titlelbl.Size = new Size(971, 47);
             Titlelbl.TabIndex = 15;
             Titlelbl.Text = "DigiScan && Track - Action History";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HistoryPage
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1481, 959);
+            ClientSize = new Size(1037, 575);
             Controls.Add(OuterBorderpnl);
             Controls.Add(Titlelbl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HistoryPage";
             Text = "HistoryPage";
             OuterBorderpnl.ResumeLayout(false);

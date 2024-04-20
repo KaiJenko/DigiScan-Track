@@ -25,7 +25,7 @@ namespace DigiScan_Track
             WIPTracker wip = new WIPTracker(null, null);
             wip.TransparentBackground(this, "submitbtn", "resetbtn");
 
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,10 +60,10 @@ namespace DigiScan_Track
                     timestamp = timestamptxt.Value;
                     SQLFormat = timestamp.ToString("yyyy-MM-dd HH:mm:ss");
                 }
-                
-                TextBox[] textboxes = { serialNumtxt, batchNumtxt, reasontxt };
+
+                TextBox[] textboxes = { serialNumtxt, batchNumtxt, lineManagertxt };
                 ComboBox[] comboBoxes = { partNumcmbox, departmentcmbox, workstationcmbox };
-                Label[] textboxlabels = { serialNumlbl, batchNumlbl, reasonlbl };
+                Label[] textboxlabels = { serialNumlbl, batchNumlbl, lineManagerlbl };
                 Label[] combolabels = { partNumberlbl, departmentlbl, workstationlbl };
                 int index = 0;
                 int index2 = 0;
@@ -149,7 +149,7 @@ namespace DigiScan_Track
 
 
                             string sqlInsert = "INSERT INTO WIPTracking (Department, Workstation, PartNumber, SerialNumber, BatchNumber, LineManager, ManualReason, WSTimestampIN, Notes, InStorage, Shipped)" +
-                                                " VALUES (@department, @workstation, @partnum, @serialnum, @batchnum, @manager, @reason, @timestamp, @notes, 0, 0)";
+                                                " VALUES (@department, @workstation, @partnum, @serialnum, @batchnum, @manager, @reason, " + SQLFormat + ", @notes, 0, 0)";
 
                             SqlCommand Updatecmd = new SqlCommand(sqlUpdate, conn);
                             SqlCommand Insertcmd1 = new SqlCommand(sqlInsert, conn);
@@ -161,7 +161,6 @@ namespace DigiScan_Track
                             Insertcmd1.Parameters.AddWithValue("@serialnum", serialNumber);
                             Insertcmd1.Parameters.AddWithValue("@batchnum", batchNumber);
                             Insertcmd1.Parameters.AddWithValue("@manager", manager);
-                            Insertcmd1.Parameters.AddWithValue("@timestamp", SQLFormat);
                             Insertcmd1.Parameters.AddWithValue("@reason", reason);
                             Insertcmd1.Parameters.AddWithValue("@notes", notes);
 
@@ -169,7 +168,7 @@ namespace DigiScan_Track
                             Updatecmd.ExecuteNonQuery();
                             Insertcmd1.ExecuteNonQuery();
 
-                             MessageBox.Show("Data inserted");
+                            MessageBox.Show("Data inserted");
 
                             AddHistoryRow(serialNumber);
 
@@ -421,6 +420,21 @@ namespace DigiScan_Track
                 }
             }
 
+        }
+
+        private void serialNumtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                batchNumtxt.Focus();
+            }
+        }
+
+        private void lineManagertxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.EnterButtonClicked(submitbtn, e);
         }
     }
 }

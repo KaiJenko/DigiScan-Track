@@ -80,6 +80,7 @@ namespace DigiScan_Track
                 loginbtn.Visible = false;
                 usernamelbl.Visible = true;
                 usernamelbl.Text = username;
+                logoutbtn.Visible = true;
             }
         }
 
@@ -205,9 +206,9 @@ namespace DigiScan_Track
         private void LoadButtonImages()
         {
             WIPTracker wip = new WIPTracker(null, null);
-            wip.TransparentBackground(this, "loginbtn");
+            wip.TransparentBackground(this, "loginbtn", "logoutbtn");
 
-            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog", "newHistory" };
+            string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog", "newHistory"};
             int x = images.Length - 1;
 
             foreach (Control control in dashpnl.Controls)
@@ -218,6 +219,11 @@ namespace DigiScan_Track
 
                     if (control is Button button)
                     {
+                        if (button.Name == "logoutbtn")
+                        {
+                            continue;
+                        }
+
                         button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(button.Height / 2, button.Height / 2));
                         button.ImageAlign = ContentAlignment.MiddleRight;
                         button.Padding = new Padding(0, 0, 10, 0);
@@ -328,6 +334,30 @@ namespace DigiScan_Track
             }
         }
 
+        private void LogOutbtn_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
 
+            DialogResult result = MessageBox.Show("Do you want to Log Out?", "Log Out", msgbtn);
+            if (result == DialogResult.Yes)
+            {
+                UserLoginDetails.Instance.Username = "";
+                UserLoginDetails.Instance.Permission = "";
+                UserLoginDetails.Instance.loggedIN = false;
+                loginbtn.Visible = true;
+                logoutbtn.Visible = false;
+                usernamelbl.Visible = false;
+                usernamelbl.Text = string.Empty;
+            }
+        }
+
+        public void EnterButtonClicked(Button button, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                button.PerformClick();
+            }
+        }
     }
 }

@@ -230,7 +230,7 @@ namespace DigiScan_Track
                         DialogResult result = MessageBox.Show(inStorageMessage, title, msgbtn);
                         if (result == DialogResult.Yes)
                         {
-                            PartEditPage editPage = new PartEditPage(serialNum,workstation);
+                            PartEditPage editPage = new PartEditPage(serialNum, workstation);
                             editPage.Dock = DockStyle.Fill;
                             this.InnerBorderpnl.Controls.Add(editPage);
                             crossOffpbox.Visible = true;

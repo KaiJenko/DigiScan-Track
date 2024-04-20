@@ -137,5 +137,7 @@ namespace DigiScan_Track
 
             wip.TurnColumnIntoPercent(recentScannedGridView, 16, 16, 16, 18, 20, 20);
         }
+
+
     }
 }

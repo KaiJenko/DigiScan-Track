@@ -59,10 +59,9 @@
             agedlbl.AutoSize = true;
             agedlbl.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             agedlbl.ForeColor = Color.White;
-            agedlbl.Location = new Point(6, 34);
-            agedlbl.Margin = new Padding(4, 0, 4, 0);
+            agedlbl.Location = new Point(4, 20);
             agedlbl.Name = "agedlbl";
-            agedlbl.Size = new Size(686, 38);
+            agedlbl.Size = new Size(460, 25);
             agedlbl.TabIndex = 9;
             agedlbl.Text = "This Board Displays Everything Scanned in the last:";
             // 
@@ -72,10 +71,9 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(86, 17);
-            Titlelbl.Margin = new Padding(4, 0, 4, 0);
+            Titlelbl.Location = new Point(60, 10);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(1313, 78);
+            Titlelbl.Size = new Size(919, 47);
             Titlelbl.TabIndex = 12;
             Titlelbl.Text = "DigiScan && Track - Display Board";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -89,10 +87,9 @@
             BodyLayoutpnl.Controls.Add(recentScannedGridView);
             BodyLayoutpnl.Controls.Add(radioButtonpnl);
             BodyLayoutpnl.Controls.Add(agedlbl);
-            BodyLayoutpnl.Location = new Point(6, 5);
-            BodyLayoutpnl.Margin = new Padding(4, 5, 4, 5);
+            BodyLayoutpnl.Location = new Point(4, 3);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
-            BodyLayoutpnl.Size = new Size(1447, 870);
+            BodyLayoutpnl.Size = new Size(1013, 522);
             BodyLayoutpnl.TabIndex = 11;
             // 
             // noDatalbl
@@ -101,10 +98,9 @@
             noDatalbl.BackColor = Color.FromArgb(113, 96, 232);
             noDatalbl.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             noDatalbl.ForeColor = Color.Coral;
-            noDatalbl.Location = new Point(500, 400);
-            noDatalbl.Margin = new Padding(4, 0, 4, 0);
+            noDatalbl.Location = new Point(350, 240);
             noDatalbl.Name = "noDatalbl";
-            noDatalbl.Size = new Size(0, 38);
+            noDatalbl.Size = new Size(0, 25);
             noDatalbl.TabIndex = 23;
             // 
             // searchpbox
@@ -112,10 +108,9 @@
             searchpbox.BackgroundImage = Properties.Resources.MagnifyingGlass;
             searchpbox.BackgroundImageLayout = ImageLayout.Stretch;
             searchpbox.Cursor = Cursors.Hand;
-            searchpbox.Location = new Point(1377, 37);
-            searchpbox.Margin = new Padding(4, 5, 4, 5);
+            searchpbox.Location = new Point(964, 22);
             searchpbox.Name = "searchpbox";
-            searchpbox.Size = new Size(36, 39);
+            searchpbox.Size = new Size(25, 23);
             searchpbox.TabIndex = 22;
             searchpbox.TabStop = false;
             searchpbox.Visible = false;
@@ -128,14 +123,14 @@
             customInputnud.Cursor = Cursors.Hand;
             customInputnud.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             customInputnud.ForeColor = Color.FromArgb(0, 126, 249);
-            customInputnud.Location = new Point(1293, 37);
-            customInputnud.Margin = new Padding(4, 5, 4, 5);
+            customInputnud.Location = new Point(905, 22);
             customInputnud.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             customInputnud.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             customInputnud.Name = "customInputnud";
-            customInputnud.Size = new Size(76, 39);
+            customInputnud.Size = new Size(53, 29);
             customInputnud.TabIndex = 4;
             customInputnud.Visible = false;
+
             // 
             // recentScannedGridView
             // 
@@ -169,8 +164,7 @@
             recentScannedGridView.DefaultCellStyle = dataGridViewCellStyle3;
             recentScannedGridView.EnableHeadersVisualStyles = false;
             recentScannedGridView.GridColor = Color.Silver;
-            recentScannedGridView.Location = new Point(23, 118);
-            recentScannedGridView.Margin = new Padding(4, 5, 4, 5);
+            recentScannedGridView.Location = new Point(16, 71);
             recentScannedGridView.MultiSelect = false;
             recentScannedGridView.Name = "recentScannedGridView";
             recentScannedGridView.ReadOnly = true;
@@ -193,7 +187,7 @@
             recentScannedGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             recentScannedGridView.RowTemplate.Height = 50;
             recentScannedGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            recentScannedGridView.Size = new Size(1403, 683);
+            recentScannedGridView.Size = new Size(982, 410);
             recentScannedGridView.TabIndex = 13;
             // 
             // radioButtonpnl
@@ -202,10 +196,9 @@
             radioButtonpnl.Controls.Add(tenrbtn);
             radioButtonpnl.Controls.Add(fiverbtn);
             radioButtonpnl.Controls.Add(tworbtn);
-            radioButtonpnl.Location = new Point(696, 12);
-            radioButtonpnl.Margin = new Padding(4, 5, 4, 5);
+            radioButtonpnl.Location = new Point(487, 7);
             radioButtonpnl.Name = "radioButtonpnl";
-            radioButtonpnl.Size = new Size(573, 85);
+            radioButtonpnl.Size = new Size(401, 51);
             radioButtonpnl.TabIndex = 12;
             // 
             // customrbtn
@@ -214,10 +207,9 @@
             customrbtn.Cursor = Cursors.Hand;
             customrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             customrbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            customrbtn.Location = new Point(459, 27);
-            customrbtn.Margin = new Padding(4, 5, 4, 5);
+            customrbtn.Location = new Point(321, 16);
             customrbtn.Name = "customrbtn";
-            customrbtn.Size = new Size(118, 35);
+            customrbtn.Size = new Size(78, 24);
             customrbtn.TabIndex = 3;
             customrbtn.Tag = "custom";
             customrbtn.Text = "Custom";
@@ -230,10 +222,9 @@
             tenrbtn.Cursor = Cursors.Hand;
             tenrbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             tenrbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            tenrbtn.Location = new Point(307, 27);
-            tenrbtn.Margin = new Padding(4, 5, 4, 5);
+            tenrbtn.Location = new Point(215, 16);
             tenrbtn.Name = "tenrbtn";
-            tenrbtn.Size = new Size(150, 35);
+            tenrbtn.Size = new Size(100, 24);
             tenrbtn.TabIndex = 2;
             tenrbtn.Tag = "10";
             tenrbtn.Text = "10 Minutes";
@@ -246,10 +237,9 @@
             fiverbtn.Cursor = Cursors.Hand;
             fiverbtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             fiverbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            fiverbtn.Location = new Point(164, 27);
-            fiverbtn.Margin = new Padding(4, 5, 4, 5);
+            fiverbtn.Location = new Point(115, 16);
             fiverbtn.Name = "fiverbtn";
-            fiverbtn.Size = new Size(141, 35);
+            fiverbtn.Size = new Size(94, 24);
             fiverbtn.TabIndex = 1;
             fiverbtn.Tag = "5";
             fiverbtn.Text = "5 Minutes";
@@ -262,10 +252,9 @@
             tworbtn.Cursor = Cursors.Hand;
             tworbtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             tworbtn.ForeColor = Color.FromArgb(0, 126, 249);
-            tworbtn.Location = new Point(4, 27);
-            tworbtn.Margin = new Padding(4, 5, 4, 5);
+            tworbtn.Location = new Point(3, 16);
             tworbtn.Name = "tworbtn";
-            tworbtn.Size = new Size(143, 34);
+            tworbtn.Size = new Size(98, 24);
             tworbtn.TabIndex = 0;
             tworbtn.Tag = "2";
             tworbtn.Text = "2 Minutes ";
@@ -277,22 +266,20 @@
             Borderpnl.Anchor = AnchorStyles.None;
             Borderpnl.BackColor = Color.FromArgb(24, 30, 54);
             Borderpnl.Controls.Add(BodyLayoutpnl);
-            Borderpnl.Location = new Point(23, 115);
-            Borderpnl.Margin = new Padding(4, 5, 4, 5);
+            Borderpnl.Location = new Point(16, 69);
             Borderpnl.Name = "Borderpnl";
-            Borderpnl.Size = new Size(1457, 880);
+            Borderpnl.Size = new Size(1020, 528);
             Borderpnl.TabIndex = 14;
             // 
             // DisplayBoard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1503, 1015);
+            ClientSize = new Size(1052, 609);
             Controls.Add(Titlelbl);
             Controls.Add(Borderpnl);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "DisplayBoard";
             Text = "Form1";
             Load += Form1_Load;

@@ -93,8 +93,7 @@ namespace DigiScan_Track
             WIPgridView.Columns[3].HeaderText = "Workstation";
             WIPgridView.Columns[4].HeaderText = "Time in";
             WIPgridView.Columns[5].HeaderText = "Time out";
-            WIPgridView.Columns[5].HeaderText = "Time out";
-            WIPgridView.Columns[5].HeaderText = "In Storage";
+            WIPgridView.Columns[6].HeaderText = "In Storage";
 
 
             TurnColumnIntoPercent(WIPgridView, 14, 14, 12, 14, 17, 17, 12);
@@ -167,7 +166,7 @@ namespace DigiScan_Track
 
                         else if (index != 0)
                         {
-                            sqlQuery += " AND [" + SearchField + "] LIKE '%" + searchval + "%'";
+                            sqlQuery += " AND [" + SearchField + "] LIKE '%" + SearchValue + "%'";
                         }
 
                         if (defaultOrCustom == 1)
@@ -428,13 +427,33 @@ namespace DigiScan_Track
                 }
             }
 
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "Workstation")
+            {
+                if ((string)gridview[e.ColumnIndex, e.RowIndex].Value == "Shipping")
+                {
+                    gridview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Plum;  
+                }
+            }
+
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
             {
                 e.PaintBackground(e.CellBounds, true);
 
                 if (gridview[e.ColumnIndex, e.RowIndex].Value == DBNull.Value)
                 {
-                    string displayText = "Current Location";
+                    string displayText = "";
+
+                    if ((bool)gridview[6, e.RowIndex].Value == true)
+                    {
+                        displayText = "Storage";
+                    }
+
+                    else 
+                    { 
+                        displayText = "Current Location";
+                    }
+
                     using (StringFormat sf = new StringFormat())
                     {
                         sf.Alignment = StringAlignment.Center;

@@ -16,7 +16,6 @@ namespace DigiScan_Track
         public SettingsPage()
         {
             InitializeComponent();
-
         }
 
 

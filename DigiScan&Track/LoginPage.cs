@@ -1,5 +1,5 @@
 ﻿using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
 
 namespace DigiScan_Track
 {
@@ -20,36 +20,45 @@ namespace DigiScan_Track
             string username = ouUsernametxt.Text;
             string password = ouPasswordtxt.Text;
 
-            string[] splitUsername = username.Split('.');
-            string firstname = splitUsername[0];
-            string lastname = splitUsername[1];
-
-            conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT [Username], [Password], [Permission] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
+            if (username.Contains(" "))
             {
-                dr.Read();
-                string PermissionLevel = dr["Permission"].ToString();
-                MessageBox.Show("You have been logged in");
-                UserLoginDetails.Instance.Username = firstname + " " + lastname;
-                UserLoginDetails.Instance.loggedIN = true;
-                UserLoginDetails.Instance.Permission = PermissionLevel;
-                UpdateHomePageLoginStatus();
-
-                HomePage homePage = new HomePage();
-                homePage.HomePageShortcutsbtn.PerformClick();
+                MessageBox.Show("The username is your fullname with the space replaced by a full stop");
             }
 
             else
             {
-                MessageBox.Show("Login values incorrect");
-            }
 
-            conn.Close();
+                string[] splitUsername = username.Split('.');
+                string firstname = splitUsername[0];
+                string lastname = splitUsername[1];
+
+                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT [Username], [Password], [Permission] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    string PermissionLevel = dr["Permission"].ToString();
+                    MessageBox.Show("You have been logged in");
+                    UserLoginDetails.Instance.Username = firstname + " " + lastname;
+                    UserLoginDetails.Instance.loggedIN = true;
+                    UserLoginDetails.Instance.Permission = PermissionLevel;
+                    UpdateHomePageLoginStatus();
+
+                    HomePage homePage = new HomePage();
+                    homePage.HomePageShortcutsbtn.PerformClick();
+                }
+
+                else
+                {
+                    MessageBox.Show("Login values incorrect");
+                }
+
+                conn.Close();
+            }
         }
 
 
@@ -113,31 +122,39 @@ namespace DigiScan_Track
 
             if (password == retypePassword)
             {
-                conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
-                conn.Open();
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT [FullName], [EmployeeID] FROM [UserLogin] WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
-                SqlDataReader dr = cmd.ExecuteReader();
-
-
-                if (dr.HasRows)
+                if (MeetsLoginCriteria(password))
                 {
-                    dr.Close();
-                    string sqlUpdate = " UPDATE [UserLogin] SET [Username] = '" + username + "', [Password] = '" + password + "', [Permission] = 'Read'" +
-                                       " WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
-                    SqlCommand cmd2 = new SqlCommand(sqlUpdate, conn);
-                    cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Employee login created");
-                    newUserpnl.Visible = false;
-                    oldUserpnl.Visible = true;
+                    conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
+                    conn.Open();
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT [FullName], [EmployeeID] FROM [UserLogin] WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+                        dr.Close();
+                        string sqlUpdate = " UPDATE [UserLogin] SET [Username] = '" + username + "', [Password] = '" + password + "', [Permission] = 'Read'" +
+                                           " WHERE [FullName] = '" + fullName + "' AND [EmployeeID] = '" + employeeID + "'";
+                        SqlCommand cmd2 = new SqlCommand(sqlUpdate, conn);
+                        cmd2.ExecuteNonQuery();
+                        MessageBox.Show("Employee login created: \n Your Username is: " + username);
+                        newUserpnl.Visible = false;
+                        oldUserpnl.Visible = true;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Employee not found");
+                    }
+
+                    conn.Close();
                 }
 
                 else
                 {
-                    MessageBox.Show("Employee not found");
+                    MessageBox.Show("You do not meet the Password Criteria");
                 }
-
-                conn.Close();
             }
 
             else
@@ -146,6 +163,29 @@ namespace DigiScan_Track
             }
         }
 
+        private bool MeetsLoginCriteria(string password)
+        {
+            if (Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[0-9]).{6,}$"))
+            {
+                return true;
+            }
 
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ouPasswordtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.EnterButtonClicked(loginbtn, e);
+        }
+
+        private void retypePasswordtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.EnterButtonClicked(createLoginbtn, e);
+        }
     }
 }

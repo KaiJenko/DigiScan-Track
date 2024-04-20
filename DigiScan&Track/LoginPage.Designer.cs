@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             oldUserpnl = new Panel();
             ouPasswordtxt = new TextBox();
@@ -43,6 +44,7 @@
             loginlbl = new Label();
             ouLogopbox = new PictureBox();
             newUserpnl = new Panel();
+            pictureBox1 = new PictureBox();
             retypePasswordtxt = new TextBox();
             dividerpnl = new FlowLayoutPanel();
             retypepbox = new PictureBox();
@@ -61,11 +63,13 @@
             fullNamepbox = new PictureBox();
             enterDetailslbl = new Label();
             logopbox = new PictureBox();
+            PasswordCriteria = new ToolTip(components);
             oldUserpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ouPasswordpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ouUsernamepbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ouLogopbox).BeginInit();
             newUserpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)retypepbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeIDpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)passwordpbox).BeginInit();
@@ -105,6 +109,7 @@
             ouPasswordtxt.TabIndex = 12;
             ouPasswordtxt.Tag = "Password";
             ouPasswordtxt.UseSystemPasswordChar = true;
+            ouPasswordtxt.KeyPress += ouPasswordtxt_KeyPress;
             // 
             // ouUsernametxt
             // 
@@ -232,6 +237,7 @@
             // newUserpnl
             // 
             newUserpnl.BackColor = Color.White;
+            newUserpnl.Controls.Add(pictureBox1);
             newUserpnl.Controls.Add(retypePasswordtxt);
             newUserpnl.Controls.Add(dividerpnl);
             newUserpnl.Controls.Add(retypepbox);
@@ -256,6 +262,17 @@
             newUserpnl.TabIndex = 13;
             newUserpnl.Visible = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(262, 286);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            PasswordCriteria.SetToolTip(pictureBox1, "Please Meet the Following Criteria:\r\n--At least 1 capital letter\r\n--At least 1 digit\r\n--Minimum length of 6 characters");
+            // 
             // retypePasswordtxt
             // 
             retypePasswordtxt.BorderStyle = BorderStyle.None;
@@ -268,6 +285,7 @@
             retypePasswordtxt.TabIndex = 18;
             retypePasswordtxt.Tag = "Retype Password";
             retypePasswordtxt.UseSystemPasswordChar = true;
+            retypePasswordtxt.KeyPress += retypePasswordtxt_KeyPress;
             // 
             // dividerpnl
             // 
@@ -472,6 +490,7 @@
             ((System.ComponentModel.ISupportInitialize)ouLogopbox).EndInit();
             newUserpnl.ResumeLayout(false);
             newUserpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)retypepbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeIDpbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)passwordpbox).EndInit();
@@ -514,5 +533,7 @@
         private TextBox retypePasswordtxt;
         private FlowLayoutPanel dividerpnl;
         private PictureBox retypepbox;
+        private PictureBox pictureBox1;
+        private ToolTip PasswordCriteria;
     }
 }

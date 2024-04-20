@@ -66,7 +66,7 @@ namespace DigiScan_Track
 
 
 
-        private void Searchbtn_Click(object sender, EventArgs e)
+        private void HistorySearchbtn_Click(object sender, EventArgs e)
         {
             if (searchtxt.Text != "")
             {
@@ -102,6 +102,12 @@ namespace DigiScan_Track
             LoadHistorySQL();
             searchtxt.Text = string.Empty;
             historycmb.SelectedIndex = 0;
+        }
+
+        private void searchtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.EnterButtonClicked(searchbtn, e);
         }
     }
 }
