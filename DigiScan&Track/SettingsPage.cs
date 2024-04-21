@@ -43,5 +43,22 @@ namespace DigiScan_Track
         {
             SendEmail("digiscantrackQueries@gmail.com", "DigiScan&Track Application Query");
         }
+
+        private void TableauLinklbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = "https://www.tableau.com/en-gb/learn/get-started/viewer";
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            };
+
+            Process.Start(startInfo);
+        }
+
+        private void AppHelplbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            appHelppnl.Visible = true;
+        }
     }
 }

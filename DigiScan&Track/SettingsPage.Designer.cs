@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsPage));
             Titlelbl = new Label();
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
+            appHelppnl = new Panel();
+            panel2 = new Panel();
+            label3 = new Label();
+            pictureBox4 = new PictureBox();
+            label7 = new Label();
             linkspnl = new Panel();
-            linkLabel2 = new LinkLabel();
+            tableauLinklbl = new LinkLabel();
             label2 = new Label();
-            linkLabel1 = new LinkLabel();
+            appHelplbl = new LinkLabel();
             label1 = new Label();
             colourSchemellbl = new LinkLabel();
             colourModelbl = new Label();
@@ -43,11 +49,22 @@
             linkTitlelbl = new Label();
             linkClickpnl = new PictureBox();
             pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            panel3 = new Panel();
+            label4 = new Label();
+            pictureBox2 = new PictureBox();
+            label5 = new Label();
             OuterBorderpnl.SuspendLayout();
             InnerBorderpnl.SuspendLayout();
+            appHelppnl.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             linkspnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)linkClickpnl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // Titlelbl
@@ -77,6 +94,8 @@
             // 
             InnerBorderpnl.Anchor = AnchorStyles.None;
             InnerBorderpnl.BackColor = Color.FromArgb(46, 51, 73);
+            InnerBorderpnl.Controls.Add(panel1);
+            InnerBorderpnl.Controls.Add(appHelppnl);
             InnerBorderpnl.Controls.Add(linkspnl);
             InnerBorderpnl.Controls.Add(pictureBox1);
             InnerBorderpnl.Location = new Point(4, 3);
@@ -84,11 +103,60 @@
             InnerBorderpnl.Size = new Size(1013, 522);
             InnerBorderpnl.TabIndex = 11;
             // 
+            // appHelppnl
+            // 
+            appHelppnl.Controls.Add(panel2);
+            appHelppnl.Controls.Add(pictureBox4);
+            appHelppnl.Controls.Add(label7);
+            appHelppnl.Location = new Point(528, 55);
+            appHelppnl.Name = "appHelppnl";
+            appHelppnl.Size = new Size(434, 411);
+            appHelppnl.TabIndex = 16;
+            appHelppnl.Visible = false;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label3);
+            panel2.Location = new Point(31, 55);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(376, 327);
+            panel2.TabIndex = 18;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(12, 4);
+            label3.Name = "label3";
+            label3.Size = new Size(353, 316);
+            label3.TabIndex = 0;
+            label3.Text = resources.GetString("label3.Text");
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.FromArgb(24, 30, 54);
+            pictureBox4.Location = new Point(27, 51);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(383, 335);
+            pictureBox4.TabIndex = 17;
+            pictureBox4.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.BackColor = Color.FromArgb(46, 51, 73);
+            label7.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Coral;
+            label7.Location = new Point(10, 5);
+            label7.Name = "label7";
+            label7.Size = new Size(386, 28);
+            label7.TabIndex = 12;
+            label7.Text = "Understanding DigiScan&&Track";
+            // 
             // linkspnl
             // 
-            linkspnl.Controls.Add(linkLabel2);
+            linkspnl.Controls.Add(tableauLinklbl);
             linkspnl.Controls.Add(label2);
-            linkspnl.Controls.Add(linkLabel1);
+            linkspnl.Controls.Add(appHelplbl);
             linkspnl.Controls.Add(label1);
             linkspnl.Controls.Add(colourSchemellbl);
             linkspnl.Controls.Add(colourModelbl);
@@ -101,18 +169,19 @@
             linkspnl.Size = new Size(434, 411);
             linkspnl.TabIndex = 14;
             // 
-            // linkLabel2
+            // tableauLinklbl
             // 
-            linkLabel2.BackColor = Color.FromArgb(24, 30, 54);
-            linkLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabel2.LinkColor = Color.FromArgb(128, 255, 255);
-            linkLabel2.Location = new Point(231, 190);
-            linkLabel2.Margin = new Padding(2, 0, 2, 0);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(132, 28);
-            linkLabel2.TabIndex = 22;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "Tableau Help";
+            tableauLinklbl.BackColor = Color.FromArgb(24, 30, 54);
+            tableauLinklbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tableauLinklbl.LinkColor = Color.FromArgb(128, 255, 255);
+            tableauLinklbl.Location = new Point(231, 190);
+            tableauLinklbl.Margin = new Padding(2, 0, 2, 0);
+            tableauLinklbl.Name = "tableauLinklbl";
+            tableauLinklbl.Size = new Size(132, 28);
+            tableauLinklbl.TabIndex = 22;
+            tableauLinklbl.TabStop = true;
+            tableauLinklbl.Text = "Tableau Help";
+            tableauLinklbl.LinkClicked += TableauLinklbl_LinkClicked;
             // 
             // label2
             // 
@@ -125,18 +194,19 @@
             label2.TabIndex = 21;
             label2.Text = "Understanding Tableau:";
             // 
-            // linkLabel1
+            // appHelplbl
             // 
-            linkLabel1.BackColor = Color.FromArgb(24, 30, 54);
-            linkLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabel1.LinkColor = Color.FromArgb(128, 255, 255);
-            linkLabel1.Location = new Point(203, 148);
-            linkLabel1.Margin = new Padding(2, 0, 2, 0);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(132, 28);
-            linkLabel1.TabIndex = 20;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "App Help";
+            appHelplbl.BackColor = Color.FromArgb(24, 30, 54);
+            appHelplbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            appHelplbl.LinkColor = Color.FromArgb(128, 255, 255);
+            appHelplbl.Location = new Point(203, 148);
+            appHelplbl.Margin = new Padding(2, 0, 2, 0);
+            appHelplbl.Name = "appHelplbl";
+            appHelplbl.Size = new Size(101, 28);
+            appHelplbl.TabIndex = 20;
+            appHelplbl.TabStop = true;
+            appHelplbl.Text = "App Help";
+            appHelplbl.LinkClicked += AppHelplbl_LinkClicked;
             // 
             // label1
             // 
@@ -227,6 +297,55 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(label5);
+            panel1.Location = new Point(528, 55);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(434, 411);
+            panel1.TabIndex = 19;
+            panel1.Visible = false;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(31, 55);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(376, 327);
+            panel3.TabIndex = 18;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(12, 4);
+            label4.Name = "label4";
+            label4.Size = new Size(353, 316);
+            label4.TabIndex = 0;
+            label4.Text = "This is a work in progress.\r\n\r\nIn the future this section will allow for colour blind impaired users to swap to a colourblind friendly palette\r\n\r\nAlso users can change their preferred colour scheme.\r\n";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(24, 30, 54);
+            pictureBox2.Location = new Point(27, 51);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(383, 335);
+            pictureBox2.TabIndex = 17;
+            pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.BackColor = Color.FromArgb(46, 51, 73);
+            label5.Font = new Font("Segoe UI Black", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Coral;
+            label5.Location = new Point(10, 5);
+            label5.Name = "label5";
+            label5.Size = new Size(386, 28);
+            label5.TabIndex = 12;
+            label5.Text = "Changing the Colour Scheme";
+            // 
             // SettingsPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,9 +359,15 @@
             Text = "SettingsPage";
             OuterBorderpnl.ResumeLayout(false);
             InnerBorderpnl.ResumeLayout(false);
+            appHelppnl.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             linkspnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)linkClickpnl).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -259,10 +384,20 @@
         private LinkLabel emailLinklbl;
         private LinkLabel colourSchemellbl;
         private Label colourModelbl;
-        private LinkLabel linkLabel2;
+        private LinkLabel tableauLinklbl;
         private Label label2;
-        private LinkLabel linkLabel1;
+        private LinkLabel appHelplbl;
         private Label label1;
         private PictureBox linkClickpnl;
+        private Panel appHelppnl;
+        private Panel panel2;
+        private Label label3;
+        private PictureBox pictureBox4;
+        private Label label7;
+        private Panel panel1;
+        private Panel panel3;
+        private Label label4;
+        private PictureBox pictureBox2;
+        private Label label5;
     }
 }

@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>This application has been created for Collins Aerospace, replacing their current process
+for entering part details and tracking their location. It also adds other features such as 
+warnings for parts in storage for too long. It allows the input of barcode scanners to 
+increase speed and remove the need for human input.
+
+To use the app you must first create a login, only employees may do this. 
+Once you have a permission level, you can input, edit and delete parts.
+Viewing the parts and their locations do not require a permission level.</value>
+  </data>
 </root>
