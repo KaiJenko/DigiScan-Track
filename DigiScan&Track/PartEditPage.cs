@@ -17,7 +17,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //SQL query to pull data pertaining to the serialnumber pulled from the parteditpage parameters
         private void EditPartDetailsSQL(string serialNumber, string workstation)
         {
             SqlConnection conn = new SqlConnection();
@@ -37,7 +37,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //This only pulls data if the part is in storage, if it isnt then the gridview and all textboxes are hidden
         private void FurtherEditPartsSQL(string serialNumber, string workstation)
         {
             SqlConnection conn = new SqlConnection();
@@ -61,10 +61,9 @@ namespace DigiScan_Track
         }
 
 
-
+        //Changes the current data in the SQL table for the users new data
         private void InputEdit_Click(object sender, EventArgs e)
         {
-
             DataGridViewCell partToBeEdited = null;
             int repeat = 0;
             int count = 0;
