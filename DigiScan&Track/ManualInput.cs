@@ -1,7 +1,4 @@
 using System.Data.SqlClient;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using System.Drawing;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace DigiScan_Track
@@ -24,12 +21,11 @@ namespace DigiScan_Track
 
             WIPTracker wip = new WIPTracker(null, null);
             wip.TransparentBackground(this, "submitbtn", "resetbtn");
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Checks if the user is allowed access to this page
             permissionToAccess();
         }
 
@@ -50,6 +46,7 @@ namespace DigiScan_Track
                 string SQLFormat = "";
                 string notes = notestxt.Text.ToString();
 
+                //if the no checkbox is checked it means the user wants to input the part in real time
                 if (nocheckbox.Checked == true)
                 {
                     SQLFormat = "GETDATE()";
@@ -57,6 +54,7 @@ namespace DigiScan_Track
 
                 else
                 {
+                    //SQL formats its datetime type in the american way so it needs to be changed 
                     timestamp = timestamptxt.Value;
                     SQLFormat = timestamp.ToString("yyyy-MM-dd HH:mm:ss");
                 }
@@ -70,6 +68,7 @@ namespace DigiScan_Track
 
                 for (int x = 0; x < textboxes.Length; x++)
                 {
+                    //Checks all textboxes for any null fields
                     if (string.IsNullOrEmpty(textboxes[x].Text))
                     {
                         if (index == 0)
@@ -111,8 +110,8 @@ namespace DigiScan_Track
                         SqlCommand Selectcmd = new SqlCommand(sqlSelect, conn);
                         int rowCount = (int)Selectcmd.ExecuteScalar();
                         conn.Close();
-
-                        if (workstation == "Goods Out")
+                        //Runs an update statement if the workstation is shipping due to this being the final stage of a parts lifecycle
+                        if (workstation == "Shipping")
                         {
                             if (rowCount == workstationcmbox.Items.Count - 1)
                             {
@@ -138,6 +137,9 @@ namespace DigiScan_Track
 
                         else
                         {
+                            //This checks if there is a serial number already in the table, if so it finds the record with a null value in timestampout
+                            //As this is the current location of the part. it then enters a value into that field and creates a new record with a null value
+                            //To indicate that this is now the current location
                             conn.Open();
                             string sqlUpdate = " DECLARE @SerialNumber VARCHAR(100) = '" + serialNumber + "';" +
                                                " IF EXISTS(SELECT 1 FROM[DigiTrackAndScan].[dbo].[WIPTracking] WHERE [SerialNumber] = @SerialNumber AND[WSTimestampOUT] IS NULL)" +
@@ -196,7 +198,7 @@ namespace DigiScan_Track
 
 
 
-
+        //This adds a record into the history table for the user adding a part
         private void AddHistoryRow(string serialNum)
         {
             string username = UserLoginDetails.Instance.Username;
@@ -227,7 +229,6 @@ namespace DigiScan_Track
             reasontxt.Clear();
             nocheckbox.Checked = true;
             notestxt.Clear();
-
         }
 
 
@@ -288,7 +289,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Pulls all part numbers from the SQL table with an associated department name as part numbers are department specific
         private void LoadPartNumbers(string chosenDepartment)
         {
             if (partNumcmbox.Items.Count == 0)
@@ -397,7 +398,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Quick lookup of the users permissions to grant them access to the form
         private void permissionToAccess()
         {
 
@@ -422,6 +423,8 @@ namespace DigiScan_Track
 
         }
 
+
+
         private void serialNumtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -430,6 +433,8 @@ namespace DigiScan_Track
                 batchNumtxt.Focus();
             }
         }
+
+
 
         private void lineManagertxt_KeyPress(object sender, KeyPressEventArgs e)
         {
