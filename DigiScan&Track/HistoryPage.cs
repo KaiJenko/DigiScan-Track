@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
+
 
 namespace DigiScan_Track
 {
@@ -30,7 +22,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Pulls all data from the history table and populates the gridview
         private void LoadHistorySQL()
         {
             DataTable dt = new DataTable();
@@ -65,13 +57,13 @@ namespace DigiScan_Track
         }
 
 
-
+        //Search filter for reducing rows in the gridview
         private void HistorySearchbtn_Click(object sender, EventArgs e)
         {
             if (searchtxt.Text != "")
             {
                 string chosenCol = historycmb.SelectedItem.ToString();
-                string txtValue = searchtxt.Text;
+                string userSearchValue = searchtxt.Text;
 
                 DataTable dt = new DataTable();
 
@@ -80,7 +72,7 @@ namespace DigiScan_Track
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT * FROM [History] WHERE [" + chosenCol + "] LIKE @searchvalue";
 
-                cmd.Parameters.AddWithValue("@searchvalue", "%" + txtValue + "%");
+                cmd.Parameters.AddWithValue("@searchvalue", "%" + userSearchValue + "%"); //This is the line which doesnt require '' around the % unlike SQL
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
@@ -97,12 +89,16 @@ namespace DigiScan_Track
             }
         }
 
+
+
         private void Resetbtn_Click(object sender, EventArgs e)
         {
             LoadHistorySQL();
             searchtxt.Text = string.Empty;
             historycmb.SelectedIndex = 0;
         }
+
+
 
         private void searchtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
