@@ -367,7 +367,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //This is called in multiple forms - checks each keystroke for the enter key. if it is pressed then it presses the associated button
         public void EnterButtonClicked(Button button, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)

@@ -14,7 +14,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Validation for the user logging in - such as not including the . or not being case sensitive 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
             string username = ouUsernametxt.Text;
@@ -38,6 +38,7 @@ namespace DigiScan_Track
                 cmd.CommandText = "SELECT [Username], [Password], [Permission] FROM [UserLogin] WHERE [Username] = '" + username + "' AND [Password] = '" + password + "'";
                 SqlDataReader dr = cmd.ExecuteReader();
 
+                //If it pulls back a row then it means the username and password was correct
                 if (dr.HasRows)
                 {
                     dr.Read();
@@ -62,7 +63,8 @@ namespace DigiScan_Track
         }
 
 
-
+        //As the homepage is always open it has to be directly invoked, especially when changing controls still active
+        //Here it calls the setlogin function whihc logs in the user by essentially removing the login button and displaying their username
         public static void UpdateHomePageLoginStatus()
         {
             if (Application.OpenForms["HomePage"] is HomePage homePage)
@@ -110,7 +112,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //
         private void CreateLoginbtn_Click(object sender, EventArgs e)
         {
             string fullName = fullNametxt.Text;
@@ -163,6 +165,8 @@ namespace DigiScan_Track
             }
         }
 
+
+        //Some regex values for password validation - this ensures its longer than 6 characters, and contains 1 or more digits and capital letters
         private bool MeetsLoginCriteria(string password)
         {
             if (Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[0-9]).{6,}$"))
@@ -176,11 +180,15 @@ namespace DigiScan_Track
             }
         }
 
+
+        //This checks for the enter key - as the client wanted to be able to press enter to login and search tables
         private void ouPasswordtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             HomePage home = new HomePage();
             home.EnterButtonClicked(loginbtn, e);
         }
+
+
 
         private void retypePasswordtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
