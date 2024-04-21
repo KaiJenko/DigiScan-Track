@@ -1,4 +1,12 @@
+using System.Runtime.CompilerServices;
 using Timer = System.Windows.Forms.Timer;
+
+/*
+ * 
+ * This page is always open within the application, instead of opening and closing a new form each time
+ * One of the panels inside this form is cleared and a new form takes its place. This allows for the taskbar and its buttons to always be visible
+ * 
+ */
 
 
 namespace DigiScan_Track
@@ -10,7 +18,7 @@ namespace DigiScan_Track
         int originalArrowHeight;
         int originalexpandWidth;
 
-        public Button prev;
+        public Button previousButtonClicked;
 
         Timer timer;
         DateTime startTime;
@@ -20,7 +28,7 @@ namespace DigiScan_Track
             InitializeComponent();
             LoadButtonImages();
             CreateTimer();
-            prev = HomePageShortcutsbtn;
+            previousButtonClicked = HomePageShortcutsbtn;
 
         }
 
@@ -30,7 +38,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //A timer to track how long the user has the application open for 
         private void CreateTimer()
         {
             timer = new Timer();
@@ -50,7 +58,8 @@ namespace DigiScan_Track
         }
 
 
-
+        //This loads the first form, homepageshortcuts, into the innerbody panel
+        //the currentformpnl highlights the button to show the user which page they're on
         private void CurrentFormSelect()
         {
             expandpicbox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -70,7 +79,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Quick check to see if the user has logged in
         public void SetLogin()
         {
             string username = UserLoginDetails.Instance.Username;
@@ -155,13 +164,15 @@ namespace DigiScan_Track
 
         }
 
+        //This function is used to stop the user spamming the button clicks - during testing this was found
+        //to crash the application if pressed consecutively. Disables the button which has been clicked, and re-enables it when clicked off
         private void HomePageButtonClick(Form newForm, object sender, EventArgs e)
         {
 
             Button buttonClicked = sender as Button;
             ButtonColour();
 
-            if (prev == buttonClicked)
+            if (previousButtonClicked == buttonClicked)
             {
                 buttonClicked.Enabled = false;
                 buttonClicked.ForeColor = Color.Red;
@@ -169,8 +180,8 @@ namespace DigiScan_Track
 
             else
             {
-                prev.Enabled = true;
-                prev = buttonClicked;
+                previousButtonClicked.Enabled = true;
+                previousButtonClicked = buttonClicked;
             }
 
             currentFormpnl.BringToFront();
@@ -202,17 +213,18 @@ namespace DigiScan_Track
         }
 
 
-
+        //Loops through the buttons in the taskbar assigning an image to each based on the string array
         private void LoadButtonImages()
         {
             WIPTracker wip = new WIPTracker(null, null);
             wip.TransparentBackground(this, "loginbtn", "logoutbtn");
 
             string[] images = { "redHouse", "clipboard", "exclamation", "spanner", "keyboard", "Monitor", "cog", "newHistory"};
-            int x = images.Length - 1;
+            int x = images.Length - 1; //as the login button doesnt need a button - minus 1 here stops the loop just as it reaches it
 
             foreach (Control control in dashpnl.Controls)
             {
+                //Checks the control is a button
                 if (control.GetType() == typeof(Button))
                 {
                     string imageName = images[x];
@@ -223,7 +235,7 @@ namespace DigiScan_Track
                         {
                             continue;
                         }
-
+                        //Resizing of the images to ensure theyfit nicely
                         button.Image = new Bitmap((Image)Properties.Resources.ResourceManager.GetObject(imageName), new Size(button.Height / 2, button.Height / 2));
                         button.ImageAlign = ContentAlignment.MiddleRight;
                         button.Padding = new Padding(0, 0, 10, 0);
@@ -234,7 +246,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Aesthetic highlight of the buttons when the user hovers over it 
         private void HoverButton(object sender, EventArgs e)
         {
             Button hoverbtn = sender as Button;
@@ -259,7 +271,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Used to reset the colour once the button has been unselected
         public void ButtonColour()
         {
             foreach (Control control in dashpnl.Controls)
@@ -293,7 +305,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Taskbar closed 
         private void Collapsepicbox_Click(object sender, EventArgs e)
         {
             originalexpandWidth = (int)manualTablepnl.ColumnStyles[0].Width;
@@ -303,7 +315,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Taskbar opened
         private void Expandpicbox_Click(object sender, EventArgs e)
         {
             manualTablepnl.ColumnStyles[0].Width = originalexpandWidth;
@@ -311,7 +323,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Everytime a new form is opened in the innerbody panel, if its not the loginpage form
         public void InnerBodypnl_ControlAdded(object sender, ControlEventArgs e)
         {
             foreach (Control controls in InnerBodypnl.Controls)
@@ -334,6 +346,8 @@ namespace DigiScan_Track
             }
         }
 
+
+        //Logout button visible once the user has logged in - useful for shop floor due to multiple operators to a PC
         private void LogOutbtn_Click(object sender, EventArgs e)
         {
             MessageBoxButtons msgbtn = MessageBoxButtons.YesNo;
@@ -341,6 +355,7 @@ namespace DigiScan_Track
             DialogResult result = MessageBox.Show("Do you want to Log Out?", "Log Out", msgbtn);
             if (result == DialogResult.Yes)
             {
+                //Resets all instances from Userlogindetails
                 UserLoginDetails.Instance.Username = "";
                 UserLoginDetails.Instance.Permission = "";
                 UserLoginDetails.Instance.loggedIN = false;
@@ -350,6 +365,8 @@ namespace DigiScan_Track
                 usernamelbl.Text = string.Empty;
             }
         }
+
+
 
         public void EnterButtonClicked(Button button, KeyPressEventArgs e)
         {

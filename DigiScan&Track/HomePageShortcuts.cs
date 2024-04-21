@@ -254,9 +254,9 @@ namespace DigiScan_Track
                     homepage.InnerBodypnl.Controls.Add(newForm);
                     newForm.Show();
 
-                    homepage.prev.Enabled = true;
+                    homepage.previousButtonClicked.Enabled = true;
                     homepage.ManualInputbtn.Enabled = false;
-                    homepage.prev = homepage.ManualInputbtn;
+                    homepage.previousButtonClicked = homepage.ManualInputbtn;
 
                 }
             }
@@ -273,9 +273,9 @@ namespace DigiScan_Track
                     homepage.InnerBodypnl.Controls.Add(WIP);
                     WIP.Show();
 
-                    homepage.prev.Enabled = true;
+                    homepage.previousButtonClicked.Enabled = true;
                     homepage.WIPTrackerbtn.Enabled = false;
-                    homepage.prev = homepage.WIPTrackerbtn;
+                    homepage.previousButtonClicked = homepage.WIPTrackerbtn;
                 }
             }
         }
