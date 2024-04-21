@@ -13,7 +13,7 @@ namespace DigiScan_Track
         public DisplayBoard()
         {
             InitializeComponent();
-            tenrbtn.Checked = true;
+            tenrbtn.Checked = true; //Checks one of the radio buttons to ensure data is shown by default
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Everytime a radiobutton is checked it runs one of the case sql queries 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             foreach (RadioButton radioButton in radioButtonpnl.Controls)
@@ -31,7 +31,7 @@ namespace DigiScan_Track
                 {
                     switch (radioButton.Tag)
                     {
-                        case "2":
+                        case "2": //Each case number corresponds to equal amount of minutes
                             HideCustomInput();
                             sqlQuery = "WHERE DATEDIFF(MINUTE, [WSTimeStampIN] , GETDATE()) < '2'";
                             break;
@@ -71,11 +71,14 @@ namespace DigiScan_Track
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection();
+
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
             conn.Open();
+
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT [PartNumber], [SerialNumber], [BatchNumber], [Department], [Workstation], [WSTimestampIN] FROM [WIPTracking] " + sqlQuery;
             SqlDataReader dr = cmd.ExecuteReader();
+
             if (dr.HasRows)
             {
                 dt.Load(dr);
@@ -111,6 +114,8 @@ namespace DigiScan_Track
                     recentScannedGridView.Columns.Clear();
                     noDatalbl.Text = "No items scanned in the last: " + selectedrbtn;
                 }
+
+                conn.Close();
             }
 
         }
