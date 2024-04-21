@@ -1,23 +1,22 @@
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
 
 namespace DigiScan_Track
 {
     public partial class EditParts : Form
     {
+
         SqlConnection conn = new SqlConnection();
         HomePageShortcuts homePageShortcuts = new HomePageShortcuts();
         WIPTracker wiptracker = new WIPTracker(null, null);
+
         public EditParts()
         {
             InitializeComponent();
             LoadDepartmentcmbSQL();
             PartsToEditSQL();
 
-
+            //These three call the function to remove the highlight when the user hovers over a button
             departmentcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             addPartcmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
             partNumbercmbox.DrawItem += homePageShortcuts.ComboBox_DrawItem;
@@ -31,7 +30,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Populates two comboboxes with department names from SQL
         private void LoadDepartmentcmbSQL()
         {
             SqlConnection conn = new SqlConnection();
@@ -53,7 +52,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //When a new value in the department combobox is selected, change the contents of the parts combobox
         private void Departmentcmbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (departmentcmbox.Text != null)
@@ -66,7 +65,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Retrieves all part Numbers from the SQL table
         private void LoadDetails(string chosenDepartment)
         {
             int countDepartments = departmentcmbox.Items.Count;
@@ -140,7 +139,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Carries out the filtering on the gridview
         private void SearchButton_Click(object sender, EventArgs e)
         {
             string SQLQuery;
@@ -170,7 +169,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //General purpose SQL query framework 
         private void SqlQuery(string command, DataGridView gridview)
         {
             DataTable dt = new DataTable();
@@ -188,7 +187,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //When a cell is clicked, checks user permissions, takes user to PartEdtiPage
         private void ToEditGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -259,7 +258,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Removes the PartEditPage pop up displaying the EditParts page again 
         private void CrossOffpbox_Click(object sender, EventArgs e)
         {
             Control editPartsPage = InnerBorderpnl.Controls[0];
@@ -275,7 +274,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Allows the user to add new part numbers to SQL
         private void SubmitAddpbox_Click(object sender, EventArgs e)
         {
             if (UserLoginDetails.Instance.loggedIN)
@@ -310,7 +309,7 @@ namespace DigiScan_Track
                                 addParttxt.Clear();
                                 MessageBox.Show("You have inputted a new part");
 
-
+                                //Adds a record to the hostory table - including users username and their action 
                                 string username = UserLoginDetails.Instance.Username;
                                 string action = "Added a new part";
 
@@ -333,7 +332,7 @@ namespace DigiScan_Track
                             MessageBox.Show("Please input a part number");
                         }
                     }
-                    catch (SqlException sqlex)
+                    catch (SqlException sqlex) //this error only pops up if the clustered index detects duplicate data
                     {
                         MessageBox.Show("ERROR: This part is already in the database");
                     }
