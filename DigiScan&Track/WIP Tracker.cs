@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
+
 
 namespace DigiScan_Track
 {
@@ -31,8 +31,9 @@ namespace DigiScan_Track
         }
 
 
-
-        private void GetWIPTrackerSQL(string department, string workstation)
+        //SQL query to pull rows from the WIP tracker table and display in the data gridview 
+        private void GetWIPTrackerSQL(string department, string workstation) //These values are retrieved from shortcuts page if the user clicked the view parts button
+                                                                             //If they didnt click it they are set to null and all data is pulled through
         {
             string cmdText = "";
 
@@ -44,7 +45,6 @@ namespace DigiScan_Track
                 cmdText = "SELECT TOP(1000)[PartNumber] ,[SerialNumber] ,[Department] ,[Workstation] " +
                           " ,[WSTimestampIN] ,[WSTimestampOUT], [InStorage] FROM [WIPTracking] ORDER BY [SerialNumber]";
                 defaultOrCustom = 0;
-
             }
 
             else if (department != null || workstation != null)
@@ -84,7 +84,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Different amount of columns in each SQL query requires different formatting of the columns
         private void Create_defaultGridView_WIP()
         {
             WIPgridView.Columns[0].HeaderText = "Part No";
@@ -121,11 +121,11 @@ namespace DigiScan_Track
         }
 
 
-
+        //Due to scalability bugs - instead of using a hardcoded pixel measurement, percentages are used to ensure no matter the screen size it will always stay the same
         public void TurnColumnIntoPercent(DataGridView dataGridView, params double[] percentages)
         {
             int totalWidth = dataGridView.ClientSize.Width - dataGridView.RowHeadersWidth;
-
+            //uses the int input to work out how many pixels the column width should be
             for (int i = 0; i < dataGridView.Columns.Count && i < percentages.Length; i++)
             {
                 int columnWidth = (int)(totalWidth * percentages[i] / 100);
@@ -140,8 +140,8 @@ namespace DigiScan_Track
             ButtonPressedColourChange(sender);
 
             string searchval = searchtxt.Text.Trim();
-            string dropdownSelection = searchcmb.Text.Replace(" ", "");
-
+            string dropdownSelection = searchcmb.Text.Replace(" ", ""); //some dropdown selections have spaces - part number - in the table its names partnumber
+            //Ensures no null values
             if (searchval != "" && dropdownSelection != "")
             {
                 AddFieldbtn_Click(sender, e);
@@ -151,16 +151,17 @@ namespace DigiScan_Track
 
                 foreach (Panel panel in searchFieldpnl.Controls)
                 {
+                    //Checks for labels within the main panel
                     foreach (Label label in panel.Controls.OfType<Label>())
                     {
                         string labelOutput = label.Text.ToString();
                         string[] parts = labelOutput.Split(new string[] { " - " }, StringSplitOptions.None);
                         string SearchField = parts[0];
                         string SearchValue = parts[1];
-
+                        //THe first sql query must contain a WHERE statement however none after can instead they must contain a AND to append the query 
                         if (index == 0)
                         {
-                            sqlQuery = "WHERE [" + SearchField + "] LIKE '%" + SearchValue + "%'"; // do i need '
+                            sqlQuery = "WHERE [" + SearchField + "] LIKE '%" + SearchValue + "%'"; //Here the ' are needed unlike other forms
                             index++;
                         }
 
@@ -171,6 +172,7 @@ namespace DigiScan_Track
 
                         if (defaultOrCustom == 1)
                         {
+                            //Takes the entire search query as one string - partnumber: 'HGD745' - and splits it into two strings on the :
                             string departmentlblS = departmentlbl.Text.ToString();
                             string workstationlblS = workstationlbl.Text.ToString();
                             string[] departmentSplit = departmentlblS.Split(new string[] { ":  " }, StringSplitOptions.None);
@@ -193,7 +195,7 @@ namespace DigiScan_Track
                 {
                     cmd.CommandText = "SELECT TOP (1000) [PartNumber] ,[SerialNumber] ,[Department] ,[Workstation] " +
                                       ",[WSTimestampIN] ,[WSTimestampOUT] ,[InStorage] FROM [WIPTracking] " + sqlQuery;
-
+                    //This reduces the risk of SQL injection
                     cmd.Parameters.AddWithValue("@SQLSearchQuery", sqlQuery); // the ' ' bug was found here and solved
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -249,7 +251,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //This function allows multiple search fields to be inputted 
         private void AddFieldbtn_Click(object sender, EventArgs e)
         {
             if (searchtxt.Text != "")
@@ -262,12 +264,13 @@ namespace DigiScan_Track
                 searchtxt.Text = null;
 
                 int index = searchFieldpnl.Controls.Count;
-
+                //Only three search fields allow as the panel will overflow with anymore
                 if (index == 3)
                 {
                     MessageBox.Show("No more search fields can be added");
                 }
 
+                //Dynamically create panels with the information the user has inputted
                 else
                 {
                     Panel panel = new Panel();
@@ -285,7 +288,7 @@ namespace DigiScan_Track
                     searchFieldLabel.Padding = new Padding(10, 0, 0, 0);
                     searchFieldLabel.AutoSize = true;
 
-
+                    //This acts as a button allowing the user to cross off the search fields individually
                     PictureBox redCrosspbox = new PictureBox();
                     redCrosspbox.Image = Properties.Resources.cross;
                     redCrosspbox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -334,7 +337,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Remove all search fields from the panel but store the results to be used later in a list 
         private void ClearPanels(Panel panel)
         {
             List<Panel> storedPanels = new List<Panel>();
@@ -346,7 +349,7 @@ namespace DigiScan_Track
                 }
             }
             searchFieldpnl.Controls.Clear();
-
+            //Deletes all fields, rewrites all panels back apart from the one the user crossed off
             int newX = 5;
             foreach (Panel innerPanel in storedPanels)
             {
@@ -361,7 +364,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //When the mouse hovers over buttons it displays a annoying grey highlight - this removes it and allows for standard colour highlights
         public void TransparentBackground(Form form, params string[] buttonName) //params means array doesnt need to be created
         {
             foreach (string button in buttonName)
@@ -378,7 +381,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Mimics the button pressing and the font changing colour to show this 
         private void ButtonPressedColourChange(object sender)
         {
             Button button = sender as Button;
@@ -401,14 +404,18 @@ namespace DigiScan_Track
             GridviewCellPainting(WIPgridView, sender, e);
         }
 
+
+        //Checks for the columns instorage and workstation - creating new paint objects for these
         public void GridviewCellPainting(DataGridView gridview, object sender, DataGridViewCellPaintingEventArgs e)
         {
+            //for instorage instead of displaying 1's and 0's like the values in te SQL table - it replaces them with a cross for false and tick for true
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "InStorage")
             {
                 e.PaintBackground(e.CellBounds, true);
 
                 if (e.Value != null && e.Value is bool)
                 {
+                    //Makes sure the value pulled from SQL and stored in the gridview is a boolean value
                     bool value = (bool)e.Value;
                     Image image = value ? Properties.Resources.GreenTick : Properties.Resources.RedCross;
 
@@ -416,18 +423,18 @@ namespace DigiScan_Track
                     int desiredHeight = 25;
                     Image resizedImage = new Bitmap(image, desiredWidth, desiredHeight);
 
-                    // Adjust the image position
+                    // Adjusts the position of the image
                     int x = e.CellBounds.Left + (e.CellBounds.Width - resizedImage.Width) / 2;
                     int y = e.CellBounds.Top + (e.CellBounds.Height - resizedImage.Height) / 2;
 
-                    // Draw the image
+                    // Draws the image
                     e.Graphics.DrawImage(image, new Rectangle(x, y, resizedImage.Width, resizedImage.Height));
 
                     e.Handled = true;
                 }
             }
 
-
+            //Highlights the enter row of the cell which is equal to shipping in workstation - allows for quick visualisation
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "Workstation")
             {
                 if ((string)gridview[e.ColumnIndex, e.RowIndex].Value == "Shipping")
@@ -436,6 +443,7 @@ namespace DigiScan_Track
                 }
             }
 
+            //If the timestamp column has a null vlaue - it means this is the parts current location, here it draws this string to the empty string
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
             {
                 e.PaintBackground(e.CellBounds, true);
