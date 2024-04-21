@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManualInput));
             ManualInputlbl = new Label();
             BodyLayoutpnl = new Panel();
             timestamptxt = new DateTimePicker();
@@ -55,9 +57,12 @@
             workstationcmbox = new ComboBox();
             partNumcmbox = new ComboBox();
             Borderpnl = new Panel();
+            manualHelppbox = new PictureBox();
+            manualHelp = new ToolTip(components);
             BodyLayoutpnl.SuspendLayout();
             panel1.SuspendLayout();
             Borderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)manualHelppbox).BeginInit();
             SuspendLayout();
             // 
             // ManualInputlbl
@@ -405,12 +410,31 @@
             Borderpnl.Size = new Size(1020, 528);
             Borderpnl.TabIndex = 13;
             // 
+            // manualHelppbox
+            // 
+            manualHelppbox.BackColor = Color.FromArgb(46, 51, 73);
+            manualHelppbox.Cursor = Cursors.Help;
+            manualHelppbox.Image = (Image)resources.GetObject("manualHelppbox.Image");
+            manualHelppbox.Location = new Point(1015, 11);
+            manualHelppbox.Name = "manualHelppbox";
+            manualHelppbox.Size = new Size(25, 25);
+            manualHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
+            manualHelppbox.TabIndex = 21;
+            manualHelppbox.TabStop = false;
+            manualHelp.SetToolTip(manualHelppbox, "This page should be used by operators on the shop floor\r\nIf a barcode is faulty or cannot be scanned, manually\r\ninput all data below. You must be logged in to access this.");
+            // 
+            // manualHelp
+            // 
+            manualHelp.ToolTipIcon = ToolTipIcon.Info;
+            manualHelp.ToolTipTitle = "Manual Input Help";
+            // 
             // ManualInput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1052, 609);
+            Controls.Add(manualHelppbox);
             Controls.Add(ManualInputlbl);
             Controls.Add(Borderpnl);
             FormBorderStyle = FormBorderStyle.None;
@@ -422,6 +446,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             Borderpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)manualHelppbox).EndInit();
             ResumeLayout(false);
         }
 
@@ -453,5 +478,7 @@
         private Label partNumberlbl;
         private Panel Borderpnl;
         private Panel panel1;
+        private PictureBox manualHelppbox;
+        private ToolTip manualHelp;
     }
 }

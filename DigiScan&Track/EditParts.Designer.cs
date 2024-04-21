@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
@@ -57,6 +58,8 @@
             label7 = new Label();
             OuterBorderpnl = new Panel();
             crossOffpbox = new PictureBox();
+            editHelppbox = new PictureBox();
+            EditHelp = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             InnerBorderpnl.SuspendLayout();
@@ -66,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)SearchButton).BeginInit();
             OuterBorderpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)crossOffpbox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)editHelppbox).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -413,12 +417,31 @@
             crossOffpbox.Visible = false;
             crossOffpbox.Click += CrossOffpbox_Click;
             // 
+            // editHelppbox
+            // 
+            editHelppbox.BackColor = Color.FromArgb(46, 51, 73);
+            editHelppbox.Cursor = Cursors.Help;
+            editHelppbox.Image = (Image)resources.GetObject("editHelppbox.Image");
+            editHelppbox.Location = new Point(1016, 10);
+            editHelppbox.Name = "editHelppbox";
+            editHelppbox.Size = new Size(25, 25);
+            editHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
+            editHelppbox.TabIndex = 21;
+            editHelppbox.TabStop = false;
+            EditHelp.SetToolTip(editHelppbox, "Select a part from the table and it will take you to a page\r\nwhere the parts details can be changed. User must have\r\nAdmin rights to make edits on parts.\r\n");
+            // 
+            // EditHelp
+            // 
+            EditHelp.ToolTipIcon = ToolTipIcon.Info;
+            EditHelp.ToolTipTitle = "Edit Parts Help";
+            // 
             // EditParts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1052, 609);
+            Controls.Add(editHelppbox);
             Controls.Add(crossOffpbox);
             Controls.Add(Titlelbl);
             Controls.Add(OuterBorderpnl);
@@ -436,6 +459,7 @@
             ((System.ComponentModel.ISupportInitialize)SearchButton).EndInit();
             OuterBorderpnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)crossOffpbox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)editHelppbox).EndInit();
             ResumeLayout(false);
         }
 
@@ -463,5 +487,7 @@
         private PictureBox submitAddpbox;
         private PictureBox crossOffpbox;
         private Button resetbtn;
+        private PictureBox editHelppbox;
+        private ToolTip EditHelp;
     }
 }

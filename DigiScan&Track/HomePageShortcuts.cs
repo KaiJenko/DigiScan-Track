@@ -179,9 +179,9 @@ namespace DigiScan_Track
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
             tableLayoutPanel.BackColor = Color.Transparent;
             tableLayoutPanel.Dock = DockStyle.Fill;
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, (float)width/3)); //is this the display problem 
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width/5)));
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width/7)));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, (float)width / 3)); //is this the display problem 
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width / 5)));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, (float)(width / 7)));
 
 
             Label title = new Label();
@@ -200,7 +200,7 @@ namespace DigiScan_Track
             partInput.ForeColor = Color.Black;
             partInput.AutoSize = false;
             partInput.TextAlign = ContentAlignment.MiddleCenter;
-            partInput.Size = new Size((int)(width/3), (int)(width/10));
+            partInput.Size = new Size((int)(width / 3), (int)(width / 10));
             partInput.Click += ShortcutButtonClicked;
             partInput.Cursor = Cursors.Hand;
             partInput.FlatStyle = FlatStyle.Popup;

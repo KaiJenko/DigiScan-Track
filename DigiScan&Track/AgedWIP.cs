@@ -28,7 +28,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Pulls the oldest date from the dateenteredstorage column in SQL, and works out how many days between then and now
         private void PullMaxCountSQL()
         {
             conn.ConnectionString = "Data Source = Jenko\\MSSQLSERVER01; Initial Catalog=DigiTrackAndScan; Integrated Security = True;";
@@ -49,7 +49,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Populates the AgedGridView with SQL data
         private void GetAgedWIPSQL()
         {
             DataTable dt = new DataTable();
@@ -103,7 +103,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Retrieves which radio button has been checked, and runs a switch statement based on the value and assignment operator 
         private void AgedSearchButton_Click(object sender, EventArgs e)
         {
             string sqlquery = "";
@@ -114,6 +114,7 @@ namespace DigiScan_Track
                 {
                     switch (radiobutton.Text)
                     {
+                        //DATEDIFF works out the amount of days between the time it entered storage and todays date
                         case "=":
                             sqlquery = "WHERE DATEDIFF(day, [DateEnteredStorage] , GETDATE()) = '" + searchValue + "'";
                             break;
@@ -168,11 +169,10 @@ namespace DigiScan_Track
                 agedDaystrackbar.Visible = true;
                 counttrackbarlbl.Visible = true;
             }
-
         }
 
 
-
+        //When a cell within the agedGridView is clicked, checks if it contains a serial number. If it does use this serial number in an SQL query 
         private void Agedgridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -233,7 +233,7 @@ namespace DigiScan_Track
         }
 
 
-
+        //Checks if the user is logged in and has high enough permissions to export the data as it is confidential data in Collins
         private void Excelbtn_Click(object sender, EventArgs e)
         {
 
@@ -258,35 +258,39 @@ namespace DigiScan_Track
         }
 
 
-        Workbook workbook;
+
+        Workbook workbook; //This creates the excel workbook to be wrote to
         Worksheet worksheet;
         string filepath;
 
+
+        //This creates an excel file - Youtube tutorial on how to export DataGridView Data to Ms excel was used 
         private void ExportToExcel(DataGridView datagridview)
         {
             int i = 0;
             int j = 0;
 
-            if (datagridview.Rows.Count > 0)
+            if (datagridview.Rows.Count > 0) //checks the datagrid has parts which are in storage
             {
                 Excel.Application excel = new Excel.Application();
                 workbook = excel.Workbooks.Add();
                 worksheet = (Worksheet)workbook.Worksheets[1];
 
-                worksheet.Cells[2, 1] = "Serial Num";
+                worksheet.Cells[2, 1] = "Serial Num"; //Creates the headers of the columns
                 worksheet.Cells[2, 2] = "Days Aged";
 
                 for (int x = 0; x < datagridview.Rows.Count; x++)
                 {
                     for (int y = 0; y < datagridview.Columns.Count; y++)
                     {
-                        worksheet.Cells[x + 3, y + 1] = datagridview.Rows[x].Cells[y].Value.ToString();
+                        worksheet.Cells[x + 3, y + 1] = datagridview.Rows[x].Cells[y].Value.ToString(); //writes each cell of the row to the worksheet
                         i = y;
                     }
                     j = x;
                 }
             }
 
+            //This next section checks the user has selected a row - as this would populate the second gridview
             if (furtherDetailsgridview.Rows.Count > 0)
             {
 
@@ -307,14 +311,13 @@ namespace DigiScan_Track
             /*Excel.Range sortRange = worksheet.Range[worksheet.Cells[2, 2], worksheet.Cells[j + furtherDetailsgridview.Rows.Count + 3, 2]];
             sortRange.Sort(sortRange.Columns[1], XlSortOrder.xlDescending);*/
 
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" }) //location and filetype of the excel file
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    filepath = sfd.FileName;
-                    if (File.Exists(filepath))
+                    filepath = sfd.FileName; 
+                    if (File.Exists(filepath)) //this is for overwriting any current excel files with the same name and location
                     {
-
                         File.Delete(filepath);
                     }
                     worksheet.Columns.AutoFit();
@@ -323,6 +326,7 @@ namespace DigiScan_Track
                 }
             }
 
+            //Inputs a new row into history with what the user did - keep track of who has copies of the data
             string username = UserLoginDetails.Instance.Username;
             string action = "Exported Aged Parts";
 
@@ -339,6 +343,8 @@ namespace DigiScan_Track
             cmd.ExecuteNonQuery();
         }
 
+
+        //Traffic light colour system for showing the user the parts which have been in storage the longest
         private void Agedgridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             object value = Agedgridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;

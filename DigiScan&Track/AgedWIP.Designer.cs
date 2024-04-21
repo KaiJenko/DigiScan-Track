@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgedWIP));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -62,6 +63,8 @@
             lessThanrbtn = new RadioButton();
             furtherDetailsgridview = new DataGridView();
             OuterBorderpnl = new Panel();
+            pictureBox1 = new PictureBox();
+            AgedHelp = new ToolTip(components);
             InnerBorderpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Agedgridview).BeginInit();
             rangepnl.SuspendLayout();
@@ -72,6 +75,7 @@
             radioButtonpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             OuterBorderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // agedlbl
@@ -256,7 +260,7 @@
             rangepnl.Controls.Add(lowerlbl);
             rangepnl.Controls.Add(upperlbl);
             rangepnl.Location = new Point(383, 32);
-            rangepnl.Margin = new Padding(2, 2, 2, 2);
+            rangepnl.Margin = new Padding(2);
             rangepnl.Name = "rangepnl";
             rangepnl.Size = new Size(369, 31);
             rangepnl.TabIndex = 26;
@@ -266,7 +270,7 @@
             // 
             lowerRangenud.Cursor = Cursors.Hand;
             lowerRangenud.Location = new Point(133, 7);
-            lowerRangenud.Margin = new Padding(2, 2, 2, 2);
+            lowerRangenud.Margin = new Padding(2);
             lowerRangenud.Name = "lowerRangenud";
             lowerRangenud.Size = new Size(50, 23);
             lowerRangenud.TabIndex = 22;
@@ -275,7 +279,7 @@
             // 
             higherRangenud.Cursor = Cursors.Hand;
             higherRangenud.Location = new Point(317, 7);
-            higherRangenud.Margin = new Padding(2, 2, 2, 2);
+            higherRangenud.Margin = new Padding(2);
             higherRangenud.Name = "higherRangenud";
             higherRangenud.Size = new Size(50, 23);
             higherRangenud.TabIndex = 23;
@@ -357,7 +361,7 @@
             equalsrbtn.Cursor = Cursors.Hand;
             equalsrbtn.ForeColor = Color.Coral;
             equalsrbtn.Location = new Point(2, 3);
-            equalsrbtn.Margin = new Padding(2, 2, 2, 2);
+            equalsrbtn.Margin = new Padding(2);
             equalsrbtn.Name = "equalsrbtn";
             equalsrbtn.Size = new Size(33, 19);
             equalsrbtn.TabIndex = 11;
@@ -371,7 +375,7 @@
             greaterThanrbtn.Cursor = Cursors.Hand;
             greaterThanrbtn.ForeColor = Color.Coral;
             greaterThanrbtn.Location = new Point(49, 35);
-            greaterThanrbtn.Margin = new Padding(2, 2, 2, 2);
+            greaterThanrbtn.Margin = new Padding(2);
             greaterThanrbtn.Name = "greaterThanrbtn";
             greaterThanrbtn.Size = new Size(33, 19);
             greaterThanrbtn.TabIndex = 14;
@@ -384,7 +388,7 @@
             rangerbtn.Cursor = Cursors.Hand;
             rangerbtn.ForeColor = Color.Coral;
             rangerbtn.Location = new Point(49, 4);
-            rangerbtn.Margin = new Padding(2, 2, 2, 2);
+            rangerbtn.Margin = new Padding(2);
             rangerbtn.Name = "rangerbtn";
             rangerbtn.Size = new Size(58, 19);
             rangerbtn.TabIndex = 12;
@@ -398,7 +402,7 @@
             lessThanrbtn.Cursor = Cursors.Hand;
             lessThanrbtn.ForeColor = Color.Coral;
             lessThanrbtn.Location = new Point(2, 35);
-            lessThanrbtn.Margin = new Padding(2, 2, 2, 2);
+            lessThanrbtn.Margin = new Padding(2);
             lessThanrbtn.Name = "lessThanrbtn";
             lessThanrbtn.Size = new Size(33, 19);
             lessThanrbtn.TabIndex = 13;
@@ -477,12 +481,31 @@
             OuterBorderpnl.Size = new Size(1020, 528);
             OuterBorderpnl.TabIndex = 14;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(46, 51, 73);
+            pictureBox1.Cursor = Cursors.Help;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1015, 11);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            AgedHelp.SetToolTip(pictureBox1, resources.GetString("pictureBox1.ToolTip"));
+            // 
+            // AgedHelp
+            // 
+            AgedHelp.ToolTipIcon = ToolTipIcon.Info;
+            AgedHelp.ToolTipTitle = "Aged Work in Progress";
+            // 
             // AgedWIP
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1052, 609);
+            Controls.Add(pictureBox1);
             Controls.Add(Titlelbl);
             Controls.Add(OuterBorderpnl);
             FormBorderStyle = FormBorderStyle.None;
@@ -502,6 +525,7 @@
             radioButtonpnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             OuterBorderpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -529,5 +553,7 @@
         private Button tableaubtn;
         private Button excelbtn;
         private Button resetbtn;
+        private PictureBox pictureBox1;
+        private ToolTip AgedHelp;
     }
 }

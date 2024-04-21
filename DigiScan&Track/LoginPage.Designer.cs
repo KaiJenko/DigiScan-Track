@@ -64,6 +64,7 @@
             enterDetailslbl = new Label();
             logopbox = new PictureBox();
             PasswordCriteria = new ToolTip(components);
+            AgedHelp = new ToolTip(components);
             oldUserpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ouPasswordpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ouUsernamepbox).BeginInit();
@@ -264,6 +265,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Help;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(262, 286);
             pictureBox1.Name = "pictureBox1";
@@ -472,6 +474,11 @@
             logopbox.TabIndex = 0;
             logopbox.TabStop = false;
             // 
+            // AgedHelp
+            // 
+            AgedHelp.ToolTipIcon = ToolTipIcon.Info;
+            AgedHelp.ToolTipTitle = "Aged Work in Progress";
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -535,5 +542,6 @@
         private PictureBox retypepbox;
         private PictureBox pictureBox1;
         private ToolTip PasswordCriteria;
+        private ToolTip AgedHelp;
     }
 }

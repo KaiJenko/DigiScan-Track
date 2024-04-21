@@ -432,7 +432,7 @@ namespace DigiScan_Track
             {
                 if ((string)gridview[e.ColumnIndex, e.RowIndex].Value == "Shipping")
                 {
-                    gridview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Plum;  
+                    gridview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Plum;
                 }
             }
 
@@ -449,8 +449,8 @@ namespace DigiScan_Track
                         displayText = "Storage";
                     }
 
-                    else 
-                    { 
+                    else
+                    {
                         displayText = "Current Location";
                     }
 

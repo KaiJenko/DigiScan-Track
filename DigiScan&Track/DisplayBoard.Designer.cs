@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayBoard));
             agedlbl = new Label();
             Titlelbl = new Label();
             BodyLayoutpnl = new Panel();
@@ -46,12 +48,15 @@
             fiverbtn = new RadioButton();
             tworbtn = new RadioButton();
             Borderpnl = new Panel();
+            displayHelppbox = new PictureBox();
+            DisplayHelp = new ToolTip(components);
             BodyLayoutpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)searchpbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customInputnud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)recentScannedGridView).BeginInit();
             radioButtonpnl.SuspendLayout();
             Borderpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)displayHelppbox).BeginInit();
             SuspendLayout();
             // 
             // agedlbl
@@ -130,7 +135,6 @@
             customInputnud.Size = new Size(53, 29);
             customInputnud.TabIndex = 4;
             customInputnud.Visible = false;
-
             // 
             // recentScannedGridView
             // 
@@ -271,12 +275,31 @@
             Borderpnl.Size = new Size(1020, 528);
             Borderpnl.TabIndex = 14;
             // 
+            // displayHelppbox
+            // 
+            displayHelppbox.BackColor = Color.FromArgb(46, 51, 73);
+            displayHelppbox.Cursor = Cursors.Help;
+            displayHelppbox.Image = (Image)resources.GetObject("displayHelppbox.Image");
+            displayHelppbox.Location = new Point(1015, 10);
+            displayHelppbox.Name = "displayHelppbox";
+            displayHelppbox.Size = new Size(25, 25);
+            displayHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
+            displayHelppbox.TabIndex = 21;
+            displayHelppbox.TabStop = false;
+            DisplayHelp.SetToolTip(displayHelppbox, "Select a time period to view the most recently scanned\r\nparts within the goods in area. Used by operators in the goods \r\nin area to ensure all parts enter the site and get scanned.\r\n");
+            // 
+            // DisplayHelp
+            // 
+            DisplayHelp.ToolTipIcon = ToolTipIcon.Info;
+            DisplayHelp.ToolTipTitle = "Display Board Help";
+            // 
             // DisplayBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1052, 609);
+            Controls.Add(displayHelppbox);
             Controls.Add(Titlelbl);
             Controls.Add(Borderpnl);
             FormBorderStyle = FormBorderStyle.None;
@@ -291,6 +314,7 @@
             radioButtonpnl.ResumeLayout(false);
             radioButtonpnl.PerformLayout();
             Borderpnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)displayHelppbox).EndInit();
             ResumeLayout(false);
         }
 
@@ -308,5 +332,7 @@
         private NumericUpDown customInputnud;
         private PictureBox searchpbox;
         private Label noDatalbl;
+        private PictureBox displayHelppbox;
+        private ToolTip DisplayHelp;
     }
 }

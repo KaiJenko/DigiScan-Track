@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryPage));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
             resetbtn = new Button();
@@ -43,9 +44,12 @@
             searchBylbl = new Label();
             searchtxt = new TextBox();
             Titlelbl = new Label();
+            HistoryHelp = new ToolTip(components);
+            historyHelppbox = new PictureBox();
             OuterBorderpnl.SuspendLayout();
             InnerBorderpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HistorygridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)historyHelppbox).BeginInit();
             SuspendLayout();
             // 
             // OuterBorderpnl
@@ -97,30 +101,30 @@
             HistorygridView.AllowUserToDeleteRows = false;
             HistorygridView.AllowUserToResizeColumns = false;
             HistorygridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            HistorygridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            HistorygridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             HistorygridView.BackgroundColor = Color.FromArgb(113, 96, 232);
             HistorygridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             HistorygridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             HistorygridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.Turquoise;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            HistorygridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Turquoise;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            HistorygridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             HistorygridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            HistorygridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            HistorygridView.DefaultCellStyle = dataGridViewCellStyle8;
             HistorygridView.EnableHeadersVisualStyles = false;
             HistorygridView.GridColor = Color.Silver;
             HistorygridView.Location = new Point(17, 60);
@@ -128,22 +132,22 @@
             HistorygridView.Name = "HistorygridView";
             HistorygridView.ReadOnly = true;
             HistorygridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            HistorygridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            HistorygridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             HistorygridView.RowHeadersVisible = false;
             HistorygridView.RowHeadersWidth = 62;
             HistorygridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
             HistorygridView.RowTemplate.Height = 45;
             HistorygridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             HistorygridView.Size = new Size(982, 446);
@@ -219,22 +223,42 @@
             Titlelbl.Text = "DigiScan && Track - Action History";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // HistoryHelp
+            // 
+            HistoryHelp.ToolTipIcon = ToolTipIcon.Info;
+            HistoryHelp.ToolTipTitle = "Action History Help";
+            // 
+            // historyHelppbox
+            // 
+            historyHelppbox.BackColor = Color.FromArgb(46, 51, 73);
+            historyHelppbox.Cursor = Cursors.Help;
+            historyHelppbox.Image = (Image)resources.GetObject("historyHelppbox.Image");
+            historyHelppbox.Location = new Point(1003, 12);
+            historyHelppbox.Name = "historyHelppbox";
+            historyHelppbox.Size = new Size(25, 25);
+            historyHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
+            historyHelppbox.TabIndex = 21;
+            historyHelppbox.TabStop = false;
+            HistoryHelp.SetToolTip(historyHelppbox, resources.GetString("historyHelppbox.ToolTip"));
+            // 
             // HistoryPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1037, 575);
+            Controls.Add(historyHelppbox);
             Controls.Add(OuterBorderpnl);
             Controls.Add(Titlelbl);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "HistoryPage";
             Text = "HistoryPage";
             OuterBorderpnl.ResumeLayout(false);
             InnerBorderpnl.ResumeLayout(false);
             InnerBorderpnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)HistorygridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)historyHelppbox).EndInit();
             ResumeLayout(false);
         }
 
@@ -249,5 +273,7 @@
         private Label Titlelbl;
         private ComboBox historycmb;
         private Button resetbtn;
+        private ToolTip HistoryHelp;
+        private PictureBox historyHelppbox;
     }
 }
