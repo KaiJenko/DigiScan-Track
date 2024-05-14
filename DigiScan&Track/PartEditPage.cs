@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-
+using System.Diagnostics.Eventing.Reader;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DigiScan_Track
 {
@@ -8,12 +9,23 @@ namespace DigiScan_Track
     {
 
         WIPTracker wip = new WIPTracker(null, null);
+        int trueCheckbox = 0;
 
         public PartEditPage(string serialNumber, string workstation)
         {
             InitializeComponent();
             EditPartDetailsSQL(serialNumber, workstation);
+
+            string checkBox = partTobeEditedGridView.Rows[0].Cells[7].Value.ToString();
+
+            if (checkBox == "True")
+            {
+                storagechbox.Checked = true;
+                trueCheckbox = 1;
+
+            }
             FurtherEditPartsSQL(serialNumber, workstation);
+
         }
 
 
@@ -33,6 +45,7 @@ namespace DigiScan_Track
             conn.Close();
             partTobeEditedGridView.DataSource = dt;
             PartsEditLayout();
+
 
         }
 
@@ -55,8 +68,7 @@ namespace DigiScan_Track
 
             if (furtherDetailsgridview.Rows.Count == 0)
             {
-                furtherDetailsgridview.Visible = false;
-                furtherDetailspnl.Visible = false;
+                checkboxTicked();
             }
         }
 
@@ -71,27 +83,14 @@ namespace DigiScan_Track
 
             foreach (Control control in userInputpnl.Controls)
             {
+
+                partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
+
                 if (control is RichTextBox richTextBox)
                 {
                     if (!string.IsNullOrWhiteSpace(richTextBox.Text))
                     {
-                        partToBeEdited = partTobeEditedGridView.Rows[0].Cells[1];
-
-                        if (control is CheckBox)
-                        {
-                            CheckBox checkbox = control as CheckBox;
-                            if (checkbox.Checked)
-                            {
-                                sqlquery += " [" + checkbox.Tag + "] = 1";
-                            }
-
-                            else if (checkbox.Checked = false)
-                            {
-                                sqlquery += " [" + checkbox.Tag + "] = 0";
-                            }
-                        }
-
-                        else if (control is RichTextBox)
+                        if (control is RichTextBox)
                         {
                             RichTextBox richtextbox = control as RichTextBox;
                             if (richtextbox.Text != "")
@@ -122,6 +121,20 @@ namespace DigiScan_Track
                         }
                     }
                 }
+
+                else if (control is CheckBox)
+                {
+                    CheckBox checkbox = control as CheckBox;
+                    if (checkbox.Checked)
+                    {
+                        sqlquery += " [" + checkbox.Tag + "] = 1";
+                    }
+
+                    else if (!checkbox.Checked)
+                    {
+                        sqlquery += " [" + checkbox.Tag + "] = 0";
+                    }
+                }
             }
 
             if (sqlquery != "")
@@ -143,14 +156,37 @@ namespace DigiScan_Track
 
                 string sqlInsert = "INSERT INTO [History] (Username, Action, ActionTime, [Part/Serial])" +
                                     " VALUES (@username, @action, GETDATE(), @partserial)";
+                if (storagechbox.Checked && reasonTxtbox.Text != "")
+                {
+                    DateTime timestamp;
+                    timestamp = timestamptxt.Value;
+                    string SQLFormat = timestamp.ToString("yyyy-MM-dd HH:mm:ss");
 
-                SqlCommand cmd2 = new SqlCommand(sqlInsert, conn);
+                    string reason = reasonTxtbox.Text.ToString();
 
-                cmd2.Parameters.AddWithValue("@username", username);
-                cmd2.Parameters.AddWithValue("@action", action);
-                cmd2.Parameters.AddWithValue("@partserial", serialNum);
 
-                cmd2.ExecuteNonQuery();
+                    string slqInsert2 = "INSERT INTO [AgedWIP] ([SerialNumber], [DateEnteredStorage], [ReasonForStorage], [UserWhoInputted])" +
+                                        " VALUES (@partserial, " + "'" + SQLFormat + "'" + ", @reason, @user)";
+                    SqlCommand cmd2 = new SqlCommand(slqInsert2, conn);
+
+                    cmd2.Parameters.AddWithValue("@partserial", serialNum);
+                    cmd2.Parameters.AddWithValue("@reason", reason);
+                    cmd2.Parameters.AddWithValue("@user", username);
+
+                    cmd2.ExecuteNonQuery();
+
+                    MessageBox.Show("Part has been inputted into storage");
+                }
+
+
+
+                SqlCommand cmd3 = new SqlCommand(sqlInsert, conn);
+
+                cmd3.Parameters.AddWithValue("@username", username);
+                cmd3.Parameters.AddWithValue("@action", action);
+                cmd3.Parameters.AddWithValue("@partserial", serialNum);
+
+                cmd3.ExecuteNonQuery();
 
                 conn.Close();
 
@@ -189,6 +225,46 @@ namespace DigiScan_Track
             furtherDetailsgridview.Columns[2].Width = 150;
 
             wip.TurnColumnIntoPercent(furtherDetailsgridview, 33, 43, 33);
+        }
+
+        private void storagechbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (trueCheckbox == 0)
+            {
+                if (storagechbox.Checked)
+                {
+                    furtherDetailspnl.Visible = true;
+                    usertextbox.Text = UserLoginDetails.Instance.Username;
+                    checkboxTicked();
+                }
+
+                else
+                {
+                    furtherDetailspnl.Visible = false;
+                }
+            }
+
+            if (trueCheckbox == 1)
+            {
+
+            }
+
+        }
+
+        private void checkboxTicked()
+        {
+            if (storagechbox.Checked)
+            {
+                timestamptxt.Visible = true;
+                furtherDetailspnl.Visible = true;
+            }
+
+            else
+            {
+                timestamptxt.Visible = false;
+                furtherDetailspnl.Visible = false;
+            }
+
         }
     }
 }

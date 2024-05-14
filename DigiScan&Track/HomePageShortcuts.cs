@@ -228,9 +228,9 @@ namespace DigiScan_Track
             tableLayoutPanel.Controls.Add(title, 0, 1); //the 0 corresponds to the column as there is only one column 
             tableLayoutPanel.SetColumnSpan(title, 1);
             tableLayoutPanel.Controls.Add(partInput, 0, 2); //1 means added to second row as 0 leaves a gap at the top
-            tableLayoutPanel.SetColumnSpan(partInput, 1); 
+            tableLayoutPanel.SetColumnSpan(partInput, 1);
             tableLayoutPanel.Controls.Add(tableView, 0, 2); //2 is for both buttons to be added to the third row down
-            tableLayoutPanel.SetColumnSpan(tableView, 1); 
+            tableLayoutPanel.SetColumnSpan(tableView, 1);
             pictureBox.Controls.Add(tableLayoutPanel); //This adds all controls to the picturebox into a nice box
 
 

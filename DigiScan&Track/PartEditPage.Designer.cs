@@ -29,27 +29,26 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             agedlbl = new Label();
             panel1 = new Panel();
             furtherDetailspnl = new Panel();
-            richTextBox18 = new RichTextBox();
-            richTextBox19 = new RichTextBox();
+            timestamptxt = new DateTimePicker();
+            usertextbox = new RichTextBox();
             richTextBox20 = new RichTextBox();
-            richTextBox21 = new RichTextBox();
+            reasonTxtbox = new RichTextBox();
             richTextBox22 = new RichTextBox();
-            richTextBox23 = new RichTextBox();
+            storagetxtbox = new RichTextBox();
             richTextBox24 = new RichTextBox();
-            furtherDetailsgridview = new DataGridView();
             partTobeEditedGridView = new DataGridView();
             SearchButton = new PictureBox();
             userInputpnl = new Panel();
@@ -69,14 +68,15 @@
             richTextBox3 = new RichTextBox();
             partNumrtxt = new RichTextBox();
             richTextBox1 = new RichTextBox();
+            furtherDetailsgridview = new DataGridView();
             richTextBoxtooltip = new ToolTip(components);
             Borderpnl = new Panel();
             panel1.SuspendLayout();
             furtherDetailspnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)partTobeEditedGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SearchButton).BeginInit();
             userInputpnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).BeginInit();
             SuspendLayout();
             // 
             // agedlbl
@@ -96,11 +96,11 @@
             panel1.BackColor = Color.FromArgb(46, 51, 73);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(furtherDetailspnl);
-            panel1.Controls.Add(furtherDetailsgridview);
             panel1.Controls.Add(partTobeEditedGridView);
             panel1.Controls.Add(SearchButton);
             panel1.Controls.Add(userInputpnl);
             panel1.Controls.Add(agedlbl);
+            panel1.Controls.Add(furtherDetailsgridview);
             panel1.Location = new Point(17, 127);
             panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
@@ -110,94 +110,103 @@
             // furtherDetailspnl
             // 
             furtherDetailspnl.BackColor = Color.FromArgb(113, 96, 232);
-            furtherDetailspnl.Controls.Add(richTextBox18);
-            furtherDetailspnl.Controls.Add(richTextBox19);
+            furtherDetailspnl.Controls.Add(timestamptxt);
+            furtherDetailspnl.Controls.Add(usertextbox);
             furtherDetailspnl.Controls.Add(richTextBox20);
-            furtherDetailspnl.Controls.Add(richTextBox21);
+            furtherDetailspnl.Controls.Add(reasonTxtbox);
             furtherDetailspnl.Controls.Add(richTextBox22);
-            furtherDetailspnl.Controls.Add(richTextBox23);
+            furtherDetailspnl.Controls.Add(storagetxtbox);
             furtherDetailspnl.Controls.Add(richTextBox24);
-            furtherDetailspnl.Location = new Point(330, 416);
+            furtherDetailspnl.Location = new Point(251, 416);
             furtherDetailspnl.Name = "furtherDetailspnl";
-            furtherDetailspnl.Size = new Size(713, 68);
+            furtherDetailspnl.Size = new Size(792, 68);
             furtherDetailspnl.TabIndex = 19;
+            furtherDetailspnl.Visible = false;
             // 
-            // richTextBox18
+            // timestamptxt
             // 
-            richTextBox18.BackColor = Color.FromArgb(113, 96, 232);
-            richTextBox18.BorderStyle = BorderStyle.None;
-            richTextBox18.Dock = DockStyle.Left;
-            richTextBox18.Location = new Point(713, 0);
-            richTextBox18.Name = "richTextBox18";
-            richTextBox18.Size = new Size(6, 68);
-            richTextBox18.TabIndex = 7;
-            richTextBox18.Text = "";
+            timestamptxt.CalendarFont = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            timestamptxt.CalendarTitleBackColor = SystemColors.ControlText;
+            timestamptxt.CalendarTitleForeColor = Color.AliceBlue;
+            timestamptxt.Cursor = Cursors.Hand;
+            timestamptxt.CustomFormat = "dd/MM/yyyy hh:mm";
+            timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            timestamptxt.Format = DateTimePickerFormat.Custom;
+            timestamptxt.Location = new Point(4, 16);
+            timestamptxt.Margin = new Padding(4, 5, 4, 5);
+            timestamptxt.Name = "timestamptxt";
+            timestamptxt.Size = new Size(267, 37);
+            timestamptxt.TabIndex = 36;
+            timestamptxt.Visible = false;
             // 
-            // richTextBox19
+            // usertextbox
             // 
-            richTextBox19.BackColor = Color.BlanchedAlmond;
-            richTextBox19.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox19.Cursor = Cursors.Hand;
-            richTextBox19.Dock = DockStyle.Left;
-            richTextBox19.Location = new Point(497, 0);
-            richTextBox19.Name = "richTextBox19";
-            richTextBox19.Size = new Size(216, 68);
-            richTextBox19.TabIndex = 6;
-            richTextBox19.Tag = "BatchNumber";
-            richTextBox19.Text = "";
-            richTextBoxtooltip.SetToolTip(richTextBox19, "User - The user who last worked on\r\n this part and entered it into storage");
+            usertextbox.Anchor = AnchorStyles.None;
+            usertextbox.BackColor = Color.BlanchedAlmond;
+            usertextbox.BorderStyle = BorderStyle.FixedSingle;
+            usertextbox.Cursor = Cursors.Hand;
+            usertextbox.DetectUrls = false;
+            usertextbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            usertextbox.Location = new Point(567, 0);
+            usertextbox.Name = "usertextbox";
+            usertextbox.Size = new Size(226, 68);
+            usertextbox.TabIndex = 6;
+            usertextbox.Tag = "BatchNumber";
+            usertextbox.Text = "";
+            richTextBoxtooltip.SetToolTip(usertextbox, "User - The user who last worked on\r\n this part and entered it into storage");
             // 
             // richTextBox20
             // 
             richTextBox20.BackColor = Color.FromArgb(113, 96, 232);
             richTextBox20.BorderStyle = BorderStyle.None;
             richTextBox20.Dock = DockStyle.Left;
-            richTextBox20.Location = new Point(491, 0);
+            richTextBox20.Location = new Point(561, 0);
             richTextBox20.Name = "richTextBox20";
             richTextBox20.Size = new Size(6, 68);
             richTextBox20.TabIndex = 4;
             richTextBox20.Text = "";
             // 
-            // richTextBox21
+            // reasonTxtbox
             // 
-            richTextBox21.BackColor = Color.BlanchedAlmond;
-            richTextBox21.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox21.Cursor = Cursors.Hand;
-            richTextBox21.Dock = DockStyle.Left;
-            richTextBox21.Location = new Point(213, 0);
-            richTextBox21.Name = "richTextBox21";
-            richTextBox21.Size = new Size(278, 68);
-            richTextBox21.TabIndex = 3;
-            richTextBox21.Tag = "SerialNumber";
-            richTextBox21.Text = "";
-            richTextBoxtooltip.SetToolTip(richTextBox21, "Reason for Storage - The reason that \r\nthe part has been entered into storage ");
+            reasonTxtbox.BackColor = Color.BlanchedAlmond;
+            reasonTxtbox.BorderStyle = BorderStyle.FixedSingle;
+            reasonTxtbox.Cursor = Cursors.Hand;
+            reasonTxtbox.Dock = DockStyle.Left;
+            reasonTxtbox.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            reasonTxtbox.Location = new Point(283, 0);
+            reasonTxtbox.Name = "reasonTxtbox";
+            reasonTxtbox.Size = new Size(278, 68);
+            reasonTxtbox.TabIndex = 3;
+            reasonTxtbox.Tag = "SerialNumber";
+            reasonTxtbox.Text = "";
+            richTextBoxtooltip.SetToolTip(reasonTxtbox, "Reason for Storage - The reason that \r\nthe part has been entered into storage ");
             // 
             // richTextBox22
             // 
             richTextBox22.BackColor = Color.FromArgb(113, 96, 232);
             richTextBox22.BorderStyle = BorderStyle.None;
             richTextBox22.Dock = DockStyle.Left;
-            richTextBox22.Location = new Point(207, 0);
+            richTextBox22.Location = new Point(277, 0);
             richTextBox22.Name = "richTextBox22";
             richTextBox22.Size = new Size(6, 68);
             richTextBox22.TabIndex = 2;
             richTextBox22.Text = "";
             // 
-            // richTextBox23
+            // storagetxtbox
             // 
-            richTextBox23.BackColor = Color.BlanchedAlmond;
-            richTextBox23.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox23.Cursor = Cursors.Hand;
-            richTextBox23.Dock = DockStyle.Left;
-            richTextBox23.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            richTextBox23.ForeColor = Color.Coral;
-            richTextBox23.Location = new Point(0, 0);
-            richTextBox23.Name = "richTextBox23";
-            richTextBox23.Size = new Size(207, 68);
-            richTextBox23.TabIndex = 1;
-            richTextBox23.Tag = "PartNumber";
-            richTextBox23.Text = "";
-            richTextBoxtooltip.SetToolTip(richTextBox23, "Storage Date - The date this \r\npart entered this workstation");
+            storagetxtbox.BackColor = Color.BlanchedAlmond;
+            storagetxtbox.BorderStyle = BorderStyle.FixedSingle;
+            storagetxtbox.Cursor = Cursors.Hand;
+            storagetxtbox.Dock = DockStyle.Left;
+            storagetxtbox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            storagetxtbox.ForeColor = Color.Coral;
+            storagetxtbox.Location = new Point(0, 0);
+            storagetxtbox.Name = "storagetxtbox";
+            storagetxtbox.Size = new Size(277, 68);
+            storagetxtbox.TabIndex = 1;
+            storagetxtbox.Tag = "PartNumber";
+            storagetxtbox.Text = "";
+            richTextBoxtooltip.SetToolTip(storagetxtbox, "Storage Date - The date this \r\npart entered this workstation");
             // 
             // richTextBox24
             // 
@@ -208,100 +217,37 @@
             richTextBox24.TabIndex = 0;
             richTextBox24.Text = "";
             // 
-            // furtherDetailsgridview
-            // 
-            furtherDetailsgridview.AllowUserToAddRows = false;
-            furtherDetailsgridview.AllowUserToDeleteRows = false;
-            furtherDetailsgridview.AllowUserToResizeColumns = false;
-            furtherDetailsgridview.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            furtherDetailsgridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            furtherDetailsgridview.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            furtherDetailsgridview.BackgroundColor = Color.FromArgb(46, 51, 73);
-            furtherDetailsgridview.BorderStyle = BorderStyle.None;
-            furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            furtherDetailsgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            furtherDetailsgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            furtherDetailsgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            furtherDetailsgridview.DefaultCellStyle = dataGridViewCellStyle3;
-            furtherDetailsgridview.EnableHeadersVisualStyles = false;
-            furtherDetailsgridview.GridColor = Color.Silver;
-            furtherDetailsgridview.Location = new Point(330, 285);
-            furtherDetailsgridview.Margin = new Padding(4, 5, 4, 5);
-            furtherDetailsgridview.MultiSelect = false;
-            furtherDetailsgridview.Name = "furtherDetailsgridview";
-            furtherDetailsgridview.ReadOnly = true;
-            furtherDetailsgridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            furtherDetailsgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            furtherDetailsgridview.RowHeadersVisible = false;
-            furtherDetailsgridview.RowHeadersWidth = 62;
-            furtherDetailsgridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            furtherDetailsgridview.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            furtherDetailsgridview.RowTemplate.Height = 50;
-            furtherDetailsgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            furtherDetailsgridview.Size = new Size(714, 122);
-            furtherDetailsgridview.TabIndex = 31;
-            // 
             // partTobeEditedGridView
             // 
             partTobeEditedGridView.AllowUserToAddRows = false;
             partTobeEditedGridView.AllowUserToDeleteRows = false;
             partTobeEditedGridView.AllowUserToResizeColumns = false;
             partTobeEditedGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            partTobeEditedGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            partTobeEditedGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             partTobeEditedGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             partTobeEditedGridView.BackgroundColor = Color.FromArgb(46, 51, 73);
             partTobeEditedGridView.BorderStyle = BorderStyle.None;
             partTobeEditedGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             partTobeEditedGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            partTobeEditedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            partTobeEditedGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             partTobeEditedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            partTobeEditedGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle13.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle13.SelectionForeColor = Color.White;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.False;
+            partTobeEditedGridView.DefaultCellStyle = dataGridViewCellStyle13;
             partTobeEditedGridView.EnableHeadersVisualStyles = false;
             partTobeEditedGridView.GridColor = Color.Silver;
             partTobeEditedGridView.Location = new Point(17, 80);
@@ -310,23 +256,23 @@
             partTobeEditedGridView.Name = "partTobeEditedGridView";
             partTobeEditedGridView.ReadOnly = true;
             partTobeEditedGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            partTobeEditedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            partTobeEditedGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             partTobeEditedGridView.RowHeadersVisible = false;
             partTobeEditedGridView.RowHeadersWidth = 62;
             partTobeEditedGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(46, 51, 73);
-            dataGridViewCellStyle10.SelectionForeColor = Color.White;
-            partTobeEditedGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle15.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle15.SelectionForeColor = Color.White;
+            partTobeEditedGridView.RowsDefaultCellStyle = dataGridViewCellStyle15;
             partTobeEditedGridView.RowTemplate.Height = 50;
             partTobeEditedGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partTobeEditedGridView.Size = new Size(1370, 107);
@@ -381,6 +327,7 @@
             storagechbox.TabIndex = 18;
             storagechbox.Tag = "InStorage";
             storagechbox.UseVisualStyleBackColor = false;
+            storagechbox.CheckedChanged += storagechbox_CheckedChanged;
             // 
             // richTextBox15
             // 
@@ -568,6 +515,69 @@
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
+            // furtherDetailsgridview
+            // 
+            furtherDetailsgridview.AllowUserToAddRows = false;
+            furtherDetailsgridview.AllowUserToDeleteRows = false;
+            furtherDetailsgridview.AllowUserToResizeColumns = false;
+            furtherDetailsgridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            furtherDetailsgridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            furtherDetailsgridview.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            furtherDetailsgridview.BackgroundColor = Color.FromArgb(46, 51, 73);
+            furtherDetailsgridview.BorderStyle = BorderStyle.None;
+            furtherDetailsgridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            furtherDetailsgridview.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            furtherDetailsgridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle17.ForeColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle17.SelectionForeColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            furtherDetailsgridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle18.ForeColor = Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle18.SelectionForeColor = Color.White;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            furtherDetailsgridview.DefaultCellStyle = dataGridViewCellStyle18;
+            furtherDetailsgridview.EnableHeadersVisualStyles = false;
+            furtherDetailsgridview.GridColor = Color.Silver;
+            furtherDetailsgridview.Location = new Point(330, 337);
+            furtherDetailsgridview.Margin = new Padding(4, 5, 4, 5);
+            furtherDetailsgridview.MultiSelect = false;
+            furtherDetailsgridview.Name = "furtherDetailsgridview";
+            furtherDetailsgridview.ReadOnly = true;
+            furtherDetailsgridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle19.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            furtherDetailsgridview.RowHeadersVisible = false;
+            furtherDetailsgridview.RowHeadersWidth = 62;
+            furtherDetailsgridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle20.ForeColor = Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle20.SelectionForeColor = Color.White;
+            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.True;
+            furtherDetailsgridview.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            furtherDetailsgridview.RowTemplate.Height = 50;
+            furtherDetailsgridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            furtherDetailsgridview.Size = new Size(714, 70);
+            furtherDetailsgridview.TabIndex = 31;
+            // 
             // richTextBoxtooltip
             // 
             richTextBoxtooltip.AutomaticDelay = 100;
@@ -599,11 +609,11 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             furtherDetailspnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)partTobeEditedGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)SearchButton).EndInit();
             userInputpnl.ResumeLayout(false);
             userInputpnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)furtherDetailsgridview).EndInit();
             ResumeLayout(false);
         }
 
@@ -633,13 +643,13 @@
         private DataGridView partTobeEditedGridView;
         private DataGridView furtherDetailsgridview;
         private Panel furtherDetailspnl;
-        private RichTextBox richTextBox19;
+        private RichTextBox usertextbox;
         private RichTextBox richTextBox20;
-        private RichTextBox richTextBox21;
+        private RichTextBox reasonTxtbox;
         private RichTextBox richTextBox22;
-        private RichTextBox richTextBox23;
+        private RichTextBox storagetxtbox;
         private RichTextBox richTextBox24;
-        private RichTextBox richTextBox18;
         private Panel Borderpnl;
+        private DateTimePicker timestamptxt;
     }
 }

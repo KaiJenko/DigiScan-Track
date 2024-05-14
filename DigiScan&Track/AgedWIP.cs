@@ -265,6 +265,7 @@ namespace DigiScan_Track
 
 
         //This creates an excel file - Youtube tutorial on how to export DataGridView Data to Ms excel was used 
+        //https://www.youtube.com/watch?v=HAwpukfchjc&ab_channel=C%23UiAcademy
         private void ExportToExcel(DataGridView datagridview)
         {
             int i = 0;
@@ -315,7 +316,7 @@ namespace DigiScan_Track
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    filepath = sfd.FileName; 
+                    filepath = sfd.FileName;
                     if (File.Exists(filepath)) //this is for overwriting any current excel files with the same name and location
                     {
                         File.Delete(filepath);

@@ -264,6 +264,7 @@ namespace DigiScan_Track
             Control editPartsPage = InnerBorderpnl.Controls[0];
             InnerBorderpnl.Controls.Remove(editPartsPage);
             crossOffpbox.Visible = false;
+            resetbtn.PerformClick();
         }
 
 

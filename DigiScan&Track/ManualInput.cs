@@ -427,7 +427,8 @@ namespace DigiScan_Track
 
         private void serialNumtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+
+            if (e.KeyChar == (char)Keys.Space)
             {
                 e.Handled = true;
                 batchNumtxt.Focus();
@@ -436,10 +437,16 @@ namespace DigiScan_Track
 
 
 
-        private void lineManagertxt_KeyPress(object sender, KeyPressEventArgs e)
+
+
+        private void batchNumtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            HomePage home = new HomePage();
-            home.EnterButtonClicked(submitbtn, e);
+
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+                lineManagertxt.Focus();
+            }
         }
     }
 }

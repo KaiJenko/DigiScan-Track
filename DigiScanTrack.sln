@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiScan&Track", "DigiScan&Track\DigiScan&Track.csproj", "{CB36580E-6D94-47AF-B579-A266A47F9349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiScanTrack", "DigiScan&Track\DigiScanTrack.csproj", "{CB36580E-6D94-47AF-B579-A266A47F9349}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiScan&Track.UnitTesting", "DigiScan&Track.UnitTesting\DigiScan&Track.UnitTesting.csproj", "{9FB26999-7A80-4739-8284-D6AEB0113659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiScanTrack.UnitTesting", "DigiScan&Track.UnitTesting\DigiScanTrack.UnitTesting.csproj", "{9FB26999-7A80-4739-8284-D6AEB0113659}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DigiScan&TrackInstaller", "DigiScan&TrackInstaller\DigiScan&TrackInstaller.vdproj", "{7C2C64B7-9637-4CFA-9C15-D9CF0A344B93}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DigiScanTrackInstaller", "DigiScan&TrackInstaller\DigiScan&TrackInstaller.vdproj", "{7C2C64B7-9637-4CFA-9C15-D9CF0A344B93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

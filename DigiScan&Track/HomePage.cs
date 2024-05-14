@@ -165,7 +165,8 @@ namespace DigiScan_Track
         }
 
         //This function is used to stop the user spamming the button clicks - during testing this was found
-        //to crash the application if pressed consecutively. Disables the button which has been clicked, and re-enables it when clicked off
+        //to crash the application if pressed consecutively. Disables the button which has been clicked
+        //and re-enables it when clicked off
         private void HomePageButtonClick(Form newForm, object sender, EventArgs e)
         {
 
@@ -189,6 +190,7 @@ namespace DigiScan_Track
             currentFormpnl.Top = buttonClicked.Top;
             currentFormpnl.Left = buttonClicked.Left;
 
+            //Due to the login button being a different design it did not need to be highlighted
             if (buttonClicked.Name == "loginbtn")
             {
                 buttonClicked.BackColor = Color.Transparent;
@@ -200,7 +202,7 @@ namespace DigiScan_Track
                 buttonClicked.Enabled = false;
             }
 
-
+            //Removes all contents of the main panel and replaces it with the new forms
 
             InnerBodypnl.Controls.Clear();
             newForm.Dock = DockStyle.Fill;

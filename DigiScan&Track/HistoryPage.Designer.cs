@@ -30,11 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryPage));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             OuterBorderpnl = new Panel();
             InnerBorderpnl = new Panel();
             resetbtn = new Button();
@@ -57,9 +57,10 @@
             OuterBorderpnl.Anchor = AnchorStyles.None;
             OuterBorderpnl.BackColor = Color.FromArgb(24, 30, 54);
             OuterBorderpnl.Controls.Add(InnerBorderpnl);
-            OuterBorderpnl.Location = new Point(8, 53);
+            OuterBorderpnl.Location = new Point(15, 113);
+            OuterBorderpnl.Margin = new Padding(6);
             OuterBorderpnl.Name = "OuterBorderpnl";
-            OuterBorderpnl.Size = new Size(1020, 528);
+            OuterBorderpnl.Size = new Size(1894, 1126);
             OuterBorderpnl.TabIndex = 16;
             // 
             // InnerBorderpnl
@@ -72,9 +73,10 @@
             InnerBorderpnl.Controls.Add(historycmb);
             InnerBorderpnl.Controls.Add(searchBylbl);
             InnerBorderpnl.Controls.Add(searchtxt);
-            InnerBorderpnl.Location = new Point(4, 3);
+            InnerBorderpnl.Location = new Point(7, 6);
+            InnerBorderpnl.Margin = new Padding(6);
             InnerBorderpnl.Name = "InnerBorderpnl";
-            InnerBorderpnl.Size = new Size(1013, 522);
+            InnerBorderpnl.Size = new Size(1881, 1114);
             InnerBorderpnl.TabIndex = 11;
             // 
             // resetbtn
@@ -87,9 +89,10 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(841, 13);
+            resetbtn.Location = new Point(1562, 28);
+            resetbtn.Margin = new Padding(6);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(104, 36);
+            resetbtn.Size = new Size(193, 77);
             resetbtn.TabIndex = 35;
             resetbtn.Text = "Reset";
             resetbtn.UseVisualStyleBackColor = false;
@@ -101,56 +104,57 @@
             HistorygridView.AllowUserToDeleteRows = false;
             HistorygridView.AllowUserToResizeColumns = false;
             HistorygridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            HistorygridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            HistorygridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             HistorygridView.BackgroundColor = Color.FromArgb(113, 96, 232);
             HistorygridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             HistorygridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             HistorygridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Turquoise;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            HistorygridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.Turquoise;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            HistorygridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             HistorygridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            HistorygridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            HistorygridView.DefaultCellStyle = dataGridViewCellStyle3;
             HistorygridView.EnableHeadersVisualStyles = false;
             HistorygridView.GridColor = Color.Silver;
-            HistorygridView.Location = new Point(17, 60);
+            HistorygridView.Location = new Point(32, 128);
+            HistorygridView.Margin = new Padding(6);
             HistorygridView.MultiSelect = false;
             HistorygridView.Name = "HistorygridView";
             HistorygridView.ReadOnly = true;
             HistorygridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 192);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.SkyBlue;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            HistorygridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            HistorygridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             HistorygridView.RowHeadersVisible = false;
             HistorygridView.RowHeadersWidth = 62;
             HistorygridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(113, 96, 232);
-            dataGridViewCellStyle10.SelectionForeColor = Color.White;
-            HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(113, 96, 232);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            HistorygridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             HistorygridView.RowTemplate.Height = 45;
             HistorygridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            HistorygridView.Size = new Size(982, 446);
+            HistorygridView.Size = new Size(1824, 951);
             HistorygridView.TabIndex = 6;
             // 
             // searchbtn
@@ -163,9 +167,10 @@
             searchbtn.FlatStyle = FlatStyle.Flat;
             searchbtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             searchbtn.ForeColor = Color.White;
-            searchbtn.Location = new Point(738, 13);
+            searchbtn.Location = new Point(1371, 28);
+            searchbtn.Margin = new Padding(6);
             searchbtn.Name = "searchbtn";
-            searchbtn.Size = new Size(104, 36);
+            searchbtn.Size = new Size(193, 77);
             searchbtn.TabIndex = 31;
             searchbtn.Text = "Search";
             searchbtn.UseVisualStyleBackColor = false;
@@ -182,9 +187,10 @@
             historycmb.ForeColor = Color.White;
             historycmb.FormattingEnabled = true;
             historycmb.Items.AddRange(new object[] { "Username", "Part/Serial" });
-            historycmb.Location = new Point(146, 16);
+            historycmb.Location = new Point(271, 34);
+            historycmb.Margin = new Padding(6);
             historycmb.Name = "historycmb";
-            historycmb.Size = new Size(163, 30);
+            historycmb.Size = new Size(299, 51);
             historycmb.TabIndex = 13;
             // 
             // searchBylbl
@@ -192,9 +198,10 @@
             searchBylbl.AutoSize = true;
             searchBylbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             searchBylbl.ForeColor = Color.Turquoise;
-            searchBylbl.Location = new Point(28, 17);
+            searchBylbl.Location = new Point(52, 36);
+            searchBylbl.Margin = new Padding(6, 0, 6, 0);
             searchBylbl.Name = "searchBylbl";
-            searchBylbl.Size = new Size(98, 25);
+            searchBylbl.Size = new Size(194, 51);
             searchBylbl.TabIndex = 5;
             searchBylbl.Text = "Search by";
             // 
@@ -204,9 +211,10 @@
             searchtxt.BorderStyle = BorderStyle.FixedSingle;
             searchtxt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             searchtxt.ForeColor = Color.White;
-            searchtxt.Location = new Point(328, 16);
+            searchtxt.Location = new Point(609, 34);
+            searchtxt.Margin = new Padding(6);
             searchtxt.Name = "searchtxt";
-            searchtxt.Size = new Size(393, 29);
+            searchtxt.Size = new Size(728, 50);
             searchtxt.TabIndex = 4;
             searchtxt.KeyPress += searchtxt_KeyPress;
             // 
@@ -216,9 +224,10 @@
             Titlelbl.BackColor = Color.Transparent;
             Titlelbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             Titlelbl.ForeColor = Color.White;
-            Titlelbl.Location = new Point(40, 4);
+            Titlelbl.Location = new Point(45, 9);
+            Titlelbl.Margin = new Padding(6, 0, 6, 0);
             Titlelbl.Name = "Titlelbl";
-            Titlelbl.Size = new Size(971, 47);
+            Titlelbl.Size = new Size(1832, 100);
             Titlelbl.TabIndex = 15;
             Titlelbl.Text = "DigiScan && Track - Action History";
             Titlelbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -233,9 +242,10 @@
             historyHelppbox.BackColor = Color.FromArgb(46, 51, 73);
             historyHelppbox.Cursor = Cursors.Help;
             historyHelppbox.Image = (Image)resources.GetObject("historyHelppbox.Image");
-            historyHelppbox.Location = new Point(1003, 12);
+            historyHelppbox.Location = new Point(1863, 26);
+            historyHelppbox.Margin = new Padding(6);
             historyHelppbox.Name = "historyHelppbox";
-            historyHelppbox.Size = new Size(25, 25);
+            historyHelppbox.Size = new Size(46, 53);
             historyHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
             historyHelppbox.TabIndex = 21;
             historyHelppbox.TabStop = false;
@@ -243,15 +253,15 @@
             // 
             // HistoryPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1037, 575);
+            ClientSize = new Size(1926, 1227);
             Controls.Add(historyHelppbox);
             Controls.Add(OuterBorderpnl);
             Controls.Add(Titlelbl);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
+            Margin = new Padding(4);
             Name = "HistoryPage";
             Text = "HistoryPage";
             OuterBorderpnl.ResumeLayout(false);

@@ -93,9 +93,10 @@
             oldUserpnl.Controls.Add(ouUsernamepbox);
             oldUserpnl.Controls.Add(loginlbl);
             oldUserpnl.Controls.Add(ouLogopbox);
-            oldUserpnl.Location = new Point(376, 45);
+            oldUserpnl.Location = new Point(537, 75);
+            oldUserpnl.Margin = new Padding(4, 5, 4, 5);
             oldUserpnl.Name = "oldUserpnl";
-            oldUserpnl.Size = new Size(310, 490);
+            oldUserpnl.Size = new Size(443, 817);
             oldUserpnl.TabIndex = 0;
             // 
             // ouPasswordtxt
@@ -103,10 +104,11 @@
             ouPasswordtxt.BorderStyle = BorderStyle.None;
             ouPasswordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ouPasswordtxt.ForeColor = Color.RosyBrown;
-            ouPasswordtxt.Location = new Point(87, 325);
+            ouPasswordtxt.Location = new Point(124, 542);
+            ouPasswordtxt.Margin = new Padding(4, 5, 4, 5);
             ouPasswordtxt.Name = "ouPasswordtxt";
             ouPasswordtxt.PlaceholderText = "Password";
-            ouPasswordtxt.Size = new Size(169, 18);
+            ouPasswordtxt.Size = new Size(241, 26);
             ouPasswordtxt.TabIndex = 12;
             ouPasswordtxt.Tag = "Password";
             ouPasswordtxt.UseSystemPasswordChar = true;
@@ -117,11 +119,12 @@
             ouUsernametxt.BorderStyle = BorderStyle.None;
             ouUsernametxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ouUsernametxt.ForeColor = Color.RosyBrown;
-            ouUsernametxt.Location = new Point(87, 260);
+            ouUsernametxt.Location = new Point(124, 433);
+            ouUsernametxt.Margin = new Padding(4, 5, 4, 5);
             ouUsernametxt.Multiline = true;
             ouUsernametxt.Name = "ouUsernametxt";
             ouUsernametxt.PlaceholderText = "Username";
-            ouUsernametxt.Size = new Size(169, 23);
+            ouUsernametxt.Size = new Size(241, 38);
             ouUsernametxt.TabIndex = 11;
             ouUsernametxt.Tag = "Username";
             // 
@@ -131,9 +134,10 @@
             registerLinklbl.Cursor = Cursors.Hand;
             registerLinklbl.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             registerLinklbl.ForeColor = Color.Coral;
-            registerLinklbl.Location = new Point(157, 442);
+            registerLinklbl.Location = new Point(224, 737);
+            registerLinklbl.Margin = new Padding(4, 0, 4, 0);
             registerLinklbl.Name = "registerLinklbl";
-            registerLinklbl.Size = new Size(66, 16);
+            registerLinklbl.Size = new Size(91, 25);
             registerLinklbl.TabIndex = 10;
             registerLinklbl.Text = "Register";
             registerLinklbl.Click += RegisterLinklbl_Click;
@@ -143,9 +147,10 @@
             newUserlbl.AutoSize = true;
             newUserlbl.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             newUserlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            newUserlbl.Location = new Point(90, 441);
+            newUserlbl.Location = new Point(129, 735);
+            newUserlbl.Margin = new Padding(4, 0, 4, 0);
             newUserlbl.Name = "newUserlbl";
-            newUserlbl.Size = new Size(72, 17);
+            newUserlbl.Size = new Size(109, 28);
             newUserlbl.TabIndex = 9;
             newUserlbl.Text = "New User?";
             // 
@@ -155,9 +160,10 @@
             clearFieldslbl.Cursor = Cursors.Hand;
             clearFieldslbl.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             clearFieldslbl.ForeColor = Color.FromArgb(0, 126, 249);
-            clearFieldslbl.Location = new Point(183, 372);
+            clearFieldslbl.Location = new Point(261, 620);
+            clearFieldslbl.Margin = new Padding(4, 0, 4, 0);
             clearFieldslbl.Name = "clearFieldslbl";
-            clearFieldslbl.Size = new Size(76, 17);
+            clearFieldslbl.Size = new Size(115, 28);
             clearFieldslbl.TabIndex = 8;
             clearFieldslbl.Text = "Clear Fields";
             clearFieldslbl.Click += ClearFieldslbl_Click;
@@ -169,9 +175,10 @@
             loginbtn.FlatStyle = FlatStyle.Flat;
             loginbtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             loginbtn.ForeColor = Color.White;
-            loginbtn.Location = new Point(56, 388);
+            loginbtn.Location = new Point(80, 647);
+            loginbtn.Margin = new Padding(4, 5, 4, 5);
             loginbtn.Name = "loginbtn";
-            loginbtn.Size = new Size(200, 33);
+            loginbtn.Size = new Size(286, 55);
             loginbtn.TabIndex = 7;
             loginbtn.Text = "LOG IN";
             loginbtn.UseVisualStyleBackColor = false;
@@ -180,17 +187,19 @@
             // divider4pnl
             // 
             divider4pnl.BackColor = Color.Black;
-            divider4pnl.Location = new Point(56, 350);
+            divider4pnl.Location = new Point(80, 583);
+            divider4pnl.Margin = new Padding(4, 5, 4, 5);
             divider4pnl.Name = "divider4pnl";
-            divider4pnl.Size = new Size(200, 1);
+            divider4pnl.Size = new Size(286, 2);
             divider4pnl.TabIndex = 6;
             // 
             // ouPasswordpbox
             // 
             ouPasswordpbox.Image = (Image)resources.GetObject("ouPasswordpbox.Image");
-            ouPasswordpbox.Location = new Point(54, 319);
+            ouPasswordpbox.Location = new Point(77, 532);
+            ouPasswordpbox.Margin = new Padding(4, 5, 4, 5);
             ouPasswordpbox.Name = "ouPasswordpbox";
-            ouPasswordpbox.Size = new Size(30, 30);
+            ouPasswordpbox.Size = new Size(43, 50);
             ouPasswordpbox.SizeMode = PictureBoxSizeMode.Zoom;
             ouPasswordpbox.TabIndex = 5;
             ouPasswordpbox.TabStop = false;
@@ -198,17 +207,19 @@
             // divider5pnl
             // 
             divider5pnl.BackColor = Color.Black;
-            divider5pnl.Location = new Point(56, 286);
+            divider5pnl.Location = new Point(80, 477);
+            divider5pnl.Margin = new Padding(4, 5, 4, 5);
             divider5pnl.Name = "divider5pnl";
-            divider5pnl.Size = new Size(200, 1);
+            divider5pnl.Size = new Size(286, 2);
             divider5pnl.TabIndex = 4;
             // 
             // ouUsernamepbox
             // 
             ouUsernamepbox.Image = (Image)resources.GetObject("ouUsernamepbox.Image");
-            ouUsernamepbox.Location = new Point(56, 255);
+            ouUsernamepbox.Location = new Point(80, 425);
+            ouUsernamepbox.Margin = new Padding(4, 5, 4, 5);
             ouUsernamepbox.Name = "ouUsernamepbox";
-            ouUsernamepbox.Size = new Size(25, 25);
+            ouUsernamepbox.Size = new Size(36, 42);
             ouUsernamepbox.SizeMode = PictureBoxSizeMode.Zoom;
             ouUsernamepbox.TabIndex = 3;
             ouUsernamepbox.TabStop = false;
@@ -218,9 +229,10 @@
             loginlbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             loginlbl.ForeColor = Color.Coral;
             loginlbl.ImageAlign = ContentAlignment.MiddleRight;
-            loginlbl.Location = new Point(60, 146);
+            loginlbl.Location = new Point(86, 243);
+            loginlbl.Margin = new Padding(4, 0, 4, 0);
             loginlbl.Name = "loginlbl";
-            loginlbl.Size = new Size(210, 36);
+            loginlbl.Size = new Size(300, 60);
             loginlbl.TabIndex = 2;
             loginlbl.Text = "ENTER LOGIN BELOW";
             loginlbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -228,9 +240,10 @@
             // ouLogopbox
             // 
             ouLogopbox.Image = (Image)resources.GetObject("ouLogopbox.Image");
-            ouLogopbox.Location = new Point(90, 31);
+            ouLogopbox.Location = new Point(129, 52);
+            ouLogopbox.Margin = new Padding(4, 5, 4, 5);
             ouLogopbox.Name = "ouLogopbox";
-            ouLogopbox.Size = new Size(140, 100);
+            ouLogopbox.Size = new Size(200, 167);
             ouLogopbox.SizeMode = PictureBoxSizeMode.Zoom;
             ouLogopbox.TabIndex = 0;
             ouLogopbox.TabStop = false;
@@ -257,9 +270,10 @@
             newUserpnl.Controls.Add(fullNamepbox);
             newUserpnl.Controls.Add(enterDetailslbl);
             newUserpnl.Controls.Add(logopbox);
-            newUserpnl.Location = new Point(376, 45);
+            newUserpnl.Location = new Point(537, 75);
+            newUserpnl.Margin = new Padding(4, 5, 4, 5);
             newUserpnl.Name = "newUserpnl";
-            newUserpnl.Size = new Size(310, 490);
+            newUserpnl.Size = new Size(443, 817);
             newUserpnl.TabIndex = 13;
             newUserpnl.Visible = false;
             // 
@@ -267,9 +281,10 @@
             // 
             pictureBox1.Cursor = Cursors.Help;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(262, 286);
+            pictureBox1.Location = new Point(374, 477);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.Size = new Size(36, 42);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
@@ -280,10 +295,11 @@
             retypePasswordtxt.BorderStyle = BorderStyle.None;
             retypePasswordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             retypePasswordtxt.ForeColor = Color.RosyBrown;
-            retypePasswordtxt.Location = new Point(87, 337);
+            retypePasswordtxt.Location = new Point(124, 562);
+            retypePasswordtxt.Margin = new Padding(4, 5, 4, 5);
             retypePasswordtxt.Name = "retypePasswordtxt";
             retypePasswordtxt.PlaceholderText = "Retype Password";
-            retypePasswordtxt.Size = new Size(169, 18);
+            retypePasswordtxt.Size = new Size(241, 26);
             retypePasswordtxt.TabIndex = 18;
             retypePasswordtxt.Tag = "Retype Password";
             retypePasswordtxt.UseSystemPasswordChar = true;
@@ -292,17 +308,19 @@
             // dividerpnl
             // 
             dividerpnl.BackColor = Color.Black;
-            dividerpnl.Location = new Point(56, 362);
+            dividerpnl.Location = new Point(80, 603);
+            dividerpnl.Margin = new Padding(4, 5, 4, 5);
             dividerpnl.Name = "dividerpnl";
-            dividerpnl.Size = new Size(200, 1);
+            dividerpnl.Size = new Size(286, 2);
             dividerpnl.TabIndex = 17;
             // 
             // retypepbox
             // 
             retypepbox.Image = (Image)resources.GetObject("retypepbox.Image");
-            retypepbox.Location = new Point(54, 331);
+            retypepbox.Location = new Point(77, 552);
+            retypepbox.Margin = new Padding(4, 5, 4, 5);
             retypepbox.Name = "retypepbox";
-            retypepbox.Size = new Size(30, 30);
+            retypepbox.Size = new Size(43, 50);
             retypepbox.SizeMode = PictureBoxSizeMode.Zoom;
             retypepbox.TabIndex = 16;
             retypepbox.TabStop = false;
@@ -312,28 +330,31 @@
             employeeIDtxt.BorderStyle = BorderStyle.None;
             employeeIDtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             employeeIDtxt.ForeColor = Color.RosyBrown;
-            employeeIDtxt.Location = new Point(87, 251);
+            employeeIDtxt.Location = new Point(124, 418);
+            employeeIDtxt.Margin = new Padding(4, 5, 4, 5);
             employeeIDtxt.Multiline = true;
             employeeIDtxt.Name = "employeeIDtxt";
             employeeIDtxt.PlaceholderText = "Employee ID";
-            employeeIDtxt.Size = new Size(169, 23);
+            employeeIDtxt.Size = new Size(241, 38);
             employeeIDtxt.TabIndex = 15;
             employeeIDtxt.Tag = "Employee ID";
             // 
             // divider1pnl
             // 
             divider1pnl.BackColor = Color.Black;
-            divider1pnl.Location = new Point(56, 275);
+            divider1pnl.Location = new Point(80, 458);
+            divider1pnl.Margin = new Padding(4, 5, 4, 5);
             divider1pnl.Name = "divider1pnl";
-            divider1pnl.Size = new Size(200, 1);
+            divider1pnl.Size = new Size(286, 2);
             divider1pnl.TabIndex = 14;
             // 
             // employeeIDpbox
             // 
             employeeIDpbox.Image = (Image)resources.GetObject("employeeIDpbox.Image");
-            employeeIDpbox.Location = new Point(56, 244);
+            employeeIDpbox.Location = new Point(80, 407);
+            employeeIDpbox.Margin = new Padding(4, 5, 4, 5);
             employeeIDpbox.Name = "employeeIDpbox";
-            employeeIDpbox.Size = new Size(25, 25);
+            employeeIDpbox.Size = new Size(36, 42);
             employeeIDpbox.SizeMode = PictureBoxSizeMode.Zoom;
             employeeIDpbox.TabIndex = 13;
             employeeIDpbox.TabStop = false;
@@ -343,10 +364,11 @@
             passwordtxt.BorderStyle = BorderStyle.None;
             passwordtxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             passwordtxt.ForeColor = Color.RosyBrown;
-            passwordtxt.Location = new Point(87, 292);
+            passwordtxt.Location = new Point(124, 487);
+            passwordtxt.Margin = new Padding(4, 5, 4, 5);
             passwordtxt.Name = "passwordtxt";
             passwordtxt.PlaceholderText = "Password";
-            passwordtxt.Size = new Size(169, 18);
+            passwordtxt.Size = new Size(241, 26);
             passwordtxt.TabIndex = 12;
             passwordtxt.Tag = "Password";
             passwordtxt.UseSystemPasswordChar = true;
@@ -356,11 +378,12 @@
             fullNametxt.BorderStyle = BorderStyle.None;
             fullNametxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             fullNametxt.ForeColor = Color.RosyBrown;
-            fullNametxt.Location = new Point(87, 204);
+            fullNametxt.Location = new Point(124, 340);
+            fullNametxt.Margin = new Padding(4, 5, 4, 5);
             fullNametxt.Multiline = true;
             fullNametxt.Name = "fullNametxt";
             fullNametxt.PlaceholderText = "Full Name";
-            fullNametxt.Size = new Size(169, 23);
+            fullNametxt.Size = new Size(241, 38);
             fullNametxt.TabIndex = 11;
             fullNametxt.Tag = "Full Name";
             // 
@@ -370,9 +393,10 @@
             signInLinklbl.Cursor = Cursors.Hand;
             signInLinklbl.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             signInLinklbl.ForeColor = Color.Coral;
-            signInLinklbl.Location = new Point(171, 442);
+            signInLinklbl.Location = new Point(244, 737);
+            signInLinklbl.Margin = new Padding(4, 0, 4, 0);
             signInLinklbl.Name = "signInLinklbl";
-            signInLinklbl.Size = new Size(54, 16);
+            signInLinklbl.Size = new Size(80, 25);
             signInLinklbl.TabIndex = 10;
             signInLinklbl.Text = "Sign In";
             signInLinklbl.Click += SignInLinklbl_Click;
@@ -382,9 +406,10 @@
             concurrentUserlbl.AutoSize = true;
             concurrentUserlbl.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             concurrentUserlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            concurrentUserlbl.Location = new Point(74, 441);
+            concurrentUserlbl.Location = new Point(106, 735);
+            concurrentUserlbl.Margin = new Padding(4, 0, 4, 0);
             concurrentUserlbl.Name = "concurrentUserlbl";
-            concurrentUserlbl.Size = new Size(102, 17);
+            concurrentUserlbl.Size = new Size(152, 28);
             concurrentUserlbl.TabIndex = 9;
             concurrentUserlbl.Text = "Already a User?";
             // 
@@ -394,9 +419,10 @@
             clearLabels1lbl.Cursor = Cursors.Hand;
             clearLabels1lbl.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             clearLabels1lbl.ForeColor = Color.FromArgb(0, 126, 249);
-            clearLabels1lbl.Location = new Point(183, 372);
+            clearLabels1lbl.Location = new Point(261, 620);
+            clearLabels1lbl.Margin = new Padding(4, 0, 4, 0);
             clearLabels1lbl.Name = "clearLabels1lbl";
-            clearLabels1lbl.Size = new Size(76, 17);
+            clearLabels1lbl.Size = new Size(115, 28);
             clearLabels1lbl.TabIndex = 8;
             clearLabels1lbl.Text = "Clear Fields";
             clearLabels1lbl.Click += ClearFieldslbl_Click;
@@ -408,9 +434,10 @@
             createLoginbtn.FlatStyle = FlatStyle.Flat;
             createLoginbtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             createLoginbtn.ForeColor = Color.White;
-            createLoginbtn.Location = new Point(56, 388);
+            createLoginbtn.Location = new Point(80, 647);
+            createLoginbtn.Margin = new Padding(4, 5, 4, 5);
             createLoginbtn.Name = "createLoginbtn";
-            createLoginbtn.Size = new Size(200, 33);
+            createLoginbtn.Size = new Size(286, 55);
             createLoginbtn.TabIndex = 7;
             createLoginbtn.Text = "CREATE LOGIN";
             createLoginbtn.UseVisualStyleBackColor = false;
@@ -419,17 +446,19 @@
             // divider2pnl
             // 
             divider2pnl.BackColor = Color.Black;
-            divider2pnl.Location = new Point(56, 317);
+            divider2pnl.Location = new Point(80, 528);
+            divider2pnl.Margin = new Padding(4, 5, 4, 5);
             divider2pnl.Name = "divider2pnl";
-            divider2pnl.Size = new Size(200, 1);
+            divider2pnl.Size = new Size(286, 2);
             divider2pnl.TabIndex = 6;
             // 
             // passwordpbox
             // 
             passwordpbox.Image = (Image)resources.GetObject("passwordpbox.Image");
-            passwordpbox.Location = new Point(54, 286);
+            passwordpbox.Location = new Point(77, 477);
+            passwordpbox.Margin = new Padding(4, 5, 4, 5);
             passwordpbox.Name = "passwordpbox";
-            passwordpbox.Size = new Size(30, 30);
+            passwordpbox.Size = new Size(43, 50);
             passwordpbox.SizeMode = PictureBoxSizeMode.Zoom;
             passwordpbox.TabIndex = 5;
             passwordpbox.TabStop = false;
@@ -437,17 +466,19 @@
             // divider3pnl
             // 
             divider3pnl.BackColor = Color.Black;
-            divider3pnl.Location = new Point(56, 228);
+            divider3pnl.Location = new Point(80, 380);
+            divider3pnl.Margin = new Padding(4, 5, 4, 5);
             divider3pnl.Name = "divider3pnl";
-            divider3pnl.Size = new Size(200, 1);
+            divider3pnl.Size = new Size(286, 2);
             divider3pnl.TabIndex = 4;
             // 
             // fullNamepbox
             // 
             fullNamepbox.Image = (Image)resources.GetObject("fullNamepbox.Image");
-            fullNamepbox.Location = new Point(56, 197);
+            fullNamepbox.Location = new Point(80, 328);
+            fullNamepbox.Margin = new Padding(4, 5, 4, 5);
             fullNamepbox.Name = "fullNamepbox";
-            fullNamepbox.Size = new Size(25, 25);
+            fullNamepbox.Size = new Size(36, 42);
             fullNamepbox.SizeMode = PictureBoxSizeMode.Zoom;
             fullNamepbox.TabIndex = 3;
             fullNamepbox.TabStop = false;
@@ -457,9 +488,10 @@
             enterDetailslbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             enterDetailslbl.ForeColor = Color.Coral;
             enterDetailslbl.ImageAlign = ContentAlignment.MiddleRight;
-            enterDetailslbl.Location = new Point(54, 146);
+            enterDetailslbl.Location = new Point(77, 243);
+            enterDetailslbl.Margin = new Padding(4, 0, 4, 0);
             enterDetailslbl.Name = "enterDetailslbl";
-            enterDetailslbl.Size = new Size(221, 36);
+            enterDetailslbl.Size = new Size(316, 60);
             enterDetailslbl.TabIndex = 2;
             enterDetailslbl.Text = "ENTER DETAILS BELOW";
             enterDetailslbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -467,9 +499,10 @@
             // logopbox
             // 
             logopbox.Image = (Image)resources.GetObject("logopbox.Image");
-            logopbox.Location = new Point(90, 31);
+            logopbox.Location = new Point(129, 52);
+            logopbox.Margin = new Padding(4, 5, 4, 5);
             logopbox.Name = "logopbox";
-            logopbox.Size = new Size(140, 100);
+            logopbox.Size = new Size(200, 167);
             logopbox.SizeMode = PictureBoxSizeMode.Zoom;
             logopbox.TabIndex = 0;
             logopbox.TabStop = false;
@@ -481,13 +514,14 @@
             // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1503, 1015);
             Controls.Add(newUserpnl);
             Controls.Add(oldUserpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "LoginPage";
             Text = "Form1";
             oldUserpnl.ResumeLayout(false);

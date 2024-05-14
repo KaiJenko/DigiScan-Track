@@ -71,9 +71,10 @@
             ManualInputlbl.BackColor = Color.Transparent;
             ManualInputlbl.Font = new Font("Taurus Mono Outline", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
             ManualInputlbl.ForeColor = Color.White;
-            ManualInputlbl.Location = new Point(88, 11);
+            ManualInputlbl.Location = new Point(46, 23);
+            ManualInputlbl.Margin = new Padding(5, 0, 5, 0);
             ManualInputlbl.Name = "ManualInputlbl";
-            ManualInputlbl.Size = new Size(895, 47);
+            ManualInputlbl.Size = new Size(1781, 100);
             ManualInputlbl.TabIndex = 11;
             ManualInputlbl.Text = "DigiScan && Track - Manual Input";
             ManualInputlbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -100,9 +101,10 @@
             BodyLayoutpnl.Controls.Add(serialNumtxt);
             BodyLayoutpnl.Controls.Add(serialNumlbl);
             BodyLayoutpnl.Controls.Add(panel1);
-            BodyLayoutpnl.Location = new Point(4, 3);
+            BodyLayoutpnl.Location = new Point(8, 6);
+            BodyLayoutpnl.Margin = new Padding(5, 6, 5, 6);
             BodyLayoutpnl.Name = "BodyLayoutpnl";
-            BodyLayoutpnl.Size = new Size(1013, 522);
+            BodyLayoutpnl.Size = new Size(1881, 1114);
             BodyLayoutpnl.TabIndex = 11;
             // 
             // timestamptxt
@@ -115,9 +117,10 @@
             timestamptxt.Enabled = false;
             timestamptxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             timestamptxt.Format = DateTimePickerFormat.Custom;
-            timestamptxt.Location = new Point(409, 412);
+            timestamptxt.Location = new Point(759, 879);
+            timestamptxt.Margin = new Padding(5, 6, 5, 6);
             timestamptxt.Name = "timestamptxt";
-            timestamptxt.Size = new Size(188, 27);
+            timestamptxt.Size = new Size(346, 47);
             timestamptxt.TabIndex = 33;
             // 
             // resetbtn
@@ -130,9 +133,10 @@
             resetbtn.FlatStyle = FlatStyle.Flat;
             resetbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             resetbtn.ForeColor = Color.White;
-            resetbtn.Location = new Point(519, 456);
+            resetbtn.Location = new Point(963, 973);
+            resetbtn.Margin = new Padding(5, 6, 5, 6);
             resetbtn.Name = "resetbtn";
-            resetbtn.Size = new Size(104, 63);
+            resetbtn.Size = new Size(194, 134);
             resetbtn.TabIndex = 31;
             resetbtn.Text = "Reset Form";
             resetbtn.UseVisualStyleBackColor = false;
@@ -148,9 +152,10 @@
             submitbtn.FlatStyle = FlatStyle.Flat;
             submitbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             submitbtn.ForeColor = Color.White;
-            submitbtn.Location = new Point(384, 456);
+            submitbtn.Location = new Point(714, 973);
+            submitbtn.Margin = new Padding(5, 6, 5, 6);
             submitbtn.Name = "submitbtn";
-            submitbtn.Size = new Size(104, 63);
+            submitbtn.Size = new Size(194, 134);
             submitbtn.TabIndex = 30;
             submitbtn.Text = "Submit Form";
             submitbtn.UseVisualStyleBackColor = false;
@@ -158,10 +163,11 @@
             // 
             // notestxt
             // 
-            notestxt.Location = new Point(708, 305);
+            notestxt.Location = new Point(1314, 650);
+            notestxt.Margin = new Padding(5, 6, 5, 6);
             notestxt.Multiline = true;
             notestxt.Name = "notestxt";
-            notestxt.Size = new Size(256, 61);
+            notestxt.Size = new Size(472, 126);
             notestxt.TabIndex = 29;
             // 
             // noteslbl
@@ -169,18 +175,20 @@
             noteslbl.AutoSize = true;
             noteslbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             noteslbl.ForeColor = Color.FromArgb(0, 126, 249);
-            noteslbl.Location = new Point(803, 276);
+            noteslbl.Location = new Point(1491, 589);
+            noteslbl.Margin = new Padding(5, 0, 5, 0);
             noteslbl.Name = "noteslbl";
-            noteslbl.Size = new Size(64, 24);
+            noteslbl.Size = new Size(123, 44);
             noteslbl.TabIndex = 28;
             noteslbl.Text = "Notes";
             // 
             // reasontxt
             // 
-            reasontxt.Location = new Point(53, 305);
+            reasontxt.Location = new Point(99, 650);
+            reasontxt.Margin = new Padding(5, 6, 5, 6);
             reasontxt.Multiline = true;
             reasontxt.Name = "reasontxt";
-            reasontxt.Size = new Size(256, 56);
+            reasontxt.Size = new Size(472, 115);
             reasontxt.TabIndex = 27;
             // 
             // reasonlbl
@@ -188,9 +196,10 @@
             reasonlbl.AutoSize = true;
             reasonlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             reasonlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            reasonlbl.Location = new Point(53, 276);
+            reasonlbl.Location = new Point(99, 589);
+            reasonlbl.Margin = new Padding(5, 0, 5, 0);
             reasonlbl.Name = "reasonlbl";
-            reasonlbl.Size = new Size(237, 24);
+            reasonlbl.Size = new Size(456, 44);
             reasonlbl.TabIndex = 26;
             reasonlbl.Text = "Reason for Manual Input";
             // 
@@ -199,9 +208,10 @@
             inputTimestamplbl.AutoSize = true;
             inputTimestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             inputTimestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            inputTimestamplbl.Location = new Point(420, 374);
+            inputTimestamplbl.Location = new Point(780, 797);
+            inputTimestamplbl.Margin = new Padding(5, 0, 5, 0);
             inputTimestamplbl.Name = "inputTimestamplbl";
-            inputTimestamplbl.Size = new Size(164, 24);
+            inputTimestamplbl.Size = new Size(319, 44);
             inputTimestamplbl.TabIndex = 24;
             inputTimestamplbl.Text = "Input Timestamp";
             // 
@@ -212,9 +222,10 @@
             nocheckbox.Cursor = Cursors.Hand;
             nocheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             nocheckbox.ForeColor = Color.White;
-            nocheckbox.Location = new Point(529, 315);
+            nocheckbox.Location = new Point(983, 672);
+            nocheckbox.Margin = new Padding(5, 6, 5, 6);
             nocheckbox.Name = "nocheckbox";
-            nocheckbox.Size = new Size(74, 45);
+            nocheckbox.Size = new Size(138, 96);
             nocheckbox.TabIndex = 23;
             nocheckbox.Text = "No";
             nocheckbox.UseVisualStyleBackColor = true;
@@ -225,9 +236,10 @@
             yescheckbox.Cursor = Cursors.Hand;
             yescheckbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             yescheckbox.ForeColor = Color.White;
-            yescheckbox.Location = new Point(428, 315);
+            yescheckbox.Location = new Point(794, 672);
+            yescheckbox.Margin = new Padding(5, 6, 5, 6);
             yescheckbox.Name = "yescheckbox";
-            yescheckbox.Size = new Size(74, 45);
+            yescheckbox.Size = new Size(138, 96);
             yescheckbox.TabIndex = 22;
             yescheckbox.Text = "Yes";
             yescheckbox.UseVisualStyleBackColor = true;
@@ -238,9 +250,10 @@
             timestamplbl.AutoSize = true;
             timestamplbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             timestamplbl.ForeColor = Color.FromArgb(0, 126, 249);
-            timestamplbl.Location = new Point(361, 276);
+            timestamplbl.Location = new Point(671, 589);
+            timestamplbl.Margin = new Padding(5, 0, 5, 0);
             timestamplbl.Name = "timestamplbl";
-            timestamplbl.Size = new Size(294, 24);
+            timestamplbl.Size = new Size(566, 44);
             timestamplbl.TabIndex = 21;
             timestamplbl.Text = "Timestamp Need Backdating? \r\n";
             // 
@@ -254,56 +267,62 @@
             departmentcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             departmentcmbox.ForeColor = Color.White;
             departmentcmbox.FormattingEnabled = true;
-            departmentcmbox.Location = new Point(109, 79);
+            departmentcmbox.Location = new Point(203, 169);
+            departmentcmbox.Margin = new Padding(5, 6, 5, 6);
             departmentcmbox.Name = "departmentcmbox";
-            departmentcmbox.Size = new Size(155, 30);
+            departmentcmbox.Size = new Size(285, 51);
             departmentcmbox.TabIndex = 18;
             departmentcmbox.SelectedIndexChanged += Departmentcmbox_SelectedIndexChanged;
             // 
             // lineManagertxt
             // 
-            lineManagertxt.Location = new Point(708, 190);
+            lineManagertxt.Location = new Point(1314, 406);
+            lineManagertxt.Margin = new Padding(5, 6, 5, 6);
             lineManagertxt.Name = "lineManagertxt";
-            lineManagertxt.Size = new Size(256, 23);
+            lineManagertxt.Size = new Size(472, 39);
             lineManagertxt.TabIndex = 16;
             lineManagertxt.TextAlign = HorizontalAlignment.Center;
-            lineManagertxt.KeyPress += lineManagertxt_KeyPress;
             // 
             // lineManagerlbl
             // 
             lineManagerlbl.AutoSize = true;
             lineManagerlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lineManagerlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            lineManagerlbl.Location = new Point(738, 157);
+            lineManagerlbl.Location = new Point(1370, 335);
+            lineManagerlbl.Margin = new Padding(5, 0, 5, 0);
             lineManagerlbl.Name = "lineManagerlbl";
-            lineManagerlbl.Size = new Size(198, 24);
+            lineManagerlbl.Size = new Size(379, 44);
             lineManagerlbl.TabIndex = 15;
             lineManagerlbl.Text = "Input Line Manager*";
             // 
             // batchNumtxt
             // 
-            batchNumtxt.Location = new Point(384, 190);
+            batchNumtxt.Location = new Point(714, 406);
+            batchNumtxt.Margin = new Padding(5, 6, 5, 6);
             batchNumtxt.Name = "batchNumtxt";
-            batchNumtxt.Size = new Size(256, 23);
+            batchNumtxt.Size = new Size(472, 39);
             batchNumtxt.TabIndex = 14;
             batchNumtxt.TextAlign = HorizontalAlignment.Center;
+            batchNumtxt.KeyPress += batchNumtxt_KeyPress;
             // 
             // batchNumlbl
             // 
             batchNumlbl.AutoSize = true;
             batchNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             batchNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            batchNumlbl.Location = new Point(405, 157);
+            batchNumlbl.Location = new Point(753, 335);
+            batchNumlbl.Margin = new Padding(5, 0, 5, 0);
             batchNumlbl.Name = "batchNumlbl";
-            batchNumlbl.Size = new Size(209, 24);
+            batchNumlbl.Size = new Size(401, 44);
             batchNumlbl.TabIndex = 13;
             batchNumlbl.Text = "Input Batch Number *";
             // 
             // serialNumtxt
             // 
-            serialNumtxt.Location = new Point(53, 190);
+            serialNumtxt.Location = new Point(99, 406);
+            serialNumtxt.Margin = new Padding(5, 6, 5, 6);
             serialNumtxt.Name = "serialNumtxt";
-            serialNumtxt.Size = new Size(256, 23);
+            serialNumtxt.Size = new Size(472, 39);
             serialNumtxt.TabIndex = 12;
             serialNumtxt.TextAlign = HorizontalAlignment.Center;
             serialNumtxt.KeyPress += serialNumtxt_KeyPress;
@@ -313,9 +332,10 @@
             serialNumlbl.AutoSize = true;
             serialNumlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             serialNumlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            serialNumlbl.Location = new Point(71, 157);
+            serialNumlbl.Location = new Point(131, 335);
+            serialNumlbl.Margin = new Padding(5, 0, 5, 0);
             serialNumlbl.Name = "serialNumlbl";
-            serialNumlbl.Size = new Size(210, 24);
+            serialNumlbl.Size = new Size(403, 44);
             serialNumlbl.TabIndex = 11;
             serialNumlbl.Text = "Input Serial Number *";
             // 
@@ -327,10 +347,10 @@
             panel1.Controls.Add(departmentlbl);
             panel1.Controls.Add(workstationcmbox);
             panel1.Controls.Add(partNumcmbox);
-            panel1.Location = new Point(53, 32);
-            panel1.Margin = new Padding(2);
+            panel1.Location = new Point(99, 68);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(910, 90);
+            panel1.Size = new Size(1690, 192);
             panel1.TabIndex = 34;
             // 
             // workstationlbl
@@ -339,9 +359,10 @@
             workstationlbl.BackColor = Color.Transparent;
             workstationlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             workstationlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            workstationlbl.Location = new Point(352, 15);
+            workstationlbl.Location = new Point(654, 32);
+            workstationlbl.Margin = new Padding(5, 0, 5, 0);
             workstationlbl.Name = "workstationlbl";
-            workstationlbl.Size = new Size(196, 24);
+            workstationlbl.Size = new Size(382, 44);
             workstationlbl.TabIndex = 19;
             workstationlbl.Text = "Select Workstation *";
             // 
@@ -351,9 +372,10 @@
             partNumberlbl.BackColor = Color.Transparent;
             partNumberlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             partNumberlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            partNumberlbl.Location = new Point(666, 15);
+            partNumberlbl.Location = new Point(1236, 32);
+            partNumberlbl.Margin = new Padding(5, 0, 5, 0);
             partNumberlbl.Name = "partNumberlbl";
-            partNumberlbl.Size = new Size(205, 24);
+            partNumberlbl.Size = new Size(396, 44);
             partNumberlbl.TabIndex = 9;
             partNumberlbl.Text = "Select Part Number *";
             // 
@@ -363,9 +385,10 @@
             departmentlbl.BackColor = Color.Transparent;
             departmentlbl.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             departmentlbl.ForeColor = Color.FromArgb(0, 126, 249);
-            departmentlbl.Location = new Point(32, 15);
+            departmentlbl.Location = new Point(60, 32);
+            departmentlbl.Margin = new Padding(5, 0, 5, 0);
             departmentlbl.Name = "departmentlbl";
-            departmentlbl.Size = new Size(195, 24);
+            departmentlbl.Size = new Size(379, 44);
             departmentlbl.TabIndex = 17;
             departmentlbl.Text = "Select Department *";
             // 
@@ -380,9 +403,10 @@
             workstationcmbox.ForeColor = Color.White;
             workstationcmbox.FormattingEnabled = true;
             workstationcmbox.Items.AddRange(new object[] { "Goods Out" });
-            workstationcmbox.Location = new Point(384, 47);
+            workstationcmbox.Location = new Point(714, 100);
+            workstationcmbox.Margin = new Padding(5, 6, 5, 6);
             workstationcmbox.Name = "workstationcmbox";
-            workstationcmbox.Size = new Size(151, 30);
+            workstationcmbox.Size = new Size(277, 51);
             workstationcmbox.TabIndex = 20;
             // 
             // partNumcmbox
@@ -395,9 +419,10 @@
             partNumcmbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             partNumcmbox.ForeColor = Color.White;
             partNumcmbox.FormattingEnabled = true;
-            partNumcmbox.Location = new Point(697, 47);
+            partNumcmbox.Location = new Point(1295, 100);
+            partNumcmbox.Margin = new Padding(5, 6, 5, 6);
             partNumcmbox.Name = "partNumcmbox";
-            partNumcmbox.Size = new Size(155, 30);
+            partNumcmbox.Size = new Size(285, 51);
             partNumcmbox.TabIndex = 10;
             // 
             // Borderpnl
@@ -405,9 +430,10 @@
             Borderpnl.Anchor = AnchorStyles.None;
             Borderpnl.BackColor = Color.FromArgb(24, 30, 54);
             Borderpnl.Controls.Add(BodyLayoutpnl);
-            Borderpnl.Location = new Point(16, 69);
+            Borderpnl.Location = new Point(30, 147);
+            Borderpnl.Margin = new Padding(5, 6, 5, 6);
             Borderpnl.Name = "Borderpnl";
-            Borderpnl.Size = new Size(1020, 528);
+            Borderpnl.Size = new Size(1894, 1126);
             Borderpnl.TabIndex = 13;
             // 
             // manualHelppbox
@@ -415,9 +441,10 @@
             manualHelppbox.BackColor = Color.FromArgb(46, 51, 73);
             manualHelppbox.Cursor = Cursors.Help;
             manualHelppbox.Image = (Image)resources.GetObject("manualHelppbox.Image");
-            manualHelppbox.Location = new Point(1015, 11);
+            manualHelppbox.Location = new Point(1885, 23);
+            manualHelppbox.Margin = new Padding(5, 6, 5, 6);
             manualHelppbox.Name = "manualHelppbox";
-            manualHelppbox.Size = new Size(25, 25);
+            manualHelppbox.Size = new Size(47, 54);
             manualHelppbox.SizeMode = PictureBoxSizeMode.Zoom;
             manualHelppbox.TabIndex = 21;
             manualHelppbox.TabStop = false;
@@ -430,14 +457,16 @@
             // 
             // ManualInput
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AcceptButton = submitbtn;
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1052, 609);
+            ClientSize = new Size(1954, 1299);
             Controls.Add(manualHelppbox);
             Controls.Add(ManualInputlbl);
             Controls.Add(Borderpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(5, 6, 5, 6);
             Name = "ManualInput";
             Text = "Form1";
             Load += Form1_Load;

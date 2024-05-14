@@ -21,8 +21,6 @@ namespace DigiScan_Track
 
             searchcmb.SelectedIndex = 0;
             searchcmb.DrawItem += homePageShortcuts.ComboBox_DrawItem;
-
-            WIPgridView.CellPainting += WIPgridview_CellPainting;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -81,6 +79,7 @@ namespace DigiScan_Track
                 Create_customGridView_WIP();
             }
 
+            WIPgridView.CellPainting += WIPgridview_CellPainting;
         }
 
 
@@ -443,7 +442,7 @@ namespace DigiScan_Track
                 }
             }
 
-            //If the timestamp column has a null vlaue - it means this is the parts current location, here it draws this string to the empty string
+            //If the timestamp column has a null value - it means this is the parts current location, here it draws this string to the empty string
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && gridview.Columns[e.ColumnIndex].Name == "WSTimestampOUT")
             {
                 e.PaintBackground(e.CellBounds, true);
@@ -452,14 +451,31 @@ namespace DigiScan_Track
                 {
                     string displayText = "";
 
-                    if ((bool)gridview[6, e.RowIndex].Value == true)
+                    //As the amount of columns differs based on how the user opens the WIP tracker, this ensures there isno index out of bounds errors
+                    if (defaultOrCustom == 0)
                     {
-                        displayText = "Storage";
+                        if ((bool)gridview[6, e.RowIndex].Value == true)
+                        {
+                            displayText = "Storage";
+                        }
+
+                        else
+                        {
+                            displayText = "Current Location";
+                        }
                     }
 
-                    else
+                    else if (defaultOrCustom != 0)
                     {
-                        displayText = "Current Location";
+                        if ((bool)gridview[5, e.RowIndex].Value == true)
+                        {
+                            displayText = "Storage";
+                        }
+
+                        else
+                        {
+                            displayText = "Current Location";
+                        }
                     }
 
                     using (StringFormat sf = new StringFormat())
